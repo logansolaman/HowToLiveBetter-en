@@ -1348,6 +1348,54 @@ function syncControls(){
   });
 }
 
+/* ---------- Semantic Search Synonym Lexicon ---------- */
+const SYNONYMS = {
+  cardio: ['aerobic', 'zone 2', 'running', 'walking', 'cycling', 'jogging', 'endurance'],
+  workout: ['exercise', 'lifting', 'resistance', 'strength', 'hypertrophy'],
+  exercise: ['workout', 'cardio', 'training', 'aerobic', 'physical activity', 'movement'],
+  gym: ['lifting', 'resistance', 'weights', 'strength', 'hypertrophy', 'workout'],
+  running: ['jogging', 'aerobic', 'cardio', 'zone 2', 'vo2'],
+  walking: ['steps', 'pedestrian', 'aerobic', 'zone 2', 'active commuting'],
+  heart: ['cardiovascular', 'cardiac', 'blood pressure', 'hypertension', 'arterial'],
+  sleep: ['circadian', 'insomnia', 'melatonin', 'bedtime', 'nap', 'deep sleep', 'somnolence'],
+  diet: ['nutrition', 'food', 'protein', 'fiber', 'calories', 'sugar', 'meal'],
+  food: ['diet', 'nutrition', 'meal', 'eating', 'protein', 'fiber'],
+  sugar: ['glucose', 'fructose', 'sucrose', 'sweetener', 'glycemic', 'insulin'],
+  teeth: ['dental', 'brushing', 'floss', 'fluoride', 'cavity', 'caries'],
+  skin: ['sunscreen', 'uv', 'spf', 'dermatology', 'retinol', 'sunburn'],
+  eyes: ['vision', 'ophthalmology', 'screen', 'myopia', 'glasses', 'glaucoma'],
+  cancer: ['screening', 'oncology', 'carcinogen', 'tumor', 'colonoscopy', 'mammogram'],
+  mental: ['psychological', 'anxiety', 'depression', 'stress', 'therapy', 'mood'],
+  stress: ['burnout', 'cortisol', 'relaxation', 'anxiety', 'mental health'],
+  money: ['financial', 'wealth', 'savings', 'expenses', 'budget', 'spending'],
+  investing: ['index fund', 'etf', 'portfolio', 'compound', 'stocks', 'equity', 'retirement'],
+  tax: ['taxes', 'deduction', 'taxable', 'irs', 'capital gains', 'refund'],
+  rent: ['tenant', 'lease', 'landlord', 'deposit', 'rental', 'housing'],
+  tenant: ['lease', 'rent', 'landlord', 'deposit', 'eviction', 'housing'],
+  landlord: ['tenant', 'lease', 'rent', 'deposit', 'eviction', 'rental'],
+  debt: ['loan', 'interest', 'credit', 'mortgage', 'borrowing'],
+  scam: ['fraud', 'phishing', 'impersonation', 'counterfeit', 'swindle', 'social engineering'],
+  fraud: ['scam', 'phishing', 'identity theft', 'counterfeit', 'impersonation'],
+  phishing: ['scam', 'fraud', 'email', 'malware', 'password', 'social engineering'],
+  fire: ['smoke', 'extinguisher', 'evacuation', 'burn', 'flame', 'alarm'],
+  emergency: ['crisis', 'disaster', 'first aid', 'ambulance', '911', '112', 'lifeline'],
+  kid: ['child', 'children', 'parenting', 'school', 'toddler', 'infant'],
+  kids: ['children', 'child', 'parenting', 'school', 'toddlers'],
+  baby: ['infant', 'newborn', 'toddler', 'pediatric'],
+  job: ['career', 'employer', 'salary', 'workplace', 'resume', 'wages', 'employment'],
+  salary: ['compensation', 'wage', 'pay', 'bonus', 'equity', 'income']
+};
+function termMatches(hay, t){
+  if (hay.includes(t)) return true;
+  const syns = SYNONYMS[t];
+  if (syns){
+    for (let i = 0; i < syns.length; i++){
+      if (hay.includes(syns[i])) return true;
+    }
+  }
+  return false;
+}
+
 function renderCard(card, terms, key){
   const {e, f} = card;
   CUR_SEC = e.sec;
@@ -1360,7 +1408,7 @@ function renderCard(card, terms, key){
   const nSrc = renderSrc(f.src, e.src, terms);
   f.srcN.textContent = nSrc > 1 ? ` · ${nSrc} sources` : '';
   const inBody = (e.title+e.human+e.cost+e.gain+e.note).toLowerCase();
-  f.details.open = terms.length > 0 && terms.some(t => e.src.toLowerCase().includes(t)) && !terms.some(t => inBody.includes(t));
+  f.details.open = terms.length > 0 && terms.some(t => termMatches(e.src.toLowerCase(), t)) && !terms.some(t => termMatches(inBody, t));
   card.key = key;
 }
 
@@ -1385,7 +1433,7 @@ function apply(){
     if (ok && state.savedOnly && !SAVED.has(el.id)) ok = false;
     if (ok && state.masteredOnly && !MASTERED.has(el.id)) ok = false;
     if (ok && state.unmasteredOnly && MASTERED.has(el.id)) ok = false;
-    if (ok && terms.length && !terms.every(t => e.hay.includes(t))) ok = false;
+    if (ok && terms.length && !terms.every(t => termMatches(e.hay, t))) ok = false;
 
     const a = TOC.get(el.id); if (a && a.hidden === ok) a.hidden = !ok;
     if (ok) tocSec[e.sec] = (tocSec[e.sec]||0)+1;
