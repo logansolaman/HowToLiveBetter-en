@@ -479,6 +479,47 @@ html.dark .snap-theme-btn.active{color:#1b1b1f}
   #snap-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Life ROI & Longevity Calculator Modal */
+#calc-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#calc-mask[hidden]{display:none}
+#calc-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(860px,100%);max-height:90vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+
+.calc-kpi-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));gap:12px;margin:16px 0 20px}
+.calc-kpi-card{background:var(--bg-alt);border:1px solid var(--divider);border-radius:12px;padding:16px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.calc-kpi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.calc-kpi-card.highlight-longevity::before{background:var(--green-1)}
+.calc-kpi-card.highlight-wealth::before{background:var(--brand-1)}
+.calc-kpi-card.highlight-time::before{background:#eab308}
+.calc-kpi-icon{font-size:22px;margin-bottom:6px}
+.calc-kpi-val{font-size:24px;font-weight:800;color:var(--t1);line-height:1.2;font-variant-numeric:tabular-nums}
+.calc-kpi-label{font-size:12px;font-weight:600;color:var(--t2);margin-top:4px}
+.calc-kpi-sub{font-size:11.5px;color:var(--t3);margin-top:6px}
+.calc-sync-btn{font-size:11px;font-weight:600;color:var(--brand-1);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline}
+
+.calc-section-title{font-size:14px;font-weight:700;color:var(--t1);margin:16px 0 10px;display:flex;align-items:center;justify-content:space-between}
+.calc-list{display:flex;flex-direction:column;gap:10px}
+.calc-item{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;background:var(--bg-soft);border:1px solid var(--divider);border-radius:10px;transition:all .15s}
+.calc-item:hover{border-color:var(--brand-1)}
+.calc-item.active{background:var(--bg-elv);border-color:var(--brand-1);box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.calc-chk{margin-top:3px;width:18px;height:18px;accent-color:var(--brand-1);cursor:pointer;flex:none}
+.calc-body{flex:1;min-width:0}
+.calc-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:4px}
+.calc-name{font-size:13.5px;font-weight:700;color:var(--t1)}
+.calc-name a{color:inherit;text-decoration:none}
+.calc-name a:hover{color:var(--brand-1);text-decoration:underline}
+.calc-gains{display:flex;gap:6px;font-size:11.5px;font-weight:600}
+.calc-gain-tag{padding:2px 7px;border-radius:4px}
+.calc-gain-tag.years{background:rgba(34,197,94,0.15);color:var(--green-1)}
+.calc-gain-tag.wealth{background:rgba(59,130,246,0.15);color:var(--brand-1)}
+.calc-desc{font-size:12px;color:var(--t2);line-height:1.5}
+.calc-rule-link{font-size:11.5px;font-weight:600;color:var(--brand-1);margin-left:4px}
+
+.calc-footer{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding-top:14px;border-top:1px solid var(--divider)}
+@media (max-width:820px){
+  #calc-mask{padding:0}
+  #calc-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
 /* Floating Audio Dock */
 #audio-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:70;background:var(--bg-elv);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);padding:10px 18px;display:flex;align-items:center;gap:14px;max-width:min(700px,calc(100vw - 32px));width:100%;backdrop-filter:blur(10px);transition:all .25s ease}
 #audio-dock[hidden]{display:none}
@@ -565,7 +606,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -637,6 +678,7 @@ html.dark .hc-action{color:#1b1b1f!important}
       <button class="icon-btn" id="tree-open" title="Interactive Decision Trees & Flowcharts" aria-label="Decision Trees & Flowcharts"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="12" r="3"/><path d="M9 6h3a3 3 0 0 1 3 3v3m0 0v3a3 3 0 0 1-3 3H9"/></svg></button>
       <button class="icon-btn" id="proto-open" title="Daily Chronobiological Protocol (Life OS Routine)" aria-label="Daily Life Protocol"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></button>
       <button class="icon-btn" id="stats-open" title="Compendium Analytics & Insights" aria-label="Compendium Analytics"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"/><path d="M19 19H5V5h14v14z" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" id="calc-open" title="Empirical Life ROI & Longevity Calculator" aria-label="Life ROI Calculator"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg></button>
       <a class="icon-btn" href="selfcheck.html" title="Take 2-Minute Life Health & Risk Audit" aria-label="Self-Audit Quiz"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></a>
       <a class="icon-btn" href="README.md" title="View README.md" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn" href="https://github.com/parveen0029/The-Evidence-Based-Life" target="_blank" rel="noopener" title="View repository on GitHub" aria-label="GitHub Repository"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
@@ -681,6 +723,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     <button class="btn-sm ghost" id="stats-open-side" type="button" style="margin-top:10px;font-size:12px">📊 Compendium Analytics</button>
     <button class="btn-sm ghost" id="proto-open-side" type="button" style="margin-top:6px;font-size:12px">📅 24-Hour Life Routine Protocol</button>
     <button class="btn-sm ghost" id="tree-open-side" type="button" style="margin-top:6px;font-size:12px">🔀 Decision Trees & Flowcharts</button>
+    <button class="btn-sm ghost" id="calc-open-side" type="button" style="margin-top:6px;font-size:12px">🧮 Empirical Life ROI & Longevity Calculator</button>
   </div>
   <div class="group" id="g-upd" hidden>
     <div class="gt">Recent Updates <small>Content revisions</small></div>
@@ -919,6 +962,54 @@ html.dark .hc-action{color:#1b1b1f!important}
         <button class="btn-sm ghost" id="tree-reset-btn" type="button" style="width:auto;padding:8px 16px;margin:0">Restart Tree</button>
         <button class="btn-sm ghost" id="tree-close-btn" type="button" style="width:auto;padding:8px 16px;margin:0">Close</button>
         <p id="tree-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="calc-mask" hidden>
+  <div id="calc-box" role="dialog" aria-modal="true" aria-labelledby="calc-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="calc-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg> <span>Empirical Life ROI & Longevity Calculator</span></div>
+      <button type="button" id="calc-x" aria-label="Close calculator">✕</button>
+    </div>
+    <div class="stats-scroll">
+      <div class="stats-lead">Project your personal healthspan expansion and 30-year compounded wealth gains based on validated meta-analyses from Harvard, Lancet, and SEC datasets. Toggle evidence-based interventions below.</div>
+      
+      <div class="calc-kpi-grid">
+        <div class="calc-kpi-card highlight-longevity">
+          <div class="calc-kpi-icon">⏳</div>
+          <div class="calc-kpi-val" id="kpi-years">+0.0 Years</div>
+          <div class="calc-kpi-label">Projected Healthspan Gained</div>
+          <div class="calc-kpi-sub" id="kpi-mortality">-0% All-Cause Mortality Risk</div>
+        </div>
+        <div class="calc-kpi-card highlight-wealth">
+          <div class="calc-kpi-icon">💰</div>
+          <div class="calc-kpi-val" id="kpi-wealth">+$0</div>
+          <div class="calc-kpi-label">30-Year Compounded Wealth</div>
+          <div class="calc-kpi-sub" id="kpi-annual">$0 / year reclaimed savings</div>
+        </div>
+        <div class="calc-kpi-card highlight-time">
+          <div class="calc-kpi-icon">⚡</div>
+          <div class="calc-kpi-val" id="kpi-habits">0 / 8 Active</div>
+          <div class="calc-kpi-label">Core Lifestyle Leverages</div>
+          <div class="calc-kpi-sub"><button type="button" class="calc-sync-btn" id="calc-sync-mastered">Sync with My Mastered Habits</button></div>
+        </div>
+      </div>
+
+      <div class="calc-section-title">
+        <span>Evidence-Based Interventions</span>
+        <span style="font-size:12px;font-weight:500;color:var(--t3)">Check off interventions to calculate compound returns</span>
+      </div>
+      <div class="calc-list" id="calc-interventions"></div>
+
+      <div class="calc-footer">
+        <button class="btn-sm" id="calc-export" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy My ROI Roadmap</button>
+        <button class="btn-sm ghost" id="calc-share-x" type="button" style="width:auto;padding:8px 14px">𝕏 Share</button>
+        <button class="btn-sm ghost" id="calc-share-wa" type="button" style="width:auto;padding:8px 14px">WhatsApp</button>
+        <button class="btn-sm ghost" id="calc-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
+        <button class="btn-sm ghost" id="calc-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
+        <p id="calc-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
       </div>
     </div>
   </div>
@@ -3302,6 +3393,311 @@ TREE_UI.exportBtn?.addEventListener('click', async () => {
   } catch (err) {
     prompt('Copy your decision tree protocol below:', md);
   }
+});
+
+/* ---------- Empirical Life ROI & Longevity Calculator ---------- */
+const CALC_ITEMS = [
+  {
+    id: 'calc-zone2',
+    ruleId: 'e-2-2',
+    name: 'Zone 2 Aerobic Exercise (150 min/wk)',
+    rule: 'Ch 2.2',
+    years: 3.8,
+    mortality: 0.31,
+    annualSavings: 0,
+    compounded30: 0,
+    grade: 'A',
+    roi: 'Very High',
+    desc: 'Brisk walking, slow jogging, or cycling where conversational speech is maintained. Rebuilds mitochondrial density and lowers all-cause mortality by 31% (AHA / Harvard cohort).'
+  },
+  {
+    id: 'calc-sleep',
+    ruleId: 'e-3-1',
+    name: 'Circadian Sleep Hygiene & Architecture (7–8.5 hrs)',
+    rule: 'Ch 3.1, 3.4',
+    years: 2.4,
+    mortality: 0.24,
+    annualSavings: 0,
+    compounded30: 0,
+    grade: 'A',
+    roi: 'Very High',
+    desc: 'Anchoring morning wake time, cooling ambient room to 18°C (65°F), and zero pre-sleep blue light. Restores slow-wave physical recovery and reduces cardiovascular incident risk.'
+  },
+  {
+    id: 'calc-smoke',
+    ruleId: 'e-1-1',
+    name: 'Zero Smoking / Nicotine Cessation',
+    rule: 'Ch 1.1',
+    years: 8.0,
+    mortality: 0.50,
+    annualSavings: 2800,
+    compounded30: 282000,
+    grade: 'A',
+    roi: 'Very High',
+    desc: 'Completely eliminates endothelial oxidative damage and DNA mutations. Reclaims up to 10 years of life expectancy while saving ~$2,800/yr (NEJM meta-analyses).'
+  },
+  {
+    id: 'calc-alcohol',
+    ruleId: 'e-3-6',
+    name: 'Minimal / Zero Alcohol (<2 drinks/wk)',
+    rule: 'Ch 3.6',
+    years: 1.6,
+    mortality: 0.12,
+    annualSavings: 1200,
+    compounded30: 121000,
+    grade: 'A',
+    roi: 'Very High',
+    desc: 'Eliminates acetaldehyde neurotoxin, prevents REM sleep destruction, and reduces alcoholic cardiomyopathy and cancer risks (Lancet 600k-cohort study).'
+  },
+  {
+    id: 'calc-diet',
+    ruleId: 'e-2-1',
+    name: 'Mediterranean & Whole-Food Nutrition',
+    rule: 'Ch 2.1, 2.3',
+    years: 3.2,
+    mortality: 0.22,
+    annualSavings: 600,
+    compounded30: 60000,
+    grade: 'A',
+    roi: 'High',
+    desc: 'Prioritizing whole legumes, extra virgin olive oil, fiber (35g+), and lean protein. Cuts metabolic syndrome, stroke, and systemic arterial inflammation (PREDIMED trial).'
+  },
+  {
+    id: 'calc-dca',
+    ruleId: 'e-5-3',
+    name: 'Automated Broad Index Fund DCA ($250/mo)',
+    rule: 'Ch 5.3, 5.7',
+    years: 0.5,
+    mortality: 0.05,
+    annualSavings: 3000,
+    compounded30: 304000,
+    grade: 'A',
+    roi: 'Very High',
+    desc: 'Automating monthly buys of total market low-cost index funds (VTI/VOO) on payday. Captures historical 7% real compound growth ($304k+ after 30 yrs) with zero management fees.'
+  },
+  {
+    id: 'calc-cook',
+    ruleId: 'e-5-1',
+    name: 'Home Cooking vs Dining Out (4+ meals/wk)',
+    rule: 'Ch 5.1',
+    years: 1.2,
+    mortality: 0.08,
+    annualSavings: 3400,
+    compounded30: 343000,
+    grade: 'A',
+    roi: 'Very High',
+    desc: 'Preparing simple batch meals at home. Reclaims ~$280/month in commercial food markups while drastically reducing hidden industrial seed oils, trans fats, and excess sodium.'
+  },
+  {
+    id: 'calc-safe',
+    ruleId: 'e-13-2',
+    name: 'Preventative Screenings & Home Safety Checks',
+    rule: 'Ch 13.2, 16.1',
+    years: 1.5,
+    mortality: 0.14,
+    annualSavings: 500,
+    compounded30: 50000,
+    grade: 'A',
+    roi: 'Very High',
+    desc: 'Testing smoke/CO detectors monthly, keeping fire extinguisher accessible, and doing annual blood pressure & lipid screenings. Averts sudden fatal domestic accidents and acute crises.'
+  }
+];
+
+const CALC_STATE = new Set(['calc-zone2', 'calc-sleep', 'calc-diet', 'calc-dca']);
+
+const CALC_UI = {
+  mask: document.getElementById('calc-mask'),
+  openBtn: document.getElementById('calc-open'),
+  sideBtn: document.getElementById('calc-open-side'),
+  closeBtn: document.getElementById('calc-x'),
+  doneBtn: document.getElementById('calc-close-btn'),
+  syncBtn: document.getElementById('calc-sync-mastered'),
+  exportBtn: document.getElementById('calc-export'),
+  shareX: document.getElementById('calc-share-x'),
+  shareWa: document.getElementById('calc-share-wa'),
+  shareLi: document.getElementById('calc-share-li'),
+  msg: document.getElementById('calc-copy-msg'),
+};
+
+function updateCalcUI(){
+  const kpiYears = document.getElementById('kpi-years');
+  const kpiMortality = document.getElementById('kpi-mortality');
+  const kpiWealth = document.getElementById('kpi-wealth');
+  const kpiAnnual = document.getElementById('kpi-annual');
+  const kpiHabits = document.getElementById('kpi-habits');
+  if (!kpiYears) return;
+
+  let totalYears = 0;
+  let annualSav = 0;
+  let compWealth = 0;
+  let residualRisk = 1.0;
+  let activeCount = 0;
+
+  for (const item of CALC_ITEMS){
+    if (CALC_STATE.has(item.id)){
+      activeCount++;
+      totalYears += item.years;
+      annualSav += item.annualSavings;
+      compWealth += item.compounded30;
+      residualRisk *= (1 - item.mortality);
+    }
+  }
+
+  const displayYears = Math.min(totalYears, 14.0).toFixed(1);
+  const mortalityReduction = Math.round((1 - residualRisk) * 100);
+
+  kpiYears.textContent = `+${displayYears} Years`;
+  kpiMortality.textContent = `-${mortalityReduction}% All-Cause Mortality Risk`;
+  kpiWealth.textContent = `+$${compWealth.toLocaleString()}`;
+  kpiAnnual.textContent = `$${annualSav.toLocaleString()} / year reclaimed savings`;
+  kpiHabits.textContent = `${activeCount} / ${CALC_ITEMS.length} Active`;
+
+  document.querySelectorAll('.calc-item').forEach(el => {
+    const id = el.dataset.id;
+    const isAct = CALC_STATE.has(id);
+    el.classList.toggle('active', isAct);
+    const chk = el.querySelector('.calc-chk');
+    if (chk) chk.checked = isAct;
+  });
+}
+
+function renderCalcList(){
+  const listEl = document.getElementById('calc-interventions');
+  if (!listEl) return;
+  let h = '';
+  for (const item of CALC_ITEMS){
+    const isAct = CALC_STATE.has(item.id);
+    const yearsTag = item.years > 0 ? `<span class="calc-gain-tag years">+${item.years} Yrs Health</span>` : '';
+    const wealthTag = item.compounded30 > 0 ? `<span class="calc-gain-tag wealth">+$${(item.compounded30 / 1000).toFixed(0)}k Wealth</span>` : '';
+    h += `
+      <div class="calc-item${isAct ? ' active' : ''}" data-id="${item.id}">
+        <input type="checkbox" class="calc-chk" data-id="${item.id}" ${isAct ? 'checked' : ''} aria-label="Toggle ${item.name}">
+        <div class="calc-body">
+          <div class="calc-head">
+            <span class="calc-name"><a href="#${item.ruleId}" class="calc-link" data-rule="${item.ruleId}">${item.name}</a><span class="calc-rule-link">[${item.rule}]</span></span>
+            <div class="calc-gains">${yearsTag}${wealthTag}</div>
+          </div>
+          <div class="calc-desc">${item.desc}</div>
+        </div>
+      </div>
+    `;
+  }
+  listEl.innerHTML = h;
+}
+
+function calcOpen(){
+  if (!CALC_UI.mask) return;
+  renderCalcList();
+  updateCalcUI();
+  CALC_UI.mask.hidden = false;
+  CALC_UI.closeBtn?.focus();
+  if (window.gtag) gtag('event', 'calc_open');
+}
+
+function calcClose(){
+  if (!CALC_UI.mask || CALC_UI.mask.hidden) return;
+  CALC_UI.mask.hidden = true;
+  CALC_UI.openBtn?.focus();
+}
+
+CALC_UI.openBtn?.addEventListener('click', calcOpen);
+CALC_UI.sideBtn?.addEventListener('click', calcOpen);
+CALC_UI.closeBtn?.addEventListener('click', calcClose);
+CALC_UI.doneBtn?.addEventListener('click', calcClose);
+CALC_UI.mask?.addEventListener('click', ev => { if (ev.target === CALC_UI.mask) calcClose(); });
+document.addEventListener('keydown', ev => { if (ev.key === 'Escape' && CALC_UI.mask && !CALC_UI.mask.hidden){ ev.stopPropagation(); calcClose(); } }, true);
+
+document.getElementById('calc-interventions')?.addEventListener('change', ev => {
+  const chk = ev.target.closest('.calc-chk');
+  if (!chk) return;
+  const id = chk.dataset.id;
+  if (!id) return;
+  if (chk.checked) CALC_STATE.add(id); else CALC_STATE.delete(id);
+  updateCalcUI();
+});
+
+document.getElementById('calc-interventions')?.addEventListener('click', ev => {
+  const link = ev.target.closest('.calc-link');
+  if (!link) return;
+  ev.preventDefault();
+  const ruleId = link.dataset.rule;
+  calcClose();
+  const ruleEl = document.getElementById(ruleId);
+  if (ruleEl) {
+    ruleEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    ruleEl.classList.remove('flash'); void ruleEl.offsetWidth; ruleEl.classList.add('flash');
+  }
+});
+
+CALC_UI.syncBtn?.addEventListener('click', () => {
+  let matched = 0;
+  for (const item of CALC_ITEMS){
+    if (MASTERED.has(item.ruleId)){
+      CALC_STATE.add(item.id);
+      matched++;
+    }
+  }
+  updateCalcUI();
+  if (typeof showToast === 'function') {
+    showToast(`✓ Synced! ${matched} mastered habits incorporated into your projection.`);
+  }
+});
+
+CALC_UI.exportBtn?.addEventListener('click', async () => {
+  let totalYears = 0, annualSav = 0, compWealth = 0, residualRisk = 1.0;
+  let activeList = [];
+  for (const item of CALC_ITEMS){
+    if (CALC_STATE.has(item.id)){
+      activeList.push(item);
+      totalYears += item.years;
+      annualSav += item.annualSavings;
+      compWealth += item.compounded30;
+      residualRisk *= (1 - item.mortality);
+    }
+  }
+  const displayYears = Math.min(totalYears, 14.0).toFixed(1);
+  const mortalityReduction = Math.round((1 - residualRisk) * 100);
+
+  let md = `# My Empirical Life ROI Roadmap\n\n`;
+  md += `**Projected Healthspan Gained**: +${displayYears} Healthy Life Years\n`;
+  md += `**Relative Mortality Reduction**: -${mortalityReduction}% All-Cause Mortality Risk\n`;
+  md += `**30-Year Compounded Wealth**: +$${compWealth.toLocaleString()} ($${annualSav.toLocaleString()}/yr savings)\n\n`;
+  md += `## Active Evidence-Based Interventions (${activeList.length}/${CALC_ITEMS.length})\n\n`;
+  for (const a of activeList){
+    md += `- **${a.name}** [${a.rule}] (Grade ${a.grade} | ROI: ${a.roi})\n  > ${a.desc}\n  > https://parveen0029.github.io/The-Evidence-Based-Life/#${a.ruleId}\n\n`;
+  }
+  md += `*Calculated via The Evidence-Based Life: https://parveen0029.github.io/The-Evidence-Based-Life/*\n`;
+
+  try {
+    await navigator.clipboard.writeText(md);
+    if (CALC_UI.msg){
+      CALC_UI.msg.textContent = '✓ Empirical ROI Roadmap copied to clipboard!';
+      CALC_UI.msg.hidden = false;
+      setTimeout(() => { CALC_UI.msg.hidden = true; }, 3000);
+    }
+  } catch (e) {
+    prompt('Copy your ROI roadmap below:', md);
+  }
+});
+
+CALC_UI.shareX?.addEventListener('click', () => {
+  const years = document.getElementById('kpi-years')?.textContent || '+0.0 Years';
+  const wealth = document.getElementById('kpi-wealth')?.textContent || '+$0';
+  const text = `My evidence-based lifestyle changes project ${years} of healthy life gained & ${wealth} in 30-year wealth, based on Harvard & Lancet meta-analyses.\n\nCalculate yours on The Evidence-Based Life:`;
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+CALC_UI.shareWa?.addEventListener('click', () => {
+  const years = document.getElementById('kpi-years')?.textContent || '+0.0 Years';
+  const wealth = document.getElementById('kpi-wealth')?.textContent || '+$0';
+  const text = `*The Evidence-Based Life ROI Calculator*\nMy lifestyle habits project *${years}* of healthy life gained and *${wealth}* in 30-year wealth based on Harvard/Lancet data.\n\nCalculate your projections: https://parveen0029.github.io/The-Evidence-Based-Life/`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+});
+
+CALC_UI.shareLi?.addEventListener('click', () => {
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
 });
 
 /* ---------- Viral Rule Visual Snapshot Generator ---------- */
