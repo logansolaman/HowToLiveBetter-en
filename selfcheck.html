@@ -131,6 +131,16 @@ html.dark .btn{color:#1b1b1f}
 .copy-tools textarea{display:block;width:100%;padding:12px;border:1px solid var(--divider);border-radius:8px;background:var(--bg-soft);color:var(--t1);font:inherit;font-size:13.5px;resize:vertical}
 .copy-tools button:disabled{cursor:wait;opacity:.65}
 .done-list{color:var(--t2);font-size:14px;padding-left:20px;line-height:1.8}
+.share-box{background:var(--bg-soft);border:1px solid var(--divider);border-radius:12px;padding:18px 20px;margin:20px 0 24px;display:flex;flex-direction:column;gap:12px}
+.share-box-h{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.share-box-h b{font-size:15px;color:var(--t1)}
+.share-box-btns{display:flex;flex-wrap:wrap;gap:8px}
+.share-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:8px;font-size:13px;font-weight:600;border:1px solid var(--divider);background:var(--bg);color:var(--t1);text-decoration:none;transition:background .2s,border-color .2s}
+.share-btn:hover{background:var(--bg-mute);border-color:var(--t3);text-decoration:none}
+.share-btn.primary{background:var(--brand-1);color:#fff;border-color:var(--brand-1)}
+html.dark .share-btn.primary{color:#1b1b1f}
+.share-btn.primary:hover{background:var(--brand-2)}
+.share-card-preview{background:var(--bg);border:1px solid var(--divider);border-radius:8px;padding:12px 16px;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:13px;line-height:1.6;color:var(--t1);white-space:pre-wrap}
 #status{color:var(--t2);padding:60px 0;text-align:center;font-size:16px}
 @media (max-width:640px){
   .nav{padding:0 16px}
@@ -182,6 +192,7 @@ html.dark .btn{color:#1b1b1f}
     <h1>Your Audit Results</h1>
     <p class="verdict" id="verdict"></p>
     <div class="sum" id="sum"></div>
+    <div id="share-card-wrap"></div>
     <h2>Protection by Category<small>Ranked by percentage completed</small></h2>
     <div id="bars"></div>
     <div id="todo"></div>
@@ -429,6 +440,40 @@ function renderOut(){
 
   const top = noEntries.slice(0, 3);
   const topTitle = `Top ${top.length === 3 ? '3' : top.length === 2 ? '2' : '1'} Priority Actions`;
+
+  /* Viral Share Scorecard */
+  const tier = pct >= 85 ? 'Empirical Master' : pct >= 70 ? 'Health & Risk Optimizer' : pct >= 50 ? 'Empirical Practitioner' : 'Baseline Builder';
+  const topActionText = top.length ? `\nTop Priority: ${plain(top[0].title)}` : '';
+  const scorecard = `🛡️ My Life Risk & Health Audit Score: ${pct}% (${tier})
+✅ ${yes.length} Habits Active | ⚠️ ${no.length} Actionable Items${topActionText}
+
+Audit your life habits against 765 peer-reviewed rules:
+https://parveen0029.github.io/The-Evidence-Based-Life/selfcheck.html`;
+
+  const shareWrap = document.getElementById('share-card-wrap');
+  if (shareWrap) {
+    const tweetText = encodeURIComponent(scorecard);
+    const waText = encodeURIComponent(scorecard);
+    const liUrl = encodeURIComponent('https://parveen0029.github.io/The-Evidence-Based-Life/selfcheck.html');
+    shareWrap.innerHTML = `
+      <div class="share-box">
+        <div class="share-box-h">
+          <b>📢 Share Your Audit Scorecard</b>
+          <span style="font-size:12.5px;color:var(--t2)">Level: <strong>${tier}</strong></span>
+        </div>
+        <div class="share-card-preview" id="scorecard-text">${esc(scorecard)}</div>
+        <div class="share-box-btns">
+          <button class="share-btn primary" id="btn-copy-card" type="button">📋 Copy Scorecard</button>
+          ${navigator.share ? '<button class="share-btn" id="btn-native-share" type="button">📱 Share</button>' : ''}
+          <a class="share-btn" href="https://twitter.com/intent/tweet?text=${tweetText}" target="_blank" rel="noopener">𝕏 Post on X</a>
+          <a class="share-btn" href="https://api.whatsapp.com/send?text=${waText}" target="_blank" rel="noopener">💬 WhatsApp</a>
+          <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=${liUrl}" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <p id="share-status" style="font-size:12.5px;color:var(--green-1);margin:0" hidden></p>
+      </div>
+    `;
+  }
+
   let todoH = '';
   if (top.length) {
     todoH += `<h2>${topTitle}<small>Highest return on investment among uncompleted habits</small></h2>
@@ -475,6 +520,38 @@ function show(id){
   document.getElementById('out').hidden = id !== 'out';
   window.scrollTo({top: 0});
 }
+
+document.getElementById('share-card-wrap')?.addEventListener('click', async ev => {
+  const btnCopy = ev.target.closest('#btn-copy-card');
+  const btnShare = ev.target.closest('#btn-native-share');
+  const cardPreview = document.getElementById('scorecard-text');
+  const statusEl = document.getElementById('share-status');
+  if (!cardPreview) return;
+  const text = cardPreview.textContent;
+
+  if (btnCopy) {
+    try {
+      await navigator.clipboard.writeText(text);
+      if (statusEl) {
+        statusEl.textContent = '✓ Copied scorecard to clipboard! Ready to share on social media or group chats.';
+        statusEl.hidden = false;
+        setTimeout(() => { statusEl.hidden = true; }, 3500);
+      }
+    } catch (err) {
+      prompt('Copy your scorecard below:', text);
+    }
+  } else if (btnShare && navigator.share) {
+    try {
+      await navigator.share({
+        title: 'The Evidence-Based Life Audit',
+        text: text,
+        url: 'https://parveen0029.github.io/The-Evidence-Based-Life/selfcheck.html'
+      });
+    } catch (err) {
+      if (err.name !== 'AbortError') prompt('Share your scorecard below:', text);
+    }
+  }
+});
 
 document.getElementById('todo').addEventListener('click', async ev => {
   const b = ev.target.closest('#copy-actions'); if (!b) return;

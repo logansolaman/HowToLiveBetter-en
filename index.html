@@ -108,6 +108,11 @@ mark{background:var(--mark);color:inherit;border-radius:2px;padding:0 1px}
 .search input::placeholder{color:var(--t3)}
 .search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:18px;height:18px;fill:none;stroke:var(--t3);stroke-width:2;pointer-events:none}
 .search kbd{position:absolute;right:10px;top:50%;transform:translateY(-50%);font:500 11px/1 var(--font);color:var(--t3);border:1px solid var(--divider);border-radius:4px;padding:3px 6px;background:var(--bg-elv);pointer-events:none}
+.search-suggest{position:absolute;top:calc(100% + 6px);left:0;right:0;background:var(--bg-elv);border:1px solid var(--divider);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.15);padding:10px 14px;z-index:50}
+.suggest-h{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--t3);margin-bottom:8px}
+.suggest-chips{display:flex;flex-wrap:wrap;gap:6px}
+.s-chip{border:1px solid var(--divider);background:var(--bg-soft);color:var(--t2);border-radius:6px;padding:4px 10px;font-size:12px;font-weight:500;cursor:pointer;transition:all .15s}
+.s-chip:hover{background:var(--brand-soft);border-color:var(--brand-1);color:var(--brand-1)}
 .nav-r{display:flex;align-items:center;gap:8px}
 .icon-btn{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;color:var(--t2);transition:background .25s,color .25s}
 .icon-btn:hover{background:var(--bg-soft);color:var(--t1)}
@@ -461,11 +466,26 @@ html.dark .hc-action{color:#1b1b1f!important}
   <div class="nav-in">
     <button class="icon-btn menu-btn" id="menu" aria-label="Open filter sidebar" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg></button>
     <a class="title" href="./"><span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>The Evidence-Based Life</span></a>
-    <label class="search">
+    <div class="search">
       <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5" stroke-linecap="round"/></svg>
       <input id="q" type="search" placeholder="Search rules (/ or Ctrl+K, R for random)" autocomplete="off" aria-label="Search rules">
       <kbd title="Press / or Ctrl+K / ⌘K to search">/</kbd>
-    </label>
+      <div class="search-suggest" id="search-suggest" hidden>
+        <div class="suggest-h">Quick Suggestions</div>
+        <div class="suggest-chips">
+          <button type="button" class="s-chip" data-query="sleep">😴 Sleep & Insomnia</button>
+          <button type="button" class="s-chip" data-query="caffeine">☕ Caffeine Timing</button>
+          <button type="button" class="s-chip" data-query="protein">🥑 Protein Intake</button>
+          <button type="button" class="s-chip" data-query="index fund">💰 Index Funds</button>
+          <button type="button" class="s-chip" data-query="tenant">🏠 Tenant Rights</button>
+          <button type="button" class="s-chip" data-query="phishing">🛡️ Scam & Phishing</button>
+          <button type="button" class="s-chip" data-query="cardio">🏃 Zone 2 Cardio</button>
+          <button type="button" class="s-chip" data-query="burnout">🧘 Stress & Burnout</button>
+          <button type="button" class="s-chip" data-query="vaccine">💉 Vaccines</button>
+          <button type="button" class="s-chip" data-query="emergency">🚨 Emergency Prep</button>
+        </div>
+      </div>
+    </div>
     <div class="nav-r">
       <button class="icon-btn" id="random-rule" title="Shuffle: Jump to a random high-ROI rule (Press R)" aria-label="Random Rule"><svg viewBox="0 0 24 24"><path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/></svg></button>
       <button class="icon-btn" id="stats-open" title="Compendium Analytics & Insights" aria-label="Compendium Analytics"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"/><path d="M19 19H5V5h14v14z" stroke-linecap="round"/></svg></button>
@@ -1441,10 +1461,33 @@ function wire(){
   document.getElementById('f-dispute').addEventListener('change', e => { state.dispute = e.target.checked; apply(); toTop(); });
   document.getElementById('f-todo').addEventListener('change', e => { state.todo = e.target.checked; apply(); toTop(); });
 
+  const qEl = document.getElementById('q');
+  const suggestEl = document.getElementById('search-suggest');
+
   let tm, qtm;
-  document.getElementById('q').addEventListener('input', e => {
+  qEl.addEventListener('input', e => {
     clearTimeout(tm); tm = setTimeout(() => { state.q = e.target.value.trim(); apply(); }, 120);
     clearTimeout(qtm); qtm = setTimeout(reportSearch, 2000);
+  });
+  qEl.addEventListener('focus', () => {
+    if (suggestEl) suggestEl.hidden = false;
+  });
+
+  suggestEl?.addEventListener('click', ev => {
+    const chip = ev.target.closest('.s-chip');
+    if (!chip) return;
+    const q = chip.dataset.query;
+    qEl.value = q;
+    state.q = q;
+    suggestEl.hidden = true;
+    apply();
+    toTop();
+  });
+
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.search')) {
+      if (suggestEl) suggestEl.hidden = true;
+    }
   });
 
   const reset = () => {
@@ -1631,7 +1674,7 @@ function wire(){
     if ((e.key === 'r' || e.key === 'R') && !/INPUT|TEXTAREA/.test(document.activeElement.tagName) && !e.metaKey && !e.ctrlKey && !e.altKey) {
       e.preventDefault(); jumpRandomRule();
     }
-    if (e.key === 'Escape') { if (document.activeElement.id === 'q') document.activeElement.blur(); setMenu(false); }
+    if (e.key === 'Escape') { if (document.activeElement.id === 'q') document.activeElement.blur(); if (suggestEl) suggestEl.hidden = true; setMenu(false); }
   });
 
   const pop = document.getElementById('pop');
