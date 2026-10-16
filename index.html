@@ -194,19 +194,27 @@ html.dark .switch .sun{display:none} html.dark .switch .moon{display:block}
 .card-h h3{margin:0;font-size:17px;line-height:26px;font-weight:600;letter-spacing:-.01em;flex:1;min-width:0;overflow-wrap:anywhere}
 .card-h .idx{color:var(--t3);font-size:14px;line-height:26px;font-variant-numeric:tabular-nums;min-width:22px}
 .card-h .anchor{opacity:0;color:var(--brand-1);font-size:16px;line-height:26px;font-weight:500;transition:opacity .2s}
+.card-h .btn-done{opacity:0;color:var(--t3);font-size:15px;line-height:26px;cursor:pointer;transition:opacity .2s,color .2s;background:none;border:0;padding:0 3px}
 .card-h .btn-save{opacity:0;color:var(--t3);font-size:16px;line-height:26px;cursor:pointer;transition:opacity .2s,color .2s;background:none;border:0;padding:0 3px}
 .card-h .btn-share{opacity:0;color:var(--t3);cursor:pointer;transition:opacity .2s,color .2s;background:none;border:0;padding:2px 4px;display:inline-flex;align-items:center;line-height:26px}
 .card-h .btn-share svg{width:14px;height:14px;fill:currentColor}
-.card:hover .anchor,.anchor:focus-visible,.card:hover .btn-save,.btn-save:focus-visible,.btn-save.saved,.card:hover .btn-share,.btn-share:focus-visible{opacity:1}
+.card:hover .anchor,.anchor:focus-visible,.card:hover .btn-done,.btn-done:focus-visible,.btn-done.done,.card:hover .btn-save,.btn-save:focus-visible,.btn-save.saved,.card:hover .btn-share,.btn-share:focus-visible{opacity:1}
+.card-h .btn-done.done{color:var(--green-1)}
+.card-h .btn-done:hover{color:var(--green-1)}
 .card-h .btn-save.saved{color:#f5a623}
 .card-h .btn-save:hover{color:#f5a623}
 .card-h .btn-share:hover{color:var(--brand-1)}
+.card.is-mastered{border-left:3.5px solid var(--green-1)}
+@media (hover:none){.card-h .anchor,.card-h .btn-done,.card-h .btn-save,.card-h .btn-share{opacity:.75}}
 #toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:rgba(20,20,24,0.92);color:#fff;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:500;z-index:9999;box-shadow:0 6px 20px rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.1);pointer-events:none;transition:opacity .2s,transform .2s;opacity:1}
 #toast.hidden{opacity:0;transform:translate(-50%,10px);pointer-events:none}
 html.dark #toast{background:rgba(255,255,255,0.95);color:#121214}
 .chip-saved{background:rgba(245,166,35,.08);border-color:rgba(245,166,35,.3);color:var(--t1)}
 .chip-saved[aria-pressed="true"]{background:#f5a623;border-color:#f5a623;color:#ffffff}
 html.dark .chip-saved[aria-pressed="true"]{color:#1b1b1f}
+.chip-done{background:var(--green-soft);border-color:var(--green-1);color:var(--t1)}
+.chip-done[aria-pressed="true"]{background:var(--green-1);border-color:var(--green-1);color:#ffffff}
+html.dark .chip-done[aria-pressed="true"]{color:#1b1b1f}
 .btn-sm{display:inline-flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:6px 12px;border-radius:6px;font-size:12.5px;font-weight:600;background:var(--brand-1);color:#fff;border:0;cursor:pointer;transition:opacity .2s}
 html.dark .btn-sm{color:#1b1b1f}
 .btn-sm.ghost{background:var(--bg-soft);color:var(--t2);border:1px solid var(--divider);margin-top:6px}
@@ -406,7 +414,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,.anchor,.btn-save,.btn-share,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,.anchor,.btn-done,.btn-save,.btn-share,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -477,14 +485,30 @@ html.dark .hc-action{color:#1b1b1f!important}
     <div class="sec-links" id="f-sec" data-dim="sec"></div>
   </div>
   <div class="group">
-    <div class="gt">Personal Collection</div>
+    <div class="gt">Personal Collection & Habit Tracker</div>
     <div class="chips">
       <button class="chip chip-saved" id="f-saved" data-v="saved" aria-pressed="false">⭐ My Bookmarks (<span id="saved-cnt">0</span>)</button>
+      <button class="chip chip-done" id="f-mastered" data-v="mastered" aria-pressed="false">✅ Mastered (<span id="mastered-cnt">0</span>)</button>
+      <button class="chip" id="f-unmastered" data-v="unmastered" aria-pressed="false">⏳ To Implement</button>
+    </div>
+    <div class="habit-progress-box" style="margin-top:10px;padding:8px 12px;background:var(--bg-elv);border:1px solid var(--divider);border-radius:8px">
+      <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:600;color:var(--t2);margin-bottom:5px">
+        <span>Habit Baseline</span>
+        <span id="mastered-prog">0 / 765 (0%)</span>
+      </div>
+      <div style="height:6px;background:var(--bg-mute);border-radius:3px;overflow:hidden">
+        <div id="mastered-bar" style="height:100%;width:0%;background:var(--green-1);border-radius:3px;transition:width .3s"></div>
+      </div>
     </div>
     <div id="saved-tools" hidden style="margin-top:10px">
       <button class="btn-sm" id="export-saved" type="button">📋 Export My Saved Handbook</button>
       <button class="btn-sm ghost" id="clear-saved" type="button">Clear Saved</button>
       <p id="saved-copy-msg" style="font-size:12px;color:var(--green-1);margin:6px 0 0" hidden></p>
+    </div>
+    <div id="mastered-tools" hidden style="margin-top:10px">
+      <button class="btn-sm" id="export-mastered" type="button" style="background:var(--green-1);color:#fff">📋 Export Mastered Habits</button>
+      <button class="btn-sm ghost" id="clear-mastered" type="button">Reset Mastered Habits</button>
+      <p id="mastered-copy-msg" style="font-size:12px;color:var(--green-1);margin:6px 0 0" hidden></p>
     </div>
     <button class="btn-sm ghost" id="stats-open-side" type="button" style="margin-top:10px;font-size:12px">📊 Compendium Analytics</button>
   </div>
@@ -1134,9 +1158,10 @@ function build(sections){
     for (const e of s.entries){
       const id = `e-${e.sec}-${e.n}`;
       const isSaved = SAVED.has(id);
-      const c = document.createElement('article'); c.className='card'; c.id = id;
+      const isMastered = MASTERED.has(id);
+      const c = document.createElement('article'); c.className='card' + (isMastered ? ' is-mastered' : ''); c.id = id;
       c.innerHTML = `
-        <div class="card-h"><span class="idx">${e.n}</span><h3 class="t"></h3><button class="btn-save${isSaved ? ' saved' : ''}" type="button" data-save="${id}" aria-label="${isSaved ? 'Remove bookmark' : 'Bookmark rule'}" title="${isSaved ? 'Remove bookmark' : 'Bookmark rule'}">${isSaved ? '★' : '☆'}</button><button class="btn-share" type="button" data-share="${id}" aria-label="Share rule" title="Share rule"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/></svg></button><a class="anchor" href="#${id}" aria-label="Copy direct link to rule" title="Copy direct link to rule">#</a></div>
+        <div class="card-h"><span class="idx">${e.n}</span><h3 class="t"></h3><button class="btn-done${isMastered ? ' done' : ''}" type="button" data-done="${id}" aria-label="${isMastered ? 'Mark habit as unmastered' : 'Mark habit as implemented'}" title="${isMastered ? 'Implemented in my daily life (click to uncheck)' : 'Mark as implemented in my daily life'}">${isMastered ? '✓' : '○'}</button><button class="btn-save${isSaved ? ' saved' : ''}" type="button" data-save="${id}" aria-label="${isSaved ? 'Remove bookmark' : 'Bookmark rule'}" title="${isSaved ? 'Remove bookmark' : 'Bookmark rule'}">${isSaved ? '★' : '☆'}</button><button class="btn-share" type="button" data-share="${id}" aria-label="Share rule" title="Share rule"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/></svg></button><a class="anchor" href="#${id}" aria-label="Copy direct link to rule" title="Copy direct link to rule">#</a></div>
         <div class="badges"></div>
         <p class="human"></p>
         <div class="rows">
@@ -1207,6 +1232,33 @@ function updateSavedUI(){
   if (tools) tools.hidden = !state.savedOnly;
 }
 
+/* ---------- Personal Habit Implementation Tracker ---------- */
+const MASTERED = (function(){
+  try {
+    const raw = localStorage.getItem('eb_mastered');
+    return new Set(raw ? JSON.parse(raw) : []);
+  } catch (e) {
+    return new Set();
+  }
+})();
+function updateMasteredUI(){
+  const cntEl = document.getElementById('mastered-cnt');
+  if (cntEl) cntEl.textContent = String(MASTERED.size);
+  const btnM = document.getElementById('f-mastered');
+  if (btnM) btnM.setAttribute('aria-pressed', String(state.masteredOnly));
+  const btnU = document.getElementById('f-unmastered');
+  if (btnU) btnU.setAttribute('aria-pressed', String(state.unmasteredOnly));
+  const tools = document.getElementById('mastered-tools');
+  if (tools) tools.hidden = !state.masteredOnly;
+  const total = CARDS.length || 765;
+  const cnt = MASTERED.size;
+  const pct = Math.round(cnt / total * 100);
+  const progEl = document.getElementById('mastered-prog');
+  if (progEl) progEl.textContent = `${cnt} / ${total} (${pct}%)`;
+  const barEl = document.getElementById('mastered-bar');
+  if (barEl) barEl.style.width = `${pct}%`;
+}
+
 /* ---------- Recent Updates Tracking ---------- */
 let UPD = {};
 const TODAY = Date.parse(new Intl.DateTimeFormat('sv-SE', { timeZone: 'UTC' }).format(new Date()));
@@ -1239,13 +1291,15 @@ function buildUpdLine(){
 
 /* ---------- Filter State & Router ---------- */
 const DIMS = ['sec','ratio','lens','grade','money','time','will','upd','days'];
-const state = { q:'', sec:new Set(), ratio:new Set(), lens:new Set(), grade:new Set(), money:new Set(), time:new Set(), will:new Set(), upd:new Set(), days:new Set(), dispute:false, todo:false, savedOnly:false };
+const state = { q:'', sec:new Set(), ratio:new Set(), lens:new Set(), grade:new Set(), money:new Set(), time:new Set(), will:new Set(), upd:new Set(), days:new Set(), dispute:false, todo:false, savedOnly:false, masteredOnly:false, unmasteredOnly:false };
 function readUrl(){
   const p = new URLSearchParams(location.search);
   state.q = p.get('q') || '';
   for (const d of DIMS) state[d] = new Set((p.get(d)||'').split(',').filter(Boolean));
   state.dispute = p.get('dispute') === '1'; state.todo = p.get('todo') === '1';
   state.savedOnly = p.get('saved') === '1';
+  state.masteredOnly = p.get('mastered') === '1';
+  state.unmasteredOnly = p.get('unmastered') === '1';
 }
 function writeUrl(){
   const p = new URLSearchParams();
@@ -1253,6 +1307,8 @@ function writeUrl(){
   for (const d of DIMS) if (state[d].size) p.set(d, [...state[d]].join(','));
   if (state.dispute) p.set('dispute','1'); if (state.todo) p.set('todo','1');
   if (state.savedOnly) p.set('saved','1');
+  if (state.masteredOnly) p.set('mastered','1');
+  if (state.unmasteredOnly) p.set('unmastered','1');
   if (PERF.on) p.set('perf','1');
   const qs = p.toString(); history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
 }
@@ -1264,6 +1320,7 @@ function syncControls(){
   document.getElementById('f-dispute').checked = state.dispute;
   document.getElementById('f-todo').checked = state.todo;
   updateSavedUI();
+  updateMasteredUI();
   const curSecs = [...state.sec].sort((a,b)=>Number(a)-Number(b)).join(',');
   document.querySelectorAll('.scenario-pill').forEach(p => {
     const s = p.dataset.sec.split(',').sort((a,b)=>Number(a)-Number(b)).join(',');
@@ -1306,6 +1363,8 @@ function apply(){
     if (ok && state.todo && !e.todo) ok = false;
     if (ok && !fitsUpd(e)) ok = false;
     if (ok && state.savedOnly && !SAVED.has(el.id)) ok = false;
+    if (ok && state.masteredOnly && !MASTERED.has(el.id)) ok = false;
+    if (ok && state.unmasteredOnly && MASTERED.has(el.id)) ok = false;
     if (ok && terms.length && !terms.every(t => e.hay.includes(t))) ok = false;
 
     const a = TOC.get(el.id); if (a && a.hidden === ok) a.hidden = !ok;
@@ -1324,6 +1383,9 @@ function apply(){
   empty.hidden = shown !== 0;
   if (shown === 0 && state.savedOnly && SAVED.size === 0) {
     empty.innerHTML = `You haven't bookmarked any rules yet.<br>Click the <b>☆</b> star on any rule card to build your personal life manual!
+      <div><button id="reset2">Browse All Rules</button></div>`;
+  } else if (shown === 0 && state.masteredOnly && MASTERED.size === 0) {
+    empty.innerHTML = `You haven't marked any habits as mastered yet.<br>Click the <b>✓</b> checkmark on any rule card to record habits you actively practice in your daily routine!
       <div><button id="reset2">Browse All Rules</button></div>`;
   }
   syncControls(); writeUrl(); tocSync(spyLast);
@@ -1387,9 +1449,10 @@ function wire(){
 
   const reset = () => {
     state.q=''; for (const d of DIMS) state[d].clear();
-    state.dispute=false; state.todo=false; state.savedOnly=false;
+    state.dispute=false; state.todo=false; state.savedOnly=false; state.masteredOnly=false; state.unmasteredOnly=false;
     document.querySelectorAll('.scenario-pill').forEach(p => p.classList.remove('active'));
     updateSavedUI();
+    updateMasteredUI();
     apply(); toTop();
   };
   document.getElementById('reset').addEventListener('click', reset);
@@ -1398,6 +1461,22 @@ function wire(){
   document.getElementById('f-saved')?.addEventListener('click', () => {
     state.savedOnly = !state.savedOnly;
     updateSavedUI();
+    apply();
+    toTop();
+  });
+
+  document.getElementById('f-mastered')?.addEventListener('click', () => {
+    state.masteredOnly = !state.masteredOnly;
+    if (state.masteredOnly) state.unmasteredOnly = false;
+    updateMasteredUI();
+    apply();
+    toTop();
+  });
+
+  document.getElementById('f-unmastered')?.addEventListener('click', () => {
+    state.unmasteredOnly = !state.unmasteredOnly;
+    if (state.unmasteredOnly) state.masteredOnly = false;
+    updateMasteredUI();
     apply();
     toTop();
   });
@@ -1417,6 +1496,25 @@ function wire(){
     b.setAttribute('aria-label', b.title);
     updateSavedUI();
     if (state.savedOnly) apply();
+  });
+
+  document.addEventListener('click', e => {
+    const b = e.target.closest('.btn-done');
+    if (!b) return;
+    e.preventDefault();
+    const id = b.dataset.done;
+    if (!id) return;
+    const nowDone = !MASTERED.has(id);
+    if (nowDone) MASTERED.add(id); else MASTERED.delete(id);
+    try { localStorage.setItem('eb_mastered', JSON.stringify([...MASTERED])); } catch (err) {}
+    b.classList.toggle('done', nowDone);
+    b.textContent = nowDone ? '✓' : '○';
+    b.title = nowDone ? 'Implemented in my daily life (click to uncheck)' : 'Mark as implemented in my daily life';
+    b.setAttribute('aria-label', b.title);
+    const cardEl = document.getElementById(id);
+    if (cardEl) cardEl.classList.toggle('is-mastered', nowDone);
+    updateMasteredUI();
+    if (state.masteredOnly || state.unmasteredOnly) apply();
   });
 
   document.getElementById('export-saved')?.addEventListener('click', async () => {
@@ -1453,6 +1551,44 @@ function wire(){
       }
       updateSavedUI();
       if (state.savedOnly) apply();
+    }
+  });
+
+  document.getElementById('export-mastered')?.addEventListener('click', async () => {
+    if (!MASTERED.size) return;
+    const msgEl = document.getElementById('mastered-copy-msg');
+    const masteredCards = CARDS.filter(c => MASTERED.has(c.el.id));
+    let md = `# My Implemented Habits & Daily Baseline · The Evidence-Based Life\n\nDaily lifestyle baseline consisting of ${masteredCards.length} verified evidence-based habits (${Math.round(masteredCards.length / (CARDS.length || 765) * 100)}% of total manual).\n\n`;
+    for (const {e} of masteredCards){
+      md += `- [x] **[Ch ${e.sec}.${e.n}] ${e.title}** (Grade: ${e.grade} | ROI: ${e.ratio})\n`
+        + (e.human ? `  > ${e.human}\n` : '')
+        + `  > https://parveen0029.github.io/The-Evidence-Based-Life/#e-${e.sec}-${e.n}\n`;
+    }
+    try {
+      await navigator.clipboard.writeText(md);
+      if (msgEl) {
+        msgEl.textContent = `✓ Copied ${masteredCards.length} mastered habits to clipboard!`;
+        msgEl.hidden = false;
+        setTimeout(() => { msgEl.hidden = true; }, 3000);
+      }
+    } catch (err) {
+      prompt('Copy your mastered habits below:', md);
+    }
+  });
+
+  document.getElementById('clear-mastered')?.addEventListener('click', () => {
+    if (!MASTERED.size) return;
+    if (confirm(`Reset all ${MASTERED.size} mastered habits?`)){
+      MASTERED.clear();
+      try { localStorage.removeItem('eb_mastered'); } catch (err) {}
+      for (const b of document.querySelectorAll('.btn-done.done')){
+        b.classList.remove('done'); b.textContent = '○'; b.title = 'Mark as implemented in my daily life';
+      }
+      for (const c of document.querySelectorAll('.card.is-mastered')){
+        c.classList.remove('is-mastered');
+      }
+      updateMasteredUI();
+      if (state.masteredOnly || state.unmasteredOnly) apply();
     }
   });
 
@@ -1903,7 +2039,7 @@ STATS.content?.addEventListener('click', ev => {
     if (dim && v) {
       state.q = '';
       for (const d of DIMS) state[d].clear();
-      state.dispute = false; state.todo = false; state.savedOnly = false;
+      state.dispute = false; state.todo = false; state.savedOnly = false; state.masteredOnly = false; state.unmasteredOnly = false;
       state[dim].add(v);
       statsClose();
       syncControls();
@@ -1918,7 +2054,7 @@ STATS.content?.addEventListener('click', ev => {
     const sec = chCard.dataset.sec;
     state.q = '';
     for (const d of DIMS) state[d].clear();
-    state.dispute = false; state.todo = false; state.savedOnly = false;
+    state.dispute = false; state.todo = false; state.savedOnly = false; state.masteredOnly = false; state.unmasteredOnly = false;
     state.sec.add(sec);
     statsClose();
     syncControls();
@@ -1966,13 +2102,13 @@ STATS.content?.addEventListener('click', ev => {
     if (updData && updData.items) UPD = updData.items;
     status.remove();
     const t2 = performance.now(); build(sections); PERF.log('Build DOM', t2, CARDS.length + ' cards');
-    buildGlossary(); buildUpdLine(); readUrl(); wire(); updateSavedUI(); apply();
+    buildGlossary(); buildUpdLine(); readUrl(); wire(); updateSavedUI(); updateMasteredUI(); apply();
     PERF.mark(`DOM nodes ${document.getElementsByTagName('*').length}, glossary terms ${GLOSS.length}`);
     if (location.hash){
       let target = document.getElementById(location.hash.slice(1));
       if (target && !target.offsetParent){
         state.q = ''; for (const d of DIMS) state[d].clear();
-        state.dispute = false; state.todo = false; state.savedOnly = false;
+        state.dispute = false; state.todo = false; state.savedOnly = false; state.masteredOnly = false; state.unmasteredOnly = false;
         syncControls(); apply(); writeUrl();
       }
       const land = target ? scrollAnchor(target) : null;
