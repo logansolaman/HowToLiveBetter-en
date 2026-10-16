@@ -203,14 +203,17 @@ html.dark .switch .sun{display:none} html.dark .switch .moon{display:block}
 .card-h .btn-save{opacity:0;color:var(--t3);font-size:16px;line-height:26px;cursor:pointer;transition:opacity .2s,color .2s;background:none;border:0;padding:0 3px}
 .card-h .btn-share{opacity:0;color:var(--t3);cursor:pointer;transition:opacity .2s,color .2s;background:none;border:0;padding:2px 4px;display:inline-flex;align-items:center;line-height:26px}
 .card-h .btn-share svg{width:14px;height:14px;fill:currentColor}
-.card:hover .anchor,.anchor:focus-visible,.card:hover .btn-done,.btn-done:focus-visible,.btn-done.done,.card:hover .btn-save,.btn-save:focus-visible,.btn-save.saved,.card:hover .btn-share,.btn-share:focus-visible{opacity:1}
+.card-h .btn-snap{opacity:0;color:var(--t3);cursor:pointer;transition:opacity .2s,color .2s;background:none;border:0;padding:2px 4px;display:inline-flex;align-items:center;line-height:26px}
+.card-h .btn-snap svg{width:15px;height:15px;fill:currentColor}
+.card:hover .anchor,.anchor:focus-visible,.card:hover .btn-done,.btn-done:focus-visible,.btn-done.done,.card:hover .btn-save,.btn-save:focus-visible,.btn-save.saved,.card:hover .btn-share,.btn-share:focus-visible,.card:hover .btn-snap,.btn-snap:focus-visible{opacity:1}
 .card-h .btn-done.done{color:var(--green-1)}
 .card-h .btn-done:hover{color:var(--green-1)}
 .card-h .btn-save.saved{color:#f5a623}
 .card-h .btn-save:hover{color:#f5a623}
 .card-h .btn-share:hover{color:var(--brand-1)}
+.card-h .btn-snap:hover{color:var(--brand-1)}
 .card.is-mastered{border-left:3.5px solid var(--green-1)}
-@media (hover:none){.card-h .anchor,.card-h .btn-done,.card-h .btn-save,.card-h .btn-share{opacity:.75}}
+@media (hover:none){.card-h .anchor,.card-h .btn-done,.card-h .btn-save,.card-h .btn-share,.card-h .btn-snap{opacity:.75}}
 #toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:rgba(20,20,24,0.92);color:#fff;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:500;z-index:9999;box-shadow:0 6px 20px rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.1);pointer-events:none;transition:opacity .2s,transform .2s;opacity:1}
 #toast.hidden{opacity:0;transform:translate(-50%,10px);pointer-events:none}
 html.dark #toast{background:rgba(255,255,255,0.95);color:#121214}
@@ -376,6 +379,75 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
   #proto-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Decision Trees Modal */
+#tree-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#tree-mask[hidden]{display:none}
+#tree-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(880px,100%);max-height:90vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+.tree-nav{display:flex;gap:6px;overflow-x:auto;padding:8px 0 14px;border-bottom:1px solid var(--divider);margin-bottom:14px;scrollbar-width:thin}
+.tree-tab{padding:6px 14px;font-size:12.5px;font-weight:600;border-radius:20px;border:1px solid var(--divider);background:var(--bg-soft);color:var(--t2);cursor:pointer;white-space:nowrap;transition:all .15s;flex:none}
+.tree-tab:hover{border-color:var(--brand-1);color:var(--brand-1)}
+.tree-tab.active{background:var(--brand-1);border-color:var(--brand-1);color:#fff}
+html.dark .tree-tab.active{color:#1b1b1f}
+
+.tree-view-toggle{display:flex;align-items:center;gap:4px;background:var(--bg-mute);padding:3px;border-radius:8px;border:1px solid var(--divider);align-self:flex-start}
+.tree-vbtn{padding:4px 12px;font-size:12px;font-weight:600;border-radius:6px;border:0;background:none;color:var(--t2);cursor:pointer;transition:all .15s}
+.tree-vbtn.active{background:var(--bg-elv);color:var(--t1);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+
+/* Interactive Guide Node */
+.guide-card{background:var(--bg-soft);border:1px solid var(--divider);border-radius:12px;padding:20px;margin-bottom:14px;position:relative}
+.guide-trail{font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--brand-1);margin-bottom:8px}
+.guide-q{font-size:16px;font-weight:700;color:var(--t1);line-height:1.45;margin-bottom:10px}
+.guide-note{font-size:13px;color:var(--t2);line-height:1.6;margin-bottom:16px}
+.guide-choices{display:flex;gap:10px;flex-wrap:wrap}
+.guide-choice{padding:8px 18px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s;border:1px solid var(--divider);background:var(--bg-elv);color:var(--t1)}
+.guide-choice.primary{background:var(--brand-1);color:#fff;border-color:var(--brand-1)}
+html.dark .guide-choice.primary{color:#1b1b1f}
+.guide-choice.danger{background:var(--red-soft);color:var(--red-1);border-color:var(--red-1)}
+.guide-choice:hover{filter:brightness(1.05);transform:translateY(-1px)}
+
+/* Terminal Action Card */
+.guide-action{border-left:4px solid var(--brand-1);background:var(--brand-soft);border-radius:0 10px 10px 0;padding:16px 20px;margin-bottom:14px}
+.guide-action.emergency{border-left-color:var(--red-1);background:var(--red-soft)}
+.guide-action.success{border-left-color:var(--green-1);background:var(--green-soft)}
+.guide-action-h{font-size:14.5px;font-weight:700;color:var(--t1);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.guide-action-body{font-size:13.5px;line-height:1.65;color:var(--t1);margin-bottom:12px}
+.guide-action-ref{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--brand-1);text-decoration:none}
+.guide-action-ref:hover{text-decoration:underline}
+
+/* Visual Flowchart */
+.flowchart-wrap{overflow-x:auto;padding:14px;border:1px solid var(--divider);border-radius:10px;background:var(--bg-soft);margin-bottom:14px}
+.flowchart-tree{display:flex;flex-direction:column;align-items:center;gap:12px;min-width:620px;padding:8px}
+.fc-node{background:var(--bg-elv);border:1px solid var(--divider);border-radius:8px;padding:10px 14px;max-width:460px;text-align:center;font-size:13px;line-height:1.5;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.fc-node.decision{border-color:var(--brand-1);background:var(--brand-soft);font-weight:600}
+.fc-node.action{border-color:var(--green-1);background:var(--green-soft);text-align:left}
+.fc-node.emergency{border-color:var(--red-1);background:var(--red-soft);text-align:left}
+.fc-arrow{color:var(--t3);font-size:16px;line-height:1}
+.fc-branches{display:flex;gap:20px;width:100%;justify-content:center}
+.fc-branch{display:flex;flex-direction:column;align-items:center;gap:10px;flex:1;max-width:320px}
+.fc-branch-lbl{font-size:11px;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:10px;background:var(--bg-mute);color:var(--t2);border:1px solid var(--divider)}
+
+@media (max-width:820px){
+  #tree-mask{padding:0}
+  #tree-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
+/* Visual Snapshot Modal */
+#snap-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#snap-mask[hidden]{display:none}
+#snap-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(800px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+.snap-preview-wrap{display:flex;justify-content:center;align-items:center;background:var(--bg-alt);padding:16px;border-radius:12px;border:1px solid var(--divider);margin-bottom:14px;overflow:hidden}
+#snap-canvas{max-width:100%;height:auto;max-height:55vh;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.25);display:block}
+.snap-controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.snap-theme-btn{padding:5px 12px;border-radius:6px;font-size:12px;font-weight:600;border:1px solid var(--divider);background:var(--bg-soft);color:var(--t2);cursor:pointer;transition:all .15s}
+.snap-theme-btn:hover{border-color:var(--brand-1);color:var(--brand-1)}
+.snap-theme-btn.active{background:var(--brand-1);border-color:var(--brand-1);color:#fff}
+html.dark .snap-theme-btn.active{color:#1b1b1f}
+.snap-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+@media (max-width:820px){
+  #snap-mask{padding:0}
+  #snap-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
 .gloss{margin-top:16px;border:1px solid var(--divider);border-radius:8px;padding:0 16px;font-size:13px;color:var(--t2)}
 .gloss summary{cursor:pointer;padding:10px 0;font-weight:500;color:var(--t2);list-style:none;display:flex;align-items:center;gap:6px}
 .gloss summary::-webkit-details-marker{display:none}
@@ -441,7 +513,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,.anchor,.btn-done,.btn-save,.btn-share,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -510,6 +582,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     </div>
     <div class="nav-r">
       <button class="icon-btn" id="random-rule" title="Shuffle: Jump to a random high-ROI rule (Press R)" aria-label="Random Rule"><svg viewBox="0 0 24 24"><path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/></svg></button>
+      <button class="icon-btn" id="tree-open" title="Interactive Decision Trees & Flowcharts" aria-label="Decision Trees & Flowcharts"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="12" r="3"/><path d="M9 6h3a3 3 0 0 1 3 3v3m0 0v3a3 3 0 0 1-3 3H9"/></svg></button>
       <button class="icon-btn" id="proto-open" title="Daily Chronobiological Protocol (Life OS Routine)" aria-label="Daily Life Protocol"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></button>
       <button class="icon-btn" id="stats-open" title="Compendium Analytics & Insights" aria-label="Compendium Analytics"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"/><path d="M19 19H5V5h14v14z" stroke-linecap="round"/></svg></button>
       <a class="icon-btn" href="selfcheck.html" title="Take 2-Minute Life Health & Risk Audit" aria-label="Self-Audit Quiz"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></a>
@@ -555,6 +628,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     </div>
     <button class="btn-sm ghost" id="stats-open-side" type="button" style="margin-top:10px;font-size:12px">📊 Compendium Analytics</button>
     <button class="btn-sm ghost" id="proto-open-side" type="button" style="margin-top:6px;font-size:12px">📅 24-Hour Life Routine Protocol</button>
+    <button class="btn-sm ghost" id="tree-open-side" type="button" style="margin-top:6px;font-size:12px">🔀 Decision Trees & Flowcharts</button>
   </div>
   <div class="group" id="g-upd" hidden>
     <div class="gt">Recent Updates <small>Content revisions</small></div>
@@ -750,6 +824,66 @@ html.dark .hc-action{color:#1b1b1f!important}
         <button class="btn-sm" id="export-proto" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy 24-Hour Routine Checklist</button>
         <button class="btn-sm ghost" id="proto-close-btn" type="button" style="width:auto;padding:8px 16px;margin:0">Done</button>
         <p id="proto-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="tree-mask" hidden>
+  <div id="tree-box" role="dialog" aria-modal="true" aria-labelledby="tree-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="tree-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="12" r="3"/><path d="M9 6h3a3 3 0 0 1 3 3v3m0 0v3a3 3 0 0 1-3 3H9"/></svg> <span>Interactive Decision Trees & Emergency Flowcharts</span></div>
+      <button type="button" id="tree-x" aria-label="Close decision trees">✕</button>
+    </div>
+    <div class="stats-scroll">
+      <div class="stats-lead">Evidence-based decision trees for high-stakes medical emergencies, financial waterflows, legal rights, and cyber threats. Step through diagnoses interactively or inspect full visual flowcharts.</div>
+      <div class="tree-nav" id="tree-tabs" role="tablist"></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px">
+        <div class="tree-view-toggle">
+          <button type="button" class="tree-vbtn active" id="tv-guide">⚡ Interactive Guide</button>
+          <button type="button" class="tree-vbtn" id="tv-chart">📊 Full Visual Flowchart</button>
+        </div>
+        <div style="font-size:12px;color:var(--t3)" id="tree-badge-info"></div>
+      </div>
+      <div id="tree-content"></div>
+      <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn-sm" id="export-tree" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy Protocol Checklist</button>
+        <button class="btn-sm ghost" id="tree-reset-btn" type="button" style="width:auto;padding:8px 16px;margin:0">Restart Tree</button>
+        <button class="btn-sm ghost" id="tree-close-btn" type="button" style="width:auto;padding:8px 16px;margin:0">Close</button>
+        <p id="tree-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="snap-mask" hidden>
+  <div id="snap-box" role="dialog" aria-modal="true" aria-labelledby="snap-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="snap-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M4 4h3l2-2h6l2 2h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm8 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg> <span>Empirical Rule Visual Snapshot Generator</span></div>
+      <button type="button" id="snap-x" aria-label="Close snapshot generator">✕</button>
+    </div>
+    <div class="stats-scroll">
+      <div class="stats-lead">Generate an ultra-crisp, high-resolution social card for any rule in The Evidence-Based Life. Perfect for Twitter / X, LinkedIn, Instagram, WhatsApp, or study notes.</div>
+      <div class="snap-controls">
+        <span style="font-size:12px;font-weight:600;color:var(--t2)">Format:</span>
+        <button type="button" class="snap-theme-btn active" id="snap-ratio-169">16:9 Landscape</button>
+        <button type="button" class="snap-theme-btn" id="snap-ratio-11">1:1 Square</button>
+        <span style="font-size:12px;font-weight:600;color:var(--t2);margin-left:8px">Theme:</span>
+        <button type="button" class="snap-theme-btn active" id="snap-theme-midnight">🌌 Midnight</button>
+        <button type="button" class="snap-theme-btn" id="snap-theme-emerald">🌿 Emerald</button>
+        <button type="button" class="snap-theme-btn" id="snap-theme-slate">⚡ Slate</button>
+      </div>
+      <div class="snap-preview-wrap">
+        <canvas id="snap-canvas" width="1200" height="675"></canvas>
+      </div>
+      <div class="snap-actions">
+        <button class="btn-sm" id="snap-dl" type="button" style="width:auto;padding:8px 18px;background:var(--brand-1);color:#fff">📥 Download PNG</button>
+        <button class="btn-sm ghost" id="snap-copy" type="button" style="width:auto;padding:8px 16px;margin:0">📋 Copy Image to Clipboard</button>
+        <button class="btn-sm ghost" id="snap-share-x" type="button" style="width:auto;padding:8px 14px;margin:0">𝕏 Share on X</button>
+        <button class="btn-sm ghost" id="snap-share-wa" type="button" style="width:auto;padding:8px 14px;margin:0">💬 WhatsApp</button>
+        <button class="btn-sm ghost" id="snap-share-li" type="button" style="width:auto;padding:8px 14px;margin:0">💼 LinkedIn</button>
+        <button class="btn-sm ghost" id="snap-close-btn" type="button" style="width:auto;padding:8px 14px;margin:0">Done</button>
+        <p id="snap-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
       </div>
     </div>
   </div>
@@ -1225,7 +1359,7 @@ function build(sections){
       const isMastered = MASTERED.has(id);
       const c = document.createElement('article'); c.className='card' + (isMastered ? ' is-mastered' : ''); c.id = id;
       c.innerHTML = `
-        <div class="card-h"><span class="idx">${e.n}</span><h3 class="t"></h3><button class="btn-done${isMastered ? ' done' : ''}" type="button" data-done="${id}" aria-label="${isMastered ? 'Mark habit as unmastered' : 'Mark habit as implemented'}" title="${isMastered ? 'Implemented in my daily life (click to uncheck)' : 'Mark as implemented in my daily life'}">${isMastered ? '✓' : '○'}</button><button class="btn-save${isSaved ? ' saved' : ''}" type="button" data-save="${id}" aria-label="${isSaved ? 'Remove bookmark' : 'Bookmark rule'}" title="${isSaved ? 'Remove bookmark' : 'Bookmark rule'}">${isSaved ? '★' : '☆'}</button><button class="btn-share" type="button" data-share="${id}" aria-label="Share rule" title="Share rule"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/></svg></button><a class="anchor" href="#${id}" aria-label="Copy direct link to rule" title="Copy direct link to rule">#</a></div>
+        <div class="card-h"><span class="idx">${e.n}</span><h3 class="t"></h3><button class="btn-done${isMastered ? ' done' : ''}" type="button" data-done="${id}" aria-label="${isMastered ? 'Mark habit as unmastered' : 'Mark habit as implemented'}" title="${isMastered ? 'Implemented in my daily life (click to uncheck)' : 'Mark as implemented in my daily life'}">${isMastered ? '✓' : '○'}</button><button class="btn-save${isSaved ? ' saved' : ''}" type="button" data-save="${id}" aria-label="${isSaved ? 'Remove bookmark' : 'Bookmark rule'}" title="${isSaved ? 'Remove bookmark' : 'Bookmark rule'}">${isSaved ? '★' : '☆'}</button><button class="btn-share" type="button" data-share="${id}" aria-label="Share rule" title="Share rule"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/></svg></button><button class="btn-snap" type="button" data-snap="${id}" aria-label="Generate visual snapshot card" title="Generate shareable visual card (PNG)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h3l2-2h6l2 2h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm8 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg></button><a class="anchor" href="#${id}" aria-label="Copy direct link to rule" title="Copy direct link to rule">#</a></div>
         <div class="badges"></div>
         <p class="human"></p>
         <div class="rows">
@@ -1850,6 +1984,16 @@ function wire(){
         prompt('Share this rule:', clipText);
       }
     }
+
+    const snapBtn = e.target.closest('.btn-snap');
+    if (snapBtn) {
+      e.preventDefault();
+      const id = snapBtn.dataset.snap;
+      const cardEl = document.getElementById(id);
+      const card = CARD_OF.get(cardEl);
+      if (card) openSnapshotModal(card.e);
+      return;
+    }
   });
 }
 
@@ -2354,6 +2498,895 @@ PROTO.exportBtn?.addEventListener('click', async () => {
   } catch (err) {
     prompt('Copy your 24-Hour Protocol below:', md);
   }
+});
+
+/* ---------- Interactive Decision Trees & Emergency Flowcharts ---------- */
+const TREE_DATA = {
+  cpr: {
+    id: 'cpr',
+    name: '🚨 Adult CPR & Collapse',
+    rule: 'Ch 13.1, 13.2',
+    desc: 'Immediate action sequence for an unresponsive adult. High-quality chest compressions and early AED defibrillation determine survival.',
+    start: 'responsive',
+    nodes: {
+      responsive: {
+        type: 'decision',
+        q: 'Is the person responsive to touch and shouting?',
+        note: 'Tap both shoulders firmly and shout loudly: "Are you OK?". Check for any purposeful movement.',
+        choices: [
+          { label: '✅ Yes (Responsive)', next: 'conscious' },
+          { label: '❌ No (Unresponsive)', next: 'breathing', danger: true }
+        ]
+      },
+      conscious: {
+        type: 'action',
+        title: 'Conscious & Responsive Assessment',
+        severity: 'success',
+        body: 'Keep the person in a comfortable position. Monitor breathing and pulse. Assess for injuries or medical alert tags. Stay with them until fully stable or help arrives.',
+        ruleRef: '13-1',
+        ruleName: 'Ch 13.1: Emergency First Aid & ABC Assessment'
+      },
+      breathing: {
+        type: 'decision',
+        q: 'Are they breathing normally? (Check for 5–10 seconds)',
+        note: 'Look, listen, and feel for normal chest rise. CRITICAL: Agonal gasps, snoring, or irregular snorts do NOT count as normal breathing.',
+        choices: [
+          { label: '✅ Yes (Normal Breathing)', next: 'recovery' },
+          { label: '❌ No / Agonal Gasps Only', next: 'bystander', danger: true }
+        ]
+      },
+      recovery: {
+        type: 'action',
+        title: 'Place in Lateral Recovery Position',
+        severity: 'standard',
+        body: 'Roll victim onto their side with head tilted back to safeguard airway from tongue obstruction and vomit aspiration. Dial 911 / 112 / 999. Recheck breathing continuously every 60 seconds.',
+        ruleRef: '13-2',
+        ruleName: 'Ch 13.2: Airway Protection & Recovery Position'
+      },
+      bystander: {
+        type: 'decision',
+        q: 'Are you alone or is a bystander present?',
+        note: 'Simultaneous dispatcher contact and AED retrieval drastically increases out-of-hospital survival.',
+        choices: [
+          { label: '👥 With Bystander', next: 'act_bystander' },
+          { label: '👤 Alone', next: 'act_alone', danger: true }
+        ]
+      },
+      act_bystander: {
+        type: 'action',
+        title: 'Direct Bystander & Begin Hands-Only CPR',
+        severity: 'emergency',
+        body: 'Point firmly at a specific bystander: "You in the jacket, call 911 (or local emergency) and bring an AED right now!". Immediately place heel of hand on center of chest and compress at 100–120 bpm ("Stayin\' Alive" tempo), 5–6 cm (2–2.4 in) deep. Allow full recoil. Do not stop.',
+        ruleRef: '13-1',
+        ruleName: 'Ch 13.1: Immediate Chest Compressions & Bystander Dispatch'
+      },
+      act_alone: {
+        type: 'action',
+        title: 'Speakerphone Dispatch & Immediate CPR',
+        severity: 'emergency',
+        body: 'Place your mobile phone on speaker, dial 911/112/999 immediately. Start Hands-Only CPR on firm ground without delay (100–120 bpm, 5–6 cm depth). Follow dispatcher voice guidance and maintain compressions until EMS or AED arrives.',
+        ruleRef: '13-1',
+        ruleName: 'Ch 13.1: Continuous Hands-Only CPR Protocol'
+      }
+    }
+  },
+  choking: {
+    id: 'choking',
+    name: '🚨 Conscious Adult Choking',
+    rule: 'Ch 13.26',
+    desc: 'Protocol for severe airway foreign body obstruction in conscious adults and children over 1 year.',
+    start: 'cough_speak',
+    nodes: {
+      cough_speak: {
+        type: 'decision',
+        q: 'Can the choking person speak, cry, or cough forcefully?',
+        note: 'Ask directly: "Are you choking? Can you speak?" Look for universal distress sign (hands clutching throat).',
+        choices: [
+          { label: '✅ Yes (Forceful Cough)', next: 'encourage_cough' },
+          { label: '❌ No (Silent / Stridor / Weak)', next: 'back_blows', danger: true }
+        ]
+      },
+      encourage_cough: {
+        type: 'action',
+        title: 'Partial Obstruction: Encourage Coughing',
+        severity: 'success',
+        body: 'Do NOT slap the person\'s back while they are coughing forcefully! Natural coughing creates higher airway pressure than back blows. Slapping while coughing can wedge the object deeper. Stay beside them and monitor closely.',
+        ruleRef: '13-26',
+        ruleName: 'Ch 13.26: Foreign Body Airway Obstruction'
+      },
+      back_blows: {
+        type: 'decision',
+        q: 'Deliver 5 firm back blows between shoulder blades. Did the object dislodge?',
+        note: 'Support their upper chest with one hand, bend them forward at the waist so the object falls forward out of the mouth. Deliver up to 5 sharp blows with heel of your palm.',
+        choices: [
+          { label: '✅ Yes (Object Dislodged)', next: 'resolved' },
+          { label: '❌ No (Still Obstructed)', next: 'abdominal_thrusts', danger: true }
+        ]
+      },
+      abdominal_thrusts: {
+        type: 'decision',
+        q: 'Deliver 5 abdominal thrusts (Heimlich maneuver). Did the object dislodge?',
+        note: 'Stand behind victim, place thumb-side of your fist just above the navel. Grasp fist with your other hand and pull sharply inward and upward. (For pregnant or obese victims, perform chest thrusts over sternum).',
+        choices: [
+          { label: '✅ Yes (Object Dislodged)', next: 'resolved' },
+          { label: '❌ No (Still Choking)', next: 'status_check', danger: true }
+        ]
+      },
+      resolved: {
+        type: 'action',
+        title: 'Airway Cleared Successfully',
+        severity: 'success',
+        body: 'The obstruction has cleared. Have the victim sit down and rest. Even if feeling well, recommend a clinical evaluation to inspect for potential internal laryngeal or abdominal wall injury.',
+        ruleRef: '13-26',
+        ruleName: 'Ch 13.26: Post-Choking Clinical Evaluation'
+      },
+      status_check: {
+        type: 'decision',
+        q: 'Is the person still conscious or did they collapse?',
+        note: 'Rapid cerebral hypoxia can lead to loss of consciousness within 60–90 seconds of total airway occlusion.',
+        choices: [
+          { label: 'Conscious: Repeat 5 + 5', next: 'back_blows' },
+          { label: 'Collapsed / Unconscious', next: 'unconscious_cpr', danger: true }
+        ]
+      },
+      unconscious_cpr: {
+        type: 'action',
+        title: 'Unconscious Choking Victim: Immediate CPR',
+        severity: 'emergency',
+        body: 'Lower victim gently to the floor. Call 911 / 112 / 999 immediately. Begin chest compressions (30 compressions at 100–120 bpm). Open mouth and look inside before rescue breaths: remove the object ONLY if clearly visible. NEVER perform a blind finger sweep (it can push the object deeper into the vocal cords). Continue CPR until medical help takes over.',
+        ruleRef: '13-26',
+        ruleName: 'Ch 13.26: Unconscious Airway CPR Protocol'
+      }
+    }
+  },
+  bleeding: {
+    id: 'bleeding',
+    name: '🚨 Severe Arterial Bleeding',
+    rule: 'Ch 13.12',
+    desc: 'Life-saving protocol for catastrophic external hemorrhage. Direct pressure, wound packing, and tourniquet application.',
+    start: 'bleed_rate',
+    nodes: {
+      bleed_rate: {
+        type: 'decision',
+        q: 'Is blood spurting, pulsating, or rapidly pooling on the ground?',
+        note: 'Massive arterial hemorrhage can lead to irreversible hypovolemic shock in under 3 minutes.',
+        choices: [
+          { label: '⚠️ Yes (Life-Threatening Arterial Bleed)', next: 'direct_pressure', danger: true },
+          { label: 'Minor / Venous Oozing', next: 'minor_bleeding' }
+        ]
+      },
+      minor_bleeding: {
+        type: 'action',
+        title: 'Standard Direct Pressure & Dressing',
+        severity: 'standard',
+        body: 'Apply direct pressure with sterile gauze or clean cloth for 5–10 minutes. Clean with potable water, apply antibiotic ointment or clean dressing, and elevate if appropriate.',
+        ruleRef: '13-12',
+        ruleName: 'Ch 13.12: Minor Wound Care & Hemostasis'
+      },
+      direct_pressure: {
+        type: 'decision',
+        q: 'Apply immediate two-handed direct manual pressure with body weight. Did bleeding stop?',
+        note: 'Use cleanest cloth available. Press both hands directly over the wound source and lean your upper body weight down with locked elbows.',
+        choices: [
+          { label: '✅ Yes (Bleeding Controlled)', next: 'controlled_dressing' },
+          { label: '❌ No (Bleeding Continues)', next: 'wound_site', danger: true }
+        ]
+      },
+      controlled_dressing: {
+        type: 'action',
+        title: 'Apply Snug Pressure Dressing',
+        severity: 'success',
+        body: 'Keep pressure continuous. Wrap a firm elastic pressure bandage directly over the gauze. Do not remove original gauze if soaked; add layers on top. Monitor for signs of shock (pallor, rapid weak pulse, cold clammy skin).',
+        ruleRef: '13-12',
+        ruleName: 'Ch 13.12: Pressure Dressing Application'
+      },
+      wound_site: {
+        type: 'decision',
+        q: 'Where is the severe bleeding located?',
+        note: 'Tourniquets are strictly indicated for limbs (arms and legs). Junctional areas require direct wound packing.',
+        choices: [
+          { label: 'Limbs (Arm or Leg)', next: 'act_tourniquet' },
+          { label: 'Junctional (Groin, Neck, Armpit)', next: 'act_packing', danger: true }
+        ]
+      },
+      act_tourniquet: {
+        type: 'action',
+        title: 'Apply Windlass Tourniquet 2–3" Above Wound',
+        severity: 'emergency',
+        body: 'Apply a commercial windlass tourniquet (CAT/SOF-TT) 2 to 3 inches above the bleeding site (never directly over a joint). Turn the windlass rod until bright red bleeding completely stops and distal pulse vanishes. Lock the windlass in the clip. Write the exact application time on the strap (e.g., "TIME: 14:45"). Call 911 / 112. NEVER loosen or remove a tourniquet once placed!',
+        ruleRef: '13-12',
+        ruleName: 'Ch 13.12: Tourniquet Hemostasis Protocol'
+      },
+      act_packing: {
+        type: 'action',
+        title: 'Wound Packing with Hemostatic / Plain Gauze',
+        severity: 'emergency',
+        body: 'Tourniquets cannot be used on neck, armpits, or groin. Firmly pack hemostatic gauze (QuikClot, Celox) or plain gauze tightly into the wound cavity directly against the bleeding vessel until completely full. Apply hard direct manual pressure over the packed wound for at least 3 uninterrupted minutes. Maintain continuous pressure until emergency surgeons arrive.',
+        ruleRef: '13-12',
+        ruleName: 'Ch 13.12: Junctional Hemostatic Packing'
+      }
+    }
+  },
+  finance: {
+    id: 'finance',
+    name: '💰 Financial Order of Operations',
+    rule: 'Ch 5.7, 5.17, 5.20, 5.27',
+    desc: 'Empirically verified waterfall for debt, emergency buffers, retirement accounts, and index fund investing.',
+    start: 'starter_fund',
+    nodes: {
+      starter_fund: {
+        type: 'decision',
+        q: 'Do you have a starter emergency buffer of $1,000–$2,000 (or 1 month expenses)?',
+        note: 'A small liquid cash cushion prevents small unexpected car or health repairs from plunging you into predatory high-interest debt.',
+        choices: [
+          { label: 'No (Need Starter Buffer)', next: 'act_starter', danger: true },
+          { label: 'Yes (Buffer in Place)', next: 'employer_match' }
+        ]
+      },
+      act_starter: {
+        type: 'action',
+        title: 'Build $1,000–$2,000 Liquid Buffer',
+        severity: 'standard',
+        body: 'Pause all non-essential investing. Keep $1,000–$2,000 in a High-Yield Savings Account (HYSA). Audit monthly recurring charges and cancel all non-essential auto-renewals (Ch 5.1).',
+        ruleRef: '5-27',
+        ruleName: 'Ch 5.27: Emergency Fund Fundamentals'
+      },
+      employer_match: {
+        type: 'decision',
+        q: 'Does your employer offer a 401(k) / retirement match, and is it 100% captured?',
+        note: 'An employer match offers an immediate 50% to 100% guaranteed, risk-free return on your investment.',
+        choices: [
+          { label: 'No / Uncaptured Match', next: 'act_match', danger: true },
+          { label: 'Yes / 100% Captured (or No Match)', next: 'high_interest_debt' }
+        ]
+      },
+      act_match: {
+        type: 'action',
+        title: 'Capture 100% of Employer Match',
+        severity: 'success',
+        body: 'Adjust payroll deduction to contribute the exact percentage needed to capture the maximum employer match. Leaving this on the table is forfeiting earned statutory compensation.',
+        ruleRef: '5-20',
+        ruleName: 'Ch 5.20: Retirement Accounts & Employer Contributions'
+      },
+      high_interest_debt: {
+        type: 'decision',
+        q: 'Do you carry high-interest debt with APR > 7% (credit cards, consumer loans)?',
+        note: 'Credit card interest rates (>20% APR) mathematically erode wealth faster than index funds compound. Paying off 20% debt is mathematically identical to a risk-free 20% return.',
+        choices: [
+          { label: 'Yes (Carrying High APR Debt)', next: 'act_debt', danger: true },
+          { label: 'No (Debt Free or <7% Mortgages)', next: 'full_emergency' }
+        ]
+      },
+      act_debt: {
+        type: 'action',
+        title: 'Execute Debt Avalanche (>7% APR)',
+        severity: 'emergency',
+        body: 'List all debts by interest rate. Direct every available dollar toward the highest APR balance while paying minimums on others. Never make only minimum payments on revolving credit cards (Ch 5.7).',
+        ruleRef: '5-7',
+        ruleName: 'Ch 5.7: Consumer Debt & Installment Avoidance'
+      },
+      full_emergency: {
+        type: 'decision',
+        q: 'Do you have 3 to 6 months of non-discretionary expenses in liquid cash?',
+        note: 'Protects against sudden job loss, recessions, or family emergencies without being forced to liquidate equities during market downturns.',
+        choices: [
+          { label: 'No (Under 3 Months)', next: 'act_full_reserve' },
+          { label: 'Yes (Fully Funded)', next: 'act_index_investing' }
+        ]
+      },
+      act_full_reserve: {
+        type: 'action',
+        title: 'Fund 3–6 Month Living Expense Reserve',
+        severity: 'standard',
+        body: 'Keep 3 to 6 months of essential living costs (rent, groceries, utilities, debt minimums) in an FDIC/SIPC-insured High-Yield Savings Account or government money market fund (Ch 5.27).',
+        ruleRef: '5-27',
+        ruleName: 'Ch 5.27: 3–6 Month Emergency Buffer'
+      },
+      act_index_investing: {
+        type: 'action',
+        title: 'Invest Surplus in Low-Cost Broad-Market Index Funds',
+        severity: 'success',
+        body: 'Automate monthly dollar-cost averaging into broad-market index funds (total world stock VT, S&P 500) inside tax-advantaged accounts (Roth IRA, HSA, 401k ceiling) and taxable brokerage. Maintain expense ratios below 0.10%. Never attempt short-term market timing or stock-picking (Ch 5.17, 5.18).',
+        ruleRef: '5-17',
+        ruleName: 'Ch 5.17: Broad-Market Low-Cost Index Funds'
+      }
+    }
+  },
+  workplace: {
+    id: 'workplace',
+    name: '💼 Wage Theft & Severance Rights',
+    rule: 'Ch 19.1, 19.4, 19.7, 19.8',
+    desc: 'Statutory protection protocol for unpaid overtime, retaliatory termination, and severance negotiation.',
+    start: 'it_access',
+    nodes: {
+      it_access: {
+        type: 'decision',
+        q: 'Do you currently still have access to your work computer and corporate accounts?',
+        note: 'Employers routinely terminate corporate email and messaging credentials immediately upon dispute or discharge.',
+        choices: [
+          { label: 'Yes (Still Have Access)', next: 'act_preserve_records' },
+          { label: 'No (Access Already Cut)', next: 'severance_status' }
+        ]
+      },
+      act_preserve_records: {
+        type: 'action',
+        title: 'Preserve Contemporaneous Records Immediately',
+        severity: 'emergency',
+        body: 'Export copies of your employment contract, offer letter, pay stubs, timesheets, written performance reviews, and email paper trails to a personal offsite device (Ch 19.8). Do NOT copy employer trade secrets, proprietary code, or confidential customer lists.',
+        ruleRef: '19-8',
+        ruleName: 'Ch 19.8: Contemporaneous Record Preservation'
+      },
+      severance_status: {
+        type: 'decision',
+        q: 'Were you presented with a severance agreement or release waiver to sign?',
+        note: 'Never sign a separation agreement or release on the day it is presented. Statutory review windows protect your rights.',
+        choices: [
+          { label: 'Yes (Offered Severance / Waiver)', next: 'act_severance_review', danger: true },
+          { label: 'No (Unpaid Wages / Overtime Dispute)', next: 'act_wage_claim' }
+        ]
+      },
+      act_severance_review: {
+        type: 'action',
+        title: 'Do Not Sign on the Spot — Exercise Statutory Review',
+        severity: 'standard',
+        body: 'Never sign a "voluntary resignation" form (Ch 19.7), which forfeits unemployment benefits. Under statutory rules (e.g. OWBPA in the US or statutory standard N in other jurisdictions), employees often have a 21-day review period and a 7-day revocation window. Earned wages cannot be waived. Calculate statutory severance (N months per years of service + 1 month notice) (Ch 19.4, 19.5).',
+        ruleRef: '19-7',
+        ruleName: 'Ch 19.7: Preserving Rights & Severance Terms'
+      },
+      act_wage_claim: {
+        type: 'action',
+        title: 'File Formal Statutory Demand & Labor Board Claim',
+        severity: 'standard',
+        body: 'Send a formal written demand letter to HR/Payroll specifying exact unpaid hours, statutory overtime multipliers (1.5×, 2×, 3× regular rate), and pay period dates (Ch 19.1). If unpaid after 7 business days, file a formal complaint with the Department of Labor / Labor Standards Bureau. Statutory penalty damages double or triple the award at zero legal cost.',
+        ruleRef: '19-1',
+        ruleName: 'Ch 19.1: Overtime Multipliers & Statutory Penalties'
+      }
+    }
+  },
+  cyber: {
+    id: 'cyber',
+    name: '🛡️ Cyber Breach & Identity Defense',
+    rule: 'Ch 8.2, 8.9, 23',
+    desc: 'Rapid countermeasure sequence for credential leaks, identity theft, and fraudulent financial transfers.',
+    start: 'breach_kind',
+    nodes: {
+      breach_kind: {
+        type: 'decision',
+        q: 'What is the nature of the cyber security emergency?',
+        note: 'Different attacks require immediate containment actions within the first 1 to 48 hours.',
+        choices: [
+          { label: 'Identity / SSN / Loan Fraud', next: 'act_credit_freeze' },
+          { label: 'Account Compromise / Password Leak', next: 'act_session_kill' },
+          { label: 'Unauthorized Wire Transfer (<48 hrs)', next: 'act_wire_stop', danger: true }
+        ]
+      },
+      act_credit_freeze: {
+        type: 'action',
+        title: 'Immediate Credit Bureau Freeze (Experian, TransUnion, Equifax)',
+        severity: 'emergency',
+        body: 'Freeze your credit reports at all three major credit bureaus immediately. By federal statute (Economic Growth Act), freezing and unfreezing is 100% free and does not impact your credit score. This legally blocks identity thieves from opening new credit cards, personal loans, or cell plans in your name (Ch 8.9).',
+        ruleRef: '8-9',
+        ruleName: 'Ch 8.9: Statutory Credit Freezes & Monitoring'
+      },
+      act_session_kill: {
+        type: 'action',
+        title: 'Kill Active Sessions & Rotate Master Passwords',
+        severity: 'standard',
+        body: 'In your primary email account, trigger "Sign out of all other sessions / devices". Use an open-source password manager (Bitwarden) to generate unique 20+ character random master passwords. Eliminate vulnerable SMS 2FA; switch exclusively to Authenticator apps (TOTP) or hardware security keys (YubiKey/FIDO2).',
+        ruleRef: '8-3',
+        ruleName: 'Ch 8.3: Password Security & 2FA Enforcement'
+      },
+      act_wire_stop: {
+        type: 'action',
+        title: 'Golden Window Wire Recall & Police Cyber Hotline',
+        severity: 'emergency',
+        body: 'TIME IS CRITICAL: Immediately call your financial institution\'s wire / ACH fraud department and request an immediate SWIFT/Fedwire recall. Simultaneously dial the emergency anti-fraud hotline (1930 in India, 96110 in China, IC3.gov / local police in US/UK) with exact sender/receiver account numbers and transaction IDs to request an administrative account freeze before funds are laundered (Ch 8.2).',
+        ruleRef: '8-2',
+        ruleName: 'Ch 8.2: Emergency Wire Stop-Payment & Reporting'
+      }
+    }
+  }
+};
+
+let curTreeId = 'cpr';
+let curTreeNode = 'responsive';
+let curTreeMode = 'guide';
+let treeHistory = ['responsive'];
+
+const TREE_UI = {
+  mask: document.getElementById('tree-mask'),
+  tabs: document.getElementById('tree-tabs'),
+  content: document.getElementById('tree-content'),
+  badgeInfo: document.getElementById('tree-badge-info'),
+  openBtn: document.getElementById('tree-open'),
+  sideBtn: document.getElementById('tree-open-side'),
+  closeBtn: document.getElementById('tree-x'),
+  doneBtn: document.getElementById('tree-close-btn'),
+  resetBtn: document.getElementById('tree-reset-btn'),
+  exportBtn: document.getElementById('export-tree'),
+  msg: document.getElementById('tree-copy-msg'),
+  tvGuide: document.getElementById('tv-guide'),
+  tvChart: document.getElementById('tv-chart')
+};
+
+function renderTreeTabs(){
+  if (!TREE_UI.tabs) return;
+  let h = '';
+  for (const [key, t] of Object.entries(TREE_DATA)){
+    h += `<button type="button" class="tree-tab${key === curTreeId ? ' active' : ''}" data-tree="${key}">${t.name}</button>`;
+  }
+  TREE_UI.tabs.innerHTML = h;
+}
+
+function renderTreeContent(){
+  if (!TREE_UI.content) return;
+  const tree = TREE_DATA[curTreeId];
+  if (!tree) return;
+  if (TREE_UI.badgeInfo) TREE_UI.badgeInfo.textContent = `${tree.rule} · ${Object.keys(tree.nodes).length} diagnostic steps`;
+
+  if (curTreeMode === 'guide'){
+    const node = tree.nodes[curTreeNode] || tree.nodes[tree.start];
+    if (node.type === 'decision'){
+      const trail = treeHistory.map((nid, idx) => `Step ${idx + 1}`).join(' → ');
+      let choicesHtml = '';
+      for (const c of node.choices){
+        choicesHtml += `<button type="button" class="guide-choice ${c.danger ? 'danger' : 'primary'}" data-next="${c.next}">${c.label}</button>`;
+      }
+      TREE_UI.content.innerHTML = `
+        <div class="guide-card">
+          <div class="guide-trail">${trail}</div>
+          <div class="guide-q">${node.q}</div>
+          <div class="guide-note">${node.note}</div>
+          <div class="guide-choices">${choicesHtml}</div>
+          ${treeHistory.length > 1 ? '<button type="button" class="btn-sm ghost" id="tree-back-step" style="width:auto;padding:4px 12px;margin-top:14px;font-size:12px">← Back to previous step</button>' : ''}
+        </div>
+      `;
+    } else if (node.type === 'action'){
+      TREE_UI.content.innerHTML = `
+        <div class="guide-action ${node.severity || 'standard'}">
+          <div class="guide-action-h"><span>${node.severity === 'emergency' ? '🚨' : (node.severity === 'success' ? '✅' : '📋')}</span> <span>${node.title}</span></div>
+          <div class="guide-action-body">${node.body}</div>
+          <div><a href="#e-${node.ruleRef}" class="guide-action-ref" data-jump="${node.ruleRef}">📖 Read full rule in Handbook [${node.ruleName}] →</a></div>
+        </div>
+        ${treeHistory.length > 1 ? '<button type="button" class="btn-sm ghost" id="tree-back-step" style="width:auto;padding:6px 14px;margin-top:8px">← Back to previous question</button>' : ''}
+      `;
+    }
+  } else {
+    let h = `<div class="flowchart-wrap"><div class="flowchart-tree">`;
+    h += `<div style="text-align:center;margin-bottom:12px"><div style="font-size:15px;font-weight:700;color:var(--t1)">${tree.name}</div><div style="font-size:12.5px;color:var(--t2);max-width:560px;margin:4px auto 0">${tree.desc}</div></div>`;
+    
+    for (const [nid, node] of Object.entries(tree.nodes)){
+      if (node.type === 'decision'){
+        h += `<div class="fc-node decision"><b>?</b> ${node.q}</div><div class="fc-arrow">↓</div><div class="fc-branches">`;
+        for (const c of node.choices){
+          const target = tree.nodes[c.next];
+          const isAct = target && target.type === 'action';
+          h += `<div class="fc-branch">
+            <span class="fc-branch-lbl">${c.label.replace(/^[^\w\s]+/, '').trim()}</span>
+            <div class="fc-arrow">↓</div>
+            ${isAct ? `<div class="fc-node ${target.severity || 'action'}"><b>${target.title}</b><p style="margin:4px 0 6px;font-size:12px">${target.body.slice(0, 110)}…</p><a href="#e-${target.ruleRef}" class="guide-action-ref" data-jump="${target.ruleRef}" style="font-size:11.5px">📖 View [${target.ruleRef}] →</a></div>` : `<div class="fc-node decision" style="font-size:12px">${target ? target.q : c.next}</div>`}
+          </div>`;
+        }
+        h += `</div><div style="height:12px"></div>`;
+      }
+    }
+    h += `</div></div>`;
+    TREE_UI.content.innerHTML = h;
+  }
+}
+
+function treeOpen(treeId){
+  if (!TREE_UI.mask) return;
+  if (treeId && TREE_DATA[treeId]) curTreeId = treeId;
+  const tree = TREE_DATA[curTreeId];
+  curTreeNode = tree.start;
+  treeHistory = [curTreeNode];
+  renderTreeTabs();
+  renderTreeContent();
+  TREE_UI.mask.hidden = false;
+  TREE_UI.closeBtn?.focus();
+  if (window.gtag) gtag('event', 'decision_tree_open', { tree: curTreeId });
+}
+
+function treeClose(){
+  if (!TREE_UI.mask || TREE_UI.mask.hidden) return;
+  TREE_UI.mask.hidden = true;
+  TREE_UI.openBtn?.focus();
+}
+
+TREE_UI.openBtn?.addEventListener('click', () => treeOpen());
+TREE_UI.sideBtn?.addEventListener('click', () => treeOpen());
+TREE_UI.closeBtn?.addEventListener('click', treeClose);
+TREE_UI.doneBtn?.addEventListener('click', treeClose);
+TREE_UI.resetBtn?.addEventListener('click', () => {
+  const tree = TREE_DATA[curTreeId];
+  curTreeNode = tree.start;
+  treeHistory = [curTreeNode];
+  renderTreeContent();
+});
+TREE_UI.mask?.addEventListener('click', ev => { if (ev.target === TREE_UI.mask) treeClose(); });
+document.addEventListener('keydown', ev => { if (ev.key === 'Escape' && TREE_UI.mask && !TREE_UI.mask.hidden){ ev.stopPropagation(); treeClose(); } }, true);
+
+TREE_UI.tabs?.addEventListener('click', ev => {
+  const tab = ev.target.closest('.tree-tab');
+  if (!tab) return;
+  const tid = tab.dataset.tree;
+  if (tid && TREE_DATA[tid]){
+    curTreeId = tid;
+    const tree = TREE_DATA[curTreeId];
+    curTreeNode = tree.start;
+    treeHistory = [curTreeNode];
+    renderTreeTabs();
+    renderTreeContent();
+  }
+});
+
+TREE_UI.tvGuide?.addEventListener('click', () => {
+  curTreeMode = 'guide';
+  TREE_UI.tvGuide.classList.add('active');
+  TREE_UI.tvChart.classList.remove('active');
+  renderTreeContent();
+});
+
+TREE_UI.tvChart?.addEventListener('click', () => {
+  curTreeMode = 'chart';
+  TREE_UI.tvChart.classList.add('active');
+  TREE_UI.tvGuide.classList.remove('active');
+  renderTreeContent();
+});
+
+TREE_UI.content?.addEventListener('click', ev => {
+  const choiceBtn = ev.target.closest('.guide-choice[data-next]');
+  if (choiceBtn){
+    const next = choiceBtn.dataset.next;
+    const tree = TREE_DATA[curTreeId];
+    if (next && tree.nodes[next]){
+      curTreeNode = next;
+      treeHistory.push(curTreeNode);
+      renderTreeContent();
+    }
+    return;
+  }
+  const backBtn = ev.target.closest('#tree-back-step');
+  if (backBtn){
+    if (treeHistory.length > 1){
+      treeHistory.pop();
+      curTreeNode = treeHistory[treeHistory.length - 1];
+      renderTreeContent();
+    }
+    return;
+  }
+  const jumpLink = ev.target.closest('[data-jump]');
+  if (jumpLink){
+    ev.preventDefault();
+    const jumpKey = jumpLink.dataset.jump;
+    treeClose();
+    gotoItem(jumpKey);
+  }
+});
+
+TREE_UI.exportBtn?.addEventListener('click', async () => {
+  const tree = TREE_DATA[curTreeId];
+  let md = `# Decision Tree Protocol: ${tree.name}\n\nReference: ${tree.rule}\nDescription: ${tree.desc}\n\n`;
+  for (const [nid, node] of Object.entries(tree.nodes)){
+    if (node.type === 'decision'){
+      md += `### [Step: ${nid}] ${node.q}\n> ${node.note}\n`;
+      for (const c of node.choices) md += `- ${c.label} ➔ ${c.next}\n`;
+      md += '\n';
+    } else if (node.type === 'action'){
+      md += `### [Action: ${node.title}]\n${node.body}\n- **Rule Link**: https://parveen0029.github.io/The-Evidence-Based-Life/#e-${node.ruleRef}\n\n`;
+    }
+  }
+  try {
+    await navigator.clipboard.writeText(md);
+    if (TREE_UI.msg){
+      TREE_UI.msg.textContent = '✓ Decision tree protocol checklist copied to clipboard!';
+      TREE_UI.msg.hidden = false;
+      setTimeout(() => { TREE_UI.msg.hidden = true; }, 3000);
+    }
+  } catch (err) {
+    prompt('Copy your decision tree protocol below:', md);
+  }
+});
+
+/* ---------- Viral Rule Visual Snapshot Generator ---------- */
+const SNAP_UI = {
+  mask: document.getElementById('snap-mask'),
+  canvas: document.getElementById('snap-canvas'),
+  closeBtn: document.getElementById('snap-x'),
+  doneBtn: document.getElementById('snap-close-btn'),
+  dlBtn: document.getElementById('snap-dl'),
+  copyBtn: document.getElementById('snap-copy'),
+  shareX: document.getElementById('snap-share-x'),
+  shareWa: document.getElementById('snap-share-wa'),
+  shareLi: document.getElementById('snap-share-li'),
+  msg: document.getElementById('snap-copy-msg'),
+  ratio169: document.getElementById('snap-ratio-169'),
+  ratio11: document.getElementById('snap-ratio-11'),
+  themeMidnight: document.getElementById('snap-theme-midnight'),
+  themeEmerald: document.getElementById('snap-theme-emerald'),
+  themeSlate: document.getElementById('snap-theme-slate')
+};
+
+let snapRule = null;
+let snapRatio = '16:9';
+let snapTheme = 'midnight';
+
+function wrapCanvasText(ctx, text, maxWidth){
+  const words = (text || '').split(' ');
+  const lines = [];
+  let cur = '';
+  for (const w of words){
+    const test = cur ? cur + ' ' + w : w;
+    if (ctx.measureText(test).width > maxWidth && cur){
+      lines.push(cur);
+      cur = w;
+    } else {
+      cur = test;
+    }
+  }
+  if (cur) lines.push(cur);
+  return lines;
+}
+
+function drawSnapshot(){
+  if (!SNAP_UI.canvas || !snapRule) return;
+  const canvas = SNAP_UI.canvas;
+  const is169 = snapRatio === '16:9';
+  const W = is169 ? 1200 : 1080;
+  const H = is169 ? 675 : 1080;
+  canvas.width = W;
+  canvas.height = H;
+  const ctx = canvas.getContext('2d');
+
+  let bgGrad = ctx.createLinearGradient(0, 0, W, H);
+  let accentColor = '#38bdf8';
+  let badgeBg = 'rgba(56, 189, 248, 0.15)';
+  if (snapTheme === 'emerald'){
+    bgGrad.addColorStop(0, '#062d22');
+    bgGrad.addColorStop(1, '#0f172a');
+    accentColor = '#34d399';
+    badgeBg = 'rgba(52, 211, 153, 0.18)';
+  } else if (snapTheme === 'slate'){
+    bgGrad.addColorStop(0, '#18181b');
+    bgGrad.addColorStop(1, '#27272a');
+    accentColor = '#fbbf24';
+    badgeBg = 'rgba(251, 191, 36, 0.18)';
+  } else {
+    bgGrad.addColorStop(0, '#0a0f1d');
+    bgGrad.addColorStop(1, '#1e1b4b');
+    accentColor = '#818cf8';
+    badgeBg = 'rgba(129, 140, 248, 0.18)';
+  }
+  ctx.fillStyle = bgGrad;
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+  ctx.lineWidth = 2;
+  if (ctx.roundRect) {
+    ctx.beginPath();
+    ctx.roundRect(24, 24, W - 48, H - 48, 16);
+    ctx.stroke();
+  } else {
+    ctx.strokeRect(24, 24, W - 48, H - 48);
+  }
+
+  ctx.fillStyle = accentColor;
+  ctx.font = 'bold 18px ui-sans-serif, system-ui, -apple-system, sans-serif';
+  ctx.fillText('THE EVIDENCE-BASED LIFE', 64, 80);
+
+  const chTag = `CHAPTER ${snapRule.sec} · RULE ${snapRule.sec}.${snapRule.n}`;
+  ctx.font = '600 15px ui-sans-serif, system-ui, sans-serif';
+  const tagW = ctx.measureText(chTag).width + 24;
+  ctx.fillStyle = badgeBg;
+  if (ctx.roundRect) {
+    ctx.beginPath();
+    ctx.roundRect(W - 64 - tagW, 60, tagW, 30, 15);
+    ctx.fill();
+  } else {
+    ctx.fillRect(W - 64 - tagW, 60, tagW, 30);
+  }
+  ctx.fillStyle = '#ffffff';
+  ctx.fillText(chTag, W - 64 - tagW + 12, 81);
+
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+  ctx.beginPath();
+  ctx.moveTo(64, 110);
+  ctx.lineTo(W - 64, 110);
+  ctx.stroke();
+
+  ctx.fillStyle = '#ffffff';
+  const titleSize = is169 ? 34 : 40;
+  ctx.font = `bold ${titleSize}px ui-sans-serif, system-ui, -apple-system, sans-serif`;
+  const titleLines = wrapCanvasText(ctx, snapRule.title, W - 128);
+  let y = is169 ? 170 : 200;
+  const maxTitleLines = is169 ? 3 : 4;
+  for (let i = 0; i < Math.min(titleLines.length, maxTitleLines); i++){
+    ctx.fillText(titleLines[i], 64, y);
+    y += titleSize * 1.35;
+  }
+
+  y += 18;
+  const badges = [
+    { label: `Grade ${snapRule.grade} Evidence`, bg: snapRule.grade === 'A' ? '#059669' : (snapRule.grade === 'B' ? '#d97706' : '#4b5563') },
+    { label: `ROI: ${snapRule.ratio || 'High'}`, bg: '#4338ca' },
+    { label: `Cost: ${snapRule.cost ? snapRule.cost.split(' ')[0] : '$0'}`, bg: '#374151' }
+  ];
+  let badgeX = 64;
+  for (const b of badges){
+    ctx.font = 'bold 15px ui-sans-serif, system-ui, sans-serif';
+    const bw = ctx.measureText(b.label).width + 24;
+    ctx.fillStyle = b.bg;
+    if (ctx.roundRect){
+      ctx.beginPath();
+      ctx.roundRect(badgeX, y, bw, 32, 8);
+      ctx.fill();
+    } else {
+      ctx.fillRect(badgeX, y, bw, 32);
+    }
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText(b.label, badgeX + 12, y + 21);
+    badgeX += bw + 12;
+  }
+
+  y += 65;
+  const quoteText = snapRule.human || snapRule.gain || snapRule.title;
+  if (quoteText){
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.04)';
+    const blockH = is169 ? (H - y - 110) : Math.min(320, H - y - 130);
+    if (ctx.roundRect){
+      ctx.beginPath();
+      ctx.roundRect(64, y, W - 128, blockH, 12);
+      ctx.fill();
+    } else {
+      ctx.fillRect(64, y, W - 128, blockH);
+    }
+
+    ctx.fillStyle = accentColor;
+    ctx.fillRect(64, y, 5, blockH);
+
+    ctx.fillStyle = '#e2e8f0';
+    const quoteSize = is169 ? 21 : 24;
+    ctx.font = `italic ${quoteSize}px ui-sans-serif, system-ui, sans-serif`;
+    const quoteLines = wrapCanvasText(ctx, `“${quoteText}”`, W - 170);
+    let qy = y + 42;
+    const maxQLines = is169 ? 4 : 7;
+    for (let i = 0; i < Math.min(quoteLines.length, maxQLines); i++){
+      ctx.fillText(quoteLines[i], 90, qy);
+      qy += quoteSize * 1.5;
+    }
+  }
+
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+  ctx.beginPath();
+  ctx.moveTo(64, H - 65);
+  ctx.lineTo(W - 64, H - 65);
+  ctx.stroke();
+
+  ctx.fillStyle = '#94a3b8';
+  ctx.font = '500 15px ui-sans-serif, system-ui, sans-serif';
+  ctx.fillText('parveen0029.github.io/The-Evidence-Based-Life', 64, H - 35);
+
+  const rightText = '765 Empirical Rules Ranked by ROI · Free & Open-Source';
+  const rw = ctx.measureText(rightText).width;
+  ctx.fillText(rightText, W - 64 - rw, H - 35);
+}
+
+function openSnapshotModal(rule){
+  if (!SNAP_UI.mask || !rule) return;
+  snapRule = rule;
+  SNAP_UI.mask.hidden = false;
+  drawSnapshot();
+  SNAP_UI.closeBtn?.focus();
+  if (window.gtag) gtag('event', 'snapshot_modal_open', { rule: `${rule.sec}.${rule.n}` });
+}
+
+function snapClose(){
+  if (!SNAP_UI.mask || SNAP_UI.mask.hidden) return;
+  SNAP_UI.mask.hidden = true;
+}
+
+SNAP_UI.closeBtn?.addEventListener('click', snapClose);
+SNAP_UI.doneBtn?.addEventListener('click', snapClose);
+SNAP_UI.mask?.addEventListener('click', ev => { if (ev.target === SNAP_UI.mask) snapClose(); });
+document.addEventListener('keydown', ev => { if (ev.key === 'Escape' && SNAP_UI.mask && !SNAP_UI.mask.hidden){ ev.stopPropagation(); snapClose(); } }, true);
+
+SNAP_UI.ratio169?.addEventListener('click', () => {
+  snapRatio = '16:9';
+  SNAP_UI.ratio169.classList.add('active');
+  SNAP_UI.ratio11.classList.remove('active');
+  drawSnapshot();
+});
+
+SNAP_UI.ratio11?.addEventListener('click', () => {
+  snapRatio = '1:1';
+  SNAP_UI.ratio11.classList.add('active');
+  SNAP_UI.ratio169.classList.remove('active');
+  drawSnapshot();
+});
+
+SNAP_UI.themeMidnight?.addEventListener('click', () => {
+  snapTheme = 'midnight';
+  SNAP_UI.themeMidnight.classList.add('active');
+  SNAP_UI.themeEmerald.classList.remove('active');
+  SNAP_UI.themeSlate.classList.remove('active');
+  drawSnapshot();
+});
+
+SNAP_UI.themeEmerald?.addEventListener('click', () => {
+  snapTheme = 'emerald';
+  SNAP_UI.themeEmerald.classList.add('active');
+  SNAP_UI.themeMidnight.classList.remove('active');
+  SNAP_UI.themeSlate.classList.remove('active');
+  drawSnapshot();
+});
+
+SNAP_UI.themeSlate?.addEventListener('click', () => {
+  snapTheme = 'slate';
+  SNAP_UI.themeSlate.classList.add('active');
+  SNAP_UI.themeMidnight.classList.remove('active');
+  SNAP_UI.themeEmerald.classList.remove('active');
+  drawSnapshot();
+});
+
+function showSnapMsg(text){
+  if (!SNAP_UI.msg) return;
+  SNAP_UI.msg.textContent = text;
+  SNAP_UI.msg.hidden = false;
+  setTimeout(() => { SNAP_UI.msg.hidden = true; }, 3200);
+}
+
+SNAP_UI.dlBtn?.addEventListener('click', () => {
+  if (!SNAP_UI.canvas || !snapRule) return;
+  SNAP_UI.canvas.toBlob(blob => {
+    if (!blob) return;
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `evidence-life-rule-${snapRule.sec}-${snapRule.n}.png`;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    showSnapMsg('✓ PNG image downloaded successfully!');
+    if (window.gtag) gtag('event', 'snapshot_download', { rule: `${snapRule.sec}.${snapRule.n}` });
+  }, 'image/png');
+});
+
+SNAP_UI.copyBtn?.addEventListener('click', () => {
+  if (!SNAP_UI.canvas || !snapRule) return;
+  if (!navigator.clipboard || !window.ClipboardItem){
+    showSnapMsg('Clipboard image writing is not supported by this browser; use Download PNG.');
+    return;
+  }
+  SNAP_UI.canvas.toBlob(async blob => {
+    if (!blob) return;
+    try {
+      await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+      showSnapMsg('✓ High-res visual card copied to clipboard as PNG! Ready to paste into Slack, Twitter, or notes.');
+      if (window.gtag) gtag('event', 'snapshot_copy', { rule: `${snapRule.sec}.${snapRule.n}` });
+    } catch (err) {
+      showSnapMsg('Clipboard copy blocked by browser permissions; please use Download PNG.');
+    }
+  }, 'image/png');
+});
+
+SNAP_UI.shareX?.addEventListener('click', () => {
+  if (!snapRule) return;
+  const url = `https://parveen0029.github.io/The-Evidence-Based-Life/#e-${snapRule.sec}-${snapRule.n}`;
+  const text = `[Rule ${snapRule.sec}.${snapRule.n}] ${snapRule.title}\nEvidence Grade: ${snapRule.grade} | ROI: ${snapRule.ratio || 'High'}\n\nFrom The Evidence-Based Life:`;
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+SNAP_UI.shareWa?.addEventListener('click', () => {
+  if (!snapRule) return;
+  const url = `https://parveen0029.github.io/The-Evidence-Based-Life/#e-${snapRule.sec}-${snapRule.n}`;
+  const text = `*The Evidence-Based Life* · Rule ${snapRule.sec}.${snapRule.n}\n*${snapRule.title}*\nEvidence: Grade ${snapRule.grade} | ROI: ${snapRule.ratio || 'High'}\n\n${url}`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+});
+
+SNAP_UI.shareLi?.addEventListener('click', () => {
+  if (!snapRule) return;
+  const url = `https://parveen0029.github.io/The-Evidence-Based-Life/#e-${snapRule.sec}-${snapRule.n}`;
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
 });
 
 (async function init(){
