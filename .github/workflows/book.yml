@@ -13,6 +13,8 @@ on:
       - index.html
       - selfcheck.html
       - sitemap.xml
+      - the-evidence-based-life.json
+      - the-evidence-based-life.csv
       - og.png
       - ads/**
       - book/**
@@ -25,6 +27,8 @@ on:
       - index.html
       - selfcheck.html
       - sitemap.xml
+      - the-evidence-based-life.json
+      - the-evidence-based-life.csv
       - og.png
       - ads/**
       - book/**
@@ -76,7 +80,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: node tools/sync-stats.mjs --check
+      - run: node tools/sync-stats.mjs --check && node tools/export-corpus.mjs --check
 
   build:
     name: Build E-Book Artifacts
@@ -98,6 +102,9 @@ jobs:
 
       - name: Build Single-File Offline HTML
         run: node tools/offline/build.mjs
+
+      - name: Export Machine-Readable Datasets
+        run: node tools/export-corpus.mjs
 
       - name: Install Pandoc and Typst
         run: |
@@ -129,6 +136,8 @@ jobs:
             dist/The-Evidence-Based-Life.epub
             dist/The-Evidence-Based-Life.pdf
             dist/The-Evidence-Based-Life.html
+            dist/the-evidence-based-life.json
+            dist/the-evidence-based-life.csv
 
       - name: Publish to Release epub-latest
         if: github.event_name != 'pull_request'
@@ -137,13 +146,15 @@ jobs:
         run: |
           git tag -f epub-latest
           git push -f origin epub-latest
-          notes="Commit ${GITHUB_SHA::7}, generated on $(date -u +'%Y-%m-%d %H:%M UTC'). Automated build of EPUB, PDF, and single-file offline HTML."
+          notes="Commit ${GITHUB_SHA::7}, generated on $(date -u +'%Y-%m-%d %H:%M UTC'). Automated build of EPUB, PDF, offline HTML, and open JSON/CSV datasets."
           if gh release view epub-latest >/dev/null 2>&1; then
-            gh release edit epub-latest --title "E-Books (EPUB / PDF / Offline HTML, Auto-Updated)" --notes "$notes"
+            gh release edit epub-latest --title "E-Books & Open Datasets (Auto-Updated)" --notes "$notes"
           else
-            gh release create epub-latest --title "E-Books (EPUB / PDF / Offline HTML, Auto-Updated)" --notes "$notes" --latest=false
+            gh release create epub-latest --title "E-Books & Open Datasets (Auto-Updated)" --notes "$notes" --latest=false
           fi
           gh release upload epub-latest \
             dist/The-Evidence-Based-Life.epub \
             dist/The-Evidence-Based-Life.pdf \
-            dist/The-Evidence-Based-Life.html --clobber
+            dist/The-Evidence-Based-Life.html \
+            dist/the-evidence-based-life.json \
+            dist/the-evidence-based-life.csv --clobber
