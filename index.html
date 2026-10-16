@@ -817,6 +817,35 @@ html.dark .threat-toggle-btn.active{color:#1b1b1f}
   #threat-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Evidence-Based Travel & Jet Lag Chrono Planner Modal */
+#travel-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#travel-mask[hidden]{display:none}
+#travel-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(940px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+
+.travel-input-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;background:var(--bg-alt);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;margin-bottom:14px}
+@media (max-width:760px){.travel-input-grid{grid-template-columns:repeat(2,1fr)}}
+.travel-input-cell{display:flex;flex-direction:column;gap:4px}
+.travel-input-label{font-size:11.5px;font-weight:700;color:var(--t2);text-transform:uppercase;letter-spacing:.03em}
+.travel-input-field{padding:6px 10px;border-radius:6px;border:1px solid var(--divider);background:var(--bg-elv);color:var(--t1);font-size:13px;font-weight:600}
+
+.travel-kpi-banner{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--bg-elv);border:1px solid var(--divider);border-radius:10px;padding:12px 16px;margin-bottom:14px;flex-wrap:wrap}
+.travel-kpi-item{display:flex;flex-direction:column;gap:2px}
+.travel-kpi-val{font-size:18px;font-weight:800;color:var(--brand-1)}
+.travel-kpi-lbl{font-size:11px;font-weight:600;color:var(--t3)}
+
+.travel-plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+@media (max-width:720px){.travel-plan-grid{grid-template-columns:1fr}}
+
+.travel-pillar-card{background:var(--bg-alt);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.travel-pillar-head{display:flex;align-items:center;justify-content:space-between;font-weight:700;font-size:13px;color:var(--t1)}
+.travel-pillar-body{font-size:12px;color:var(--t2);line-height:1.5}
+.travel-pillar-meta{font-size:11px;color:var(--t3);padding-top:2px;display:flex;justify-content:space-between}
+
+@media (max-width:820px){
+  #travel-mask{padding:0}
+  #travel-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
 /* Floating Audio Dock */
 #audio-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:70;background:var(--bg-elv);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);padding:10px 18px;display:flex;align-items:center;gap:14px;max-width:min(700px,calc(100vw - 32px));width:100%;backdrop-filter:blur(10px);transition:all .25s ease}
 #audio-dock[hidden]{display:none}
@@ -903,7 +932,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -994,6 +1023,7 @@ html.dark .hc-action{color:#1b1b1f!important}
       <button class="icon-btn" id="grocer-open" title="Evidence-Based Grocery Optimizer & Anti-Inflation Basket" aria-label="Grocery Optimizer"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button>
       <button class="icon-btn" id="ergo-open" title="Ergonomic Workspace Calculator & Posture Guide" aria-label="Ergonomic Workspace Calculator"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></button>
       <button class="icon-btn" id="threat-open" title="Zero-Trust Personal Security & Identity Threat Model" aria-label="Personal Threat Model"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></button>
+      <button class="icon-btn" id="travel-open" title="Evidence-Based Travel & Jet Lag Chrono Planner" aria-label="Travel & Jet Lag Planner"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m17.8 19.2 1.7-1.7a2 2 0 0 0 0-2.8l-4-4a2 2 0 0 0-2.8 0L9 14.4l-5-1.4 3-3 7 1 3-3-4-4-3 3 1 7-3.7 3.7a2 2 0 0 0 0 2.8l4 4a2 2 0 0 0 2.8 0l1.7-1.7Z"/></svg></button>
       <a class="icon-btn" href="selfcheck.html" title="Take 2-Minute Life Health & Risk Audit" aria-label="Self-Audit Quiz"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></a>
       <a class="icon-btn" href="README.md" title="View README.md" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn" href="https://github.com/parveen0029/The-Evidence-Based-Life" target="_blank" rel="noopener" title="View repository on GitHub" aria-label="GitHub Repository"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
@@ -1046,6 +1076,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     <button class="btn-sm ghost" id="grocer-open-side" type="button" style="margin-top:6px;font-size:12px">🛒 Evidence-Based Grocery Optimizer</button>
     <button class="btn-sm ghost" id="ergo-open-side" type="button" style="margin-top:6px;font-size:12px">💺 Ergonomic Workspace & Posture Guide</button>
     <button class="btn-sm ghost" id="threat-open-side" type="button" style="margin-top:6px;font-size:12px">🛡️ Zero-Trust Security & Threat Model</button>
+    <button class="btn-sm ghost" id="travel-open-side" type="button" style="margin-top:6px;font-size:12px">✈️ Travel & Jet Lag Chrono Planner</button>
   </div>
   <div class="group" id="g-upd" hidden>
     <div class="gt">Recent Updates <small>Content revisions</small></div>
@@ -1763,6 +1794,83 @@ html.dark .hc-action{color:#1b1b1f!important}
         <button class="btn-sm ghost" id="threat-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
         <button class="btn-sm ghost" id="threat-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
         <p id="threat-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="travel-mask" hidden>
+  <div id="travel-box" role="dialog" aria-modal="true" aria-labelledby="travel-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="travel-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m17.8 19.2 1.7-1.7a2 2 0 0 0 0-2.8l-4-4a2 2 0 0 0-2.8 0L9 14.4l-5-1.4 3-3 7 1 3-3-4-4-3 3 1 7-3.7 3.7a2 2 0 0 0 0 2.8l4 4a2 2 0 0 0 2.8 0l1.7-1.7Z"/></svg> <span>Evidence-Based Travel & Jet Lag Chronobiology Planner</span></div>
+      <button type="button" id="travel-x" aria-label="Close travel planner">✕</button>
+    </div>
+    <div class="stats-scroll">
+      <div class="stats-lead">Calculate exact Circadian Phase Response Curve (PRC) protocols for cross-meridian travel. Coordinate light-seeking, dark-blocking, melatonin micro-dosing, and in-cabin DVT prevention based on Chapter 3 (Circadian Biology) and Chapter 13.</div>
+
+      <div class="travel-input-grid">
+        <div class="travel-input-cell">
+          <label class="travel-input-label" for="travel-in-dir">Flight Direction</label>
+          <select class="travel-input-field" id="travel-in-dir">
+            <option value="east">✈️ Eastward (Phase Advance: NYC ➔ LDN)</option>
+            <option value="west">✈️ Westward (Phase Delay: LDN ➔ NYC)</option>
+          </select>
+        </div>
+        <div class="travel-input-cell">
+          <label class="travel-input-label" for="travel-in-diff">Timezone Shift (Hours)</label>
+          <select class="travel-input-field" id="travel-in-diff">
+            <option value="1">1 Hour</option>
+            <option value="2">2 Hours</option>
+            <option value="3">3 Hours</option>
+            <option value="4">4 Hours</option>
+            <option value="5" selected>5 Hours (e.g. EST to GMT)</option>
+            <option value="6">6 Hours</option>
+            <option value="7">7 Hours</option>
+            <option value="8">8 Hours (e.g. PST to GMT)</option>
+            <option value="9">9 Hours</option>
+            <option value="10">10 Hours</option>
+            <option value="11">11 Hours</option>
+            <option value="12">12 Hours (Antipodal)</option>
+          </select>
+        </div>
+        <div class="travel-input-cell">
+          <label class="travel-input-label" for="travel-in-flight">Flight Duration (Hours)</label>
+          <input class="travel-input-field" id="travel-in-flight" type="number" min="1" max="24" value="7" step="1">
+        </div>
+        <div class="travel-input-cell">
+          <label class="travel-input-label" for="travel-in-wake">Habitual Wake Time</label>
+          <input class="travel-input-field" id="travel-in-wake" type="time" value="07:00">
+        </div>
+      </div>
+
+      <div class="travel-kpi-banner">
+        <div class="travel-kpi-item">
+          <div class="travel-kpi-val" id="travel-kpi-dir">✈️ Eastward Advance</div>
+          <div class="travel-kpi-lbl">Target PRC Mechanism</div>
+        </div>
+        <div class="travel-kpi-item">
+          <div class="travel-kpi-val" id="travel-kpi-adapt">~5.0 Days</div>
+          <div class="travel-kpi-lbl">Est. SCN Master Clock Adaptation</div>
+        </div>
+        <div class="travel-kpi-item">
+          <div class="travel-kpi-val" id="travel-kpi-cbt">05:00 Home Time</div>
+          <div class="travel-kpi-lbl">Core Body Temp Min (CBTmin)</div>
+        </div>
+        <div class="travel-kpi-item">
+          <div class="travel-kpi-val" id="travel-kpi-dvt">High (>4h Flight)</div>
+          <div class="travel-kpi-lbl">DVT Compression Necessity</div>
+        </div>
+      </div>
+
+      <div class="travel-plan-grid" id="travel-plan-cards"></div>
+
+      <div class="calc-footer">
+        <button class="btn-sm" id="travel-export" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy Jet Lag Chrono Protocol</button>
+        <button class="btn-sm ghost" id="travel-share-x" type="button" style="width:auto;padding:8px 14px">𝕏 Share</button>
+        <button class="btn-sm ghost" id="travel-share-wa" type="button" style="width:auto;padding:8px 14px">WhatsApp</button>
+        <button class="btn-sm ghost" id="travel-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
+        <button class="btn-sm ghost" id="travel-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
+        <p id="travel-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
       </div>
     </div>
   </div>
@@ -6633,6 +6741,273 @@ THREAT_UI.shareWa?.addEventListener('click', () => {
 });
 
 THREAT_UI.shareLi?.addEventListener('click', () => {
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+/* ---------- Evidence-Based Travel & Jet Lag Chronobiology Planner ---------- */
+let travelSettings = {
+  dir: 'east',
+  diff: 5,
+  flightHours: 7,
+  wakeTime: '07:00'
+};
+
+function loadTravelSettings(){
+  try {
+    const raw = localStorage.getItem('eb_travel_settings');
+    if (raw) travelSettings = Object.assign(travelSettings, JSON.parse(raw));
+  } catch (e) {}
+}
+
+function saveTravelSettings(){
+  try {
+    localStorage.setItem('eb_travel_settings', JSON.stringify(travelSettings));
+  } catch (e) {}
+}
+
+const TRAVEL_UI = {
+  mask: document.getElementById('travel-mask'),
+  openBtn: document.getElementById('travel-open'),
+  sideBtn: document.getElementById('travel-open-side'),
+  closeBtn: document.getElementById('travel-x'),
+  doneBtn: document.getElementById('travel-close-btn'),
+  inDir: document.getElementById('travel-in-dir'),
+  inDiff: document.getElementById('travel-in-diff'),
+  inFlight: document.getElementById('travel-in-flight'),
+  inWake: document.getElementById('travel-in-wake'),
+  kpiDir: document.getElementById('travel-kpi-dir'),
+  kpiAdapt: document.getElementById('travel-kpi-adapt'),
+  kpiCbt: document.getElementById('travel-kpi-cbt'),
+  kpiDvt: document.getElementById('travel-kpi-dvt'),
+  cards: document.getElementById('travel-plan-cards'),
+  exportBtn: document.getElementById('travel-export'),
+  shareX: document.getElementById('travel-share-x'),
+  shareWa: document.getElementById('travel-share-wa'),
+  shareLi: document.getElementById('travel-share-li'),
+  msg: document.getElementById('travel-copy-msg')
+};
+
+function computeTravelProtocols(){
+  const dir = travelSettings.dir;
+  const diff = parseInt(travelSettings.diff, 10) || 5;
+  const flightH = parseInt(travelSettings.flightHours, 10) || 7;
+  const [wakeH, wakeM] = (travelSettings.wakeTime || '07:00').split(':').map(Number);
+  
+  let cbtH = (wakeH - 2 + 24) % 24;
+  const cbtStr = `${String(cbtH).padStart(2, '0')}:${String(wakeM).padStart(2, '0')}`;
+
+  const isEast = (dir === 'east');
+  const adaptDays = isEast ? (diff * 1.0).toFixed(1) : (diff / 1.5).toFixed(1);
+
+  let lightSeekWindow = '';
+  let lightAvoidWindow = '';
+  let melatoninTime = '';
+  let caffeineCutoff = '';
+
+  if (isEast) {
+    lightSeekWindow = `Morning (${String((wakeH + 1) % 24).padStart(2, '0')}:00 – ${String((wakeH + 4) % 24).padStart(2, '0')}:00 destination time): Seek 10,000+ lux sunlight or light box.`;
+    lightAvoidWindow = `Night before wake (${String((wakeH - 4 + 24) % 24).padStart(2, '0')}:00 – ${cbtStr} home time): Wear blue-blocker sunglasses or eye mask to prevent accidental phase delay.`;
+    melatoninTime = `Take 0.3 – 0.5 mg micro-dose ~4–5 hours prior to desired destination bedtime (~21:00–22:00 target sleep).`;
+    caffeineCutoff = `Strict caffeine cessation at least 10–12 hours before destination bedtime (no caffeine after 12:00 noon local).`;
+  } else {
+    lightSeekWindow = `Late Afternoon / Evening (${String((wakeH + 10) % 24).padStart(2, '0')}:00 – ${String((wakeH + 14) % 24).padStart(2, '0')}:00): Seek bright natural light to push master clock back.`;
+    lightAvoidWindow = `Early Dawn (${String((wakeH - 2 + 24) % 24).padStart(2, '0')}:00 – ${String(wakeH).padStart(2, '0')}:00): Avoid bright light if awakening prematurely; keep bedroom pitch black.`;
+    melatoninTime = `Generally NOT needed for westward travel. If waking at 03:00–04:00 AM, take 0.3 mg to support sleep maintenance.`;
+    caffeineCutoff = `Caffeine can be consumed slightly later into the afternoon (~14:00) to assist phase delay, but stop 8h before target sleep.`;
+  }
+
+  const dvtRisk = flightH >= 4 ? 'High (>4h Flight)' : 'Low (<4h Flight)';
+
+  if (TRAVEL_UI.kpiDir) TRAVEL_UI.kpiDir.textContent = isEast ? `✈️ Eastward (+${diff}h Advance)` : `✈️ Westward (-${diff}h Delay)`;
+  if (TRAVEL_UI.kpiAdapt) TRAVEL_UI.kpiAdapt.textContent = `~${adaptDays} Days`;
+  if (TRAVEL_UI.kpiCbt) TRAVEL_UI.kpiCbt.textContent = `${cbtStr} (Home Baseline)`;
+  if (TRAVEL_UI.kpiDvt) TRAVEL_UI.kpiDvt.textContent = dvtRisk;
+
+  if (!TRAVEL_UI.cards) return;
+  TRAVEL_UI.cards.innerHTML = `
+    <div class="travel-pillar-card">
+      <div class="travel-pillar-head">
+        <span style="display:flex;align-items:center;gap:6px"><span>💡</span> <span>1. Circadian Light & Dark Windows</span></span>
+        <span style="font-size:11px;color:var(--brand-1);font-weight:700">PRC Anchor</span>
+      </div>
+      <div class="travel-pillar-body">
+        <div style="margin-bottom:5px"><b>☀️ Seek Light:</b> ${lightSeekWindow}</div>
+        <div><b>🕶️ Block Light:</b> ${lightAvoidWindow}</div>
+      </div>
+      <div class="travel-pillar-meta">
+        <a href="#e-3-1" class="med-rule-link" data-rule="e-3-1">Rule Ch 3.1 & 3.4</a>
+        <span style="font-weight:700">Evidence Grade A</span>
+      </div>
+    </div>
+
+    <div class="travel-pillar-card">
+      <div class="travel-pillar-head">
+        <span style="display:flex;align-items:center;gap:6px"><span>💊</span> <span>2. Melatonin Micro-Dosing Protocol</span></span>
+        <span style="font-size:11px;color:var(--brand-1);font-weight:700">Receptor Sync</span>
+      </div>
+      <div class="travel-pillar-body">
+        <div style="margin-bottom:5px"><b>Timing:</b> ${melatoninTime}</div>
+        <div style="font-size:11px;color:var(--t3)">Avoid commercial megadoses (5–10 mg) which cause SCN receptor down-regulation and morning hangover. 0.3–0.5 mg matches physiologic pineal output.</div>
+      </div>
+      <div class="travel-pillar-meta">
+        <a href="#e-3-2" class="med-rule-link" data-rule="e-3-2">Rule Ch 3.2</a>
+        <span style="font-weight:700">Evidence Grade A</span>
+      </div>
+    </div>
+
+    <div class="travel-pillar-card">
+      <div class="travel-pillar-head">
+        <span style="display:flex;align-items:center;gap:6px"><span>☕</span> <span>3. Adenosine & Caffeine Strategy</span></span>
+        <span style="font-size:11px;color:var(--brand-1);font-weight:700">Sleep Pressure</span>
+      </div>
+      <div class="travel-pillar-body">
+        <div style="margin-bottom:5px"><b>Rule:</b> ${caffeineCutoff}</div>
+        <div style="font-size:11px;color:var(--t3)">Caffeine has a 5–7 hour half-life and 10–12 hour quarter-life. Preserve deep slow-wave sleep (SWS) at destination by clearing adenosine receptor competition.</div>
+      </div>
+      <div class="travel-pillar-meta">
+        <a href="#e-3-5" class="med-rule-link" data-rule="e-3-5">Rule Ch 3.5</a>
+        <span style="font-weight:700">Evidence Grade A</span>
+      </div>
+    </div>
+
+    <div class="travel-pillar-card">
+      <div class="travel-pillar-head">
+        <span style="display:flex;align-items:center;gap:6px"><span>🧦</span> <span>4. In-Cabin DVT & Hematology Protocol</span></span>
+        <span style="font-size:11px;color:var(--brand-1);font-weight:700">Vascular Defense</span>
+      </div>
+      <div class="travel-pillar-body">
+        <div style="margin-bottom:4px"><b>Stockings:</b> Class 1 Graduated Compression (15–20 mmHg) worn during flight. Reduces DVT risk by >90% (Cochrane Review).</div>
+        <div style="margin-bottom:4px"><b>Calf Pump:</b> 20 seated calf-raises / ankle circles every hour of flight.</div>
+        <div style="font-size:11px;color:var(--t3)"><b>Hydration:</b> 250 mL water/hr to counter 10–20% dry cabin humidity. Strict zero alcohol in flight (preserves REM & anti-diuretic hormone).</div>
+      </div>
+      <div class="travel-pillar-meta">
+        <a href="#e-13-1" class="med-rule-link" data-rule="e-13-1">Rule Ch 13.1 & 3.6</a>
+        <span style="font-weight:700">Evidence Grade A</span>
+      </div>
+    </div>
+  `;
+}
+
+function travelOpen(){
+  loadTravelSettings();
+  if (TRAVEL_UI.inDir) TRAVEL_UI.inDir.value = travelSettings.dir;
+  if (TRAVEL_UI.inDiff) TRAVEL_UI.inDiff.value = travelSettings.diff;
+  if (TRAVEL_UI.inFlight) TRAVEL_UI.inFlight.value = travelSettings.flightHours;
+  if (TRAVEL_UI.inWake) TRAVEL_UI.inWake.value = travelSettings.wakeTime;
+  computeTravelProtocols();
+  if (TRAVEL_UI.mask) TRAVEL_UI.mask.hidden = false;
+  document.body.style.overflow = 'hidden';
+}
+
+function travelClose(){
+  if (TRAVEL_UI.mask) TRAVEL_UI.mask.hidden = true;
+  document.body.style.overflow = '';
+}
+
+TRAVEL_UI.openBtn?.addEventListener('click', travelOpen);
+TRAVEL_UI.sideBtn?.addEventListener('click', travelOpen);
+TRAVEL_UI.closeBtn?.addEventListener('click', travelClose);
+TRAVEL_UI.doneBtn?.addEventListener('click', travelClose);
+
+TRAVEL_UI.mask?.addEventListener('click', ev => {
+  if (ev.target === TRAVEL_UI.mask) travelClose();
+});
+
+document.addEventListener('keydown', ev => {
+  if (ev.key === 'Escape' && TRAVEL_UI.mask && !TRAVEL_UI.mask.hidden) {
+    travelClose();
+  }
+});
+
+const onTravelInputChange = () => {
+  if (TRAVEL_UI.inDir) travelSettings.dir = TRAVEL_UI.inDir.value;
+  if (TRAVEL_UI.inDiff) travelSettings.diff = parseInt(TRAVEL_UI.inDiff.value, 10);
+  if (TRAVEL_UI.inFlight) travelSettings.flightHours = parseInt(TRAVEL_UI.inFlight.value, 10);
+  if (TRAVEL_UI.inWake) travelSettings.wakeTime = TRAVEL_UI.inWake.value;
+  saveTravelSettings();
+  computeTravelProtocols();
+};
+
+TRAVEL_UI.inDir?.addEventListener('change', onTravelInputChange);
+TRAVEL_UI.inDiff?.addEventListener('change', onTravelInputChange);
+TRAVEL_UI.inFlight?.addEventListener('input', onTravelInputChange);
+TRAVEL_UI.inWake?.addEventListener('change', onTravelInputChange);
+
+TRAVEL_UI.cards?.addEventListener('click', ev => {
+  const link = ev.target.closest('.med-rule-link');
+  if (link) {
+    ev.preventDefault();
+    const ruleId = link.dataset.rule;
+    travelClose();
+    const ruleEl = document.getElementById(ruleId);
+    if (ruleEl) {
+      ruleEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      ruleEl.classList.remove('flash'); void ruleEl.offsetWidth; ruleEl.classList.add('flash');
+    }
+  }
+});
+
+TRAVEL_UI.exportBtn?.addEventListener('click', async () => {
+  const isEast = (travelSettings.dir === 'east');
+  const diff = travelSettings.diff;
+  const flightH = travelSettings.flightHours;
+
+  let md = `# Evidence-Based Jet Lag & Travel Chronobiology Protocol\n\n`;
+  md += `**Direction**: ${isEast ? `Eastward Phase Advance (+${diff}h)` : `Westward Phase Delay (-${diff}h)`}\n`;
+  md += `**Flight Duration**: ${flightH} hours | **Habitual Wake Time**: ${travelSettings.wakeTime}\n`;
+  md += `**Scientific Reference**: Circadian Phase Response Curve (PRC), Cochrane DVT Guidelines, Stanford Sleep Medicine\n\n`;
+
+  md += `### 1. Light & Darkness Exposure\n`;
+  if (isEast) {
+    md += `- **Seek 10,000+ Lux Sunlight**: Morning hours at destination (first 3–4 hours after wake) to advance the suprachiasmatic nucleus master clock.\n`;
+    md += `- **Wear Blue-Blockers / Sunglasses**: Night before wake in local time to avoid accidental phase delay.\n\n`;
+  } else {
+    md += `- **Seek Bright Light**: Late afternoon and evening to push back master clock.\n`;
+    md += `- **Pitch Black Sleep Environment**: Avoid bright dawn light if waking prematurely.\n\n`;
+  }
+
+  md += `### 2. Melatonin Micro-Dosing\n`;
+  if (isEast) {
+    md += `- Take **0.3 – 0.5 mg** low-dose melatonin 4–5 hours prior to desired destination sleep onset. Do NOT take megadoses (5–10 mg).\n\n`;
+  } else {
+    md += `- Melatonin is generally not required for westward travel. Use 0.3 mg only if experiencing early morning sleep maintenance insomnia.\n\n`;
+  }
+
+  md += `### 3. Caffeine & Adenosine Clearance\n`;
+  md += `- Strict cutoff 10–12 hours before destination bedtime (half-life 5–7h, quarter-life 10–12h) to preserve slow-wave restorative sleep.\n\n`;
+
+  md += `### 4. In-Flight DVT & Hydration Hygiene\n`;
+  md += `- **Compression Stockings**: Class 1 (15–20 mmHg) worn during flights > 4 hours (-90% DVT relative risk).\n`;
+  md += `- **Calf Muscle Pump**: 20 seated calf flexes/circles every 60 minutes.\n`;
+  md += `- **Hydration**: 250 mL water per hour in flight; zero alcohol in cabin.\n\n`;
+
+  md += `---\n*Generated by The Evidence-Based Life Travel Engine: https://parveen0029.github.io/The-Evidence-Based-Life/*\n`;
+
+  try {
+    await navigator.clipboard.writeText(md);
+    if (TRAVEL_UI.msg) {
+      TRAVEL_UI.msg.textContent = '✓ Jet lag chrono protocol copied to clipboard!';
+      TRAVEL_UI.msg.hidden = false;
+      setTimeout(() => { TRAVEL_UI.msg.hidden = true; }, 3500);
+    }
+  } catch (e) {
+    prompt('Copy your travel protocol below:', md);
+  }
+});
+
+TRAVEL_UI.shareX?.addEventListener('click', () => {
+  const text = `Beat jet lag and flight fatigue with circadian science: light-seeking windows, melatonin micro-dosing, and DVT prevention. Plan your flight:`;
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+TRAVEL_UI.shareWa?.addEventListener('click', () => {
+  const text = `*Evidence-Based Travel & Jet Lag Chrono Planner*\nCalculate your personalized circadian Phase Response Curve (PRC), light-seeking schedule, melatonin timing, and in-cabin DVT prevention:\n\nhttps://parveen0029.github.io/The-Evidence-Based-Life/`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+});
+
+TRAVEL_UI.shareLi?.addEventListener('click', () => {
   const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
 });
