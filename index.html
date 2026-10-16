@@ -784,6 +784,39 @@ html.dark .ergo-unit-btn.active{color:#1b1b1f}
   #ergo-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Zero-Trust Personal Security & Threat Model Modal */
+#threat-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#threat-mask[hidden]{display:none}
+#threat-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(940px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+
+.threat-score-banner{display:flex;align-items:center;justify-content:space-between;gap:14px;background:var(--bg-alt);border:1px solid var(--divider);border-radius:10px;padding:12px 18px;margin-bottom:14px;flex-wrap:wrap}
+.threat-score-badge{display:flex;align-items:center;gap:10px}
+.threat-score-num{font-size:24px;font-weight:900;color:var(--brand-1)}
+.threat-score-label{font-size:12px;font-weight:700;color:var(--t1)}
+.threat-score-sub{font-size:11px;color:var(--t3)}
+.threat-presets{display:flex;gap:6px;flex-wrap:wrap}
+.threat-preset-btn{background:var(--bg-elv);border:1px solid var(--divider);border-radius:6px;padding:4px 9px;font-size:11.5px;font-weight:600;color:var(--t2);cursor:pointer}
+.threat-preset-btn:hover{background:var(--brand-soft);color:var(--brand-1);border-color:var(--brand-3)}
+
+.threat-layers-list{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+.threat-layer-card{background:var(--bg-elv);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;transition:border-color .15s}
+.threat-layer-card.hardened{border-color:var(--green-1);background:rgba(16,185,129,.04)}
+.threat-layer-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.threat-layer-title-wrap{display:flex;align-items:center;gap:8px}
+.threat-toggle-btn{background:var(--bg-alt);border:1px solid var(--divider);border-radius:6px;padding:5px 12px;font-size:11.5px;font-weight:700;color:var(--t2);cursor:pointer;display:flex;align-items:center;gap:5px;transition:all .15s}
+.threat-toggle-btn.active{background:var(--green-1);color:#fff;border-color:var(--green-1)}
+html.dark .threat-toggle-btn.active{color:#1b1b1f}
+.threat-layer-body{display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:11.5px;line-height:1.45}
+@media (max-width:720px){.threat-layer-body{grid-template-columns:1fr}}
+.threat-risk-box{background:var(--bg-alt);border-radius:6px;padding:8px 10px;border-left:3px solid #ef4444}
+.threat-defense-box{background:var(--bg-alt);border-radius:6px;padding:8px 10px;border-left:3px solid var(--green-1)}
+.threat-layer-foot{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--t3);padding-top:2px}
+
+@media (max-width:820px){
+  #threat-mask{padding:0}
+  #threat-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
 /* Floating Audio Dock */
 #audio-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:70;background:var(--bg-elv);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);padding:10px 18px;display:flex;align-items:center;gap:14px;max-width:min(700px,calc(100vw - 32px));width:100%;backdrop-filter:blur(10px);transition:all .25s ease}
 #audio-dock[hidden]{display:none}
@@ -870,7 +903,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -960,6 +993,7 @@ html.dark .hc-action{color:#1b1b1f!important}
       <button class="icon-btn" id="lab-open" title="Longevity Biomarkers & Clinical Lab Guide" aria-label="Longevity Lab Guide"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 18h12M10 2v7.5L4.5 20A1 1 0 0 0 5.4 21h13.2a1 1 0 0 0 .9-1L14 9.5V2"/><path d="M8.5 2h7M7 16h10"/></svg></button>
       <button class="icon-btn" id="grocer-open" title="Evidence-Based Grocery Optimizer & Anti-Inflation Basket" aria-label="Grocery Optimizer"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button>
       <button class="icon-btn" id="ergo-open" title="Ergonomic Workspace Calculator & Posture Guide" aria-label="Ergonomic Workspace Calculator"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></button>
+      <button class="icon-btn" id="threat-open" title="Zero-Trust Personal Security & Identity Threat Model" aria-label="Personal Threat Model"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></button>
       <a class="icon-btn" href="selfcheck.html" title="Take 2-Minute Life Health & Risk Audit" aria-label="Self-Audit Quiz"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></a>
       <a class="icon-btn" href="README.md" title="View README.md" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn" href="https://github.com/parveen0029/The-Evidence-Based-Life" target="_blank" rel="noopener" title="View repository on GitHub" aria-label="GitHub Repository"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
@@ -1011,6 +1045,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     <button class="btn-sm ghost" id="lab-open-side" type="button" style="margin-top:6px;font-size:12px">🔬 Longevity Biomarkers & Clinical Lab Guide</button>
     <button class="btn-sm ghost" id="grocer-open-side" type="button" style="margin-top:6px;font-size:12px">🛒 Evidence-Based Grocery Optimizer</button>
     <button class="btn-sm ghost" id="ergo-open-side" type="button" style="margin-top:6px;font-size:12px">💺 Ergonomic Workspace & Posture Guide</button>
+    <button class="btn-sm ghost" id="threat-open-side" type="button" style="margin-top:6px;font-size:12px">🛡️ Zero-Trust Security & Threat Model</button>
   </div>
   <div class="group" id="g-upd" hidden>
     <div class="gt">Recent Updates <small>Content revisions</small></div>
@@ -1690,6 +1725,44 @@ html.dark .hc-action{color:#1b1b1f!important}
         <button class="btn-sm ghost" id="ergo-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
         <button class="btn-sm ghost" id="ergo-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
         <p id="ergo-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="threat-mask" hidden>
+  <div id="threat-box" role="dialog" aria-modal="true" aria-labelledby="threat-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="threat-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> <span>Zero-Trust Personal Security & Identity Threat-Model Matrix</span></div>
+      <button type="button" id="threat-x" aria-label="Close security threat matrix">✕</button>
+    </div>
+    <div class="stats-scroll">
+      <div class="stats-lead">Audit your defense-in-depth posture against credential stuffing, SIM swaps, synthetic identity fraud, and data broker correlation. Based on Chapter 8 (Personal Security & Scams) and Chapter 23 (Digital Identity & Privacy).</div>
+
+      <div class="threat-score-banner">
+        <div class="threat-score-badge">
+          <div class="threat-score-num" id="threat-score-num">0%</div>
+          <div>
+            <div class="threat-score-label" id="threat-score-label">Vulnerable Exposure Level</div>
+            <div class="threat-score-sub" id="threat-score-sub">0 of 6 Critical Defense Layers Active</div>
+          </div>
+        </div>
+        <div class="threat-presets">
+          <button type="button" class="threat-preset-btn" id="threat-preset-all">🛡️ Select All Hardened</button>
+          <button type="button" class="threat-preset-btn" id="threat-preset-base">⚡ Common Baseline</button>
+          <button type="button" class="threat-preset-btn" id="threat-preset-reset">🔄 Reset Audit</button>
+        </div>
+      </div>
+
+      <div class="threat-layers-list" id="threat-layers"></div>
+
+      <div class="calc-footer">
+        <button class="btn-sm" id="threat-export" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy Security Hardening Checklist</button>
+        <button class="btn-sm ghost" id="threat-share-x" type="button" style="width:auto;padding:8px 14px">𝕏 Share</button>
+        <button class="btn-sm ghost" id="threat-share-wa" type="button" style="width:auto;padding:8px 14px">WhatsApp</button>
+        <button class="btn-sm ghost" id="threat-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
+        <button class="btn-sm ghost" id="threat-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
+        <p id="threat-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
       </div>
     </div>
   </div>
@@ -6247,6 +6320,319 @@ ERGO_UI.shareWa?.addEventListener('click', () => {
 });
 
 ERGO_UI.shareLi?.addEventListener('click', () => {
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+/* ---------- Zero-Trust Personal Security & Threat Model Matrix ---------- */
+const THREAT_LAYERS = [
+  {
+    id: 'vault',
+    icon: '🔑',
+    name: 'Master Credentials & Vault Isolation',
+    weight: 20,
+    risk: 'Credential Stuffing & Automated Spray Attacks',
+    riskDesc: 'Over 80% of data breaches involve reused credentials exposed in third-party leaks. Criminals run automated botnets that spray leaked password lists across banking, email, and commerce logins.',
+    defense: '100% Unique 20+ Char Random Passwords in Zero-Knowledge Vault',
+    defenseDesc: 'Enforce Bitwarden, KeePassXC, or 1Password. Never reuse a password. Memorize only a single 4–5 word Diceware master passphrase. Store emergency kit recovery keys offline in a safe.',
+    ruleId: 'e-8-1',
+    rule: 'Ch 8.1 & 23.1',
+    grade: 'A'
+  },
+  {
+    id: 'hardware-2fa',
+    icon: '🛡️',
+    name: 'Phishing-Resistant Hardware 2FA / WebAuthn',
+    weight: 20,
+    risk: 'SIM-Swap Hijacking & Reverse-Proxy Phishing (Evilginx)',
+    riskDesc: 'SMS verification codes are intercepted via telecom carrier social engineering (SIM swap), SS7 network vulnerabilities, and adversary-in-the-middle reverse-proxy phishing attacks.',
+    defense: 'FIDO2 / WebAuthn Hardware Keys (YubiKey) or Offline TOTP',
+    defenseDesc: 'Require hardware FIDO2 keys (YubiKey / Nitrokey / TouchID) or local cryptographic TOTP (Aegis, Ente Auth). Strict elimination of SMS 2FA for primary email, financial portals, and password vaults.',
+    ruleId: 'e-8-1',
+    rule: 'Ch 8.1',
+    grade: 'A'
+  },
+  {
+    id: 'credit-freeze',
+    icon: '🧊',
+    name: 'Universal Credit Bureau & Banking Freeze',
+    weight: 20,
+    risk: 'Synthetic Identity Theft & Fraudulent Loan Originations',
+    riskDesc: 'Leaked SSNs or government IDs allow criminals to open new credit lines, auto loans, mortgages, and store cards in your name without your knowledge.',
+    defense: 'Permanent Hard Freeze Across All 5 Credit & Banking Bureaus',
+    defenseDesc: 'Freeze Equifax, Experian, TransUnion, ChexSystems (bank accounts), and Innovis. Mandated free by federal statute (US FACTA). Thaw only on-demand with temporary PINs during legitimate applications.',
+    ruleId: 'e-8-2',
+    rule: 'Ch 8.2',
+    grade: 'A'
+  },
+  {
+    id: 'email-aliases',
+    icon: '🎭',
+    name: 'Email & Phone Alias Compartmentalization',
+    weight: 15,
+    risk: 'Cross-Service Identity Correlation & Targeted Spear-Phishing',
+    riskDesc: 'Using a single primary email or mobile number across services allows data brokers (LexisNexis, Acxiom) to stitch unified behavioral dossiers and creates high-value spear-phishing targets.',
+    defense: 'Burner Forwarding Aliases & Secondary VOIP Numbers',
+    defenseDesc: 'Generate distinct forwarding aliases per service (SimpleLogin, AnonAddy, Apple Hide My Email). Use VoIP (MySudo, Google Voice) or burner eSIM for signups, deliveries, and untrusted vendors.',
+    ruleId: 'e-23-2',
+    rule: 'Ch 23.2',
+    grade: 'A'
+  },
+  {
+    id: 'backup-321',
+    icon: '💾',
+    name: '3-2-1 Encrypted Zero-Knowledge Backup Hygiene',
+    weight: 15,
+    risk: 'Ransomware Extortion & Irreversible SSD/Hardware Failure',
+    riskDesc: 'A single hardware short, theft, water spill, or zero-day ransomware strain can permanently erase 100% of unbacked photos, tax returns, and irreplaceable legal records.',
+    defense: '3 Copies, 2 Media Types, 1 Off-Site Client-Encrypted Repository',
+    defenseDesc: 'Maintain 3 total copies of critical files: local NVMe, external cold drive, and offsite client-side encrypted repository (Cryptomator / Restic / Borg to Backblaze B2). Test annual restore drills.',
+    ruleId: 'e-23-3',
+    rule: 'Ch 23.3',
+    grade: 'A'
+  },
+  {
+    id: 'dns-telemetry',
+    icon: '🌐',
+    name: 'Encrypted DNS & OS Telemetry Hardening',
+    weight: 10,
+    risk: 'ISP Browsing Profiling & Operating System Diagnostic Harvesting',
+    riskDesc: 'Default unencrypted DNS queries broadcast every domain you visit to your ISP and local network sniffers. Modern operating systems harvest background telemetry by default.',
+    defense: 'DNS-over-HTTPS (DoH) Filtering & Telemetry Disablement',
+    defenseDesc: 'Route home/mobile DNS through NextDNS, Mullvad DNS, or Quad9 using DoH/DoT with tracker and malware blocklists. Disable advertising IDs and diagnostic telemetry in Windows, macOS, and mobile devices.',
+    ruleId: 'e-23-4',
+    rule: 'Ch 23.4',
+    grade: 'B'
+  }
+];
+
+let userThreatState = {};
+
+function loadThreatState(){
+  try {
+    const raw = localStorage.getItem('eb_threat_posture');
+    if (raw) userThreatState = JSON.parse(raw);
+    else userThreatState = {};
+  } catch (e) {
+    userThreatState = {};
+  }
+}
+
+function saveThreatState(){
+  try {
+    localStorage.setItem('eb_threat_posture', JSON.stringify(userThreatState));
+  } catch (e) {}
+}
+
+const THREAT_UI = {
+  mask: document.getElementById('threat-mask'),
+  openBtn: document.getElementById('threat-open'),
+  sideBtn: document.getElementById('threat-open-side'),
+  closeBtn: document.getElementById('threat-x'),
+  doneBtn: document.getElementById('threat-close-btn'),
+  scoreNum: document.getElementById('threat-score-num'),
+  scoreLabel: document.getElementById('threat-score-label'),
+  scoreSub: document.getElementById('threat-score-sub'),
+  presetAll: document.getElementById('threat-preset-all'),
+  presetBase: document.getElementById('threat-preset-base'),
+  presetReset: document.getElementById('threat-preset-reset'),
+  layers: document.getElementById('threat-layers'),
+  exportBtn: document.getElementById('threat-export'),
+  shareX: document.getElementById('threat-share-x'),
+  shareWa: document.getElementById('threat-share-wa'),
+  shareLi: document.getElementById('threat-share-li'),
+  msg: document.getElementById('threat-copy-msg')
+};
+
+function updateThreatScore(){
+  let score = 0;
+  let activeCount = 0;
+  for (const layer of THREAT_LAYERS){
+    if (userThreatState[layer.id]){
+      score += layer.weight;
+      activeCount++;
+    }
+  }
+
+  if (THREAT_UI.scoreNum) {
+    THREAT_UI.scoreNum.textContent = `${score}%`;
+    if (score >= 90) THREAT_UI.scoreNum.style.color = 'var(--green-1)';
+    else if (score >= 60) THREAT_UI.scoreNum.style.color = 'var(--brand-1)';
+    else THREAT_UI.scoreNum.style.color = '#ef4444';
+  }
+
+  if (THREAT_UI.scoreLabel) {
+    if (score >= 95) THREAT_UI.scoreLabel.textContent = '🛡️ Zero-Trust Hardened (Maximum Resistance)';
+    else if (score >= 70) THREAT_UI.scoreLabel.textContent = '🔒 Robust Defense Posture (Low Attack Surface)';
+    else if (score >= 40) THREAT_UI.scoreLabel.textContent = '⚠️ Moderate Exposure (Key Gaps Present)';
+    else THREAT_UI.scoreLabel.textContent = '🚨 High Vulnerability (Critical Vectors Exposed)';
+  }
+
+  if (THREAT_UI.scoreSub) {
+    THREAT_UI.scoreSub.textContent = `${activeCount} of ${THREAT_LAYERS.length} Critical Defense Layers Implemented (${score}/100 pts)`;
+  }
+}
+
+function renderThreatLayers(){
+  if (!THREAT_UI.layers) return;
+  THREAT_UI.layers.innerHTML = THREAT_LAYERS.map(l => {
+    const isHardened = !!userThreatState[l.id];
+    return `
+      <div class="threat-layer-card ${isHardened ? 'hardened' : ''}" id="threat-card-${l.id}">
+        <div class="threat-layer-head">
+          <div class="threat-layer-title-wrap">
+            <span style="font-size:20px">${l.icon}</span>
+            <div>
+              <div style="font-size:13.5px;font-weight:700;color:var(--t1)">${l.name}</div>
+              <div style="font-size:11px;font-weight:600;color:var(--t3)">Defense Weight: ${l.weight} pts</div>
+            </div>
+          </div>
+          <button type="button" class="threat-toggle-btn ${isHardened ? 'active' : ''}" data-layer="${l.id}">
+            <span>${isHardened ? '✓ Hardened' : '+ Mark Hardened'}</span>
+          </button>
+        </div>
+        <div class="threat-layer-body">
+          <div class="threat-risk-box">
+            <div style="font-weight:700;color:#ef4444;margin-bottom:3px">⚠️ Threat: ${l.risk}</div>
+            <div style="color:var(--t2)">${l.riskDesc}</div>
+          </div>
+          <div class="threat-defense-box">
+            <div style="font-weight:700;color:var(--green-1);margin-bottom:3px">🛡️ Hardening Standard: ${l.defense}</div>
+            <div style="color:var(--t2)">${l.defenseDesc}</div>
+          </div>
+        </div>
+        <div class="threat-layer-foot">
+          <a href="#${l.ruleId}" class="med-rule-link" data-rule="${l.ruleId}">Rule ${l.rule}</a>
+          <span style="font-size:10.5px;font-weight:700;color:var(--t3)">Evidence Grade ${l.grade}</span>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function threatOpen(){
+  loadThreatState();
+  updateThreatScore();
+  renderThreatLayers();
+  if (THREAT_UI.mask) THREAT_UI.mask.hidden = false;
+  document.body.style.overflow = 'hidden';
+}
+
+function threatClose(){
+  if (THREAT_UI.mask) THREAT_UI.mask.hidden = true;
+  document.body.style.overflow = '';
+}
+
+THREAT_UI.openBtn?.addEventListener('click', threatOpen);
+THREAT_UI.sideBtn?.addEventListener('click', threatOpen);
+THREAT_UI.closeBtn?.addEventListener('click', threatClose);
+THREAT_UI.doneBtn?.addEventListener('click', threatClose);
+
+THREAT_UI.mask?.addEventListener('click', ev => {
+  if (ev.target === THREAT_UI.mask) threatClose();
+});
+
+document.addEventListener('keydown', ev => {
+  if (ev.key === 'Escape' && THREAT_UI.mask && !THREAT_UI.mask.hidden) {
+    threatClose();
+  }
+});
+
+THREAT_UI.layers?.addEventListener('click', ev => {
+  const btn = ev.target.closest('.threat-toggle-btn');
+  if (btn) {
+    const id = btn.dataset.layer;
+    userThreatState[id] = !userThreatState[id];
+    saveThreatState();
+    updateThreatScore();
+    renderThreatLayers();
+    return;
+  }
+
+  const link = ev.target.closest('.med-rule-link');
+  if (link) {
+    ev.preventDefault();
+    const ruleId = link.dataset.rule;
+    threatClose();
+    const ruleEl = document.getElementById(ruleId);
+    if (ruleEl) {
+      ruleEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      ruleEl.classList.remove('flash'); void ruleEl.offsetWidth; ruleEl.classList.add('flash');
+    }
+  }
+});
+
+THREAT_UI.presetAll?.addEventListener('click', () => {
+  for (const l of THREAT_LAYERS) userThreatState[l.id] = true;
+  saveThreatState();
+  updateThreatScore();
+  renderThreatLayers();
+});
+
+THREAT_UI.presetBase?.addEventListener('click', () => {
+  userThreatState = { 'vault': true, 'hardware-2fa': true, 'credit-freeze': true };
+  saveThreatState();
+  updateThreatScore();
+  renderThreatLayers();
+});
+
+THREAT_UI.presetReset?.addEventListener('click', () => {
+  userThreatState = {};
+  saveThreatState();
+  updateThreatScore();
+  renderThreatLayers();
+});
+
+THREAT_UI.exportBtn?.addEventListener('click', async () => {
+  let score = 0;
+  let activeCount = 0;
+  for (const l of THREAT_LAYERS){
+    if (userThreatState[l.id]){
+      score += l.weight;
+      activeCount++;
+    }
+  }
+
+  let md = `# Zero-Trust Personal Security & Identity Threat-Model Checklist\n\n`;
+  md += `**Overall Security Posture**: ${score}% Hardened (${activeCount}/${THREAT_LAYERS.length} Layers Active)\n`;
+  md += `**Framework**: Defense-in-Depth, NIST SP 800-63B, CISA Cybersecurity Baseline\n\n`;
+
+  for (const l of THREAT_LAYERS){
+    const done = !!userThreatState[l.id];
+    md += `### ${done ? '✅ [HARDENED]' : '❌ [EXPOSED]'} ${l.name} (${l.weight} pts)\n`;
+    md += `- **Threat**: ${l.risk}\n`;
+    md += `  *${l.riskDesc}*\n`;
+    md += `- **Hardening Standard**: ${l.defense}\n`;
+    md += `  *${l.defenseDesc}*\n`;
+    md += `- **Reference**: ${l.rule} (Grade ${l.grade})\n\n`;
+  }
+
+  md += `---\n*Generated by The Evidence-Based Life Security Engine: https://parveen0029.github.io/The-Evidence-Based-Life/*\n`;
+
+  try {
+    await navigator.clipboard.writeText(md);
+    if (THREAT_UI.msg) {
+      THREAT_UI.msg.textContent = '✓ Security hardening checklist copied to clipboard!';
+      THREAT_UI.msg.hidden = false;
+      setTimeout(() => { THREAT_UI.msg.hidden = true; }, 3500);
+    }
+  } catch (e) {
+    prompt('Copy your security checklist below:', md);
+  }
+});
+
+THREAT_UI.shareX?.addEventListener('click', () => {
+  const text = `Audit your personal cyber defense against SIM swaps, credential stuffing, and identity fraud. Check the Zero-Trust Threat Model Matrix:`;
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+THREAT_UI.shareWa?.addEventListener('click', () => {
+  const text = `*Zero-Trust Personal Security & Identity Threat Matrix*\nAudit your defense-in-depth posture against password reuse, SIM swaps, and identity theft with evidence-based protocols:\n\nhttps://parveen0029.github.io/The-Evidence-Based-Life/`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+});
+
+THREAT_UI.shareLi?.addEventListener('click', () => {
   const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
 });
