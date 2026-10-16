@@ -23,6 +23,8 @@
   <a href="https://github.com/parveen0029/The-Evidence-Based-Life/releases/download/epub-latest/The-Evidence-Based-Life.pdf"><b>📥 Download PDF</b></a> &nbsp;•&nbsp;
   <a href="https://github.com/parveen0029/The-Evidence-Based-Life/releases/download/epub-latest/The-Evidence-Based-Life.epub"><b>📱 EPUB</b></a> &nbsp;•&nbsp;
   <a href="https://github.com/parveen0029/The-Evidence-Based-Life/releases/download/epub-latest/The-Evidence-Based-Life.html"><b>💾 Single-File HTML (Offline)</b></a> &nbsp;•&nbsp;
+  <a href="the-evidence-based-life.json"><b>📊 Open Dataset (JSON)</b></a> &nbsp;•&nbsp;
+  <a href="the-evidence-based-life.csv"><b>📈 Spreadsheet (CSV)</b></a> &nbsp;•&nbsp;
   <a href="skills/life-decision-guide/README.md"><b>🤖 AI Decision Skill</b></a>
 </p>
 

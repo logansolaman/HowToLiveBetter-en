@@ -4,14 +4,15 @@
   "description": "An evidence-based life manual ranked by return-on-investment (ROI) across 765 peer-reviewed rules.",
   "type": "module",
   "scripts": {
-    "test": "node tools/sync-stats.mjs --check && node tools/check-refs.mjs --check && node tools/check-plain.mjs",
+    "test": "node tools/sync-stats.mjs --check && node tools/check-refs.mjs --check && node tools/check-plain.mjs && node tools/export-corpus.mjs --check",
     "check:stats": "node tools/sync-stats.mjs --check",
     "check:refs": "node tools/check-refs.mjs --check",
     "check:plain": "node tools/check-plain.mjs",
     "sync:stats": "node tools/sync-stats.mjs",
+    "export:data": "node tools/export-corpus.mjs",
     "build:offline": "node tools/offline/build.mjs",
     "build:epub": "node tools/epub/build.mjs",
-    "build": "node tools/offline/build.mjs && node tools/epub/build.mjs"
+    "build": "node tools/offline/build.mjs && node tools/epub/build.mjs && node tools/export-corpus.mjs"
   },
   "repository": {
     "type": "git",
