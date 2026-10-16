@@ -205,15 +205,20 @@ html.dark .switch .sun{display:none} html.dark .switch .moon{display:block}
 .card-h .btn-share svg{width:14px;height:14px;fill:currentColor}
 .card-h .btn-snap{opacity:0;color:var(--t3);cursor:pointer;transition:opacity .2s,color .2s;background:none;border:0;padding:2px 4px;display:inline-flex;align-items:center;line-height:26px}
 .card-h .btn-snap svg{width:15px;height:15px;fill:currentColor}
-.card:hover .anchor,.anchor:focus-visible,.card:hover .btn-done,.btn-done:focus-visible,.btn-done.done,.card:hover .btn-save,.btn-save:focus-visible,.btn-save.saved,.card:hover .btn-share,.btn-share:focus-visible,.card:hover .btn-snap,.btn-snap:focus-visible{opacity:1}
+.card-h .btn-audio{opacity:0;color:var(--t3);cursor:pointer;transition:opacity .2s,color .2s,transform .2s;background:none;border:0;padding:2px 4px;display:inline-flex;align-items:center;line-height:26px}
+.card-h .btn-audio svg{width:15px;height:15px;fill:currentColor}
+.card:hover .anchor,.anchor:focus-visible,.card:hover .btn-done,.btn-done:focus-visible,.btn-done.done,.card:hover .btn-save,.btn-save:focus-visible,.btn-save.saved,.card:hover .btn-share,.btn-share:focus-visible,.card:hover .btn-snap,.btn-snap:focus-visible,.card:hover .btn-audio,.btn-audio:focus-visible{opacity:1}
 .card-h .btn-done.done{color:var(--green-1)}
 .card-h .btn-done:hover{color:var(--green-1)}
 .card-h .btn-save.saved{color:#f5a623}
 .card-h .btn-save:hover{color:#f5a623}
 .card-h .btn-share:hover{color:var(--brand-1)}
 .card-h .btn-snap:hover{color:var(--brand-1)}
+.card-h .btn-audio:hover{color:var(--brand-1)}
+.card-h .btn-audio.playing{opacity:1;color:var(--brand-1);animation:pulse-audio 1.4s infinite}
+@keyframes pulse-audio{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
 .card.is-mastered{border-left:3.5px solid var(--green-1)}
-@media (hover:none){.card-h .anchor,.card-h .btn-done,.card-h .btn-save,.card-h .btn-share,.card-h .btn-snap{opacity:.75}}
+@media (hover:none){.card-h .anchor,.card-h .btn-done,.card-h .btn-save,.card-h .btn-share,.card-h .btn-snap,.card-h .btn-audio{opacity:.75}}
 #toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:rgba(20,20,24,0.92);color:#fff;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:500;z-index:9999;box-shadow:0 6px 20px rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.1);pointer-events:none;transition:opacity .2s,transform .2s;opacity:1}
 #toast.hidden{opacity:0;transform:translate(-50%,10px);pointer-events:none}
 html.dark #toast{background:rgba(255,255,255,0.95);color:#121214}
@@ -448,6 +453,27 @@ html.dark .snap-theme-btn.active{color:#1b1b1f}
   #snap-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Floating Audio Dock */
+#audio-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:70;background:var(--bg-elv);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);padding:10px 18px;display:flex;align-items:center;gap:14px;max-width:min(700px,calc(100vw - 32px));width:100%;backdrop-filter:blur(10px);transition:all .25s ease}
+#audio-dock[hidden]{display:none}
+.dock-info{flex:1;min-width:0;display:flex;flex-direction:column}
+.dock-title{font-size:13px;font-weight:700;color:var(--t1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dock-meta{font-size:11.5px;color:var(--t3);display:flex;gap:6px;align-items:center}
+.dock-controls{display:flex;align-items:center;gap:6px;flex:none}
+.dock-btn{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--bg-soft);border:1px solid var(--divider);color:var(--t1);cursor:pointer;transition:all .15s}
+.dock-btn:hover{background:var(--brand-soft);border-color:var(--brand-1);color:var(--brand-1)}
+.dock-btn.primary{background:var(--brand-1);color:#fff;border-color:var(--brand-1)}
+html.dark .dock-btn.primary{color:#1b1b1f}
+.dock-btn svg{width:16px;height:16px;fill:currentColor}
+.dock-rates{display:flex;align-items:center;gap:3px;background:var(--bg-mute);border-radius:6px;padding:2px;border:1px solid var(--divider)}
+.dock-rate{font-size:11px;font-weight:600;padding:2px 6px;border-radius:4px;border:0;background:none;color:var(--t2);cursor:pointer}
+.dock-rate.active{background:var(--bg-elv);color:var(--brand-1);box-shadow:0 1px 2px rgba(0,0,0,.1)}
+.dock-close{width:26px;height:26px;border-radius:6px;display:grid;place-items:center;color:var(--t3);cursor:pointer;border:0;background:none}
+.dock-close:hover{color:var(--t1)}
+.sec-audio-btn{font-size:11.5px;font-weight:600;color:var(--brand-1);background:var(--brand-soft);border:1px solid var(--brand-3);border-radius:12px;padding:2px 9px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;margin-left:8px;transition:all .15s}
+.sec-audio-btn:hover{background:var(--brand-1);color:#fff}
+html.dark .sec-audio-btn:hover{color:#1b1b1f}
+
 .gloss{margin-top:16px;border:1px solid var(--divider);border-radius:8px;padding:0 16px;font-size:13px;color:var(--t2)}
 .gloss summary{cursor:pointer;padding:10px 0;font-weight:500;color:var(--t2);list-style:none;display:flex;align-items:center;gap:6px}
 .gloss summary::-webkit-details-marker{display:none}
@@ -513,7 +539,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -891,6 +917,29 @@ html.dark .hc-action{color:#1b1b1f!important}
 
 <div id="xref-pop" hidden>
   <div class="xp-h"><b></b><button class="xp-go" type="button">Jump to Rule</button><button class="xp-x" type="button" aria-label="Close">✕</button></div>
+</div>
+
+<div id="audio-dock" hidden role="region" aria-label="Audio Reader">
+  <div class="dock-info">
+    <div class="dock-title" id="dock-title">Ready to listen</div>
+    <div class="dock-meta" id="dock-meta">
+      <span id="dock-rule-tag">The Evidence-Based Life</span>
+      <span>·</span>
+      <span id="dock-status">Stopped</span>
+    </div>
+  </div>
+  <div class="dock-controls">
+    <button class="dock-btn" id="dock-prev" type="button" title="Previous Rule (Left Arrow)" aria-label="Previous Rule"><svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg></button>
+    <button class="dock-btn primary" id="dock-play" type="button" title="Play / Pause (Space)" aria-label="Play / Pause"><svg id="dock-play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+    <button class="dock-btn" id="dock-next" type="button" title="Next Rule (Right Arrow)" aria-label="Next Rule"><svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg></button>
+  </div>
+  <div class="dock-rates">
+    <button type="button" class="dock-rate" data-rate="0.9">0.9×</button>
+    <button type="button" class="dock-rate active" data-rate="1.0">1.0×</button>
+    <button type="button" class="dock-rate" data-rate="1.25">1.25×</button>
+    <button type="button" class="dock-rate" data-rate="1.5">1.5×</button>
+  </div>
+  <button class="dock-close" id="dock-close" type="button" title="Close Audio Player (Esc)" aria-label="Close Audio Player">✕</button>
 </div>
 
 <script>
@@ -1347,7 +1396,7 @@ function build(sections){
     fsec.appendChild(sub); TOC_SEC.set(s.n, sub);
 
     const block = document.createElement('section'); block.className='sec-block'; block.dataset.sec = s.n; block.id = 'sec-'+s.n;
-    block.innerHTML = `<div class="sec-h"><h2>${s.n}. ${esc(s.title)}</h2><span class="shown"><span class="read-min" title="Estimated reading time at 200 words/min">⏱ ~${readMin} min read</span><span class="shown-sep">·</span><span class="k"></span> / ${s.entries.length}</span></div>`;
+    block.innerHTML = `<div class="sec-h"><h2>${s.n}. ${esc(s.title)}</h2><span class="shown"><span class="read-min" title="Estimated reading time at 200 words/min">⏱ ~${readMin} min read</span><button class="sec-audio-btn" type="button" data-sec-audio="${s.n}" title="Listen to entire chapter in audio commute mode">🎧 Listen</button><span class="shown-sep">·</span><span class="k"></span> / ${s.entries.length}</span></div>`;
     CUR_SEC = s.n;
     for (const para of s.intro){
       const p = document.createElement('p'); p.className = 'intro';
@@ -1359,7 +1408,7 @@ function build(sections){
       const isMastered = MASTERED.has(id);
       const c = document.createElement('article'); c.className='card' + (isMastered ? ' is-mastered' : ''); c.id = id;
       c.innerHTML = `
-        <div class="card-h"><span class="idx">${e.n}</span><h3 class="t"></h3><button class="btn-done${isMastered ? ' done' : ''}" type="button" data-done="${id}" aria-label="${isMastered ? 'Mark habit as unmastered' : 'Mark habit as implemented'}" title="${isMastered ? 'Implemented in my daily life (click to uncheck)' : 'Mark as implemented in my daily life'}">${isMastered ? '✓' : '○'}</button><button class="btn-save${isSaved ? ' saved' : ''}" type="button" data-save="${id}" aria-label="${isSaved ? 'Remove bookmark' : 'Bookmark rule'}" title="${isSaved ? 'Remove bookmark' : 'Bookmark rule'}">${isSaved ? '★' : '☆'}</button><button class="btn-share" type="button" data-share="${id}" aria-label="Share rule" title="Share rule"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/></svg></button><button class="btn-snap" type="button" data-snap="${id}" aria-label="Generate visual snapshot card" title="Generate shareable visual card (PNG)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h3l2-2h6l2 2h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm8 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg></button><a class="anchor" href="#${id}" aria-label="Copy direct link to rule" title="Copy direct link to rule">#</a></div>
+        <div class="card-h"><span class="idx">${e.n}</span><h3 class="t"></h3><button class="btn-done${isMastered ? ' done' : ''}" type="button" data-done="${id}" aria-label="${isMastered ? 'Mark habit as unmastered' : 'Mark habit as implemented'}" title="${isMastered ? 'Implemented in my daily life (click to uncheck)' : 'Mark as implemented in my daily life'}">${isMastered ? '✓' : '○'}</button><button class="btn-save${isSaved ? ' saved' : ''}" type="button" data-save="${id}" aria-label="${isSaved ? 'Remove bookmark' : 'Bookmark rule'}" title="${isSaved ? 'Remove bookmark' : 'Bookmark rule'}">${isSaved ? '★' : '☆'}</button><button class="btn-audio" type="button" data-audio="${id}" aria-label="Listen to rule" title="Listen to rule (Audio narration)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg></button><button class="btn-share" type="button" data-share="${id}" aria-label="Share rule" title="Share rule"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/></svg></button><button class="btn-snap" type="button" data-snap="${id}" aria-label="Generate visual snapshot card" title="Generate shareable visual card (PNG)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h3l2-2h6l2 2h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm8 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg></button><a class="anchor" href="#${id}" aria-label="Copy direct link to rule" title="Copy direct link to rule">#</a></div>
         <div class="badges"></div>
         <p class="human"></p>
         <div class="rows">
@@ -1939,6 +1988,7 @@ function wire(){
     clearTimeout(toast._tm);
     toast._tm = setTimeout(() => { toast.classList.add('hidden'); }, 2500);
   }
+  window.showToast = showToast;
 
   document.addEventListener('click', async e => {
     const anc = e.target.closest('.anchor');
@@ -1992,6 +2042,24 @@ function wire(){
       const cardEl = document.getElementById(id);
       const card = CARD_OF.get(cardEl);
       if (card) openSnapshotModal(card.e);
+      return;
+    }
+
+    const audioBtn = e.target.closest('.btn-audio');
+    if (audioBtn) {
+      e.preventDefault();
+      const id = audioBtn.dataset.audio;
+      const cardEl = document.getElementById(id);
+      const card = CARD_OF.get(cardEl);
+      if (card) playAudioRule(card.e, [card.e], 0, cardEl, audioBtn);
+      return;
+    }
+
+    const secAudioBtn = e.target.closest('.sec-audio-btn');
+    if (secAudioBtn) {
+      e.preventDefault();
+      const secN = secAudioBtn.dataset.secAudio;
+      playChapterAudio(secN);
       return;
     }
   });
@@ -3387,6 +3455,165 @@ SNAP_UI.shareLi?.addEventListener('click', () => {
   if (!snapRule) return;
   const url = `https://parveen0029.github.io/The-Evidence-Based-Life/#e-${snapRule.sec}-${snapRule.n}`;
   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+/* ---------- Empirical Audio Speech Synthesis & Commute Mode ---------- */
+const AUDIO_UI = {
+  dock: document.getElementById('audio-dock'),
+  title: document.getElementById('dock-title'),
+  ruleTag: document.getElementById('dock-rule-tag'),
+  status: document.getElementById('dock-status'),
+  playBtn: document.getElementById('dock-play'),
+  playIcon: document.getElementById('dock-play-icon'),
+  prevBtn: document.getElementById('dock-prev'),
+  nextBtn: document.getElementById('dock-next'),
+  closeBtn: document.getElementById('dock-close'),
+  rateBtns: document.querySelectorAll('.dock-rate')
+};
+
+let audioQueue = [];
+let audioIndex = 0;
+let isPlaying = false;
+let isPaused = false;
+let activeAudioBtn = null;
+let activeCardEl = null;
+let audioRate = parseFloat(localStorage.getItem('eb_audio_rate') || '1.0');
+
+function getSpeechText(rule) {
+  const t = rule.title.replace(/[—–]/g, ', ');
+  const g = rule.grade === 'A' ? 'Grade A evidence' : (rule.grade === 'B' ? 'Grade B evidence' : 'Grade C');
+  const r = rule.ratio ? `Return on investment: ${rule.ratio}.` : '';
+  const c = rule.cost ? `Cost: ${rule.cost.replace(/<[^>]+>/g, '').replace(/[*_]/g, '')}.` : '';
+  const body = rule.human
+    ? rule.human.replace(/<[^>]+>/g, '').replace(/[*_]/g, '').replace(/[—–]/g, ', ')
+    : (rule.gain ? rule.gain.replace(/<[^>]+>/g, '').replace(/[*_]/g, '').slice(0, 220) : '');
+  return `Chapter ${rule.sec}, Rule ${rule.n}. ${t}. ${g}. ${r} ${c} Summary: ${body}`;
+}
+
+function updatePlayIcon(playing) {
+  if (!AUDIO_UI.playIcon) return;
+  AUDIO_UI.playIcon.innerHTML = playing ? '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>' : '<path d="M8 5v14l11-7z"/>';
+}
+
+function stopAudio() {
+  if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+  isPlaying = false;
+  isPaused = false;
+  updatePlayIcon(false);
+  if (activeAudioBtn) { activeAudioBtn.classList.remove('playing'); activeAudioBtn = null; }
+  if (AUDIO_UI.status) AUDIO_UI.status.textContent = 'Stopped';
+}
+
+function playAudioRule(rule, queue = [rule], index = 0, cardEl = null, btnEl = null) {
+  if (!('speechSynthesis' in window)) {
+    if (typeof showToast === 'function') showToast('Speech synthesis is not supported on this browser.');
+    return;
+  }
+  if (isPlaying && audioQueue[audioIndex] && audioQueue[audioIndex].sec === rule.sec && audioQueue[audioIndex].n === rule.n) {
+    if (isPaused) {
+      window.speechSynthesis.resume();
+      isPaused = false;
+      updatePlayIcon(true);
+      if (AUDIO_UI.status) AUDIO_UI.status.textContent = 'Playing';
+    } else {
+      window.speechSynthesis.pause();
+      isPaused = true;
+      updatePlayIcon(false);
+      if (AUDIO_UI.status) AUDIO_UI.status.textContent = 'Paused';
+    }
+    return;
+  }
+  stopAudio();
+  audioQueue = queue;
+  audioIndex = index;
+  const cur = audioQueue[audioIndex] || rule;
+  AUDIO_UI.dock.hidden = false;
+  AUDIO_UI.title.textContent = cur.title;
+  AUDIO_UI.ruleTag.textContent = `Ch ${cur.sec}.${cur.n} (${audioIndex + 1}/${audioQueue.length})`;
+  AUDIO_UI.status.textContent = 'Playing';
+  updatePlayIcon(true);
+
+  const targetCard = cardEl || document.getElementById(`e-${cur.sec}-${cur.n}`);
+  if (targetCard) {
+    targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    targetCard.classList.remove('flash'); void targetCard.offsetWidth; targetCard.classList.add('flash');
+    activeCardEl = targetCard;
+  }
+  const targetBtn = btnEl || document.querySelector(`.btn-audio[data-audio="e-${cur.sec}-${cur.n}"]`);
+  if (targetBtn) { targetBtn.classList.add('playing'); activeAudioBtn = targetBtn; }
+
+  const text = getSpeechText(cur);
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.rate = audioRate;
+  utter.lang = 'en-US';
+
+  utter.onend = () => {
+    if (activeAudioBtn) activeAudioBtn.classList.remove('playing');
+    if (audioIndex < audioQueue.length - 1) {
+      playAudioRule(audioQueue[audioIndex + 1], audioQueue, audioIndex + 1);
+    } else {
+      stopAudio();
+      if (AUDIO_UI.status) AUDIO_UI.status.textContent = 'Finished';
+    }
+  };
+
+  utter.onerror = () => { stopAudio(); };
+
+  window.speechSynthesis.speak(utter);
+  isPlaying = true;
+  isPaused = false;
+}
+
+function playChapterAudio(secN) {
+  const sec = SECS.get(String(secN));
+  if (!sec || !sec.entries.length) return;
+  playAudioRule(sec.entries[0], sec.entries, 0);
+  if (typeof showToast === 'function') showToast(`🎧 Commute Audio Mode: Playing Chapter ${secN} (${sec.entries.length} rules)`);
+}
+
+AUDIO_UI.playBtn?.addEventListener('click', () => {
+  if (!audioQueue.length) return;
+  const cur = audioQueue[audioIndex];
+  if (cur) playAudioRule(cur, audioQueue, audioIndex);
+});
+
+AUDIO_UI.prevBtn?.addEventListener('click', () => {
+  if (audioIndex > 0) playAudioRule(audioQueue[audioIndex - 1], audioQueue, audioIndex - 1);
+});
+
+AUDIO_UI.nextBtn?.addEventListener('click', () => {
+  if (audioIndex < audioQueue.length - 1) playAudioRule(audioQueue[audioIndex + 1], audioQueue, audioIndex + 1);
+});
+
+AUDIO_UI.closeBtn?.addEventListener('click', () => {
+  stopAudio();
+  AUDIO_UI.dock.hidden = true;
+});
+
+AUDIO_UI.rateBtns?.forEach(b => {
+  const r = parseFloat(b.dataset.rate);
+  if (r === audioRate) b.classList.add('active'); else b.classList.remove('active');
+  b.addEventListener('click', () => {
+    AUDIO_UI.rateBtns.forEach(btn => btn.classList.remove('active'));
+    b.classList.add('active');
+    audioRate = r;
+    try { localStorage.setItem('eb_audio_rate', String(r)); } catch (e) {}
+    if (isPlaying && audioQueue[audioIndex]) {
+      const cur = audioQueue[audioIndex];
+      stopAudio();
+      playAudioRule(cur, audioQueue, audioIndex);
+    }
+  });
+});
+
+document.addEventListener('keydown', ev => {
+  if (AUDIO_UI.dock && !AUDIO_UI.dock.hidden) {
+    if (ev.key === 'Escape') {
+      ev.stopPropagation();
+      stopAudio();
+      AUDIO_UI.dock.hidden = true;
+    }
+  }
 });
 
 (async function init(){
