@@ -557,6 +557,51 @@ html.dark .myth-chip.active{color:#1b1b1f}
   #myth-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Medication & Food-Drug Interaction Safety Matrix Modal */
+#med-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#med-mask[hidden]{display:none}
+#med-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(880px,100%);max-height:90vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+
+.med-search-bar{position:relative;margin-bottom:12px}
+.med-search-input{width:100%;padding:9px 14px 9px 38px;border-radius:8px;border:1px solid var(--divider);background:var(--bg-alt);font-size:13px;color:var(--t1);outline:none;transition:border-color .15s}
+.med-search-input:focus{border-color:var(--brand-1)}
+.med-search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;color:var(--t3);pointer-events:none}
+
+.med-filters{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;margin-bottom:14px;scrollbar-width:thin}
+.med-chip{padding:5px 14px;border-radius:16px;font-size:12px;font-weight:600;border:1px solid var(--divider);background:var(--bg-soft);color:var(--t2);cursor:pointer;white-space:nowrap;transition:all .15s}
+.med-chip:hover{border-color:var(--brand-1);color:var(--brand-1)}
+.med-chip.active{background:var(--brand-1);border-color:var(--brand-1);color:#fff}
+html.dark .med-chip.active{color:#1b1b1f}
+
+.med-grid{display:flex;flex-direction:column;gap:12px}
+.med-card{background:var(--bg-soft);border:1px solid var(--divider);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:10px;transition:all .15s}
+.med-card:hover{border-color:var(--brand-1)}
+.med-card.sev-danger{border-left:4px solid var(--red-1)}
+.med-card.sev-warning{border-left:4px solid #f59e0b}
+.med-card.sev-synergy{border-left:4px solid var(--green-1)}
+
+.med-card-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.med-pair{display:flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--t1)}
+.med-pair-tag{padding:2px 8px;border-radius:6px;background:var(--bg-alt);border:1px solid var(--divider);font-size:12.5px;font-weight:700}
+.med-plus{color:var(--t3);font-weight:700}
+.med-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:14px;font-size:11.5px;font-weight:700}
+.med-badge.danger{background:rgba(239,68,68,0.15);color:var(--red-1)}
+.med-badge.warning{background:rgba(245,158,11,0.15);color:#d97706}
+.med-badge.synergy{background:rgba(34,197,94,0.15);color:var(--green-1)}
+
+.med-effect{font-size:13px;font-weight:600;color:var(--t1);line-height:1.45}
+.med-mech{font-size:12px;color:var(--t2);line-height:1.55}
+.med-action-box{background:var(--bg-alt);border-radius:8px;padding:9px 12px;font-size:12px;line-height:1.5;border:1px solid var(--divider)}
+.med-action-box b{color:var(--t1)}
+.med-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11.5px;color:var(--t3);padding-top:4px}
+.med-rule-link{font-weight:600;color:var(--brand-1);text-decoration:none}
+.med-rule-link:hover{text-decoration:underline}
+
+@media (max-width:820px){
+  #med-mask{padding:0}
+  #med-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
 /* Floating Audio Dock */
 #audio-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:70;background:var(--bg-elv);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);padding:10px 18px;display:flex;align-items:center;gap:14px;max-width:min(700px,calc(100vw - 32px));width:100%;backdrop-filter:blur(10px);transition:all .25s ease}
 #audio-dock[hidden]{display:none}
@@ -643,7 +688,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -717,6 +762,7 @@ html.dark .hc-action{color:#1b1b1f!important}
       <button class="icon-btn" id="stats-open" title="Compendium Analytics & Insights" aria-label="Compendium Analytics"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"/><path d="M19 19H5V5h14v14z" stroke-linecap="round"/></svg></button>
       <button class="icon-btn" id="calc-open" title="Empirical Life ROI & Longevity Calculator" aria-label="Life ROI Calculator"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg></button>
       <button class="icon-btn" id="myth-open" title="Evidence vs Popular Myth Debunking Matrix" aria-label="Myth vs Evidence Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v18M3 9l9-6 9 6M6 12l-3 5h6l-3-5zm12 0l-3 5h6l-3-5z"/></svg></button>
+      <button class="icon-btn" id="med-open" title="Medication, Food & Supplement Safety Matrix" aria-label="Medication Safety Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg></button>
       <a class="icon-btn" href="selfcheck.html" title="Take 2-Minute Life Health & Risk Audit" aria-label="Self-Audit Quiz"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></a>
       <a class="icon-btn" href="README.md" title="View README.md" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn" href="https://github.com/parveen0029/The-Evidence-Based-Life" target="_blank" rel="noopener" title="View repository on GitHub" aria-label="GitHub Repository"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
@@ -763,6 +809,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     <button class="btn-sm ghost" id="tree-open-side" type="button" style="margin-top:6px;font-size:12px">🔀 Decision Trees & Flowcharts</button>
     <button class="btn-sm ghost" id="calc-open-side" type="button" style="margin-top:6px;font-size:12px">🧮 Empirical Life ROI & Longevity Calculator</button>
     <button class="btn-sm ghost" id="myth-open-side" type="button" style="margin-top:6px;font-size:12px">⚖️ Evidence vs Popular Myth Matrix</button>
+    <button class="btn-sm ghost" id="med-open-side" type="button" style="margin-top:6px;font-size:12px">💊 Medication & Food Safety Checker</button>
   </div>
   <div class="group" id="g-upd" hidden>
     <div class="gt">Recent Updates <small>Content revisions</small></div>
@@ -1080,6 +1127,41 @@ html.dark .hc-action{color:#1b1b1f!important}
         <button class="btn-sm ghost" id="myth-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
         <button class="btn-sm ghost" id="myth-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
         <p id="myth-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="med-mask" hidden>
+  <div id="med-box" role="dialog" aria-modal="true" aria-labelledby="med-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="med-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg> <span>Medication, Food & Supplement Safety Matrix</span></div>
+      <button type="button" id="med-x" aria-label="Close medication safety checker">✕</button>
+    </div>
+    <div class="stats-scroll">
+      <div class="stats-lead">Common household medicines, foods, and vitamins can cross-react dangerously or cancel each other out. Verify severe contraindications, absorption blockers, and proven synergies from Chapter 34.</div>
+      
+      <div class="med-search-bar">
+        <svg class="med-search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5" stroke-linecap="round"/></svg>
+        <input class="med-search-input" id="med-search" type="search" placeholder="Search drug, supplement, or food (e.g. alcohol, aspirin, iron, coffee, paracetamol, statin)" autocomplete="off" aria-label="Search medication interactions">
+      </div>
+
+      <div class="med-filters" id="med-tabs" role="tablist">
+        <button type="button" class="med-chip active" data-sev="all">All Interactions (10)</button>
+        <button type="button" class="med-chip" data-sev="danger">🚨 Severe Danger (3)</button>
+        <button type="button" class="med-chip" data-sev="warning">⚠️ Warning / Ineffective (5)</button>
+        <button type="button" class="med-chip" data-sev="synergy">✅ Safe Synergy (2)</button>
+      </div>
+
+      <div class="med-grid" id="med-cards"></div>
+
+      <div class="calc-footer">
+        <button class="btn-sm" id="med-export" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy Cabinet Safety Checklist</button>
+        <button class="btn-sm ghost" id="med-share-x" type="button" style="width:auto;padding:8px 14px">𝕏 Share</button>
+        <button class="btn-sm ghost" id="med-share-wa" type="button" style="width:auto;padding:8px 14px">WhatsApp</button>
+        <button class="btn-sm ghost" id="med-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
+        <button class="btn-sm ghost" id="med-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
+        <p id="med-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
       </div>
     </div>
   </div>
@@ -4005,6 +4087,295 @@ MYTH_UI.shareWa?.addEventListener('click', () => {
 });
 
 MYTH_UI.shareLi?.addEventListener('click', () => {
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+/* ---------- Medication, Food & Supplement Safety Matrix ---------- */
+const MED_DATA = [
+  {
+    id: 'paracetamol-alcohol',
+    subA: 'Acetaminophen / Paracetamol',
+    subB: 'Alcohol (Ethanol)',
+    sev: 'danger',
+    sevLabel: '🚨 Fatal / Severe Danger',
+    effect: 'Acute Hepatic Failure & Hepatocellular Necrosis',
+    mech: 'Ethanol strongly induces hepatic CYP2E1 enzymes while concurrently depleting cellular glutathione stores. When acetaminophen is ingested, CYP2E1 shunts the drug into toxic N-acetyl-p-benzoquinone imine (NAPQI), overwhelming glutathione neutralization and causing rapid liver necrosis.',
+    action: 'Never take acetaminophen/paracetamol within 24 hours of drinking alcohol or to treat alcohol hangovers. Use NSAIDs with food or physical hydration instead.',
+    ruleId: 'e-34-3',
+    rule: 'Ch 34.3',
+    source: 'FDA Guidance & Acute Liver Failure Study Group'
+  },
+  {
+    id: 'nsaid-aspirin',
+    subA: 'NSAIDs (Ibuprofen, Naproxen)',
+    subB: 'Cardioprotective Low-Dose Aspirin',
+    sev: 'danger',
+    sevLabel: '🚨 High Clinical Risk',
+    effect: 'Loss of Cardioprotection + Multiplied GI Bleeding Risk',
+    mech: 'Ibuprofen competitively occupies the platelet COX-1 catalytic channel before aspirin can irreversibly acetylate Ser-529. This prevents aspirin\'s antiplatelet action while concurrently compounding gastric mucosal ulceration.',
+    action: 'Take aspirin at least 30–60 minutes BEFORE taking any NSAID (or wait 8+ hours after ibuprofen). Never double up NSAIDs without physician oversight.',
+    ruleId: 'e-34-1',
+    rule: 'Ch 34.1',
+    source: 'FDA MedWatch & European Heart Journal'
+  },
+  {
+    id: 'stjohns-ssri',
+    subA: 'St. John\'s Wort (Hypericum)',
+    subB: 'SSRIs / Oral Contraceptives',
+    sev: 'danger',
+    sevLabel: '🚨 Severe Contraindication',
+    effect: 'Serotonin Syndrome + Unplanned Contraceptive Failure',
+    mech: 'Hyperforin potently inhibits serotonin reuptake (triggering hyperthermic Serotonin Syndrome when combined with SSRIs) while simultaneously inducing CYP3A4 and P-glycoprotein, dramatically accelerating the metabolic breakdown of estrogen/progesterone birth control pills.',
+    action: 'Strictly avoid botanical St. John\'s Wort if taking prescription antidepressants, oral birth control, immunosuppressants, or anticoagulants.',
+    ruleId: 'e-34-4',
+    rule: 'Ch 34.4 & 2.1',
+    source: 'NIH National Center for Complementary & Integrative Health'
+  },
+  {
+    id: 'grapefruit-statin',
+    subA: 'Grapefruit Juice',
+    subB: 'Statins (Atorvastatin, Simvastatin)',
+    sev: 'warning',
+    sevLabel: '⚠️ Severe Overdose Warning',
+    effect: 'Massive Statin Bioavailability Surge & Rhabdomyolysis',
+    mech: 'Furanocoumarins in fresh grapefruit irreversibly inactivate intestinal CYP3A4 enzymes. Because intestinal first-pass metabolism is destroyed, circulating statin blood concentrations can surge up to 300%–1000%, triggering acute muscle breakdown (rhabdomyolysis) and renal injury.',
+    action: 'Avoid grapefruit juice entirely if taking simvastatin, lovastatin, or atorvastatin. Rosuvastatin and pravastatin do not utilize CYP3A4 and are generally unaffected.',
+    ruleId: 'e-34-5',
+    rule: 'Ch 34.5',
+    source: 'American Journal of Medicine & FDA Drug Interactions'
+  },
+  {
+    id: 'iron-calcium',
+    subA: 'Iron Supplements (Ferrous Sulfate)',
+    subB: 'Calcium / Dairy / Coffee / Tea',
+    sev: 'warning',
+    sevLabel: '⚠️ Inactivation Warning',
+    effect: 'Up to 80% Blockade of Gastrointestinal Iron Absorption',
+    mech: 'Calcium competitively shares the divalent metal transporter 1 (DMT1) in the duodenal brush border. Polyphenols and tannins in coffee and tea chemically chelate ferric ions into insoluble precipitates that cannot be absorbed.',
+    action: 'Take iron supplements on an empty stomach with a source of Vitamin C (or water), and space at least 2 hours apart from dairy, calcium supplements, coffee, or green tea.',
+    ruleId: 'e-2-1',
+    rule: 'Ch 2.1',
+    source: 'American Journal of Clinical Nutrition'
+  },
+  {
+    id: 'potassium-acei',
+    subA: 'Potassium Supplements / Salt Substitutes',
+    subB: 'ACE Inhibitors / ARBs (Lisinopril, Losartan)',
+    sev: 'warning',
+    sevLabel: '⚠️ Severe Toxicity Warning',
+    effect: 'Life-Threatening Hyperkalemia & Cardiac Arrhythmia',
+    mech: 'ACE inhibitors and ARBs suppress aldosterone synthesis in the adrenal cortex, which drastically reduces renal excretion of potassium. Adding potassium chloride supplements or potassium-based "low sodium" salt substitutes causes dangerous serum potassium spikes.',
+    action: 'Do not take supplemental potassium or "lite salt" (potassium chloride) while prescribed ACE inhibitors or ARBs unless specifically monitored and directed by your physician.',
+    ruleId: 'e-34-2',
+    rule: 'Ch 34.2',
+    source: 'Circulation & Kidney International'
+  },
+  {
+    id: 'antibiotics-dairy',
+    subA: 'Antibiotics (Tetracyclines, Ciprofloxacin)',
+    subB: 'Antacids (Mg/Al) / Dairy (Calcium)',
+    sev: 'warning',
+    sevLabel: '⚠️ Clinical Failure Warning',
+    effect: 'Antibiotic Inactivation & Infection Persistence',
+    mech: 'Polyvalent metallic cations (Ca²⁺ in milk, Mg²⁺/Al³⁺ in antacids) form unabsorbable covalent chelate complexes with fluoroquinolone and tetracycline molecules, reducing antibiotic blood levels by up to 85% and causing treatment failure.',
+    action: 'Take antibiotics with plain water. Space antacids, milk, yogurt, and multivitamin mineral pills at least 2 hours before or 4 hours after antibiotic doses.',
+    ruleId: 'e-34-1',
+    rule: 'Ch 34.1',
+    source: 'Antimicrobial Agents and Chemotherapy'
+  },
+  {
+    id: 'nsaids-antihypertensives',
+    subA: 'Chronic NSAIDs (Ibuprofen, Naproxen)',
+    subB: 'Blood Pressure Meds (Diuretics, ACEi)',
+    sev: 'warning',
+    sevLabel: '⚠️ Blunted Efficacy Warning',
+    effect: 'Loss of Blood Pressure Control & Acute Kidney Strain',
+    mech: 'NSAIDs inhibit renal cyclooxygenase enzymes, suppressing vasodilatory prostaglandins (PGE2, PGI2). This causes renal arteriolar vasoconstriction, sodium retention, and directly elevates systolic blood pressure by 3–6 mmHg, negating antihypertensive treatment.',
+    action: 'Limit NSAID usage to 3–5 days maximum if treated for hypertension. For recurring chronic pain, utilize topical formulations or acetaminophen with doctor guidance.',
+    ruleId: 'e-34-3',
+    rule: 'Ch 34.3',
+    source: 'Hypertension (AHA Journal)'
+  },
+  {
+    id: 'vitd-vitk2',
+    subA: 'Vitamin D3',
+    subB: 'Vitamin K2 & Dietary Fat',
+    sev: 'synergy',
+    sevLabel: '✅ Proven Synergy',
+    effect: 'Optimized Arterial Calcium Clearance & Bone Mineralization',
+    mech: 'Vitamin D3 stimulates intestinal absorption of calcium and synthesizes osteocalcin and matrix Gla protein (MGP). Vitamin K2 activates these proteins via gamma-carboxylation, directing calcium into bone tissue and preventing arterial calcification.',
+    action: 'Take Vitamin D3 with Vitamin K2 (MK-7) alongside a meal containing healthy dietary fats (olive oil, eggs, nuts) for optimal micellar absorption.',
+    ruleId: 'e-2-1',
+    rule: 'Ch 2.1 & 34.2',
+    source: 'Integrative Medicine & Endocrine Reviews'
+  },
+  {
+    id: 'iron-vitc',
+    subA: 'Non-Heme Dietary Iron (Legumes, Spinach)',
+    subB: 'Vitamin C (Ascorbic Acid)',
+    sev: 'synergy',
+    sevLabel: '✅ Proven Synergy',
+    effect: 'Doubled Gastrointestinal Iron Absorption Rate',
+    mech: 'Ascorbic acid acts as a powerful reducing agent in gastric acid, converting insoluble ferric iron (Fe³⁺) into soluble, highly absorbable ferrous iron (Fe²⁺) while preventing chelation from dietary phytates.',
+    action: 'Pair plant-based iron sources (beans, lentils, dark leafy greens) with citrus, bell peppers, or 100mg Vitamin C for optimal bioavailability.',
+    ruleId: 'e-2-1',
+    rule: 'Ch 2.1',
+    source: 'World Health Organization & Int J Vitam Nutr Res'
+  }
+];
+
+let curMedSev = 'all';
+let medSearchQuery = '';
+
+const MED_UI = {
+  mask: document.getElementById('med-mask'),
+  openBtn: document.getElementById('med-open'),
+  sideBtn: document.getElementById('med-open-side'),
+  closeBtn: document.getElementById('med-x'),
+  doneBtn: document.getElementById('med-close-btn'),
+  tabs: document.getElementById('med-tabs'),
+  cards: document.getElementById('med-cards'),
+  search: document.getElementById('med-search'),
+  exportBtn: document.getElementById('med-export'),
+  shareX: document.getElementById('med-share-x'),
+  shareWa: document.getElementById('med-share-wa'),
+  shareLi: document.getElementById('med-share-li'),
+  msg: document.getElementById('med-copy-msg')
+};
+
+function renderMedInteractions(){
+  if (!MED_UI.cards) return;
+  const q = medSearchQuery.toLowerCase().trim();
+  const filtered = MED_DATA.filter(m => {
+    if (curMedSev !== 'all' && m.sev !== curMedSev) return false;
+    if (q) {
+      const hay = `${m.subA} ${m.subB} ${m.effect} ${m.mech} ${m.action}`.toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  if (!filtered.length){
+    MED_UI.cards.innerHTML = `<div style="text-align:center;padding:32px 16px;color:var(--t3);font-size:13px">No cross-reactions found matching "${medSearchQuery}". Try a broader term (e.g. alcohol, iron, aspirin, calcium).</div>`;
+    return;
+  }
+
+  let h = '';
+  for (const m of filtered){
+    const badgeClass = m.sev === 'danger' ? 'danger' : (m.sev === 'warning' ? 'warning' : 'synergy');
+    h += `
+      <div class="med-card sev-${m.sev}">
+        <div class="med-card-top">
+          <div class="med-pair">
+            <span class="med-pair-tag">${m.subA}</span>
+            <span class="med-plus">+</span>
+            <span class="med-pair-tag">${m.subB}</span>
+          </div>
+          <span class="med-badge ${badgeClass}">${m.sevLabel}</span>
+        </div>
+        <div class="med-effect">${m.effect}</div>
+        <div class="med-mech">${m.mech}</div>
+        <div class="med-action-box"><b>Safe Protocol:</b> ${m.action}</div>
+        <div class="med-bottom">
+          <span>Source: ${m.source}</span>
+          <span>Citation: <a href="#${m.ruleId}" class="med-rule-link" data-rule="${m.ruleId}">[${m.rule}]</a></span>
+        </div>
+      </div>
+    `;
+  }
+  MED_UI.cards.innerHTML = h;
+}
+
+function medOpen(){
+  if (!MED_UI.mask) return;
+  if (MED_UI.search) { MED_UI.search.value = ''; medSearchQuery = ''; }
+  renderMedInteractions();
+  MED_UI.mask.hidden = false;
+  MED_UI.closeBtn?.focus();
+  if (window.gtag) gtag('event', 'med_open');
+}
+
+function medClose(){
+  if (!MED_UI.mask || MED_UI.mask.hidden) return;
+  MED_UI.mask.hidden = true;
+  MED_UI.openBtn?.focus();
+}
+
+MED_UI.openBtn?.addEventListener('click', medOpen);
+MED_UI.sideBtn?.addEventListener('click', medOpen);
+MED_UI.closeBtn?.addEventListener('click', medClose);
+MED_UI.doneBtn?.addEventListener('click', medClose);
+MED_UI.mask?.addEventListener('click', ev => { if (ev.target === MED_UI.mask) medClose(); });
+document.addEventListener('keydown', ev => { if (ev.key === 'Escape' && MED_UI.mask && !MED_UI.mask.hidden){ ev.stopPropagation(); medClose(); } }, true);
+
+MED_UI.tabs?.addEventListener('click', ev => {
+  const chip = ev.target.closest('.med-chip');
+  if (!chip) return;
+  MED_UI.tabs.querySelectorAll('.med-chip').forEach(c => c.classList.remove('active'));
+  chip.classList.add('active');
+  curMedSev = chip.dataset.sev || 'all';
+  renderMedInteractions();
+});
+
+let medSearchTm;
+MED_UI.search?.addEventListener('input', ev => {
+  clearTimeout(medSearchTm);
+  medSearchTm = setTimeout(() => {
+    medSearchQuery = ev.target.value;
+    renderMedInteractions();
+  }, 100);
+});
+
+MED_UI.cards?.addEventListener('click', ev => {
+  const link = ev.target.closest('.med-rule-link');
+  if (!link) return;
+  ev.preventDefault();
+  const ruleId = link.dataset.rule;
+  medClose();
+  const ruleEl = document.getElementById(ruleId);
+  if (ruleEl) {
+    ruleEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    ruleEl.classList.remove('flash'); void ruleEl.offsetWidth; ruleEl.classList.add('flash');
+  }
+});
+
+MED_UI.exportBtn?.addEventListener('click', async () => {
+  let md = `# Medication, Food & Supplement Safety Matrix\n\nVerified clinical cross-reactions, mechanisms, and safe protocols from The Evidence-Based Life (Chapter 34):\n\n`;
+  for (const m of MED_DATA){
+    md += `### ${m.sevLabel}: ${m.subA} + ${m.subB}\n`;
+    md += `- **Clinical Effect**: ${m.effect}\n`;
+    md += `- **Mechanism**: ${m.mech}\n`;
+    md += `- **Safe Protocol**: ${m.action}\n`;
+    md += `- **Handbook Link**: https://parveen0029.github.io/The-Evidence-Based-Life/#${m.ruleId} [${m.rule}]\n`;
+    md += `- **Source**: ${m.source}\n\n---\n\n`;
+  }
+  md += `*From The Evidence-Based Life: https://parveen0029.github.io/The-Evidence-Based-Life/*\n`;
+
+  try {
+    await navigator.clipboard.writeText(md);
+    if (MED_UI.msg){
+      MED_UI.msg.textContent = '✓ Medicine Cabinet Safety Checklist copied to clipboard!';
+      MED_UI.msg.hidden = false;
+      setTimeout(() => { MED_UI.msg.hidden = true; }, 3000);
+    }
+  } catch (e) {
+    prompt('Copy your safety checklist below:', md);
+  }
+});
+
+MED_UI.shareX?.addEventListener('click', () => {
+  const text = `Check your medicine cabinet: Paracetamol + alcohol, ibuprofen + aspirin, and grapefruit + statins have dangerous interactions. See the safety matrix from The Evidence-Based Life:`;
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+MED_UI.shareWa?.addEventListener('click', () => {
+  const text = `*Medication & Food-Drug Safety Matrix*\nBe careful mixing common home medicines and foods (like paracetamol + alcohol, iron + coffee, or grapefruit + blood pressure pills). Read the clinical safety guide:\n\nhttps://parveen0029.github.io/The-Evidence-Based-Life/`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+});
+
+MED_UI.shareLi?.addEventListener('click', () => {
   const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
 });
