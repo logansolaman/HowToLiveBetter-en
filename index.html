@@ -520,6 +520,43 @@ html.dark .snap-theme-btn.active{color:#1b1b1f}
   #calc-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Evidence vs Popular Myth Matrix Modal */
+#myth-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#myth-mask[hidden]{display:none}
+#myth-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(880px,100%);max-height:90vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+
+.myth-filters{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;margin-bottom:14px;scrollbar-width:thin}
+.myth-chip{padding:5px 14px;border-radius:16px;font-size:12px;font-weight:600;border:1px solid var(--divider);background:var(--bg-soft);color:var(--t2);cursor:pointer;white-space:nowrap;transition:all .15s}
+.myth-chip:hover{border-color:var(--brand-1);color:var(--brand-1)}
+.myth-chip.active{background:var(--brand-1);border-color:var(--brand-1);color:#fff}
+html.dark .myth-chip.active{color:#1b1b1f}
+
+.myth-grid{display:flex;flex-direction:column;gap:12px}
+.myth-card{background:var(--bg-soft);border:1px solid var(--divider);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px;transition:border-color .15s}
+.myth-card:hover{border-color:var(--brand-1)}
+.myth-split{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:680px){
+  .myth-split{grid-template-columns:1fr}
+}
+.myth-col{padding:12px 14px;border-radius:8px;font-size:12.5px;line-height:1.55}
+.myth-col.myth-bad{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2)}
+.myth-col.myth-good{background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.2)}
+.myth-head{display:flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em}
+.myth-head.bad{color:var(--red-1)}
+.myth-head.good{color:var(--green-1)}
+.myth-title{font-size:13.5px;font-weight:700;color:var(--t1);margin-bottom:4px}
+.myth-text{color:var(--t2)}
+.myth-meta{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding-top:10px;border-top:1px solid var(--divider);font-size:12px}
+.myth-savings{display:inline-flex;align-items:center;gap:4px;font-weight:700;color:var(--brand-1)}
+.myth-rule-ref{font-weight:600;color:var(--t1)}
+.myth-rule-ref a{color:var(--brand-1);text-decoration:none}
+.myth-rule-ref a:hover{text-decoration:underline}
+
+@media (max-width:820px){
+  #myth-mask{padding:0}
+  #myth-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
 /* Floating Audio Dock */
 #audio-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:70;background:var(--bg-elv);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);padding:10px 18px;display:flex;align-items:center;gap:14px;max-width:min(700px,calc(100vw - 32px));width:100%;backdrop-filter:blur(10px);transition:all .25s ease}
 #audio-dock[hidden]{display:none}
@@ -606,7 +643,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -679,6 +716,7 @@ html.dark .hc-action{color:#1b1b1f!important}
       <button class="icon-btn" id="proto-open" title="Daily Chronobiological Protocol (Life OS Routine)" aria-label="Daily Life Protocol"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></button>
       <button class="icon-btn" id="stats-open" title="Compendium Analytics & Insights" aria-label="Compendium Analytics"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"/><path d="M19 19H5V5h14v14z" stroke-linecap="round"/></svg></button>
       <button class="icon-btn" id="calc-open" title="Empirical Life ROI & Longevity Calculator" aria-label="Life ROI Calculator"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg></button>
+      <button class="icon-btn" id="myth-open" title="Evidence vs Popular Myth Debunking Matrix" aria-label="Myth vs Evidence Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v18M3 9l9-6 9 6M6 12l-3 5h6l-3-5zm12 0l-3 5h6l-3-5z"/></svg></button>
       <a class="icon-btn" href="selfcheck.html" title="Take 2-Minute Life Health & Risk Audit" aria-label="Self-Audit Quiz"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></a>
       <a class="icon-btn" href="README.md" title="View README.md" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn" href="https://github.com/parveen0029/The-Evidence-Based-Life" target="_blank" rel="noopener" title="View repository on GitHub" aria-label="GitHub Repository"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
@@ -724,6 +762,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     <button class="btn-sm ghost" id="proto-open-side" type="button" style="margin-top:6px;font-size:12px">📅 24-Hour Life Routine Protocol</button>
     <button class="btn-sm ghost" id="tree-open-side" type="button" style="margin-top:6px;font-size:12px">🔀 Decision Trees & Flowcharts</button>
     <button class="btn-sm ghost" id="calc-open-side" type="button" style="margin-top:6px;font-size:12px">🧮 Empirical Life ROI & Longevity Calculator</button>
+    <button class="btn-sm ghost" id="myth-open-side" type="button" style="margin-top:6px;font-size:12px">⚖️ Evidence vs Popular Myth Matrix</button>
   </div>
   <div class="group" id="g-upd" hidden>
     <div class="gt">Recent Updates <small>Content revisions</small></div>
@@ -1010,6 +1049,37 @@ html.dark .hc-action{color:#1b1b1f!important}
         <button class="btn-sm ghost" id="calc-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
         <button class="btn-sm ghost" id="calc-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
         <p id="calc-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="myth-mask" hidden>
+  <div id="myth-box" role="dialog" aria-modal="true" aria-labelledby="myth-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="myth-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v18M3 9l9-6 9 6M6 12l-3 5h6l-3-5zm12 0l-3 5h6l-3-5z"/></svg> <span>Evidence vs Popular Myth Debunking Matrix</span></div>
+      <button type="button" id="myth-x" aria-label="Close myth matrix">✕</button>
+    </div>
+    <div class="stats-scroll">
+      <div class="stats-lead">Commercial wellness marketing and financial fads waste billions each year. Compare common high-cost dogmas against peer-reviewed Grade A fundamentals and reclaim both wealth and lifespan.</div>
+      
+      <div class="myth-filters" id="myth-tabs" role="tablist">
+        <button type="button" class="myth-chip active" data-cat="all">All Topics (8)</button>
+        <button type="button" class="myth-chip" data-cat="health">Health & Nutrition (3)</button>
+        <button type="button" class="myth-chip" data-cat="fitness">Fitness & Recovery (2)</button>
+        <button type="button" class="myth-chip" data-cat="money">Money & Investing (2)</button>
+        <button type="button" class="myth-chip" data-cat="sleep">Sleep & Circadian (1)</button>
+      </div>
+
+      <div class="myth-grid" id="myth-cards"></div>
+
+      <div class="calc-footer">
+        <button class="btn-sm" id="myth-export" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy Debunking Guide</button>
+        <button class="btn-sm ghost" id="myth-share-x" type="button" style="width:auto;padding:8px 14px">𝕏 Share</button>
+        <button class="btn-sm ghost" id="myth-share-wa" type="button" style="width:auto;padding:8px 14px">WhatsApp</button>
+        <button class="btn-sm ghost" id="myth-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
+        <button class="btn-sm ghost" id="myth-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
+        <p id="myth-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
       </div>
     </div>
   </div>
@@ -3696,6 +3766,245 @@ CALC_UI.shareWa?.addEventListener('click', () => {
 });
 
 CALC_UI.shareLi?.addEventListener('click', () => {
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+/* ---------- Evidence vs Popular Myth Debunking Matrix ---------- */
+const MYTH_DATA = [
+  {
+    id: 'detox',
+    cat: 'health',
+    myth: 'Juice Cleanses & Detox Teas Flush Toxins',
+    mythCost: '$50–$150 / cleanse + reactive glucose spikes',
+    mythDesc: 'Marketing claims that drinking processed fruit juices or botanical herbal teas "flushes systemic metabolic waste" and resets liver function.',
+    fact: 'Human liver, kidneys, skin, and lungs detoxify 24/7 without commercial teas. Juice cleanses strip essential insoluble fiber, cause sharp insulin spikes, and deplete electrolytes.',
+    fix: 'Drink adequate water upon waking (400–600ml) and consume 35g+ daily dietary fiber from legumes and vegetables.',
+    ruleId: 'e-2-4',
+    rule: 'Ch 2.4 & 2.1',
+    savings: 'Saves $600–$1,200/yr',
+    source: 'Harvard Health & Lancet Gastroenterology'
+  },
+  {
+    id: 'cold-plunge',
+    cat: 'fitness',
+    myth: 'Ice Baths Right After Lifting Maximize Muscle Growth',
+    mythCost: '$2,000–$6,000 chiller tub / $150/mo spa fee',
+    mythDesc: 'Influencers claim sub-10°C ice baths immediately post-hypertrophy resistance training accelerate hypertrophy and eliminate fatigue.',
+    fact: 'Meta-analyses (Roberts et al. 2015, Peake et al. 2020) prove immediate post-workout cold water immersion blunts mTOR phosphorylation, satellite cell activity, and long-term myofibrillar protein synthesis by up to 20%.',
+    fix: 'Use passive cool-down, consume 30g post-workout protein, and get 8 hrs sleep. Reserve cold plunge for multi-match sports tournaments where immediate acute analgesia trumps adaptation.',
+    ruleId: 'e-2-1',
+    rule: 'Ch 2.1 & 3.1',
+    savings: 'Saves $2,000+ equipment & preserves hypertrophy',
+    source: 'Journal of Physiology & Sports Med'
+  },
+  {
+    id: 'trading',
+    cat: 'money',
+    myth: 'Day Trading & Crypto Signals Outperform the Market',
+    mythCost: '$10,000s lost capital + trading fees + extreme stress',
+    mythDesc: 'Finfluencers promote short-term chart patterns, options trading, or meme crypto alerts to achieve "fast financial freedom".',
+    fact: 'S&P Dow Jones SPIVA reports demonstrate 90%+ of professional active funds underperform broad index funds over 15 years. Individual retail day traders lose money in >95% of accounts over 12 months.',
+    fix: 'Automate dollar-cost averaging on payday into broad, ultra-low-cost total market index funds (VTI/VOO, expense ratio <0.04%).',
+    ruleId: 'e-5-3',
+    rule: 'Ch 5.3 & 5.7',
+    savings: 'Saves $10,000s in fees & capital preservation',
+    source: 'SPIVA S&P Global & SEC Studies'
+  },
+  {
+    id: 'organic',
+    cat: 'health',
+    myth: 'Organic Produce is Vastly Superior in Nutrition',
+    mythCost: '50%–100% price premium on all fresh grocery items',
+    mythDesc: 'Pop-wellness asserts that certified organic fruits and vegetables contain dramatically higher vitamins, minerals, and cure chronic disease.',
+    fact: 'Stanford University meta-analysis (237 studies) confirmed no significant difference in vitamin or nutrient content between organic and conventional produce. Mortality reduction comes from vegetable volume, not organic certification.',
+    fix: 'Rinse conventional vegetables with tap water. Prioritize consuming adequate volume (400g+/day) of regular produce rather than spending double on organic labels.',
+    ruleId: 'e-2-3',
+    rule: 'Ch 2.3 & 5.1',
+    savings: 'Saves $800–$1,600/yr on grocery bills',
+    source: 'Stanford Medicine & Annals of Internal Med'
+  },
+  {
+    id: 'weekend-sleep',
+    cat: 'sleep',
+    myth: 'You Can Pay Off Weekly Sleep Debt by Sleeping in on Weekends',
+    mythCost: 'Persistent brain fog, social jetlag, Sunday insomnia',
+    mythDesc: 'Belief that sleeping 5 hours on weekdays and 10–11 hours on Saturday/Sunday balances your total sleep requirement without consequence.',
+    fact: 'Circadian phase delays of >90 mins between weekdays and weekends trigger "social jetlag," desynchronize master SCN clocks, disrupt insulin sensitivity, and fail to restore slow-wave restorative sleep debt.',
+    fix: 'Anchor wake time within ±30 mins all 7 days of the week. View direct morning sunlight within 30 mins to set nocturnal melatonin release.',
+    ruleId: 'e-3-1',
+    rule: 'Ch 3.1 & 3.3',
+    savings: 'Restores metabolic stability & peak cognitive focus',
+    source: 'Current Biology & Sleep Med Reviews'
+  },
+  {
+    id: 'multivitamins',
+    cat: 'health',
+    myth: 'Daily Multivitamins & High-Dose Antioxidants Extend Lifespan',
+    mythCost: '$30–$80/month on generic multivitamin bottles',
+    mythDesc: 'Marketing asserts that popping a daily broad-spectrum multivitamin capsule acts as an "insurance policy" against chronic disease and aging.',
+    fact: 'USPSTF comprehensive review of 84 studies (700,000+ participants) found no evidence that multivitamins prevent cardiovascular disease or cancer. High doses of beta-carotene and vitamin E statistically increased lung cancer and mortality.',
+    fix: 'Get micronutrients from whole foods. Test blood levels annually and supplement only clinically proven deficiencies (e.g. Vitamin D3 if low sunlight, B12 for strict plant-based diets).',
+    ruleId: 'e-34-2',
+    rule: 'Ch 34.2 & 2.1',
+    savings: 'Saves $360–$900/yr in useless supplement pill spend',
+    source: 'USPSTF / JAMA 2022 Guidelines'
+  },
+  {
+    id: 'static-stretch',
+    cat: 'fitness',
+    myth: 'Static Stretching Before Workouts Prevents Injuries',
+    mythCost: '15 mins wasted per workout + reduced lifting power',
+    mythDesc: 'Traditional advice holding prolonged 30-second hamstring or quad stretches immediately before sprinting or heavy resistance training.',
+    fact: 'Systematic reviews (Herbert & Gabriel, BMJ) demonstrate static stretching prior to athletic exertion produces zero significant reduction in injury risk and transiently diminishes acute muscle power output by up to 8%.',
+    fix: 'Perform dynamic warm-ups (light Zone 2 aerobic pulse + sport-specific movement patterns with ascending weights) to raise core muscle temperature.',
+    ruleId: 'e-2-2',
+    rule: 'Ch 2.2',
+    savings: 'Reclaims 15 mins/workout & protects power output',
+    source: 'British Medical Journal & Scand J Med Sci'
+  },
+  {
+    id: 'red-wine',
+    cat: 'health',
+    myth: 'A Daily Glass of Red Wine is Essential Heart Medicine',
+    mythCost: '$50–$120/month on wine bottles + fragmented sleep',
+    mythDesc: 'The "French Paradox" claim that resveratrol in daily red wine cleans arteries and promotes cardiac longevity.',
+    fact: 'The French Paradox was confounded by socio-economic wealth and "sick quitter" bias. Modern Mendelian randomization and 600,000-person Lancet cohorts prove alcohol is a Group 1 carcinogen and direct REM sleep disruptor with no cardioprotective threshold.',
+    fix: 'Obtain polyphenols from zero-alcohol green tea, berries, and dark cocoa. Eliminate alcohol 3–4 hours before sleep for restorative deep rest.',
+    ruleId: 'e-3-6',
+    rule: 'Ch 3.6',
+    savings: 'Saves $800–$1,500/yr & deepens REM sleep',
+    source: 'The Lancet & WHO Alcohol Framework'
+  }
+];
+
+let curMythCat = 'all';
+
+const MYTH_UI = {
+  mask: document.getElementById('myth-mask'),
+  openBtn: document.getElementById('myth-open'),
+  sideBtn: document.getElementById('myth-open-side'),
+  closeBtn: document.getElementById('myth-x'),
+  doneBtn: document.getElementById('myth-close-btn'),
+  tabs: document.getElementById('myth-tabs'),
+  cards: document.getElementById('myth-cards'),
+  exportBtn: document.getElementById('myth-export'),
+  shareX: document.getElementById('myth-share-x'),
+  shareWa: document.getElementById('myth-share-wa'),
+  shareLi: document.getElementById('myth-share-li'),
+  msg: document.getElementById('myth-copy-msg')
+};
+
+function renderMyths(){
+  if (!MYTH_UI.cards) return;
+  const filtered = curMythCat === 'all' ? MYTH_DATA : MYTH_DATA.filter(m => m.cat === curMythCat);
+  let h = '';
+  for (const m of filtered){
+    h += `
+      <div class="myth-card" data-id="${m.id}">
+        <div class="myth-split">
+          <div class="myth-col myth-bad">
+            <div class="myth-head bad">❌ The Expensive Myth</div>
+            <div class="myth-title">${m.myth}</div>
+            <div class="myth-text">${m.mythDesc}</div>
+            <div style="font-size:11.5px;color:var(--red-1);margin-top:6px;font-weight:600">Cost: ${m.mythCost}</div>
+          </div>
+          <div class="myth-col myth-good">
+            <div class="myth-head good">✅ Empirical Reality & Science</div>
+            <div class="myth-text">${m.fact}</div>
+            <div style="font-size:12px;color:var(--t1);margin-top:8px"><b>Zero-Cost Alternative:</b> ${m.fix}</div>
+          </div>
+        </div>
+        <div class="myth-meta">
+          <span class="myth-savings">💰 ${m.savings}</span>
+          <span class="myth-rule-ref">Handbook Citation: <a href="#${m.ruleId}" class="myth-rule-link" data-rule="${m.ruleId}">[${m.rule}]</a> · <span style="color:var(--t3)">${m.source}</span></span>
+        </div>
+      </div>
+    `;
+  }
+  MYTH_UI.cards.innerHTML = h;
+}
+
+function mythOpen(){
+  if (!MYTH_UI.mask) return;
+  renderMyths();
+  MYTH_UI.mask.hidden = false;
+  MYTH_UI.closeBtn?.focus();
+  if (window.gtag) gtag('event', 'myth_open');
+}
+
+function mythClose(){
+  if (!MYTH_UI.mask || MYTH_UI.mask.hidden) return;
+  MYTH_UI.mask.hidden = true;
+  MYTH_UI.openBtn?.focus();
+}
+
+MYTH_UI.openBtn?.addEventListener('click', mythOpen);
+MYTH_UI.sideBtn?.addEventListener('click', mythOpen);
+MYTH_UI.closeBtn?.addEventListener('click', mythClose);
+MYTH_UI.doneBtn?.addEventListener('click', mythClose);
+MYTH_UI.mask?.addEventListener('click', ev => { if (ev.target === MYTH_UI.mask) mythClose(); });
+document.addEventListener('keydown', ev => { if (ev.key === 'Escape' && MYTH_UI.mask && !MYTH_UI.mask.hidden){ ev.stopPropagation(); mythClose(); } }, true);
+
+MYTH_UI.tabs?.addEventListener('click', ev => {
+  const chip = ev.target.closest('.myth-chip');
+  if (!chip) return;
+  MYTH_UI.tabs.querySelectorAll('.myth-chip').forEach(c => c.classList.remove('active'));
+  chip.classList.add('active');
+  curMythCat = chip.dataset.cat || 'all';
+  renderMyths();
+});
+
+MYTH_UI.cards?.addEventListener('click', ev => {
+  const link = ev.target.closest('.myth-rule-link');
+  if (!link) return;
+  ev.preventDefault();
+  const ruleId = link.dataset.rule;
+  mythClose();
+  const ruleEl = document.getElementById(ruleId);
+  if (ruleEl) {
+    ruleEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    ruleEl.classList.remove('flash'); void ruleEl.offsetWidth; ruleEl.classList.add('flash');
+  }
+});
+
+MYTH_UI.exportBtn?.addEventListener('click', async () => {
+  let md = `# Evidence vs Popular Myth: The Empirical Debunking Guide\n\nCommercial marketing and pop-wellness fads waste billions annually. Contrast high-cost dogmas against peer-reviewed Grade A fundamentals:\n\n`;
+  for (const m of MYTH_DATA){
+    md += `### ❌ Myth: ${m.myth}\n`;
+    md += `- **Marketing Claim**: ${m.mythDesc}\n`;
+    md += `- **Typical Cost**: ${m.mythCost}\n\n`;
+    md += `### ✅ Empirical Science: ${m.fact}\n`;
+    md += `- **Zero-Cost Fix**: ${m.fix}\n`;
+    md += `- **Handbook Link**: https://parveen0029.github.io/The-Evidence-Based-Life/#${m.ruleId} [${m.rule}]\n`;
+    md += `- **Return**: ${m.savings} (${m.source})\n\n---\n\n`;
+  }
+  md += `*From The Evidence-Based Life: https://parveen0029.github.io/The-Evidence-Based-Life/*\n`;
+
+  try {
+    await navigator.clipboard.writeText(md);
+    if (MYTH_UI.msg){
+      MYTH_UI.msg.textContent = '✓ Debunking Guide copied to clipboard!';
+      MYTH_UI.msg.hidden = false;
+      setTimeout(() => { MYTH_UI.msg.hidden = true; }, 3000);
+    }
+  } catch (e) {
+    prompt('Copy your debunking guide below:', md);
+  }
+});
+
+MYTH_UI.shareX?.addEventListener('click', () => {
+  const text = `Stop wasting money on these 8 pop-wellness & financial myths. See the peer-reviewed debunking matrix from The Evidence-Based Life:`;
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+MYTH_UI.shareWa?.addEventListener('click', () => {
+  const text = `*Evidence vs Popular Myth Debunking Matrix*\nStop wasting thousands on detox cleanses, stock-picking, and wellness fads. See what peer-reviewed science actually proves:\n\nhttps://parveen0029.github.io/The-Evidence-Based-Life/`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+});
+
+MYTH_UI.shareLi?.addEventListener('click', () => {
   const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
 });
