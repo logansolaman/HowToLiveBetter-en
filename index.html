@@ -659,6 +659,51 @@ html.dark .med-chip.active{color:#1b1b1f}
   #card-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Longevity Biomarkers & Clinical Lab Guide Modal */
+#lab-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#lab-mask[hidden]{display:none}
+#lab-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(900px,100%);max-height:90vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+
+.lab-search-bar{position:relative;margin-bottom:12px}
+.lab-search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;height:16px;stroke:var(--t3);fill:none;stroke-width:2;pointer-events:none}
+.lab-search-input{width:100%;box-sizing:border-box;padding:9px 12px 9px 36px;border:1px solid var(--divider);border-radius:8px;background:var(--bg-elv);color:var(--t1);font-size:13.5px;font-family:inherit}
+.lab-search-input:focus{outline:none;border-color:var(--brand-1);box-shadow:0 0 0 2px var(--brand-soft)}
+
+.lab-filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.lab-chip{border:1px solid var(--divider);background:var(--bg-elv);color:var(--t2);border-radius:16px;padding:4px 12px;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s}
+.lab-chip:hover{border-color:var(--brand-3);color:var(--t1)}
+.lab-chip.active{background:var(--brand-soft);border-color:var(--brand-1);color:var(--brand-1)}
+
+.lab-grid{display:flex;flex-direction:column;gap:12px;margin-bottom:16px}
+.lab-card{background:var(--bg-alt);border:1px solid var(--divider);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:10px;transition:border-color .2s}
+.lab-card:hover{border-color:var(--brand-3)}
+.lab-card-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.lab-title{font-size:15px;font-weight:700;color:var(--t1);display:flex;align-items:center;gap:6px}
+.lab-cat-badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:12px;background:var(--bg-elv);border:1px solid var(--divider);color:var(--t2)}
+
+.lab-ranges-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:640px){.lab-ranges-grid{grid-template-columns:1fr}}
+
+.lab-range-box{border-radius:8px;padding:8px 12px;display:flex;flex-direction:column;gap:3px;font-size:11.5px}
+.lab-range-box.optimal{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);color:var(--t1)}
+.lab-range-box.standard{background:var(--bg-elv);border:1px solid var(--divider);color:var(--t2)}
+.lab-range-label{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;display:flex;align-items:center;gap:4px}
+.lab-range-box.optimal .lab-range-label{color:var(--green-1)}
+.lab-range-box.standard .lab-range-label{color:var(--t3)}
+.lab-range-val{font-size:14px;font-weight:800;color:var(--t1)}
+
+.lab-desc{font-size:12.5px;color:var(--t2);line-height:1.55}
+.lab-levers{background:var(--bg-elv);border-radius:8px;padding:8px 12px;border:1px solid var(--divider);font-size:12px;line-height:1.5}
+.lab-levers b{color:var(--t1)}
+.lab-foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11.5px;color:var(--t3);padding-top:4px}
+.lab-rule-link{font-weight:600;color:var(--brand-1);text-decoration:none}
+.lab-rule-link:hover{text-decoration:underline}
+
+@media (max-width:820px){
+  #lab-mask{padding:0}
+  #lab-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
 /* Floating Audio Dock */
 #audio-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:70;background:var(--bg-elv);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);padding:10px 18px;display:flex;align-items:center;gap:14px;max-width:min(700px,calc(100vw - 32px));width:100%;backdrop-filter:blur(10px);transition:all .25s ease}
 #audio-dock[hidden]{display:none}
@@ -745,7 +790,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -832,6 +877,7 @@ html.dark .hc-action{color:#1b1b1f!important}
       <button class="icon-btn" id="myth-open" title="Evidence vs Popular Myth Debunking Matrix" aria-label="Myth vs Evidence Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v18M3 9l9-6 9 6M6 12l-3 5h6l-3-5zm12 0l-3 5h6l-3-5z"/></svg></button>
       <button class="icon-btn" id="med-open" title="Medication, Food & Supplement Safety Matrix" aria-label="Medication Safety Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg></button>
       <button class="icon-btn" id="card-open" title="Printable Emergency Wallet Card Generator" aria-label="Emergency Pocket Card"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg></button>
+      <button class="icon-btn" id="lab-open" title="Longevity Biomarkers & Clinical Lab Guide" aria-label="Longevity Lab Guide"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 18h12M10 2v7.5L4.5 20A1 1 0 0 0 5.4 21h13.2a1 1 0 0 0 .9-1L14 9.5V2"/><path d="M8.5 2h7M7 16h10"/></svg></button>
       <a class="icon-btn" href="selfcheck.html" title="Take 2-Minute Life Health & Risk Audit" aria-label="Self-Audit Quiz"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></a>
       <a class="icon-btn" href="README.md" title="View README.md" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn" href="https://github.com/parveen0029/The-Evidence-Based-Life" target="_blank" rel="noopener" title="View repository on GitHub" aria-label="GitHub Repository"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
@@ -880,6 +926,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     <button class="btn-sm ghost" id="myth-open-side" type="button" style="margin-top:6px;font-size:12px">⚖️ Evidence vs Popular Myth Matrix</button>
     <button class="btn-sm ghost" id="med-open-side" type="button" style="margin-top:6px;font-size:12px">💊 Medication & Food Safety Checker</button>
     <button class="btn-sm ghost" id="card-open-side" type="button" style="margin-top:6px;font-size:12px">🚨 Printable Emergency Wallet Card</button>
+    <button class="btn-sm ghost" id="lab-open-side" type="button" style="margin-top:6px;font-size:12px">🔬 Longevity Biomarkers & Clinical Lab Guide</button>
   </div>
   <div class="group" id="g-upd" hidden>
     <div class="gt">Recent Updates <small>Content revisions</small></div>
@@ -1389,6 +1436,42 @@ html.dark .hc-action{color:#1b1b1f!important}
         <button class="btn-sm ghost" id="card-share-x" type="button" style="width:auto;padding:8px 14px">𝕏 Share</button>
         <button class="btn-sm ghost" id="card-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
         <p id="card-footer-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="lab-mask" hidden>
+  <div id="lab-box" role="dialog" aria-modal="true" aria-labelledby="lab-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="lab-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 18h12M10 2v7.5L4.5 20A1 1 0 0 0 5.4 21h13.2a1 1 0 0 0 .9-1L14 9.5V2"/><path d="M8.5 2h7M7 16h10"/></svg> <span>Longevity Biomarkers & Clinical Lab Interpretation Guide</span></div>
+      <button type="button" id="lab-x" aria-label="Close longevity biomarker guide">✕</button>
+    </div>
+    <div class="stats-scroll">
+      <div class="stats-lead">Standard commercial lab "reference ranges" merely capture 95% of an increasingly sedentary, metabolically strained population. Contrast typical lab flags against optimal longevity targets validated by clinical consensus (ACC/AHA, ADA, AASLD, KDIGO).</div>
+
+      <div class="lab-search-bar">
+        <svg class="lab-search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5" stroke-linecap="round"/></svg>
+        <input class="lab-search-input" id="lab-search" type="search" placeholder="Search biomarker, organ, or metric (e.g. ApoB, cholesterol, glucose, HbA1c, liver, kidney, blood pressure)" autocomplete="off" aria-label="Search longevity biomarkers">
+      </div>
+
+      <div class="lab-filters" id="lab-tabs" role="tablist">
+        <button type="button" class="lab-chip active" data-cat="all">All Biomarkers (12)</button>
+        <button type="button" class="lab-chip" data-cat="cardio">🫀 Heart & Lipids (3)</button>
+        <button type="button" class="lab-chip" data-cat="metabolic">🍬 Metabolic & Glucose (2)</button>
+        <button type="button" class="lab-chip" data-cat="organ">🧪 Organ & Inflammation (5)</button>
+        <button type="button" class="lab-chip" data-cat="vitamins">☀️ Vitamins & Fitness (2)</button>
+      </div>
+
+      <div class="lab-grid" id="lab-cards"></div>
+
+      <div class="calc-footer">
+        <button class="btn-sm" id="lab-export" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy Clinical Lab Prep Checklist</button>
+        <button class="btn-sm ghost" id="lab-share-x" type="button" style="width:auto;padding:8px 14px">𝕏 Share</button>
+        <button class="btn-sm ghost" id="lab-share-wa" type="button" style="width:auto;padding:8px 14px">WhatsApp</button>
+        <button class="btn-sm ghost" id="lab-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
+        <button class="btn-sm ghost" id="lab-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
+        <p id="lab-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
       </div>
     </div>
   </div>
@@ -4797,6 +4880,370 @@ CARD_UI.shareX?.addEventListener('click', () => {
   const text = `Everyone should carry a physical emergency medical card with blood group, allergies, and CPR protocols in their wallet or glovebox. Generate yours free from The Evidence-Based Life:`;
   const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
   window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+/* ---------- Longevity Biomarkers & Clinical Lab Interpretation Guide ---------- */
+const LAB_DATA = [
+  {
+    id: 'apob',
+    name: 'ApoB (Apolipoprotein B)',
+    icon: '🫀',
+    cat: 'cardio',
+    catLabel: 'Heart & Lipids',
+    optimal: '< 60–70 mg/dL',
+    optimalNote: 'Atheroprotective threshold (< 55 mg/dL with ASCVD history)',
+    standard: '< 90–100 mg/dL',
+    standardNote: 'Permits significant ongoing subclinical plaque progression',
+    desc: 'Each atherogenic particle (LDL, VLDL, IDL, Lp(a)) carries exactly one ApoB molecule. ApoB provides a true particle count that is far superior to standard LDL-C in predicting lifetime coronary events, especially in insulin resistance where LDL particles are small and dense.',
+    source: 'ACC/AHA Guidelines & European Society of Cardiology (ESC)',
+    levers: 'Reduce dietary saturated fat to < 7% of daily calories; increase viscous soluble fiber (psyllium husk, oats, beans) to ≥ 15g/day; consult physician for lipid-lowering pharmacotherapy if genetically elevated.',
+    ruleId: 'e-2-1',
+    rule: 'Ch 2.1 & 16.1'
+  },
+  {
+    id: 'ldl-c',
+    name: 'LDL-C (Low-Density Lipoprotein Cholesterol)',
+    icon: '🩸',
+    cat: 'cardio',
+    catLabel: 'Heart & Lipids',
+    optimal: '< 70 mg/dL',
+    optimalNote: 'Halts arterial fatty streak progression',
+    standard: '< 100–129 mg/dL',
+    standardNote: 'Lab "normal" flags borderline only at ≥ 130 mg/dL',
+    desc: 'Atherosclerosis is driven by cumulative lifetime exposure to apoB-containing cholesterol ("cholesterol pack-years"). Lowering circulating LDL-C early in adulthood produces exponential risk reduction compared to late-life crisis intervention.',
+    source: 'Lancet / Cholesterol Treatment Trialists (CTT) Collaboration',
+    levers: 'Replace saturated animal fats with extra virgin olive oil, nuts, and avocados; consume ≥ 35g total dietary fiber daily; minimize unfiltered French press coffee (cafestol).',
+    ruleId: 'e-2-1',
+    rule: 'Ch 2.1'
+  },
+  {
+    id: 'blood-pressure',
+    name: 'Blood Pressure (Systolic / Diastolic)',
+    icon: '🩺',
+    cat: 'cardio',
+    catLabel: 'Heart & Lipids',
+    optimal: '< 120 / < 80 mmHg',
+    optimalNote: 'Target: 110–118 / 68–76 mmHg at rest',
+    standard: '< 130 / < 80 mmHg',
+    standardNote: 'Stage 1 Hypertension starts at ≥ 130/80 mmHg',
+    desc: 'The single leading modifiable risk factor for stroke, myocardial infarction, and vascular dementia. Every 10 mmHg reduction in systolic blood pressure yields a 27% reduction in stroke and 20% drop in major coronary events.',
+    source: 'SPRINT Trial (NEJM) & AHA/ACC 2017 Guidelines',
+    levers: '150 min/wk Zone 2 aerobic cardio; daily dietary potassium ≥ 3,500 mg (potatoes, legumes, bananas); limit sodium < 2,300 mg; calibrate with validated home upper-arm cuff.',
+    ruleId: 'e-2-2',
+    rule: 'Ch 2.2 & 16.1'
+  },
+  {
+    id: 'hba1c',
+    name: 'HbA1c (Glycated Hemoglobin)',
+    icon: '🍬',
+    cat: 'metabolic',
+    catLabel: 'Metabolic & Glucose',
+    optimal: '4.8% – 5.4%',
+    optimalNote: 'Minimal advanced glycation end-products (AGEs)',
+    standard: '< 5.7%',
+    standardNote: 'Prediabetes: 5.7–6.4%; Type 2 Diabetes: ≥ 6.5%',
+    desc: 'Measures percentage of hemoglobin proteins bound to circulating glucose over the 120-day erythrocyte lifespan. Elevated HbA1c damages microvascular endothelial cells in retina, kidneys, and peripheral nerves decades before symptomatic diabetes.',
+    source: 'American Diabetes Association (ADA) Standards of Care',
+    levers: '10-minute brisk walk immediately after carbohydrate meals (triggers GLUT4 glucose uptake independently of insulin); eliminate sugar-sweetened beverages; prioritize 1.6g/kg daily protein.',
+    ruleId: 'e-2-1',
+    rule: 'Ch 2.1 & 2.2'
+  },
+  {
+    id: 'fasting-glucose',
+    name: 'Fasting Blood Glucose',
+    icon: '⏱️',
+    cat: 'metabolic',
+    catLabel: 'Metabolic & Glucose',
+    optimal: '72 – 88 mg/dL',
+    optimalNote: 'Peak hepatic insulin sensitivity',
+    standard: '70 – 99 mg/dL',
+    standardNote: 'Impaired fasting glucose flags at ≥ 100 mg/dL',
+    desc: 'Reflects overnight hepatic gluconeogenesis and baseline basal insulin action. Fasting levels consistently between 90–99 mg/dL carry a 2.5-fold higher risk of developing metabolic syndrome than levels in the low 80s.',
+    source: 'Baltimore Longitudinal Study of Aging & ADA',
+    levers: 'Fast 12–14 hours overnight (finish dinner 3h before bed); progressive resistance training 2–3x/wk to expand skeletal muscle glycogen storage capacity.',
+    ruleId: 'e-2-1',
+    rule: 'Ch 2.1 & 3.4'
+  },
+  {
+    id: 'hs-crp',
+    name: 'hs-CRP (High-Sensitivity C-Reactive Protein)',
+    icon: '🔥',
+    cat: 'organ',
+    catLabel: 'Organ & Inflammation',
+    optimal: '< 0.5 – 0.8 mg/L',
+    optimalNote: 'Minimal baseline systemic vascular inflammation',
+    standard: '< 1.0 – 3.0 mg/L',
+    standardNote: 'Average risk: 1.0–3.0 mg/L; High cardiac risk: > 3.0 mg/L',
+    desc: 'An acute-phase reactant synthesized by hepatocytes in response to interleukin-6. High levels signal chronic systemic microvascular inflammation that destabilizes coronary arterial plaques and accelerates biological aging.',
+    source: 'JUPITER Trial & AHA/CDC Scientific Statement',
+    levers: 'Target visceral adiposity; consume omega-3 rich fish (wild salmon, sardines) 2x/wk; maintain 7–8 hours uninterrupted sleep; address chronic dental/periodontal inflammation.',
+    ruleId: 'e-2-1',
+    rule: 'Ch 2.1 & 3.1'
+  },
+  {
+    id: 'egfr',
+    name: 'eGFR (Estimated Glomerular Filtration Rate)',
+    icon: '🧪',
+    cat: 'organ',
+    catLabel: 'Organ & Inflammation',
+    optimal: '≥ 90 mL/min/1.73m²',
+    optimalNote: 'Normal/optimal stage 1 kidney clearance',
+    standard: '≥ 60 mL/min/1.73m²',
+    standardNote: 'Clinical Stage 3 CKD diagnosed only when eGFR < 60',
+    desc: 'Measures the filtration rate of the renal glomeruli. Microvascular kidney damage is asymptomatic until advanced stages. Combining eGFR with urine albumin-to-creatinine ratio (uACR) provides decade-early warnings.',
+    source: 'KDIGO Clinical Practice Guidelines for Kidney Disease',
+    levers: 'Strict blood pressure management (< 120/80); hydrate to produce pale clear urine; avoid chronic OTC NSAID use (ibuprofen/naproxen); annual uACR spot urine check.',
+    ruleId: 'e-34-3',
+    rule: 'Ch 34.3 & 16.1'
+  },
+  {
+    id: 'alt-ast',
+    name: 'ALT (Alanine Aminotransferase) / Liver Function',
+    icon: '🧬',
+    cat: 'organ',
+    catLabel: 'Organ & Inflammation',
+    optimal: 'ALT < 25 U/L (men) / < 19 U/L (women)',
+    optimalNote: 'True healthy threshold for steatotic liver detection',
+    standard: '< 45 – 55 U/L',
+    standardNote: 'Commercial lab cutoffs mask early-stage MASLD/NAFLD',
+    desc: 'Intracellular hepatocellular enzyme released into serum upon liver cell stress or necrosis. Due to rising obesity, traditional lab reference ranges shifted upwards, hiding early metabolic dysfunction-associated steatotic liver disease.',
+    source: 'American Association for the Study of Liver Diseases (AASLD)',
+    levers: 'Eliminate high-fructose corn syrup, fruit juice concentrates, and sweetened drinks; limit alcohol to zero or < 2 drinks/wk; 5–7% body weight loss reverses early hepatic fat.',
+    ruleId: 'e-2-1',
+    rule: 'Ch 2.1 & 3.6'
+  },
+  {
+    id: 'ferritin',
+    name: 'Ferritin (Serum Iron Storage)',
+    icon: '🧲',
+    cat: 'organ',
+    catLabel: 'Organ & Inflammation',
+    optimal: '40 – 120 ng/mL',
+    optimalNote: 'Avoids both iron deficiency and oxidative iron overload',
+    standard: '15 – 300 ng/mL (men) / 15 – 150 ng/mL (women)',
+    standardNote: 'Very wide reference range overlooks subclinical fatigue',
+    desc: 'Cellular iron storage protein. Levels < 30–40 ng/mL cause non-anemic iron deficiency (severe fatigue, brain fog, restless legs, hair loss). Conversely, levels > 250–300 ng/mL catalyze harmful Fenton reactions generating hydroxyl free radicals.',
+    source: 'World Health Organization & British Journal of Haematology',
+    levers: 'If low: oral iron with Vitamin C away from coffee/dairy/calcium; if high: screen HFE gene for hemochromatosis, consider periodic voluntary blood donation, reduce red meat.',
+    ruleId: 'e-34-2',
+    rule: 'Ch 34.2 & 2.1'
+  },
+  {
+    id: 'tsh',
+    name: 'TSH (Thyroid Stimulating Hormone)',
+    icon: '🦋',
+    cat: 'organ',
+    catLabel: 'Organ & Inflammation',
+    optimal: '1.0 – 2.5 mIU/L',
+    optimalNote: 'Euthyroid sweet spot with optimal lipid clearance',
+    standard: '0.4 – 4.5 mIU/L',
+    standardNote: 'Levels > 2.5–4.5 often coincide with subclinical fatigue & LDL rise',
+    desc: 'Anterior pituitary messenger governing basal metabolic rate, body temperature, and hepatic LDL-receptor expression. High-normal TSH (> 2.5) frequently underlies unexplained hypercholesterolemia and cold intolerance.',
+    source: 'American Thyroid Association (ATA) Consensus',
+    levers: 'Ensure adequate dietary iodine (iodized salt) and selenium; request Free T3, Free T4, and anti-TPO antibody panels if symptomatic.',
+    ruleId: 'e-16-1',
+    rule: 'Ch 16.1'
+  },
+  {
+    id: 'vitd',
+    name: 'Vitamin D [25-Hydroxyvitamin D / 25(OH)D]',
+    icon: '☀️',
+    cat: 'vitamins',
+    catLabel: 'Vitamins & Fitness',
+    optimal: '40 – 60 ng/mL (100–150 nmol/L)',
+    optimalNote: 'Optimal for bone density, muscle power, and immune regulation',
+    standard: '> 20 ng/mL (50 nmol/L)',
+    standardNote: '20–30 ng/mL is sub-optimal insufficiency',
+    desc: 'A pleiotropic secosteroid hormone modulating over 1,000 human genes, calcium absorption, and innate immune defense. True clinical deficiency (< 20 ng/mL) significantly increases fracture and infection susceptibility.',
+    source: 'Endocrine Society Clinical Practice Guidelines',
+    levers: '1,000–2,000 IU/day Vitamin D3 taken with fat-containing meal and Vitamin K2 (MK-7); 10–15 minutes midday solar exposure on arms/legs when UV index > 3.',
+    ruleId: 'e-34-2',
+    rule: 'Ch 34.2 & 2.1'
+  },
+  {
+    id: 'rhr',
+    name: 'Resting Heart Rate (RHR)',
+    icon: '🫁',
+    cat: 'vitamins',
+    catLabel: 'Vitamins & Fitness',
+    optimal: '48 – 60 bpm',
+    optimalNote: 'High stroke volume & strong vagal parasympathetic tone',
+    standard: '60 – 100 bpm',
+    standardNote: 'Mortality risk doubles at > 80 bpm vs < 60 bpm',
+    desc: 'Direct proxy for autonomic cardiovascular conditioning. Long-term prospective data shows every 10 bpm increase in resting heart rate increases all-cause mortality hazard by 16%, even after adjusting for blood pressure and fitness.',
+    source: 'Copenhagen City Heart Study (16-year follow-up) & AHA',
+    levers: 'Build Zone 2 aerobic base (150+ min/wk); eliminate evening alcohol; ensure cool sleep environment (65–68°F / 18–20°C); 5-minute physiological sigh breathing practice.',
+    ruleId: 'e-2-2',
+    rule: 'Ch 2.2 & 3.6'
+  }
+];
+
+let curLabCat = 'all';
+let labSearchQuery = '';
+
+const LAB_UI = {
+  mask: document.getElementById('lab-mask'),
+  openBtn: document.getElementById('lab-open'),
+  sideBtn: document.getElementById('lab-open-side'),
+  closeBtn: document.getElementById('lab-x'),
+  doneBtn: document.getElementById('lab-close-btn'),
+  tabs: document.getElementById('lab-tabs'),
+  cards: document.getElementById('lab-cards'),
+  search: document.getElementById('lab-search'),
+  exportBtn: document.getElementById('lab-export'),
+  shareX: document.getElementById('lab-share-x'),
+  shareWa: document.getElementById('lab-share-wa'),
+  shareLi: document.getElementById('lab-share-li'),
+  msg: document.getElementById('lab-copy-msg')
+};
+
+function renderLabBiomarkers(){
+  if (!LAB_UI.cards) return;
+  const q = labSearchQuery.toLowerCase().trim();
+  const filtered = LAB_DATA.filter(b => {
+    if (curLabCat !== 'all' && b.cat !== curLabCat) return false;
+    if (!q) return true;
+    return b.name.toLowerCase().includes(q) ||
+           b.desc.toLowerCase().includes(q) ||
+           b.optimal.toLowerCase().includes(q) ||
+           b.catLabel.toLowerCase().includes(q) ||
+           b.source.toLowerCase().includes(q);
+  });
+
+  if (filtered.length === 0){
+    LAB_UI.cards.innerHTML = `<div class="empty" style="padding:24px"><p>No biomarkers match "<b>${escapeHtml(q)}</b>".</p><button class="btn-sm" type="button" onclick="document.getElementById('lab-search').value='';labSearchQuery='';renderLabBiomarkers();" style="width:auto;padding:6px 14px">Clear Search</button></div>`;
+    return;
+  }
+
+  let html = '';
+  for (const b of filtered){
+    html += `
+      <div class="lab-card" id="lcard-${b.id}">
+        <div class="lab-card-head">
+          <div class="lab-title"><span>${b.icon}</span> <span>${escapeHtml(b.name)}</span></div>
+          <span class="lab-cat-badge">${escapeHtml(b.catLabel)}</span>
+        </div>
+        <div class="lab-ranges-grid">
+          <div class="lab-range-box optimal">
+            <span class="lab-range-label">🟢 Optimal Longevity Target</span>
+            <span class="lab-range-val">${escapeHtml(b.optimal)}</span>
+            <span style="font-size:10.5px;color:var(--t2)">${escapeHtml(b.optimalNote)}</span>
+          </div>
+          <div class="lab-range-box standard">
+            <span class="lab-range-label">⚪ Standard Lab "Normal"</span>
+            <span class="lab-range-val">${escapeHtml(b.standard)}</span>
+            <span style="font-size:10.5px;color:var(--t3)">${escapeHtml(b.standardNote)}</span>
+          </div>
+        </div>
+        <div class="lab-desc">${escapeHtml(b.desc)}</div>
+        <div class="lab-levers">
+          <b>⚡ High-ROI Levers:</b> ${escapeHtml(b.levers)}
+        </div>
+        <div class="lab-foot">
+          <span>📚 <b>Evidence Source:</b> ${escapeHtml(b.source)}</span>
+          <a class="lab-rule-link" href="#${b.ruleId}" data-rule="${b.ruleId}">Handbook: ${b.rule} →</a>
+        </div>
+      </div>
+    `;
+  }
+  LAB_UI.cards.innerHTML = html;
+}
+
+function labOpen(){
+  if (!LAB_UI.mask) return;
+  renderLabBiomarkers();
+  LAB_UI.mask.hidden = false;
+  LAB_UI.closeBtn?.focus();
+  if (window.gtag) gtag('event', 'lab_open');
+}
+
+function labClose(){
+  if (!LAB_UI.mask || LAB_UI.mask.hidden) return;
+  LAB_UI.mask.hidden = true;
+  LAB_UI.openBtn?.focus();
+}
+
+LAB_UI.openBtn?.addEventListener('click', labOpen);
+LAB_UI.sideBtn?.addEventListener('click', labOpen);
+LAB_UI.closeBtn?.addEventListener('click', labClose);
+LAB_UI.doneBtn?.addEventListener('click', labClose);
+LAB_UI.mask?.addEventListener('click', ev => { if (ev.target === LAB_UI.mask) labClose(); });
+document.addEventListener('keydown', ev => {
+  if (ev.key === 'Escape' && LAB_UI.mask && !LAB_UI.mask.hidden){
+    ev.stopPropagation();
+    labClose();
+  }
+}, true);
+
+LAB_UI.tabs?.addEventListener('click', ev => {
+  const chip = ev.target.closest('.lab-chip');
+  if (!chip) return;
+  LAB_UI.tabs.querySelectorAll('.lab-chip').forEach(c => c.classList.remove('active'));
+  chip.classList.add('active');
+  curLabCat = chip.dataset.cat || 'all';
+  renderLabBiomarkers();
+});
+
+let labSearchTm;
+LAB_UI.search?.addEventListener('input', ev => {
+  clearTimeout(labSearchTm);
+  labSearchTm = setTimeout(() => {
+    labSearchQuery = ev.target.value;
+    renderLabBiomarkers();
+  }, 100);
+});
+
+LAB_UI.cards?.addEventListener('click', ev => {
+  const link = ev.target.closest('.lab-rule-link');
+  if (!link) return;
+  ev.preventDefault();
+  const ruleId = link.dataset.rule;
+  labClose();
+  const ruleEl = document.getElementById(ruleId);
+  if (ruleEl) {
+    ruleEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    ruleEl.classList.remove('flash'); void ruleEl.offsetWidth; ruleEl.classList.add('flash');
+  }
+});
+
+LAB_UI.exportBtn?.addEventListener('click', async () => {
+  let md = `# Longevity Biomarkers & Clinical Lab Interpretation Guide\n\nOptimal longevity targets vs standard lab ranges from The Evidence-Based Life:\n\n`;
+  for (const b of LAB_DATA){
+    md += `### ${b.icon} ${b.name} (${b.catLabel})\n`;
+    md += `- **🟢 Optimal Longevity Target**: ${b.optimal} (${b.optimalNote})\n`;
+    md += `- **⚪ Standard Lab "Normal"**: ${b.standard} (${b.standardNote})\n`;
+    md += `- **Why It Matters**: ${b.desc}\n`;
+    md += `- **High-ROI Action Levers**: ${b.levers}\n`;
+    md += `- **Evidence Source**: ${b.source} [${b.rule}]\n\n---\n\n`;
+  }
+  md += `*From The Evidence-Based Life: https://parveen0029.github.io/The-Evidence-Based-Life/*\n`;
+
+  try {
+    await navigator.clipboard.writeText(md);
+    if (LAB_UI.msg){
+      LAB_UI.msg.textContent = '✓ Clinical Lab Guide copied to clipboard! Take to your next doctor visit.';
+      LAB_UI.msg.hidden = false;
+      setTimeout(() => { LAB_UI.msg.hidden = true; }, 3500);
+    }
+  } catch (e) {
+    prompt('Copy your Clinical Lab Guide below:', md);
+  }
+});
+
+LAB_UI.shareX?.addEventListener('click', () => {
+  const text = `Commercial lab "normal" ranges only flag late-stage disease. Here are the 12 optimal longevity biomarker targets (ApoB, HbA1c, hs-CRP, eGFR, ALT) from The Evidence-Based Life:`;
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+LAB_UI.shareWa?.addEventListener('click', () => {
+  const text = `*Longevity Biomarkers & Clinical Lab Guide*\nStandard lab ranges often miss early metabolic or heart risks. See the optimal targets for ApoB, HbA1c, fasting glucose, and blood pressure:\n\nhttps://parveen0029.github.io/The-Evidence-Based-Life/`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+});
+
+LAB_UI.shareLi?.addEventListener('click', () => {
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
 });
 
 /* ---------- Viral Rule Visual Snapshot Generator ---------- */
