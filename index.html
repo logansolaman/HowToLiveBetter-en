@@ -748,6 +748,42 @@ html.dark .med-chip.active{color:#1b1b1f}
   #grocer-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Ergonomic Workspace Calculator & Posture Guide Modal */
+#ergo-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#ergo-mask[hidden]{display:none}
+#ergo-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(920px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+
+.ergo-input-row{display:flex;align-items:center;gap:12px;margin-bottom:14px;background:var(--bg-alt);border:1px solid var(--divider);border-radius:10px;padding:12px 16px;flex-wrap:wrap}
+.ergo-input-label{font-size:12.5px;font-weight:700;color:var(--t1)}
+.ergo-input-group{display:flex;align-items:center;gap:8px}
+.ergo-height-num{width:80px;padding:6px 10px;border-radius:6px;border:1px solid var(--divider);background:var(--bg-elv);color:var(--t1);font-size:14px;font-weight:700;text-align:center}
+.ergo-unit-toggle{display:flex;border:1px solid var(--divider);border-radius:6px;overflow:hidden}
+.ergo-unit-btn{border:0;background:var(--bg-elv);color:var(--t2);padding:5px 10px;font-size:11.5px;font-weight:600;cursor:pointer}
+.ergo-unit-btn.active{background:var(--brand-1);color:#fff}
+html.dark .ergo-unit-btn.active{color:#1b1b1f}
+
+.ergo-results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
+@media (max-width:760px){.ergo-results-grid{grid-template-columns:repeat(2,1fr)}}
+
+.ergo-stat-card{background:var(--bg-elv);border:1px solid var(--divider);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:3px}
+.ergo-stat-card.primary{border-color:var(--brand-3);background:var(--brand-soft)}
+.ergo-stat-icon{font-size:18px}
+.ergo-stat-title{font-size:11px;font-weight:700;color:var(--t2);text-transform:uppercase;letter-spacing:.03em}
+.ergo-stat-val{font-size:18px;font-weight:800;color:var(--t1)}
+.ergo-stat-sub{font-size:10.5px;color:var(--t3);line-height:1.3}
+
+.ergo-relief-title{font-size:13.5px;font-weight:700;color:var(--t1);margin:14px 0 8px;display:flex;align-items:center;gap:6px}
+.ergo-protocols-list{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+.ergo-proto-card{background:var(--bg-alt);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.ergo-proto-head{display:flex;align-items:center;justify-content:space-between;gap:8px;font-weight:700;font-size:13px;color:var(--t1)}
+.ergo-proto-body{font-size:12px;color:var(--t2);line-height:1.5}
+.ergo-proto-foot{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--t3);padding-top:2px}
+
+@media (max-width:820px){
+  #ergo-mask{padding:0}
+  #ergo-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
 /* Floating Audio Dock */
 #audio-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:70;background:var(--bg-elv);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);padding:10px 18px;display:flex;align-items:center;gap:14px;max-width:min(700px,calc(100vw - 32px));width:100%;backdrop-filter:blur(10px);transition:all .25s ease}
 #audio-dock[hidden]{display:none}
@@ -834,7 +870,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -923,6 +959,7 @@ html.dark .hc-action{color:#1b1b1f!important}
       <button class="icon-btn" id="card-open" title="Printable Emergency Wallet Card Generator" aria-label="Emergency Pocket Card"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg></button>
       <button class="icon-btn" id="lab-open" title="Longevity Biomarkers & Clinical Lab Guide" aria-label="Longevity Lab Guide"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 18h12M10 2v7.5L4.5 20A1 1 0 0 0 5.4 21h13.2a1 1 0 0 0 .9-1L14 9.5V2"/><path d="M8.5 2h7M7 16h10"/></svg></button>
       <button class="icon-btn" id="grocer-open" title="Evidence-Based Grocery Optimizer & Anti-Inflation Basket" aria-label="Grocery Optimizer"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button>
+      <button class="icon-btn" id="ergo-open" title="Ergonomic Workspace Calculator & Posture Guide" aria-label="Ergonomic Workspace Calculator"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></button>
       <a class="icon-btn" href="selfcheck.html" title="Take 2-Minute Life Health & Risk Audit" aria-label="Self-Audit Quiz"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></a>
       <a class="icon-btn" href="README.md" title="View README.md" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn" href="https://github.com/parveen0029/The-Evidence-Based-Life" target="_blank" rel="noopener" title="View repository on GitHub" aria-label="GitHub Repository"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
@@ -973,6 +1010,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     <button class="btn-sm ghost" id="card-open-side" type="button" style="margin-top:6px;font-size:12px">🚨 Printable Emergency Wallet Card</button>
     <button class="btn-sm ghost" id="lab-open-side" type="button" style="margin-top:6px;font-size:12px">🔬 Longevity Biomarkers & Clinical Lab Guide</button>
     <button class="btn-sm ghost" id="grocer-open-side" type="button" style="margin-top:6px;font-size:12px">🛒 Evidence-Based Grocery Optimizer</button>
+    <button class="btn-sm ghost" id="ergo-open-side" type="button" style="margin-top:6px;font-size:12px">💺 Ergonomic Workspace & Posture Guide</button>
   </div>
   <div class="group" id="g-upd" hidden>
     <div class="gt">Recent Updates <small>Content revisions</small></div>
@@ -1579,6 +1617,79 @@ html.dark .hc-action{color:#1b1b1f!important}
         <button class="btn-sm ghost" id="grocer-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
         <button class="btn-sm ghost" id="grocer-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
         <p id="grocer-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="ergo-mask" hidden>
+  <div id="ergo-box" role="dialog" aria-modal="true" aria-labelledby="ergo-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="ergo-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> <span>Ergonomic Workspace Calculator & Posture Diagnostics</span></div>
+      <button type="button" id="ergo-x" aria-label="Close ergonomic calculator">✕</button>
+    </div>
+    <div class="stats-scroll">
+      <div class="stats-lead">Calculate exact OSHA / ANSI-BIFMA ergonomic desk and chair dimensions tailored to your body height. Eliminate repetitive strain injury (RSI), forward-head "tech neck", and lower-back shear with evidence-based biomechanics (Chapters 2, 7 & 19).</div>
+
+      <div class="ergo-input-row">
+        <span class="ergo-input-label">Your Standing Height:</span>
+        <div class="ergo-input-group" id="ergo-wrap-cm">
+          <input class="ergo-height-num" id="ergo-in-cm" type="number" min="130" max="220" value="175" step="1" aria-label="Height in centimeters">
+          <span style="font-size:12px;color:var(--t2);font-weight:600">cm</span>
+        </div>
+        <div class="ergo-input-group" id="ergo-wrap-imp" hidden>
+          <input class="ergo-height-num" id="ergo-in-ft" type="number" min="4" max="7" value="5" step="1" aria-label="Height in feet">
+          <span style="font-size:12px;color:var(--t2);font-weight:600">ft</span>
+          <input class="ergo-height-num" id="ergo-in-in" type="number" min="0" max="11" value="9" step="1" aria-label="Height in inches">
+          <span style="font-size:12px;color:var(--t2);font-weight:600">in</span>
+        </div>
+        <div class="ergo-unit-toggle" style="margin-left:auto">
+          <button type="button" class="ergo-unit-btn active" id="ergo-unit-cm">Metric (cm)</button>
+          <button type="button" class="ergo-unit-btn" id="ergo-unit-imp">Imperial (ft/in)</button>
+        </div>
+      </div>
+
+      <div class="ergo-results-grid">
+        <div class="ergo-stat-card">
+          <div class="ergo-stat-icon">🪑</div>
+          <div class="ergo-stat-title">Chair Seat Height</div>
+          <div class="ergo-stat-val" id="ergo-val-chair">44 – 46 cm</div>
+          <div class="ergo-stat-sub">Popliteal height. Thighs parallel to floor, feet firmly flat. Knees at 90–100°.</div>
+        </div>
+        <div class="ergo-stat-card primary">
+          <div class="ergo-stat-icon">💻</div>
+          <div class="ergo-stat-title">Sitting Desk Height</div>
+          <div class="ergo-stat-val" id="ergo-val-sit">68 – 70 cm</div>
+          <div class="ergo-stat-sub">Resting elbow height. Neutral relaxed shoulders, forearms horizontal. Standard desks (75cm / 29.5") are too high for 80% of adults!</div>
+        </div>
+        <div class="ergo-stat-card">
+          <div class="ergo-stat-icon">🚶</div>
+          <div class="ergo-stat-title">Standing Desk Height</div>
+          <div class="ergo-stat-val" id="ergo-val-stand">109 – 112 cm</div>
+          <div class="ergo-stat-sub">Standing elbow level. Arms relaxed at 90° angle. Alternate sit/stand every 45–60 min.</div>
+        </div>
+        <div class="ergo-stat-card">
+          <div class="ergo-stat-icon">🖥️</div>
+          <div class="ergo-stat-title">Monitor Top Edge</div>
+          <div class="ergo-stat-val" id="ergo-val-mon">118 – 120 cm</div>
+          <div class="ergo-stat-sub">At or slightly below eye level. Viewing distance: 50–70 cm (arm's length). Tilt screen back 10–20°.</div>
+        </div>
+      </div>
+
+      <div class="ergo-relief-title">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <span>5 Evidence-Based Pain Relief & Biomechanical Protocols</span>
+      </div>
+
+      <div class="ergo-protocols-list" id="ergo-protocols"></div>
+
+      <div class="calc-footer">
+        <button class="btn-sm" id="ergo-export" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy Workspace Spec Sheet</button>
+        <button class="btn-sm ghost" id="ergo-share-x" type="button" style="width:auto;padding:8px 14px">𝕏 Share</button>
+        <button class="btn-sm ghost" id="ergo-share-wa" type="button" style="width:auto;padding:8px 14px">WhatsApp</button>
+        <button class="btn-sm ghost" id="ergo-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
+        <button class="btn-sm ghost" id="ergo-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
+        <p id="ergo-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
       </div>
     </div>
   </div>
@@ -5810,6 +5921,332 @@ GROCER_UI.shareWa?.addEventListener('click', () => {
 });
 
 GROCER_UI.shareLi?.addEventListener('click', () => {
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+/* ---------- Ergonomic Workspace Calculator & Posture Guide ---------- */
+const ERGO_PROTOCOLS = [
+  {
+    id: 'eye-20-20-20',
+    icon: '👁️',
+    title: '20-20-20 Ocular Accommodation Rule',
+    target: 'Ciliary Spasm & Dry Eye Syndrome',
+    freq: 'Every 20 minutes',
+    action: 'Look away at an object at least 20 feet (6 meters) away for a full 20 seconds. Deliberately blink fully 10 times to re-establish tear film.',
+    mechanism: 'Continuous near-focus holds the ciliary muscles in a tonic contraction and drops spontaneous blink frequency by over 60%. Distance gazing induces autonomic ciliary relaxation, resting convergence and spreading lipid layers over the cornea.',
+    ruleId: 'e-2-4',
+    rule: 'Ch 2.4',
+    grade: 'A'
+  },
+  {
+    id: 'tech-neck',
+    icon: '🦒',
+    title: 'Forward Head Posture ("Tech Neck") Reversal',
+    target: 'Cervical Spine (C5–C7) Compressive Shear',
+    freq: '3× daily (10–12 reps)',
+    action: 'Cervical retractions (chin tucks): Draw your chin straight backward horizontally (forming a double chin) with head level. Hold 5 seconds. Repeat 10–12 times against a wall or headrest.',
+    mechanism: 'Every 1 inch of anterior head translation doubles the gravitational lever load on cervical vertebrae (from 10–12 lbs neutral up to 45–60 lbs at 45°). Chin tucks activate deep neck flexors (longus capitis/colli) and reciprocally inhibit hyperactive suboccipital muscles.',
+    ruleId: 'e-2-2',
+    rule: 'Ch 2.2',
+    grade: 'A'
+  },
+  {
+    id: 'thoracic-ext',
+    icon: '⚡',
+    title: 'Thoracic Spine Mobilization & Extension',
+    target: 'Kyphotic Slumping & Diaphragm Compression',
+    freq: '2–3× daily (8–10 reps)',
+    action: 'Interlace fingers behind the head, elbows flared wide. Lean backward over the chair backrest at mid-thoracic level (T4–T8) during a deep diaphragmatic inhalation. Exhale slowly and return.',
+    mechanism: 'Counters rigid seated flexion and anterior shoulder roll. Restores thoracic extension mobility, unpinches the supraspinatus tendon in the shoulder, and decompresses the thoracic cavity for complete pulmonary expansion.',
+    ruleId: 'e-2-2',
+    rule: 'Ch 2.2',
+    grade: 'A'
+  },
+  {
+    id: 'carpal-glide',
+    icon: '👐',
+    title: 'Median Nerve & Flexor Tendon Gliding',
+    target: 'Carpal Tunnel Syndrome & Repetitive Strain (RSI)',
+    freq: 'Twice daily per wrist',
+    action: 'Perform a 5-step gliding sequence: 1) Neutral fist, 2) Fingers extended straight, 3) Wrist extended back 45°, 4) Thumb stretched wide, 5) Gentle opposite-hand traction. Hold each position 3 seconds.',
+    mechanism: 'Maximizes longitudinal excursion of the median nerve relative to the ten surrounding flexor digitorum tendons inside the rigid carpal tunnel, breaking micro-adhesions and promoting microvascular perfusion.',
+    ruleId: 'e-19-3',
+    rule: 'Ch 19.3',
+    grade: 'B'
+  },
+  {
+    id: 'psoas-glute',
+    icon: '🩼',
+    title: 'Half-Kneeling Psoas Lengthening & Glute Reset',
+    target: 'Lower Back Shear & Reciprocal Glute Amnesia',
+    freq: 'Every 90 min or workday close',
+    action: 'Half-kneeling lunge (rear knee on floor pad). Perform a posterior pelvic tilt (tuck tailbone under). Squeeze the glute on the trailing leg firmly for 20–30 seconds. Do 2 sets per side.',
+    mechanism: 'Chronic hip flexion shortens the iliopsoas complex, anteriorly tilting the pelvis and creating painful lumbar facet compression while reciprocal-inhibiting the gluteus maximus. Actively firing the glute resets pelvic neutral and relieves L4–S1 disc stress.',
+    ruleId: 'e-2-2',
+    rule: 'Ch 2.2',
+    grade: 'A'
+  }
+];
+
+let ergoHeightCm = 175;
+let ergoUnit = 'cm';
+
+function loadErgoSettings(){
+  try {
+    const raw = localStorage.getItem('eb_ergo_settings');
+    if (raw) {
+      const data = JSON.parse(raw);
+      if (data.heightCm) ergoHeightCm = Math.min(225, Math.max(120, parseInt(data.heightCm, 10)));
+      if (data.unit === 'imp' || data.unit === 'cm') ergoUnit = data.unit;
+    }
+  } catch (e) {}
+}
+
+function saveErgoSettings(){
+  try {
+    localStorage.setItem('eb_ergo_settings', JSON.stringify({ heightCm: ergoHeightCm, unit: ergoUnit }));
+  } catch (e) {}
+}
+
+const ERGO_UI = {
+  mask: document.getElementById('ergo-mask'),
+  openBtn: document.getElementById('ergo-open'),
+  sideBtn: document.getElementById('ergo-open-side'),
+  closeBtn: document.getElementById('ergo-x'),
+  doneBtn: document.getElementById('ergo-close-btn'),
+  inCm: document.getElementById('ergo-in-cm'),
+  inFt: document.getElementById('ergo-in-ft'),
+  inIn: document.getElementById('ergo-in-in'),
+  wrapCm: document.getElementById('ergo-wrap-cm'),
+  wrapImp: document.getElementById('ergo-wrap-imp'),
+  unitCm: document.getElementById('ergo-unit-cm'),
+  unitImp: document.getElementById('ergo-unit-imp'),
+  valChair: document.getElementById('ergo-val-chair'),
+  valSit: document.getElementById('ergo-val-sit'),
+  valStand: document.getElementById('ergo-val-stand'),
+  valMon: document.getElementById('ergo-val-mon'),
+  protocols: document.getElementById('ergo-protocols'),
+  exportBtn: document.getElementById('ergo-export'),
+  shareX: document.getElementById('ergo-share-x'),
+  shareWa: document.getElementById('ergo-share-wa'),
+  shareLi: document.getElementById('ergo-share-li'),
+  msg: document.getElementById('ergo-copy-msg')
+};
+
+function cmToFtIn(cm){
+  const totalIn = Math.round(cm / 2.54);
+  const ft = Math.floor(totalIn / 12);
+  const inc = totalIn % 12;
+  return { ft, in: inc };
+}
+
+function updateErgoInputs(){
+  if (ERGO_UI.inCm) ERGO_UI.inCm.value = ergoHeightCm;
+  const imp = cmToFtIn(ergoHeightCm);
+  if (ERGO_UI.inFt) ERGO_UI.inFt.value = imp.ft;
+  if (ERGO_UI.inIn) ERGO_UI.inIn.value = imp.in;
+
+  if (ergoUnit === 'cm') {
+    ERGO_UI.wrapCm?.removeAttribute('hidden');
+    ERGO_UI.wrapImp?.setAttribute('hidden', '');
+    ERGO_UI.unitCm?.classList.add('active');
+    ERGO_UI.unitImp?.classList.remove('active');
+  } else {
+    ERGO_UI.wrapCm?.setAttribute('hidden', '');
+    ERGO_UI.wrapImp?.removeAttribute('hidden');
+    ERGO_UI.unitCm?.classList.remove('active');
+    ERGO_UI.unitImp?.classList.add('active');
+  }
+}
+
+function calculateErgoDimensions(){
+  const H = ergoHeightCm;
+  const cLow = Math.round(H * 0.25);
+  const cHigh = Math.round(H * 0.265);
+  const sLow = Math.round(H * 0.385);
+  const sHigh = Math.round(H * 0.405);
+  const stLow = Math.round(H * 0.62);
+  const stHigh = Math.round(H * 0.645);
+  const mLow = Math.round(H * 0.67);
+  const mHigh = Math.round(H * 0.695);
+
+  const formatDim = (lowCm, highCm) => {
+    const lowIn = (lowCm / 2.54).toFixed(1);
+    const highIn = (highCm / 2.54).toFixed(1);
+    if (ergoUnit === 'cm') {
+      return `${lowCm} – ${highCm} cm <span style="font-size:12px;color:var(--t3);font-weight:600">(${lowIn}" – ${highIn}")</span>`;
+    } else {
+      return `${lowIn}" – ${highIn}" <span style="font-size:12px;color:var(--t3);font-weight:600">(${lowCm} – ${highCm} cm)</span>`;
+    }
+  };
+
+  if (ERGO_UI.valChair) ERGO_UI.valChair.innerHTML = formatDim(cLow, cHigh);
+  if (ERGO_UI.valSit) ERGO_UI.valSit.innerHTML = formatDim(sLow, sHigh);
+  if (ERGO_UI.valStand) ERGO_UI.valStand.innerHTML = formatDim(stLow, stHigh);
+  if (ERGO_UI.valMon) ERGO_UI.valMon.innerHTML = formatDim(mLow, mHigh);
+}
+
+function renderErgoProtocols(){
+  if (!ERGO_UI.protocols) return;
+  ERGO_UI.protocols.innerHTML = ERGO_PROTOCOLS.map(p => `
+    <div class="ergo-proto-card">
+      <div class="ergo-proto-head">
+        <span style="display:flex;align-items:center;gap:6px">
+          <span>${p.icon}</span>
+          <span>${p.title}</span>
+        </span>
+        <span style="font-size:11px;font-weight:700;color:var(--brand-1);background:var(--brand-soft);padding:2px 8px;border-radius:12px">${p.freq}</span>
+      </div>
+      <div class="ergo-proto-body">
+        <div style="font-weight:600;color:var(--t1);margin-bottom:3px">Target: ${p.target}</div>
+        <div style="margin-bottom:4px"><b>Protocol:</b> ${p.action}</div>
+        <div style="font-size:11.5px;color:var(--t3);line-height:1.4"><b>Biomechanics:</b> ${p.mechanism}</div>
+      </div>
+      <div class="ergo-proto-foot">
+        <a href="#${p.ruleId}" class="med-rule-link" data-rule="${p.ruleId}">Rule ${p.rule}</a>
+        <span style="font-size:10.5px;font-weight:700;color:var(--t3)">Evidence Grade ${p.grade}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+function ergoOpen(){
+  loadErgoSettings();
+  updateErgoInputs();
+  calculateErgoDimensions();
+  renderErgoProtocols();
+  if (ERGO_UI.mask) ERGO_UI.mask.hidden = false;
+  document.body.style.overflow = 'hidden';
+}
+
+function ergoClose(){
+  if (ERGO_UI.mask) ERGO_UI.mask.hidden = true;
+  document.body.style.overflow = '';
+}
+
+ERGO_UI.openBtn?.addEventListener('click', ergoOpen);
+ERGO_UI.sideBtn?.addEventListener('click', ergoOpen);
+ERGO_UI.closeBtn?.addEventListener('click', ergoClose);
+ERGO_UI.doneBtn?.addEventListener('click', ergoClose);
+
+ERGO_UI.mask?.addEventListener('click', ev => {
+  if (ev.target === ERGO_UI.mask) ergoClose();
+});
+
+document.addEventListener('keydown', ev => {
+  if (ev.key === 'Escape' && ERGO_UI.mask && !ERGO_UI.mask.hidden) {
+    ergoClose();
+  }
+});
+
+ERGO_UI.inCm?.addEventListener('input', () => {
+  const v = parseInt(ERGO_UI.inCm.value, 10);
+  if (!isNaN(v) && v >= 100 && v <= 240) {
+    ergoHeightCm = v;
+    saveErgoSettings();
+    calculateErgoDimensions();
+  }
+});
+
+function handleImpInput(){
+  const ft = parseInt(ERGO_UI.inFt?.value || '0', 10);
+  const inc = parseInt(ERGO_UI.inIn?.value || '0', 10);
+  if (!isNaN(ft) && !isNaN(inc)) {
+    const totalIn = (ft * 12) + inc;
+    const cm = Math.round(totalIn * 2.54);
+    if (cm >= 100 && cm <= 240) {
+      ergoHeightCm = cm;
+      if (ERGO_UI.inCm) ERGO_UI.inCm.value = cm;
+      saveErgoSettings();
+      calculateErgoDimensions();
+    }
+  }
+}
+
+ERGO_UI.inFt?.addEventListener('input', handleImpInput);
+ERGO_UI.inIn?.addEventListener('input', handleImpInput);
+
+ERGO_UI.unitCm?.addEventListener('click', () => {
+  ergoUnit = 'cm';
+  saveErgoSettings();
+  updateErgoInputs();
+  calculateErgoDimensions();
+});
+
+ERGO_UI.unitImp?.addEventListener('click', () => {
+  ergoUnit = 'imp';
+  saveErgoSettings();
+  updateErgoInputs();
+  calculateErgoDimensions();
+});
+
+ERGO_UI.protocols?.addEventListener('click', ev => {
+  const link = ev.target.closest('.med-rule-link');
+  if (link) {
+    ev.preventDefault();
+    const ruleId = link.dataset.rule;
+    ergoClose();
+    const ruleEl = document.getElementById(ruleId);
+    if (ruleEl) {
+      ruleEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      ruleEl.classList.remove('flash'); void ruleEl.offsetWidth; ruleEl.classList.add('flash');
+    }
+  }
+});
+
+ERGO_UI.exportBtn?.addEventListener('click', async () => {
+  const H = ergoHeightCm;
+  const imp = cmToFtIn(H);
+  const cLow = Math.round(H * 0.25), cHigh = Math.round(H * 0.265);
+  const sLow = Math.round(H * 0.385), sHigh = Math.round(H * 0.405);
+  const stLow = Math.round(H * 0.62), stHigh = Math.round(H * 0.645);
+  const mLow = Math.round(H * 0.67), mHigh = Math.round(H * 0.695);
+
+  let md = `# Evidence-Based Ergonomic Workspace Specification\n\n`;
+  md += `**Subject Standing Height**: ${H} cm (${imp.ft}' ${imp.in}")\n`;
+  md += `**Biomechanical Standards**: ANSI/BIFMA X5.5, HFES 100, OSHA Ergonomic Computer Workstations\n\n`;
+  md += `### Calculated Ergonomic Dimensions\n`;
+  md += `- **Chair Seat Height**: ${cLow} – ${cHigh} cm (${(cLow/2.54).toFixed(1)}" – ${(cHigh/2.54).toFixed(1)}")\n`;
+  md += `  *Measured floor to top of seat cushion at popliteal knee crease; knees at 90–100°, feet flat on floor.*\n`;
+  md += `- **Sitting Desk Surface Height**: ${sLow} – ${sHigh} cm (${(sLow/2.54).toFixed(1)}" – ${(sHigh/2.54).toFixed(1)}")\n`;
+  md += `  *Resting elbow height with relaxed shoulders and neutral wrists. Note: Standard fixed 75 cm (29.5") commercial desks are too high for >80% of adults; use an adjustable keyboard tray or footrest.*\n`;
+  md += `- **Standing Desk Surface Height**: ${stLow} – ${stHigh} cm (${(stLow/2.54).toFixed(1)}" – ${(stHigh/2.54).toFixed(1)}")\n`;
+  md += `  *Standing elbow level with forearms horizontal. Alternate sit/stand intervals every 45–60 minutes.*\n`;
+  md += `- **Monitor Top Edge Alignment**: ${mLow} – ${mHigh} cm (${(mLow/2.54).toFixed(1)}" – ${(mHigh/2.54).toFixed(1)}") from floor\n`;
+  md += `  *Top third of screen at horizontal eye level; 50–70 cm (20–28", arm's length) distance; tilt display back 10–20°.*\n\n`;
+  md += `### 5 High-ROI Diagnostic Protocols\n`;
+  for (const p of ERGO_PROTOCOLS){
+    md += `1. **${p.title}** (${p.freq} | Grade ${p.grade} - ${p.rule})\n`;
+    md += `   - *Action*: ${p.action}\n`;
+    md += `   - *Mechanism*: ${p.mechanism}\n`;
+  }
+  md += `\n---\n*Generated by The Evidence-Based Life Ergonomic Engine: https://parveen0029.github.io/The-Evidence-Based-Life/*\n`;
+
+  try {
+    await navigator.clipboard.writeText(md);
+    if (ERGO_UI.msg) {
+      ERGO_UI.msg.textContent = '✓ Ergonomic workspace spec sheet copied to clipboard!';
+      ERGO_UI.msg.hidden = false;
+      setTimeout(() => { ERGO_UI.msg.hidden = true; }, 3500);
+    }
+  } catch (e) {
+    prompt('Copy your ergonomic spec sheet below:', md);
+  }
+});
+
+ERGO_UI.shareX?.addEventListener('click', () => {
+  const text = `Prevent "tech neck", carpal tunnel, and lumbar shear with evidence-based desk biomechanics. Calculate your custom ANSI/BIFMA ergonomic desk & chair heights:`;
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+ERGO_UI.shareWa?.addEventListener('click', () => {
+  const text = `*Evidence-Based Ergonomic Workspace Calculator*\nOptimize your sitting and standing desk heights, chair ergonomics, and spine relief protocols tailored to your height:\n\nhttps://parveen0029.github.io/The-Evidence-Based-Life/`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+});
+
+ERGO_UI.shareLi?.addEventListener('click', () => {
   const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
 });
