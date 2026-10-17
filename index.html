@@ -1295,6 +1295,42 @@ html.dark .focus-toggle-chip.active{color:#1b1b1f}
   #brain-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Mitochondrial Bioenergetics & Cellular Longevity Matrix Modal */
+#mito-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#mito-mask[hidden]{display:none}
+#mito-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(940px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+
+.mito-params-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;gap:10px;background:var(--bg-alt);border:1px solid var(--divider);border-radius:12px;padding:12px 14px;margin-bottom:14px}
+@media (max-width:860px){.mito-params-grid{grid-template-columns:1fr 1fr 1fr}}
+@media (max-width:540px){.mito-params-grid{grid-template-columns:1fr 1fr}}
+
+.mito-param-cell{display:flex;flex-direction:column;gap:4px}
+.mito-param-label{font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px}
+.mito-param-input{padding:7px 10px;border-radius:6px;border:1px solid var(--divider);background:var(--bg-elv);color:var(--t1);font-size:13px}
+
+.mito-kpi-banner{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;background:var(--bg-elv);border:1px solid var(--divider);border-radius:12px;padding:12px 16px;margin-bottom:14px}
+@media (max-width:760px){.mito-kpi-banner{grid-template-columns:1fr 1fr}}
+.mito-kpi-item{display:flex;flex-direction:column;gap:2px}
+.mito-kpi-val{font-size:20px;font-weight:900;color:var(--green-1)}
+.mito-kpi-lbl{font-size:11px;color:var(--t3)}
+
+.mito-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-bottom:14px}
+.mito-card{background:var(--bg-alt);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.mito-head{display:flex;align-items:center;justify-content:space-between}
+.mito-title{font-size:13px;font-weight:700;color:var(--t1);display:flex;align-items:center;gap:6px}
+.mito-badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:12px;background:rgba(239,68,68,.15);color:var(--red-1,#ef4444)}
+.mito-desc{font-size:12px;color:var(--t2);line-height:1.45}
+.mito-action{font-size:11.5px;color:var(--t3);line-height:1.4}
+
+.mito-summary-box{background:var(--bg-elv);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;margin-bottom:14px}
+.mito-summary-title{font-size:12px;font-weight:700;color:var(--t1);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.mito-summary-text{font-size:12px;color:var(--t2);line-height:1.5}
+
+@media (max-width:820px){
+  #mito-mask{padding:0}
+  #mito-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
 /* Floating Audio Dock */
 #audio-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:70;background:var(--bg-elv);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);padding:10px 18px;display:flex;align-items:center;gap:14px;max-width:min(700px,calc(100vw - 32px));width:100%;backdrop-filter:blur(10px);transition:all .25s ease}
 #audio-dock[hidden]{display:none}
@@ -1381,7 +1417,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#light-mask,#light-open,#light-open-side,#sleep-mask,#sleep-open,#sleep-open-side,#glucose-mask,#glucose-open,#glucose-open-side,#inflam-mask,#inflam-open,#inflam-open-side,#apob-mask,#apob-open,#apob-open-side,#brain-mask,#brain-open,#brain-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#light-mask,#light-open,#light-open-side,#sleep-mask,#sleep-open,#sleep-open-side,#glucose-mask,#glucose-open,#glucose-open-side,#inflam-mask,#inflam-open,#inflam-open-side,#apob-mask,#apob-open,#apob-open-side,#brain-mask,#brain-open,#brain-open-side,#mito-mask,#mito-open,#mito-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -1485,6 +1521,7 @@ html.dark .hc-action{color:#1b1b1f!important}
       <button class="icon-btn" id="inflam-open" title="Chronic Inflammation & hs-CRP Lifestyle Matrix" aria-label="Inflammation Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></button>
       <button class="icon-btn" id="apob-open" title="ApoB & Atherogenic Particle Concentration Hub" aria-label="ApoB Lipid Hub"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></button>
       <button class="icon-btn" id="brain-open" title="Cognitive Resilience & Brain Longevity Matrix" aria-label="Brain Longevity Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04zm5 0A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"/></svg></button>
+      <button class="icon-btn" id="mito-open" title="Mitochondrial Bioenergetics & Cellular Longevity Matrix" aria-label="Mitochondrial Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3M4.93 4.93l2.12 2.12m9.9 9.9l2.12 2.12M4.93 19.07l2.12-2.12m9.9-9.9l2.12-2.12"/></svg></button>
       <a class="icon-btn" href="selfcheck.html" title="Take 2-Minute Life Health & Risk Audit" aria-label="Self-Audit Quiz"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></a>
       <a class="icon-btn" href="README.md" title="View README.md" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn" href="https://github.com/parveen0029/The-Evidence-Based-Life" target="_blank" rel="noopener" title="View repository on GitHub" aria-label="GitHub Repository"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
@@ -1550,6 +1587,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     <button class="btn-sm ghost" id="inflam-open-side" type="button" style="margin-top:6px;font-size:12px">🛡️ Chronic Inflammation &amp; hs-CRP Matrix</button>
     <button class="btn-sm ghost" id="apob-open-side" type="button" style="margin-top:6px;font-size:12px">🫀 ApoB &amp; Atherogenic Particle Hub</button>
     <button class="btn-sm ghost" id="brain-open-side" type="button" style="margin-top:6px;font-size:12px">🧠 Cognitive Resilience &amp; Brain Matrix</button>
+    <button class="btn-sm ghost" id="mito-open-side" type="button" style="margin-top:6px;font-size:12px">⚡ Mitochondrial &amp; Cellular Bioenergetics</button>
   </div>
   <div class="group" id="g-upd" hidden>
     <div class="gt">Recent Updates <small>Content revisions</small></div>
@@ -3363,6 +3401,108 @@ html.dark .hc-action{color:#1b1b1f!important}
         <button class="btn-sm ghost" id="brain-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
         <button class="btn-sm ghost" id="brain-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
         <p id="brain-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="mito-mask" hidden>
+  <div id="mito-box" role="dialog" aria-modal="true" aria-labelledby="mito-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="mito-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3M4.93 4.93l2.12 2.12m9.9 9.9l2.12 2.12M4.93 19.07l2.12-2.12m9.9-9.9l2.12-2.12"/></svg> <span>Mitochondrial Bioenergetics &amp; Cellular Longevity Matrix</span></div>
+      <button type="button" id="mito-x" aria-label="Close mitochondrial matrix">✕</button>
+    </div>
+    <div class="stats-scroll">
+      <div class="stats-lead">
+        Evidence-based cellular respiration, mitohormesis, and mitophagy engine based on <strong>Chapter 6 (Exercise &amp; Longevity)</strong>, <strong>Chapter 5 (Nutrition)</strong>, and <strong>Chapter 28 (Biomarkers &amp; Health)</strong>. Model PGC-1α biogenesis signaling, PINK1/Parkin-mediated autophagic clearance, NAD+/NADH redox ratios, and lactate shuttling efficiency.
+      </div>
+
+      <div class="mito-params-grid">
+        <div class="mito-param-cell">
+          <label class="mito-param-label" for="mito-zone2-input">Weekly Zone 2 Aerobic Base</label>
+          <select id="mito-zone2-input" class="mito-param-input">
+            <option value="optimal">150–300 min/wk (Max Fat Oxidation)</option>
+            <option value="moderate" selected>60–149 min/wk (Base Biogenesis)</option>
+            <option value="sedentary">&lt;60 min/wk (Mitochondrial Stasis)</option>
+          </select>
+        </div>
+        <div class="mito-param-cell">
+          <label class="mito-param-label" for="mito-thermal-input">Thermal Hormesis (Sauna / Cold)</label>
+          <select id="mito-thermal-input" class="mito-param-input">
+            <option value="optimal">3–4x/wk (Sauna 80°C or Cold Contrast)</option>
+            <option value="occasional" selected>1–2x/wk Thermal Challenge</option>
+            <option value="none">Zero Thermal Hormetic Stress</option>
+          </select>
+        </div>
+        <div class="mito-param-cell">
+          <label class="mito-param-label" for="mito-fasting-input">Overnight Fasting (Mitophagy)</label>
+          <select id="mito-fasting-input" class="mito-param-input">
+            <option value="optimal" selected>14–16 Hours (Active Mitophagy)</option>
+            <option value="moderate">12–13 Hours (Standard Circadian)</option>
+            <option value="grazing">&lt;11 Hours (Continuous Nutrient Influx)</option>
+          </select>
+        </div>
+        <div class="mito-param-cell">
+          <label class="mito-param-label" for="mito-coq10-input">ETC Co-Factors &amp; Statin Status</label>
+          <select id="mito-coq10-input" class="mito-param-input">
+            <option value="supplemented" selected>Ubiquinol 100–200mg + ALA / Carnitine</option>
+            <option value="dietary">Dietary Only (Sardines / Beef Heart)</option>
+            <option value="statin_unsupplemented">Statin User Without CoQ10 (Depleted)</option>
+          </select>
+        </div>
+        <div class="mito-param-cell">
+          <label class="mito-param-label" for="mito-hiit-input">High-Intensity Sprints (VO2 Peak)</label>
+          <select id="mito-hiit-input" class="mito-param-input">
+            <option value="regular" selected>1–2x/wk (4x4 min or Norwegian Protocol)</option>
+            <option value="moderate">Occasional Vigorous Strides</option>
+            <option value="none">Zero Maximum Oxygen Flux Bursts</option>
+          </select>
+        </div>
+        <div class="mito-param-cell">
+          <label class="mito-param-label" for="mito-diet-input">Nutritional Density &amp; UPF Load</label>
+          <select id="mito-diet-input" class="mito-param-input">
+            <option value="clean" selected>Whole Foods (&lt;10% UPF / Minimal AGEs)</option>
+            <option value="standard">Standard Balanced (20–40% UPF)</option>
+            <option value="high_upf">High Refined Seed Oils / Excess ROS Leak</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mito-kpi-banner">
+        <div class="mito-kpi-item">
+          <span class="mito-kpi-val" id="mito-kpi-density" style="color:var(--green-1)">+35% Elite Base</span>
+          <span class="mito-kpi-lbl">Mitochondrial Reticulum Density</span>
+        </div>
+        <div class="mito-kpi-item">
+          <span class="mito-kpi-val" id="mito-kpi-pgc1a" style="color:var(--green-1)">Peak Signal</span>
+          <span class="mito-kpi-lbl">PGC-1α Biogenesis Signal</span>
+        </div>
+        <div class="mito-kpi-item">
+          <span class="mito-kpi-val" id="mito-kpi-mitophagy" style="color:var(--green-1)">Optimal</span>
+          <span class="mito-kpi-lbl">PINK1/Parkin Mitophagy Flux</span>
+        </div>
+        <div class="mito-kpi-item">
+          <span class="mito-kpi-val" id="mito-kpi-nad" style="color:var(--green-1)">High Sirtuin Ratio</span>
+          <span class="mito-kpi-lbl">NAD+/NADH Redox State</span>
+        </div>
+      </div>
+
+      <div class="mito-grid" id="mito-cards-grid">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="mito-summary-box">
+        <div class="mito-summary-title"><span>⚡ Clinical Bioenergetics &amp; Mitophagy Protocol</span></div>
+        <div class="mito-summary-text" id="mito-routine-desc">Calculating mitochondrial protocol...</div>
+      </div>
+
+      <div class="calc-footer">
+        <button class="btn-sm" id="mito-export" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy Clinical Mitochondrial Protocol</button>
+        <button class="btn-sm ghost" id="mito-share-x" type="button" style="width:auto;padding:8px 14px">𝕏 Share</button>
+        <button class="btn-sm ghost" id="mito-share-wa" type="button" style="width:auto;padding:8px 14px">WhatsApp</button>
+        <button class="btn-sm ghost" id="mito-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
+        <button class="btn-sm ghost" id="mito-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
+        <p id="mito-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
       </div>
     </div>
   </div>
@@ -12303,6 +12443,356 @@ BRAIN_UI.shareWa?.addEventListener('click', () => {
 });
 
 BRAIN_UI.shareLi?.addEventListener('click', () => {
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+/* ---------- Mitochondrial Bioenergetics & Cellular Longevity Matrix Modal ---------- */
+const MITO_CARDS_DATA = [
+  {
+    id: 'mitohormesis',
+    title: 'Mitohormesis & PGC-1α Biogenesis',
+    icon: '⚡',
+    badge: 'Master Transcriptional Regulator',
+    color: 'rgba(16,185,129,.15)',
+    textColor: 'var(--green-1)',
+    desc: 'Transient bursts of exercise or thermal stress generate physiological pulses of reactive oxygen species (ROS). This triggers AMPK and sirtuin deacetylation of PGC-1α (peroxisome proliferator-activated receptor-γ coactivator 1α), stimulating nuclear and mitochondrial DNA transcription to build new, healthy mitochondria.',
+    action: 'Accumulate 150–300 minutes weekly of continuous Zone 2 aerobic base work combined with regular thermal hormesis (sauna or cold contrast).'
+  },
+  {
+    id: 'mitophagy',
+    title: 'PINK1/Parkin Mitophagy Flux',
+    icon: '♻️',
+    badge: 'Quality Control Clearance',
+    color: 'rgba(59,130,246,.15)',
+    textColor: 'var(--brand-1)',
+    desc: 'When mitochondrial membrane potential collapses due to aging or oxidative damage, PINK1 kinase stabilizes on the outer mitochondrial membrane and recruits Parkin E3 ubiquitin ligase. This marks depolarized, leaky organelles for lysosomal degradation before they can trigger apoptosis or systemic inflammation.',
+    action: 'Maintain a 14–16 hour overnight time-restricted feeding window daily to activate cellular energy depletion sensors and clear fragmented organelles.'
+  },
+  {
+    id: 'nad_redox',
+    title: 'NAD+/NADH Redox Potential & Sirtuins',
+    icon: '🧬',
+    badge: 'SIRT1/SIRT3 Fuel',
+    color: 'rgba(139,92,246,.15)',
+    textColor: '#8b5cf6',
+    desc: 'Mitochondrial sirtuins (notably SIRT3, which deacetylates superoxide dismutase SOD2 and isocitrate dehydrogenase) require oxidized NAD+ as an obligate co-substrate. Age-related hyperactivation of the CD38 ectoenzyme depletes cellular NAD+, impairing Complexes I–IV electron flow and inducing cellular senescence.',
+    action: 'Preserve high NAD+/NADH ratio by avoiding constant chronic overfeeding, syncing circadian rhythm, and incorporating regular aerobic intervals.'
+  },
+  {
+    id: 'etc_cofactors',
+    title: 'ETC Complexes & CoQ10 Ubiquinol',
+    icon: '💊',
+    badge: 'Electron Flow Efficiency',
+    color: 'rgba(245,158,11,.15)',
+    textColor: 'var(--yellow-1,#eab308)',
+    desc: 'Coenzyme Q10 serves as an essential lipid-soluble electron transporter between Complexes I/II and Complex III in the inner mitochondrial membrane. HMG-CoA reductase inhibitors (statins) block the mevalonate pathway, depleting circulating and intramuscular CoQ10 by up to 40–50% and driving myopathy.',
+    action: 'Supplement 100–200mg of bioavailable ubiquinol (reduced active CoQ10) daily alongside alpha-lipoic acid, especially if prescribed a statin medication.'
+  },
+  {
+    id: 'lactate_shuttle',
+    title: 'Lactate Shuttling & MCT1 Density',
+    icon: '🧪',
+    badge: 'Mitochondrial Fuel Transfer',
+    color: 'rgba(16,185,129,.15)',
+    textColor: 'var(--green-1)',
+    desc: 'George Brooks landmark lactate shuttle hypothesis demonstrated that lactate is not a dead-end waste toxin, but a preferred high-energy mitochondrial fuel for oxidative myocardium and red skeletal muscle. Sustained Zone 2 training upregulates Monocarboxylate Transporter 1 (MCT1) to absorb and burn circulating lactate.',
+    action: 'Train precisely at the aerobic threshold (lactate <2.0 mmol/L, conversational pace) to expand skeletal muscle capillary and MCT1 transporter density.'
+  },
+  {
+    id: 'fission_fusion',
+    title: 'Mitochondrial Fission vs Fusion Dynamics',
+    icon: '🔬',
+    badge: 'Morphological Plasticity',
+    color: 'rgba(239,68,68,.15)',
+    textColor: 'var(--red-1,#ef4444)',
+    desc: 'Healthy mitochondria form interconnected tubular reticula through fusion (Mfn1/2, Opa1), diluting mutant mtDNA and sharing metabolites. Sedentary overnutrition causes excessive Drp1-driven fission without subsequent mitophagy, producing dense clusters of fragmented, leaky, uncoupled mitochondria.',
+    action: 'Combine resistance training, endurance work, and fasting intervals to keep the mitochondrial reticulum dynamic, fused, and metabolically flexible.'
+  }
+];
+
+const MITO_UI = {
+  openBtn: document.getElementById('mito-open'),
+  openSideBtn: document.getElementById('mito-open-side'),
+  mask: document.getElementById('mito-mask'),
+  xBtn: document.getElementById('mito-x'),
+  closeBtn: document.getElementById('mito-close-btn'),
+  zone2Input: document.getElementById('mito-zone2-input'),
+  thermalInput: document.getElementById('mito-thermal-input'),
+  fastingInput: document.getElementById('mito-fasting-input'),
+  coq10Input: document.getElementById('mito-coq10-input'),
+  hiitInput: document.getElementById('mito-hiit-input'),
+  dietInput: document.getElementById('mito-diet-input'),
+  kpiDensity: document.getElementById('mito-kpi-density'),
+  kpiPgc1a: document.getElementById('mito-kpi-pgc1a'),
+  kpiMitophagy: document.getElementById('mito-kpi-mitophagy'),
+  kpiNad: document.getElementById('mito-kpi-nad'),
+  cardsGrid: document.getElementById('mito-cards-grid'),
+  routineDesc: document.getElementById('mito-routine-desc'),
+  exportBtn: document.getElementById('mito-export'),
+  shareX: document.getElementById('mito-share-x'),
+  shareWa: document.getElementById('mito-share-wa'),
+  shareLi: document.getElementById('mito-share-li'),
+  msg: document.getElementById('mito-copy-msg')
+};
+
+let mitoSettings = {
+  zone2: 'moderate',
+  thermal: 'occasional',
+  fasting: 'optimal',
+  coq10: 'supplemented',
+  hiit: 'regular',
+  diet: 'clean'
+};
+
+try {
+  const savedMito = localStorage.getItem('eb_mito_settings');
+  if (savedMito) {
+    mitoSettings = Object.assign(mitoSettings, JSON.parse(savedMito));
+  }
+} catch (e) {}
+
+function renderMitoCards() {
+  if (!MITO_UI.cardsGrid) return;
+  MITO_UI.cardsGrid.innerHTML = MITO_CARDS_DATA.map(c => `
+    <div class="mito-card">
+      <div class="mito-head">
+        <span class="mito-title"><span>${c.icon}</span> ${c.title}</span>
+        <span class="mito-badge" style="background:${c.color};color:${c.textColor}">${c.badge}</span>
+      </div>
+      <div class="mito-desc">${c.desc}</div>
+      <div class="mito-action"><strong>Action:</strong> ${c.action}</div>
+    </div>
+  `).join('');
+}
+
+function calculateMitoMetrics() {
+  const zone2Val = MITO_UI.zone2Input?.value || mitoSettings.zone2;
+  const thermalVal = MITO_UI.thermalInput?.value || mitoSettings.thermal;
+  const fastingVal = MITO_UI.fastingInput?.value || mitoSettings.fasting;
+  const coq10Val = MITO_UI.coq10Input?.value || mitoSettings.coq10;
+  const hiitVal = MITO_UI.hiitInput?.value || mitoSettings.hiit;
+  const dietVal = MITO_UI.dietInput?.value || mitoSettings.diet;
+
+  mitoSettings.zone2 = zone2Val;
+  mitoSettings.thermal = thermalVal;
+  mitoSettings.fasting = fastingVal;
+  mitoSettings.coq10 = coq10Val;
+  mitoSettings.hiit = hiitVal;
+  mitoSettings.diet = dietVal;
+
+  try {
+    localStorage.setItem('eb_mito_settings', JSON.stringify(mitoSettings));
+  } catch (e) {}
+
+  // 1. Mitochondrial Density Index
+  let densityScore = 0;
+  if (zone2Val === 'optimal') densityScore += 25;
+  else if (zone2Val === 'moderate') densityScore += 12;
+  else densityScore -= 18;
+
+  if (hiitVal === 'regular') densityScore += 15;
+  else if (hiitVal === 'moderate') densityScore += 8;
+
+  if (thermalVal === 'optimal') densityScore += 12;
+  else if (thermalVal === 'occasional') densityScore += 5;
+
+  if (dietVal === 'clean') densityScore += 10;
+  else if (dietVal === 'high_upf') densityScore -= 15;
+
+  let densityText = '+35% Elite Base';
+  let densityColor = 'var(--green-1)';
+  if (densityScore >= 45) {
+    densityText = `+${densityScore}% Elite Density`;
+    densityColor = 'var(--green-1)';
+  } else if (densityScore >= 20) {
+    densityText = `+${densityScore}% Standard Base`;
+    densityColor = 'var(--green-1)';
+  } else if (densityScore >= 0) {
+    densityText = `Normal (+${densityScore}%)`;
+    densityColor = 'var(--yellow-1,#eab308)';
+  } else {
+    densityText = `${densityScore}% Impaired Reticulum`;
+    densityColor = 'var(--red-1,#ef4444)';
+  }
+
+  // 2. PGC-1α Biogenesis Signal
+  let pgcText = 'Peak Signal';
+  let pgcColor = 'var(--green-1)';
+  if (zone2Val === 'optimal' && (thermalVal === 'optimal' || hiitVal === 'regular')) {
+    pgcText = 'Maximum Upregulation';
+    pgcColor = 'var(--green-1)';
+  } else if (zone2Val === 'sedentary') {
+    pgcText = 'Suppressed (<15%)';
+    pgcColor = 'var(--red-1,#ef4444)';
+  } else {
+    pgcText = 'Moderate Signal';
+    pgcColor = 'var(--yellow-1,#eab308)';
+  }
+
+  // 3. PINK1/Parkin Mitophagy Flux
+  let mitoText = 'Optimal Clearance';
+  let mitoColor = 'var(--green-1)';
+  if (fastingVal === 'optimal' && zone2Val !== 'sedentary') {
+    mitoText = 'Optimal Clearance (16h)';
+    mitoColor = 'var(--green-1)';
+  } else if (fastingVal === 'grazing') {
+    mitoText = 'Impaired Stasis';
+    mitoColor = 'var(--red-1,#ef4444)';
+  } else {
+    mitoText = 'Standard Circadian Flux';
+    mitoColor = 'var(--yellow-1,#eab308)';
+  }
+
+  // 4. NAD+/NADH Redox State
+  let nadText = 'High Sirtuin Ratio';
+  let nadColor = 'var(--green-1)';
+  if (coq10Val === 'statin_unsupplemented') {
+    nadText = 'ETC Complex Stalled';
+    nadColor = 'var(--red-1,#ef4444)';
+  } else if (dietVal === 'high_upf' && zone2Val === 'sedentary') {
+    nadText = 'Depleted / High CD38';
+    nadColor = 'var(--red-1,#ef4444)';
+  } else if (zone2Val === 'optimal' && dietVal === 'clean') {
+    nadText = 'Elevated SIRT3 Flux';
+    nadColor = 'var(--green-1)';
+  }
+
+  // Update UI KPIs
+  if (MITO_UI.kpiDensity) {
+    MITO_UI.kpiDensity.textContent = densityText;
+    MITO_UI.kpiDensity.style.color = densityColor;
+  }
+  if (MITO_UI.kpiPgc1a) {
+    MITO_UI.kpiPgc1a.textContent = pgcText;
+    MITO_UI.kpiPgc1a.style.color = pgcColor;
+  }
+  if (MITO_UI.kpiMitophagy) {
+    MITO_UI.kpiMitophagy.textContent = mitoText;
+    MITO_UI.kpiMitophagy.style.color = mitoColor;
+  }
+  if (MITO_UI.kpiNad) {
+    MITO_UI.kpiNad.textContent = nadText;
+    MITO_UI.kpiNad.style.color = nadColor;
+  }
+
+  // Dynamic Clinical Summary
+  if (MITO_UI.routineDesc) {
+    MITO_UI.routineDesc.innerHTML = `
+      <strong>Mitochondrial Reticulum Volume:</strong> Projected density trajectory: <strong>${densityText}</strong>. ${zone2Val === 'optimal' ? '<span style="color:var(--green-1);font-weight:700">150–300 min/wk Zone 2 base maximally stimulates muscular MCT1 lactate transporters and capillary density.</span>' : '<span style="color:var(--yellow-1,#eab308);font-weight:700">Add structured Zone 2 running, cycling, or rowing</span> to build mitochondrial surface area.'}<br>
+      <strong>PGC-1α Biogenesis Activation:</strong> ${pgcText}. ${thermalVal !== 'none' ? 'Heat-shock (sauna 80°C) and cold hormetic stress induce PGC-1α nuclear translocation.' : 'Incorporating 1–2 weekly thermal sauna sessions will significantly amplify biogenesis.'}<br>
+      <strong>PINK1/Parkin Mitophagic Autophagy:</strong> ${mitoText}. ${fastingVal === 'optimal' ? '<span style="color:var(--green-1);font-weight:700">14–16h overnight fasting clears damaged, ROS-leaking fragmented mitochondria.</span>' : '<span style="color:var(--red-1,#ef4444);font-weight:700">Continuous feeding (&lt;11h fast) halts lysosomal autophagic clearance.</span>'}<br>
+      <strong>Electron Transport Chain (ETC) Co-Factor Integrity:</strong> ${coq10Val === 'statin_unsupplemented' ? '<span style="color:var(--red-1,#ef4444);font-weight:700">Severe Warning: Statin therapy without CoQ10.</span> HMG-CoA reductase inhibition suppresses mevalonate synthesis, draining intramitochondrial ubiquinol by 40–50%. Immediate 100–200mg ubiquinol indicated.' : coq10Val === 'supplemented' ? '<span style="color:var(--green-1);font-weight:700">Ubiquinol + ALA co-factor defense active.</span> Optimal electron shuttling through Complexes I–III.' : 'Dietary co-factor intake standard.'}<br>
+      <strong>Cellular Redox &amp; Sirtuin Activation:</strong> ${nadText}. Avoiding ultra-processed refined seed oils protects inner mitochondrial cardiolipin membranes from peroxidative breakdown.
+    `;
+  }
+}
+
+function initMitoUI() {
+  if (!MITO_UI.mask) return;
+
+  renderMitoCards();
+
+  if (MITO_UI.zone2Input) MITO_UI.zone2Input.value = mitoSettings.zone2;
+  if (MITO_UI.thermalInput) MITO_UI.thermalInput.value = mitoSettings.thermal;
+  if (MITO_UI.fastingInput) MITO_UI.fastingInput.value = mitoSettings.fasting;
+  if (MITO_UI.coq10Input) MITO_UI.coq10Input.value = mitoSettings.coq10;
+  if (MITO_UI.hiitInput) MITO_UI.hiitInput.value = mitoSettings.hiit;
+  if (MITO_UI.dietInput) MITO_UI.dietInput.value = mitoSettings.diet;
+
+  calculateMitoMetrics();
+}
+
+initMitoUI();
+
+function openMitoModal() {
+  if (!MITO_UI.mask) return;
+  MITO_UI.mask.hidden = false;
+  document.body.style.overflow = 'hidden';
+  MITO_UI.zone2Input?.focus();
+}
+
+function closeMitoModal() {
+  if (!MITO_UI.mask) return;
+  MITO_UI.mask.hidden = true;
+  document.body.style.overflow = '';
+}
+
+MITO_UI.openBtn?.addEventListener('click', openMitoModal);
+MITO_UI.openSideBtn?.addEventListener('click', openMitoModal);
+MITO_UI.xBtn?.addEventListener('click', closeMitoModal);
+MITO_UI.closeBtn?.addEventListener('click', closeMitoModal);
+
+MITO_UI.mask?.addEventListener('click', (e) => {
+  if (e.target === MITO_UI.mask) closeMitoModal();
+});
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && MITO_UI.mask && !MITO_UI.mask.hidden) {
+    closeMitoModal();
+  }
+});
+
+const mitoInputElements = [
+  MITO_UI.zone2Input,
+  MITO_UI.thermalInput,
+  MITO_UI.fastingInput,
+  MITO_UI.coq10Input,
+  MITO_UI.hiitInput,
+  MITO_UI.dietInput
+];
+mitoInputElements.forEach(el => {
+  el?.addEventListener('input', calculateMitoMetrics);
+  el?.addEventListener('change', calculateMitoMetrics);
+});
+
+MITO_UI.exportBtn?.addEventListener('click', async () => {
+  let md = `# Mitochondrial Bioenergetics & Cellular Longevity Protocol\n`;
+  md += `*Evidence-Based PGC-1α Biogenesis, Mitophagy & NAD+ Redox Dynamics*\n\n`;
+  md += `**Zone 2 Aerobic Base**: ${mitoSettings.zone2.toUpperCase()} | Thermal Hormesis: ${mitoSettings.thermal.toUpperCase()}\n`;
+  md += `**Overnight Fasting Window**: ${mitoSettings.fasting.toUpperCase()} | ETC Co-Factors: ${mitoSettings.coq10.toUpperCase()}\n`;
+  md += `**High-Intensity Intervals**: ${mitoSettings.hiit.toUpperCase()} | Diet & UPF Load: ${mitoSettings.diet.toUpperCase()}\n\n`;
+  md += `**Mitochondrial Reticulum Density**: ${MITO_UI.kpiDensity?.textContent || '+35%'}\n`;
+  md += `**PGC-1α Biogenesis Signal**: ${MITO_UI.kpiPgc1a?.textContent || 'Peak Signal'}\n`;
+  md += `**PINK1/Parkin Mitophagy Flux**: ${MITO_UI.kpiMitophagy?.textContent || 'Optimal'}\n`;
+  md += `**NAD+/NADH Redox State**: ${MITO_UI.kpiNad?.textContent || 'High'}\n\n`;
+
+  md += `## 1. Core Bioenergetic & Mitohormetic Mechanisms\n`;
+  MITO_CARDS_DATA.forEach(c => {
+    md += `- **${c.title}** (${c.icon}) [${c.badge}]\n`;
+    md += `  - Evidence: ${c.desc}\n`;
+    md += `  - Clinical Target: ${c.action}\n`;
+  });
+
+  md += `\n## 2. Actionable Clinical Mitochondrial Spec\n`;
+  md += `${(MITO_UI.routineDesc?.textContent || '').trim()}\n\n`;
+
+  md += `---\n*Generated by The Evidence-Based Life Bioenergetics Engine: https://parveen0029.github.io/The-Evidence-Based-Life/*\n`;
+
+  try {
+    await navigator.clipboard.writeText(md);
+    if (MITO_UI.msg) {
+      MITO_UI.msg.textContent = '✓ Mitochondrial protocol copied to clipboard!';
+      MITO_UI.msg.hidden = false;
+      setTimeout(() => { MITO_UI.msg.hidden = true; }, 3500);
+    }
+  } catch (err) {
+    prompt('Copy your Mitochondrial Protocol below:', md);
+  }
+});
+
+MITO_UI.shareX?.addEventListener('click', () => {
+  const text = `Mitochondrial density dictates cellular bioenergetics and longevity. Calculate your PGC-1α biogenesis rate, mitophagy flux, and NAD+ redox protocol:`;
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+MITO_UI.shareWa?.addEventListener('click', () => {
+  const text = `*Mitochondrial Bioenergetics & Cellular Longevity Matrix*\nCalculate your PGC-1α biogenesis signal, mitophagy organelle recycling, and ETC co-factor defense:\n\nhttps://parveen0029.github.io/The-Evidence-Based-Life/`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+});
+
+MITO_UI.shareLi?.addEventListener('click', () => {
   const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
 });
