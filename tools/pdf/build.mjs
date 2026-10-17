@@ -25,7 +25,7 @@ docFiles.forEach((f, i) => anchorOf.set(f, `doc-${i + 1}`));
 
 const pages = [
   { src: 'README.md', md: `# Preface\n\n${description}\n\n${frontMd}`, anchor: 'front' },
-  { src: 'README.md', md: contentsMd.replace(/^## (?:Table of Contents|\u76ee\u5f55)/i, '# Table of Contents'), anchor: 'contents' },
+  { src: 'README.md', md: contentsMd.replace(/^##\s+(?:📚\s*Complete Chapters.*?|Table of Contents|\u76ee\u5f55)/i, '# Table of Contents'), anchor: 'contents' },
   ...[...bookFiles, ...docFiles].map(src => ({ src, md: stripBackLink(read(src)), anchor: anchorOf.get(src) })),
   { src: 'README.md', md: aboutMd(), anchor: 'about' },
 ];
