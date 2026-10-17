@@ -1439,6 +1439,42 @@ html.dark .focus-toggle-chip.active{color:#1b1b1f}
   #endo-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Cellular Senescence, SASP & Autophagy-Senolytic Matrix Modal */
+#seno-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#seno-mask[hidden]{display:none}
+#seno-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(940px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+
+.seno-params-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;gap:10px;background:var(--bg-alt);border:1px solid var(--divider);border-radius:12px;padding:12px 14px;margin-bottom:14px}
+@media (max-width:860px){.seno-params-grid{grid-template-columns:1fr 1fr 1fr}}
+@media (max-width:540px){.seno-params-grid{grid-template-columns:1fr 1fr}}
+
+.seno-param-cell{display:flex;flex-direction:column;gap:4px}
+.seno-param-label{font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px}
+.seno-param-input{padding:7px 10px;border-radius:6px;border:1px solid var(--divider);background:var(--bg-elv);color:var(--t1);font-size:13px}
+
+.seno-kpi-banner{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;background:var(--bg-elv);border:1px solid var(--divider);border-radius:12px;padding:12px 16px;margin-bottom:14px}
+@media (max-width:760px){.seno-kpi-banner{grid-template-columns:1fr 1fr}}
+.seno-kpi-item{display:flex;flex-direction:column;gap:2px}
+.seno-kpi-val{font-size:20px;font-weight:900;color:var(--green-1)}
+.seno-kpi-lbl{font-size:11px;color:var(--t3)}
+
+.seno-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-bottom:14px}
+.seno-card{background:var(--bg-alt);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.seno-head{display:flex;align-items:center;justify-content:space-between}
+.seno-title{font-size:13px;font-weight:700;color:var(--t1);display:flex;align-items:center;gap:6px}
+.seno-badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:12px;background:rgba(239,68,68,.15);color:var(--red-1,#ef4444)}
+.seno-desc{font-size:12px;color:var(--t2);line-height:1.45}
+.seno-action{font-size:11.5px;color:var(--t3);line-height:1.4}
+
+.seno-summary-box{background:var(--bg-elv);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;margin-bottom:14px}
+.seno-summary-title{font-size:12px;font-weight:700;color:var(--t1);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.seno-summary-text{font-size:12px;color:var(--t2);line-height:1.5}
+
+@media (max-width:820px){
+  #seno-mask{padding:0}
+  #seno-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
 /* Floating Audio Dock */
 #audio-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:70;background:var(--bg-elv);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);padding:10px 18px;display:flex;align-items:center;gap:14px;max-width:min(700px,calc(100vw - 32px));width:100%;backdrop-filter:blur(10px);transition:all .25s ease}
 #audio-dock[hidden]{display:none}
@@ -1525,7 +1561,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#light-mask,#light-open,#light-open-side,#sleep-mask,#sleep-open,#sleep-open-side,#glucose-mask,#glucose-open,#glucose-open-side,#inflam-mask,#inflam-open,#inflam-open-side,#apob-mask,#apob-open,#apob-open-side,#brain-mask,#brain-open,#brain-open-side,#mito-mask,#mito-open,#mito-open-side,#vagus-mask,#vagus-open,#vagus-open-side,#bone-mask,#bone-open,#bone-open-side,#endo-mask,#endo-open,#endo-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#light-mask,#light-open,#light-open-side,#sleep-mask,#sleep-open,#sleep-open-side,#glucose-mask,#glucose-open,#glucose-open-side,#inflam-mask,#inflam-open,#inflam-open-side,#apob-mask,#apob-open,#apob-open-side,#brain-mask,#brain-open,#brain-open-side,#mito-mask,#mito-open,#mito-open-side,#vagus-mask,#vagus-open,#vagus-open-side,#bone-mask,#bone-open,#bone-open-side,#endo-mask,#endo-open,#endo-open-side,#seno-mask,#seno-open,#seno-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -1633,6 +1669,7 @@ html.dark .hc-action{color:#1b1b1f!important}
       <button class="icon-btn" id="vagus-open" title="Autonomic Nervous System & Vagal Tone Matrix" aria-label="Vagal Tone Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12h5l3-8 4 16 3-8h5"/></svg></button>
       <button class="icon-btn" id="bone-open" title="Bone Mineral Density & Sarcopenia Matrix" aria-label="Bone Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 4a2.5 2.5 0 0 1 2.45 2 2.5 2.5 0 0 1-.55 4.5l-8.4 8.4a2.5 2.5 0 0 1-4.5.55 2.5 2.5 0 1 1-2.9-2.9 2.5 2.5 0 0 1 .55-4.5l8.4-8.4A2.5 2.5 0 0 1 15.5 4H18z"/></svg></button>
       <button class="icon-btn" id="endo-open" title="Hormonal Optimization & Endocrine Matrix" aria-label="Endocrine Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><line x1="6" y1="9" x2="6" y2="15"/><line x1="9" y1="6" x2="15" y2="6"/><line x1="9" y1="18" x2="15" y2="18"/><line x1="18" y1="9" x2="18" y2="15"/><line x1="8.12" y1="8.12" x2="15.88" y2="15.88"/></svg></button>
+      <button class="icon-btn" id="seno-open" title="Cellular Senescence &amp; Senolytic Matrix" aria-label="Senolytic Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/></svg></button>
       <a class="icon-btn" href="selfcheck.html" title="Take 2-Minute Life Health & Risk Audit" aria-label="Self-Audit Quiz"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></a>
       <a class="icon-btn" href="README.md" title="View README.md" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn" href="https://github.com/parveen0029/The-Evidence-Based-Life" target="_blank" rel="noopener" title="View repository on GitHub" aria-label="GitHub Repository"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
@@ -1702,6 +1739,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     <button class="btn-sm ghost" id="vagus-open-side" type="button" style="margin-top:6px;font-size:12px">💓 Autonomic Nervous System &amp; HRV</button>
     <button class="btn-sm ghost" id="bone-open-side" type="button" style="margin-top:6px;font-size:12px">🦴 Bone Mineral &amp; Sarcopenia Matrix</button>
     <button class="btn-sm ghost" id="endo-open-side" type="button" style="margin-top:6px;font-size:12px">🧪 Hormonal Rhythms &amp; Endocrine Matrix</button>
+    <button class="btn-sm ghost" id="seno-open-side" type="button" style="margin-top:6px;font-size:12px">⏳ Cellular Senescence &amp; Senolytics</button>
   </div>
   <div class="group" id="g-upd" hidden>
     <div class="gt">Recent Updates <small>Content revisions</small></div>
@@ -3917,6 +3955,106 @@ html.dark .hc-action{color:#1b1b1f!important}
         <button class="btn-sm ghost" id="endo-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
         <button class="btn-sm ghost" id="endo-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
         <p id="endo-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="seno-mask" hidden>
+  <div id="seno-box" role="dialog" aria-modal="true" aria-labelledby="seno-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="seno-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/></svg> <span>Cellular Senescence, SASP &amp; Autophagy-Senolytic Matrix</span></div>
+      <button type="button" id="seno-x" aria-label="Close senolytic matrix">✕</button>
+    </div>
+    <div class="stats-scroll">
+      <div class="stats-lead">Master the molecular pathways of senescent cell elimination and autophagy organelle recycling. Suppress pro-inflammatory SASP paracrine cascades, mobilize NK-cell immune surveillance, activate macroautophagy through intermittent nutrient deprivation, deploy natural flavonoid senolytics (fisetin/quercetin) to disable SCAP pro-survival pathways, and shield genomic DNA against UV-induced cyclobutane crosslinking.</div>
+
+      <div class="seno-params-grid">
+        <div class="seno-param-cell">
+          <label class="seno-param-label" for="seno-fast-input">Intermittent Fasting &amp; Autophagy Window</label>
+          <select id="seno-fast-input" class="seno-param-input">
+            <option value="optimal" selected>16–24h Regular Autophagic Fast (AMPK / ULK1 Flux)</option>
+            <option value="circadian">12–14h Overnight Circadian Fast</option>
+            <option value="grazing">&lt;11h Fast / Continuous Grazing (mTORC1 Stasis)</option>
+          </select>
+        </div>
+        <div class="seno-param-cell">
+          <label class="seno-param-label" for="seno-flavo-input">Senolytic Flavonoid Polyphenols (Fisetin)</label>
+          <select id="seno-flavo-input" class="seno-param-input">
+            <option value="optimal" selected>High Dietary Fisetin (Strawberries/Apples) + Quercetin/Apigenin</option>
+            <option value="moderate">Occasional Berries / Modest Flavonoid Density</option>
+            <option value="negligible">Negligible Flavonoid Intake / Ultra-Processed Standard</option>
+          </select>
+        </div>
+        <div class="seno-param-cell">
+          <label class="seno-param-label" for="seno-exercise-input">Vigorous Exertion &amp; NK Immune Surveillance</label>
+          <select id="seno-exercise-input" class="seno-param-input">
+            <option value="regular" selected>2–3x/wk High-Intensity Exertion (T-Cell &amp; NK Cell Mobilization)</option>
+            <option value="moderate">Daily Walking &amp; Light Aerobic Activity</option>
+            <option value="sedentary">Sedentary / Low Lymphatic &amp; Immune Clearance</option>
+          </select>
+        </div>
+        <div class="seno-param-cell">
+          <label class="seno-param-label" for="seno-uv-input">UV Protection &amp; DNA Crosslinking Shield</label>
+          <select id="seno-uv-input" class="seno-param-input">
+            <option value="strict" selected>Daily Broad-Spectrum SPF 30–50+ / Solar Peak Management</option>
+            <option value="moderate">Occasional Sunscreen / Casual Sun Protection</option>
+            <option value="high_uv">Chronic Unprotected UV Exposure / Sunburn History / Tanning</option>
+          </select>
+        </div>
+        <div class="seno-param-cell">
+          <label class="seno-param-label" for="seno-meta-input">Glycemic Stability &amp; AGE Burden</label>
+          <select id="seno-meta-input" class="seno-param-input">
+            <option value="optimal" selected>Low Glycemic Volatility / Minimal AGEs (HbA1c &lt;5.3%)</option>
+            <option value="standard">Standard Glycemic Range (HbA1c 5.3–5.6%)</option>
+            <option value="elevated">High Postprandial Spikes / Advanced Glycation (HbA1c &gt;5.7%)</option>
+          </select>
+        </div>
+        <div class="seno-param-cell">
+          <label class="seno-param-label" for="seno-sasp-input">Systemic Inflammaging &amp; Paracrine Load</label>
+          <select id="seno-sasp-input" class="seno-param-input">
+            <option value="low" selected>Low Systemic Inflammaging (hs-CRP &lt;0.5 mg/L / WHtR &lt;0.50)</option>
+            <option value="moderate">Moderate Low-Grade Inflammatory Milieu (hs-CRP 0.5–1.5)</option>
+            <option value="elevated">High Systemic Inflammatory Burden (hs-CRP &gt;1.5 / High VAT)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="seno-kpi-banner">
+        <div class="seno-kpi-item">
+          <span class="seno-kpi-val" id="seno-kpi-clear" style="color:var(--green-1)">High Lytic Flux</span>
+          <span class="seno-kpi-lbl">Senolytic Clearance Capacity</span>
+        </div>
+        <div class="seno-kpi-item">
+          <span class="seno-kpi-val" id="seno-kpi-sasp" style="color:var(--green-1)">Suppressed (-75%)</span>
+          <span class="seno-kpi-lbl">SASP Paracrine Inflammatory Load</span>
+        </div>
+        <div class="seno-kpi-item">
+          <span class="seno-kpi-val" id="seno-kpi-auto" style="color:var(--green-1)">Peak Autophagosome Flux</span>
+          <span class="seno-kpi-lbl">Macroautophagic Organelle Recycling</span>
+        </div>
+        <div class="seno-kpi-item">
+          <span class="seno-kpi-val" id="seno-kpi-rejuv" style="color:var(--green-1)">+42% Youthful Phenotype</span>
+          <span class="seno-kpi-lbl">Biological Rejuvenation Potential</span>
+        </div>
+      </div>
+
+      <div class="seno-grid" id="seno-cards-grid">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="seno-summary-box">
+        <div class="seno-summary-title"><span>⏳ Clinical Senolytic &amp; Autophagy Protocol</span></div>
+        <div class="seno-summary-text" id="seno-routine-desc">Calculating cellular senescence and autophagy protocol...</div>
+      </div>
+
+      <div class="calc-footer">
+        <button class="btn-sm" id="seno-export" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy Clinical Senolytic Protocol</button>
+        <button class="btn-sm ghost" id="seno-share-x" type="button" style="width:auto;padding:8px 14px">𝕏 Share</button>
+        <button class="btn-sm ghost" id="seno-share-wa" type="button" style="width:auto;padding:8px 14px">WhatsApp</button>
+        <button class="btn-sm ghost" id="seno-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
+        <button class="btn-sm ghost" id="seno-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
+        <p id="seno-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
       </div>
     </div>
   </div>
@@ -14287,6 +14425,361 @@ ENDO_UI.shareWa?.addEventListener('click', () => {
 });
 
 ENDO_UI.shareLi?.addEventListener('click', () => {
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+/* ---------- Cellular Senescence, SASP & Autophagy-Senolytic Clearance ---------- */
+const SENO_CARDS_DATA = [
+  {
+    id: 'p16_arrest',
+    title: 'Senescent Cell Cycle Arrest (p16INK4a / p21)',
+    icon: '🧟',
+    badge: 'Zombie Cell Accumulation',
+    color: 'rgba(239,68,68,.15)',
+    textColor: 'var(--red-1,#ef4444)',
+    desc: 'Persistent DNA double-strand breaks, critical telomere shortening, and oncogenic stress trigger permanent cell cycle arrest mediated by p16INK4a and p21CIP1. Rather than undergoing apoptosis, senescent "zombie" cells upregulate anti-apoptotic BCL-2 and BCL-xL survival pathways, lingering indefinitely in tissues.',
+    action: 'Combine intermittent fasting with senolytic strategies to periodically trigger apoptosis in p16-positive cells before accumulation reaches critical mass.'
+  },
+  {
+    id: 'sasp_paracrine',
+    title: 'SASP Paracrine Inflammatory Secretome',
+    icon: '☣️',
+    badge: 'Contagious Aging Field',
+    color: 'rgba(245,158,11,.15)',
+    textColor: 'var(--yellow-1,#eab308)',
+    desc: 'The Senescence-Associated Secretory Phenotype (SASP) releases a devastating cocktail of pro-inflammatory cytokines (IL-6, IL-8), chemokines (MCP-1), and matrix metalloproteinases (MMP-1, MMP-3). This toxic secretome degrades extracellular matrix collagen, drives tissue fibrosis, and paracrinely induces senescence in surrounding healthy cells.',
+    action: 'Suppress NF-κB and mTOR signaling via cruciferous sulforaphane, omega-3 EPA/DHA, and visceral fat reduction to blunt SASP cytokine expression.'
+  },
+  {
+    id: 'fisetin_senolytic',
+    title: 'Fisetin & Natural Flavonoid Senolytics',
+    icon: '🍇',
+    badge: 'Targeted Lytic Apoptosis',
+    color: 'rgba(139,92,246,.15)',
+    textColor: '#8b5cf6',
+    desc: 'Pioneering research from the Mayo Clinic identified the dietary flavonoid fisetin (found in strawberries, apples, and persimmons) as a potent natural senolytic. Fisetin selectively transiently inhibits Senescent Cell Anti-Apoptotic Pathways (SCAPs), lowering the apoptotic threshold and enabling senescent cells to self-destruct without harming healthy tissue.',
+    action: 'Incorporate dietary fisetin-rich foods and consider periodic polyphenol pulsing (fisetin, quercetin, apigenin) to clear resistant senescent cell populations.'
+  },
+  {
+    id: 'autophagy_flux',
+    title: 'Macroautophagy & Lysosomal Recycling',
+    icon: '♻️',
+    badge: 'Cellular Organelle Clearance',
+    color: 'rgba(16,185,129,.15)',
+    textColor: 'var(--green-1)',
+    desc: 'Autophagy degrades dysfunctional organelles, misfolded protein aggregates, and intracellular pathogens via double-membrane autophagosomes that fuse with acidic lysosomes. Caloric deprivation activates AMPK and suppresses mTORC1, phosphorylating ULK1 to initiate autophagic organelle turnover and prevent cellular senescence.',
+    action: 'Engage in a 16–24 hour fast weekly or monthly to trigger robust macroautophagy and clean out intracellular debris.'
+  },
+  {
+    id: 'immune_clearance',
+    title: 'NK Cell & Macrophage Immune Surveillance',
+    icon: '🛡️',
+    badge: 'Immune Phagocytosis',
+    color: 'rgba(59,130,246,.15)',
+    textColor: '#3b82f6',
+    desc: 'In healthy youth, the innate and adaptive immune systems continuously eliminate nascent senescent cells. Natural Killer (NK) cells identify stress-induced ligands on senescent surfaces, releasing perforin and granzyme, while M1 macrophages phagocytose cellular corpses. Vigorous exercise mobilizes billions of cytotoxic lymphocytes into circulation.',
+    action: 'Perform 2–3 weekly high-intensity sprint or resistance intervals to induce transient catecholamine surges that mobilize immune senolytic surveillance.'
+  },
+  {
+    id: 'photosenescence',
+    title: 'UV Photoaging & DNA Crosslinking Shield',
+    icon: '☀️',
+    badge: 'Exogenous Genomic Defense',
+    color: 'rgba(6,182,212,.15)',
+    textColor: '#06b6d4',
+    desc: 'Solar ultraviolet A and B radiation penetrates dermal layers, directly generating cyclobutane pyrimidine dimers (CPDs) and producing reactive oxygen species that crosslink collagen and DNA. Cumulative UV exposure is the primary driver of dermal fibroblast senescence, actinic damage, and skin biological aging.',
+    action: 'Apply daily broad-spectrum SPF 30–50+ sunscreen to face and neck year-round, regardless of cloud cover, and manage outdoor peak solar UV index.'
+  }
+];
+
+const SENO_UI = {
+  openBtn: document.getElementById('seno-open'),
+  openSideBtn: document.getElementById('seno-open-side'),
+  mask: document.getElementById('seno-mask'),
+  xBtn: document.getElementById('seno-x'),
+  closeBtn: document.getElementById('seno-close-btn'),
+  fastInput: document.getElementById('seno-fast-input'),
+  flavoInput: document.getElementById('seno-flavo-input'),
+  exerciseInput: document.getElementById('seno-exercise-input'),
+  uvInput: document.getElementById('seno-uv-input'),
+  metaInput: document.getElementById('seno-meta-input'),
+  saspInput: document.getElementById('seno-sasp-input'),
+  kpiClear: document.getElementById('seno-kpi-clear'),
+  kpiSasp: document.getElementById('seno-kpi-sasp'),
+  kpiAuto: document.getElementById('seno-kpi-auto'),
+  kpiRejuv: document.getElementById('seno-kpi-rejuv'),
+  cardsGrid: document.getElementById('seno-cards-grid'),
+  routineDesc: document.getElementById('seno-routine-desc'),
+  exportBtn: document.getElementById('seno-export'),
+  shareX: document.getElementById('seno-share-x'),
+  shareWa: document.getElementById('seno-share-wa'),
+  shareLi: document.getElementById('seno-share-li'),
+  msg: document.getElementById('seno-copy-msg')
+};
+
+let senoSettings = {
+  fast: 'optimal',
+  flavo: 'optimal',
+  exercise: 'regular',
+  uv: 'strict',
+  meta: 'optimal',
+  sasp: 'low'
+};
+
+try {
+  const savedSeno = localStorage.getItem('eb_seno_settings');
+  if (savedSeno) {
+    senoSettings = Object.assign(senoSettings, JSON.parse(savedSeno));
+  }
+} catch (e) {}
+
+function renderSenoCards() {
+  if (!SENO_UI.cardsGrid) return;
+  SENO_UI.cardsGrid.innerHTML = SENO_CARDS_DATA.map(c => `
+    <div class="seno-card">
+      <div class="seno-head">
+        <span class="seno-title"><span>${c.icon}</span> ${c.title}</span>
+        <span class="seno-badge" style="background:${c.color};color:${c.textColor}">${c.badge}</span>
+      </div>
+      <div class="seno-desc">${c.desc}</div>
+      <div class="seno-action"><strong>Action:</strong> ${c.action}</div>
+    </div>
+  `).join('');
+}
+
+function calculateSenoMetrics() {
+  const fastVal = SENO_UI.fastInput?.value || senoSettings.fast;
+  const flavoVal = SENO_UI.flavoInput?.value || senoSettings.flavo;
+  const exerciseVal = SENO_UI.exerciseInput?.value || senoSettings.exercise;
+  const uvVal = SENO_UI.uvInput?.value || senoSettings.uv;
+  const metaVal = SENO_UI.metaInput?.value || senoSettings.meta;
+  const saspVal = SENO_UI.saspInput?.value || senoSettings.sasp;
+
+  senoSettings.fast = fastVal;
+  senoSettings.flavo = flavoVal;
+  senoSettings.exercise = exerciseVal;
+  senoSettings.uv = uvVal;
+  senoSettings.meta = metaVal;
+  senoSettings.sasp = saspVal;
+
+  try {
+    localStorage.setItem('eb_seno_settings', JSON.stringify(senoSettings));
+  } catch (e) {}
+
+  // 1. Senolytic Clearance Capacity
+  let clearScore = 0;
+  if (flavoVal === 'optimal') clearScore += 30;
+  else if (flavoVal === 'moderate') clearScore += 15;
+  else clearScore -= 10;
+
+  if (exerciseVal === 'regular') clearScore += 25;
+  else if (exerciseVal === 'moderate') clearScore += 10;
+  else clearScore -= 15;
+
+  if (fastVal === 'optimal') clearScore += 25;
+  else if (fastVal === 'circadian') clearScore += 10;
+  else clearScore -= 15;
+
+  if (uvVal === 'strict') clearScore += 10;
+  else if (uvVal === 'high_uv') clearScore -= 15;
+
+  if (metaVal === 'optimal') clearScore += 10;
+  else if (metaVal === 'elevated') clearScore -= 15;
+
+  let clearText = 'High Lytic Flux';
+  let clearColor = 'var(--green-1)';
+  if (clearScore >= 70) {
+    clearText = 'High Lytic Flux (+45%)';
+    clearColor = 'var(--green-1)';
+  } else if (clearScore >= 35) {
+    clearText = 'Balanced Clearance';
+    clearColor = 'var(--green-1)';
+  } else if (clearScore >= 0) {
+    clearText = 'Sluggish Elimination';
+    clearColor = 'var(--yellow-1,#eab308)';
+  } else {
+    clearText = 'Zombie Cell Stasis';
+    clearColor = 'var(--red-1,#ef4444)';
+  }
+
+  // 2. SASP Paracrine Inflammatory Load
+  let saspText = 'Suppressed (-75%)';
+  let saspColor = 'var(--green-1)';
+  if (saspVal === 'low' && metaVal === 'optimal') {
+    saspText = 'Suppressed (-75%)';
+    saspColor = 'var(--green-1)';
+  } else if (saspVal !== 'elevated' && metaVal !== 'elevated') {
+    saspText = 'Moderate (-30%)';
+    saspColor = 'var(--yellow-1,#eab308)';
+  } else {
+    saspText = 'High Paracrine Spread (+80%)';
+    saspColor = 'var(--red-1,#ef4444)';
+  }
+
+  // 3. Macroautophagic Organelle Recycling
+  let autoText = 'Peak Autophagosome Flux';
+  let autoColor = 'var(--green-1)';
+  if (fastVal === 'optimal' && exerciseVal === 'regular') {
+    autoText = 'Peak Autophagosome Flux';
+    autoColor = 'var(--green-1)';
+  } else if (fastVal !== 'grazing' && exerciseVal !== 'sedentary') {
+    autoText = 'Standard Circadian Flux';
+    autoColor = 'var(--yellow-1,#eab308)';
+  } else {
+    autoText = 'Inhibited / mTORC1 Stasis';
+    autoColor = 'var(--red-1,#ef4444)';
+  }
+
+  // 4. Biological Rejuvenation Potential
+  let rejuvText = '+42% Youthful Phenotype';
+  let rejuvColor = 'var(--green-1)';
+  if (clearScore >= 60 && saspVal === 'low') {
+    rejuvText = '+42% Youthful Phenotype';
+    rejuvColor = 'var(--green-1)';
+  } else if (clearScore >= 20 && saspVal !== 'elevated') {
+    rejuvText = 'Preserved Homeostasis';
+    rejuvColor = 'var(--yellow-1,#eab308)';
+  } else {
+    rejuvText = 'Accelerated Biological Aging';
+    rejuvColor = 'var(--red-1,#ef4444)';
+  }
+
+  // Update UI KPIs
+  if (SENO_UI.kpiClear) {
+    SENO_UI.kpiClear.textContent = clearText;
+    SENO_UI.kpiClear.style.color = clearColor;
+  }
+  if (SENO_UI.kpiSasp) {
+    SENO_UI.kpiSasp.textContent = saspText;
+    SENO_UI.kpiSasp.style.color = saspColor;
+  }
+  if (SENO_UI.kpiAuto) {
+    SENO_UI.kpiAuto.textContent = autoText;
+    SENO_UI.kpiAuto.style.color = autoColor;
+  }
+  if (SENO_UI.kpiRejuv) {
+    SENO_UI.kpiRejuv.textContent = rejuvText;
+    SENO_UI.kpiRejuv.style.color = rejuvColor;
+  }
+
+  // Dynamic Clinical Summary
+  if (SENO_UI.routineDesc) {
+    SENO_UI.routineDesc.innerHTML = `
+      <strong>Senescent Cell Clearance:</strong> Lytic capacity is <strong>${clearText}</strong>. ${flavoVal === 'optimal' ? '<span style="color:var(--green-1);font-weight:700">Dietary fisetin and quercetin active:</span> Selective SCAP inhibition dismantles BCL-2 survival barriers in p16-arrested cells.' : '<span style="color:var(--yellow-1,#eab308);font-weight:700">Low flavonoid intake.</span> Add organic strawberries, persimmons, and apples to supply natural fisetin senolytics.'}<br>
+      <strong>SASP Secretome Suppression:</strong> Paracrine inflammatory load: <strong>${saspText}</strong>. ${saspVal === 'low' ? '<span style="color:var(--green-1);font-weight:700">Low baseline inflammaging</span> prevents matrix metalloproteinases from degrading extracellular collagen scaffolding.' : '<span style="color:var(--red-1,#ef4444);font-weight:700">Elevated SASP spread:</span> Senescent cytokine leakage forces healthy neighboring stem cells into secondary senescence.'}<br>
+      <strong>Macroautophagic Flux:</strong> ${autoText}. ${fastVal === 'optimal' ? '<span style="color:var(--green-1);font-weight:700">16–24h intermittent fasting</span> activates ULK1 autophagosome formation to recycle worn mitochondria and lipofuscin.' : 'Avoid continuous grazing (<11h fast) to allow mTORC1 to downregulate.'}<br>
+      <strong>Immune Surveillance &amp; T-Cell Activity:</strong> ${exerciseVal === 'regular' ? 'Vigorous exercise mobilizes NK cells and CD4+ T-lymphocytes to actively recognize and destroy senescent cells.' : 'Incorporate 1–2 weekly vigorous exertion sessions to stimulate immune clearance.'}<br>
+      <strong>Genomic Crosslink Defense:</strong> Daily UV protection status: <strong>${uvVal.toUpperCase()}</strong>. ${uvVal === 'strict' ? 'Broad-spectrum SPF prevents cyclobutane pyrimidine dimers and preserves dermal fibroblast longevity.' : '<span style="color:var(--red-1,#ef4444);font-weight:700">Unprotected solar UV radiation</span> triggers premature photo-senescence.'}
+    `;
+  }
+}
+
+function initSenoUI() {
+  if (!SENO_UI.mask) return;
+
+  renderSenoCards();
+
+  if (SENO_UI.fastInput) SENO_UI.fastInput.value = senoSettings.fast;
+  if (SENO_UI.flavoInput) SENO_UI.flavoInput.value = senoSettings.flavo;
+  if (SENO_UI.exerciseInput) SENO_UI.exerciseInput.value = senoSettings.exercise;
+  if (SENO_UI.uvInput) SENO_UI.uvInput.value = senoSettings.uv;
+  if (SENO_UI.metaInput) SENO_UI.metaInput.value = senoSettings.meta;
+  if (SENO_UI.saspInput) SENO_UI.saspInput.value = senoSettings.sasp;
+
+  calculateSenoMetrics();
+}
+
+initSenoUI();
+
+function openSenoModal() {
+  if (!SENO_UI.mask) return;
+  SENO_UI.mask.hidden = false;
+  document.body.style.overflow = 'hidden';
+  SENO_UI.fastInput?.focus();
+}
+
+function closeSenoModal() {
+  if (!SENO_UI.mask) return;
+  SENO_UI.mask.hidden = true;
+  document.body.style.overflow = '';
+}
+
+SENO_UI.openBtn?.addEventListener('click', openSenoModal);
+SENO_UI.openSideBtn?.addEventListener('click', openSenoModal);
+SENO_UI.xBtn?.addEventListener('click', closeSenoModal);
+SENO_UI.closeBtn?.addEventListener('click', closeSenoModal);
+
+SENO_UI.mask?.addEventListener('click', (e) => {
+  if (e.target === SENO_UI.mask) closeSenoModal();
+});
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && SENO_UI.mask && !SENO_UI.mask.hidden) {
+    closeSenoModal();
+  }
+});
+
+const senoInputElements = [
+  SENO_UI.fastInput,
+  SENO_UI.flavoInput,
+  SENO_UI.exerciseInput,
+  SENO_UI.uvInput,
+  SENO_UI.metaInput,
+  SENO_UI.saspInput
+];
+senoInputElements.forEach(el => {
+  el?.addEventListener('input', calculateSenoMetrics);
+  el?.addEventListener('change', calculateSenoMetrics);
+});
+
+SENO_UI.exportBtn?.addEventListener('click', async () => {
+  let md = `# Cellular Senescence, SASP & Autophagy-Senolytic Protocol\n`;
+  md += `*Evidence-Based p16/p21 Clearance, Fisetin Flavonoids, SASP Suppression & Macroautophagy*\n\n`;
+  md += `**Autophagy Window (Fasting)**: ${senoSettings.fast.toUpperCase()} | Senolytic Flavonoids: ${senoSettings.flavo.toUpperCase()}\n`;
+  md += `**Immune Surveillance (Exercise)**: ${senoSettings.exercise.toUpperCase()} | UV Defense (SPF): ${senoSettings.uv.toUpperCase()}\n`;
+  md += `**Glycemic / AGE Burden**: ${senoSettings.meta.toUpperCase()} | SASP Inflammaging: ${senoSettings.sasp.toUpperCase()}\n\n`;
+  md += `**Senolytic Clearance Capacity**: ${SENO_UI.kpiClear?.textContent || 'High'}\n`;
+  md += `**SASP Paracrine Inflammatory Load**: ${SENO_UI.kpiSasp?.textContent || 'Suppressed'}\n`;
+  md += `**Macroautophagic Organelle Recycling**: ${SENO_UI.kpiAuto?.textContent || 'Peak'}\n`;
+  md += `**Biological Rejuvenation Potential**: ${SENO_UI.kpiRejuv?.textContent || 'Optimal'}\n\n`;
+
+  md += `## 1. Core Senolytic & Autophagic Mechanisms\n`;
+  SENO_CARDS_DATA.forEach(c => {
+    md += `- **${c.title}** (${c.icon}) [${c.badge}]\n`;
+    md += `  - Evidence: ${c.desc}\n`;
+    md += `  - Clinical Target: ${c.action}\n`;
+  });
+
+  md += `\n## 2. Actionable Senolytic Spec\n`;
+  md += `${(SENO_UI.routineDesc?.textContent || '').trim()}\n\n`;
+
+  md += `---\n*Generated by The Evidence-Based Life Cellular Rejuvenation Engine: https://parveen0029.github.io/The-Evidence-Based-Life/*\n`;
+
+  try {
+    await navigator.clipboard.writeText(md);
+    if (SENO_UI.msg) {
+      SENO_UI.msg.textContent = '✓ Senolytic protocol copied to clipboard!';
+      SENO_UI.msg.hidden = false;
+      setTimeout(() => { SENO_UI.msg.hidden = true; }, 3500);
+    }
+  } catch (err) {
+    prompt('Copy your Senolytic Protocol below:', md);
+  }
+});
+
+SENO_UI.shareX?.addEventListener('click', () => {
+  const text = `Cellular senescence and the SASP toxic secretome accelerate biological aging. Calculate your senolytic clearance rate, autophagy flux, and biological rejuvenation protocol:`;
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+SENO_UI.shareWa?.addEventListener('click', () => {
+  const text = `*Cellular Senescence & Senolytic Matrix*\nCalculate your p16 senescent cell clearance, SASP paracrine suppression, and macroautophagy flux protocol:\n\nhttps://parveen0029.github.io/The-Evidence-Based-Life/`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+});
+
+SENO_UI.shareLi?.addEventListener('click', () => {
   const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
 });
