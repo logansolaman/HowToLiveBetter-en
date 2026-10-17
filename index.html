@@ -1223,6 +1223,42 @@ html.dark .focus-toggle-chip.active{color:#1b1b1f}
   #inflam-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Advanced Lipidology & ApoB Particle Concentration Modal */
+#apob-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#apob-mask[hidden]{display:none}
+#apob-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(940px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+
+.apob-params-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;gap:10px;background:var(--bg-alt);border:1px solid var(--divider);border-radius:12px;padding:12px 14px;margin-bottom:14px}
+@media (max-width:860px){.apob-params-grid{grid-template-columns:1fr 1fr 1fr}}
+@media (max-width:540px){.apob-params-grid{grid-template-columns:1fr 1fr}}
+
+.apob-param-cell{display:flex;flex-direction:column;gap:4px}
+.apob-param-label{font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px}
+.apob-param-input{padding:7px 10px;border-radius:6px;border:1px solid var(--divider);background:var(--bg-elv);color:var(--t1);font-size:13px}
+
+.apob-kpi-banner{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;background:var(--bg-elv);border:1px solid var(--divider);border-radius:12px;padding:12px 16px;margin-bottom:14px}
+@media (max-width:760px){.apob-kpi-banner{grid-template-columns:1fr 1fr}}
+.apob-kpi-item{display:flex;flex-direction:column;gap:2px}
+.apob-kpi-val{font-size:20px;font-weight:900;color:var(--green-1)}
+.apob-kpi-lbl{font-size:11px;color:var(--t3)}
+
+.apob-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-bottom:14px}
+.apob-card{background:var(--bg-alt);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.apob-head{display:flex;align-items:center;justify-content:space-between}
+.apob-title{font-size:13px;font-weight:700;color:var(--t1);display:flex;align-items:center;gap:6px}
+.apob-badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:12px;background:rgba(239,68,68,.15);color:var(--red-1,#ef4444)}
+.apob-desc{font-size:12px;color:var(--t2);line-height:1.45}
+.apob-action{font-size:11.5px;color:var(--t3);line-height:1.4}
+
+.apob-summary-box{background:var(--bg-elv);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;margin-bottom:14px}
+.apob-summary-title{font-size:12px;font-weight:700;color:var(--t1);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.apob-summary-text{font-size:12px;color:var(--t2);line-height:1.5}
+
+@media (max-width:820px){
+  #apob-mask{padding:0}
+  #apob-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
 /* Floating Audio Dock */
 #audio-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:70;background:var(--bg-elv);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);padding:10px 18px;display:flex;align-items:center;gap:14px;max-width:min(700px,calc(100vw - 32px));width:100%;backdrop-filter:blur(10px);transition:all .25s ease}
 #audio-dock[hidden]{display:none}
@@ -1309,7 +1345,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#light-mask,#light-open,#light-open-side,#sleep-mask,#sleep-open,#sleep-open-side,#glucose-mask,#glucose-open,#glucose-open-side,#inflam-mask,#inflam-open,#inflam-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#light-mask,#light-open,#light-open-side,#sleep-mask,#sleep-open,#sleep-open-side,#glucose-mask,#glucose-open,#glucose-open-side,#inflam-mask,#inflam-open,#inflam-open-side,#apob-mask,#apob-open,#apob-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -1411,6 +1447,7 @@ html.dark .hc-action{color:#1b1b1f!important}
       <button class="icon-btn" id="sleep-open" title="Sleep Architecture & Polysomnography Optimizer" aria-label="Sleep Architecture Optimizer"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></svg></button>
       <button class="icon-btn" id="glucose-open" title="Metabolic Health & Postprandial Glucose Matrix" aria-label="Glucose Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></button>
       <button class="icon-btn" id="inflam-open" title="Chronic Inflammation & hs-CRP Lifestyle Matrix" aria-label="Inflammation Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></button>
+      <button class="icon-btn" id="apob-open" title="ApoB & Atherogenic Particle Concentration Hub" aria-label="ApoB Lipid Hub"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></button>
       <a class="icon-btn" href="selfcheck.html" title="Take 2-Minute Life Health & Risk Audit" aria-label="Self-Audit Quiz"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></a>
       <a class="icon-btn" href="README.md" title="View README.md" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn" href="https://github.com/parveen0029/The-Evidence-Based-Life" target="_blank" rel="noopener" title="View repository on GitHub" aria-label="GitHub Repository"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
@@ -1474,6 +1511,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     <button class="btn-sm ghost" id="sleep-open-side" type="button" style="margin-top:6px;font-size:12px">🛏️ Sleep Architecture &amp; Polysomnography</button>
     <button class="btn-sm ghost" id="glucose-open-side" type="button" style="margin-top:6px;font-size:12px">🩸 Metabolic Health &amp; Glucose Matrix</button>
     <button class="btn-sm ghost" id="inflam-open-side" type="button" style="margin-top:6px;font-size:12px">🛡️ Chronic Inflammation &amp; hs-CRP Matrix</button>
+    <button class="btn-sm ghost" id="apob-open-side" type="button" style="margin-top:6px;font-size:12px">🫀 ApoB &amp; Atherogenic Particle Hub</button>
   </div>
   <div class="group" id="g-upd" hidden>
     <div class="gt">Recent Updates <small>Content revisions</small></div>
@@ -3081,6 +3119,110 @@ html.dark .hc-action{color:#1b1b1f!important}
         <button class="btn-sm ghost" id="inflam-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
         <button class="btn-sm ghost" id="inflam-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
         <p id="inflam-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="apob-mask" hidden>
+  <div id="apob-box" role="dialog" aria-modal="true" aria-labelledby="apob-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="apob-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg> <span>ApoB &amp; Atherogenic Particle Concentration Hub</span></div>
+      <button type="button" id="apob-x" aria-label="Close ApoB lipid hub">✕</button>
+    </div>
+    <div class="stats-scroll">
+      <div class="stats-lead">
+        Evidence-based cardiovascular risk architecture and atherogenic particle burden model based on <strong>Chapter 28 (Biomarkers &amp; Health)</strong> and <strong>Chapter 6 (Exercise &amp; Longevity)</strong>. Evaluate Apolipoprotein B (ApoB), calculate LDL-C vs ApoB discordance underestimation, and model lifetime Area Under the Curve (AUC) particle exposure.
+      </div>
+
+      <div class="apob-params-grid">
+        <div class="apob-param-cell">
+          <label class="apob-param-label" for="apob-level-input">ApoB Particle Concentration</label>
+          <select id="apob-level-input" class="apob-param-input">
+            <option value="optimal">&lt;60 mg/dL (Top 5% Longevity)</option>
+            <option value="low" selected>60–80 mg/dL (Primary Target)</option>
+            <option value="moderate">81–100 mg/dL (Median Population)</option>
+            <option value="elevated">&gt;100 mg/dL (Atherogenic Burden)</option>
+          </select>
+        </div>
+        <div class="apob-param-cell">
+          <label class="apob-param-label" for="apob-tg-input">Fasting Triglycerides</label>
+          <select id="apob-tg-input" class="apob-param-input">
+            <option value="normal" selected>&lt;100 mg/dL (Insulin Sensitive)</option>
+            <option value="borderline">100–149 mg/dL (Borderline)</option>
+            <option value="high">&gt;150 mg/dL (Dense LDL Shift)</option>
+          </select>
+        </div>
+        <div class="apob-param-cell">
+          <label class="apob-param-label" for="apob-satfat-input">Dietary Saturated Fat</label>
+          <select id="apob-satfat-input" class="apob-param-input">
+            <option value="low">&lt;6% Calories (Strict / PUFA Swap)</option>
+            <option value="moderate" selected>7%–10% Calories (Mediterranean)</option>
+            <option value="high">&gt;12% Calories (Butter/Beef/Keto)</option>
+          </select>
+        </div>
+        <div class="apob-param-cell">
+          <label class="apob-param-label" for="apob-fiber-input">Daily Soluble Viscous Fiber</label>
+          <select id="apob-fiber-input" class="apob-param-input">
+            <option value="optimal">10–15g (Psyllium / Beta-Glucan)</option>
+            <option value="moderate" selected>5–9g (Standard Whole Food)</option>
+            <option value="low">&lt;5g (Minimal Soluble Mesh)</option>
+          </select>
+        </div>
+        <div class="apob-param-cell">
+          <label class="apob-param-label" for="apob-lpa-input">Lipoprotein(a) [Lp(a)]</label>
+          <select id="apob-lpa-input" class="apob-param-input">
+            <option value="normal" selected>&lt;30 mg/dL (Normal Genetic Risk)</option>
+            <option value="elevated">30–50 mg/dL (Moderate)</option>
+            <option value="high">&gt;50 mg/dL / &gt;125 nmol/L (High Risk)</option>
+          </select>
+        </div>
+        <div class="apob-param-cell">
+          <label class="apob-param-label" for="apob-age-input">Current Age Horizon</label>
+          <select id="apob-age-input" class="apob-param-input">
+            <option value="young">20–35 Years (Early Prevention)</option>
+            <option value="mid" selected>36–50 Years (Mid-Life Window)</option>
+            <option value="mature">51–65 Years (Vulnerable Decades)</option>
+            <option value="senior">66+ Years (Established Plaque)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="apob-kpi-banner">
+        <div class="apob-kpi-item">
+          <span class="apob-kpi-val" id="apob-kpi-tier" style="color:var(--green-1)">60–80 mg/dL</span>
+          <span class="apob-kpi-lbl">ApoB Particle Concentration</span>
+        </div>
+        <div class="apob-kpi-item">
+          <span class="apob-kpi-val" id="apob-kpi-discordance" style="color:var(--green-1)">Concordant</span>
+          <span class="apob-kpi-lbl">LDL-C vs ApoB Discordance</span>
+        </div>
+        <div class="apob-kpi-item">
+          <span class="apob-kpi-val" id="apob-kpi-auc" style="color:var(--green-1)">Low Burden</span>
+          <span class="apob-kpi-lbl">Cumulative AUC Exposure</span>
+        </div>
+        <div class="apob-kpi-item">
+          <span class="apob-kpi-val" id="apob-kpi-receptors" style="color:var(--green-1)">Optimal</span>
+          <span class="apob-kpi-lbl">Hepatic LDLR Clearance Status</span>
+        </div>
+      </div>
+
+      <div class="apob-grid" id="apob-cards-grid">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="apob-summary-box">
+        <div class="apob-summary-title"><span>🫀 Clinical Lipidology &amp; Particle Protocol</span></div>
+        <div class="apob-summary-text" id="apob-routine-desc">Calculating lipidology protocol...</div>
+      </div>
+
+      <div class="calc-footer">
+        <button class="btn-sm" id="apob-export" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy Clinical Lipidology Protocol</button>
+        <button class="btn-sm ghost" id="apob-share-x" type="button" style="width:auto;padding:8px 14px">𝕏 Share</button>
+        <button class="btn-sm ghost" id="apob-share-wa" type="button" style="width:auto;padding:8px 14px">WhatsApp</button>
+        <button class="btn-sm ghost" id="apob-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
+        <button class="btn-sm ghost" id="apob-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
+        <p id="apob-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
       </div>
     </div>
   </div>
@@ -11324,6 +11466,355 @@ INFLAM_UI.shareWa?.addEventListener('click', () => {
 });
 
 INFLAM_UI.shareLi?.addEventListener('click', () => {
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+/* ---------- Advanced Lipidology & ApoB Particle Concentration Modal ---------- */
+const APOB_CARDS_DATA = [
+  {
+    id: 'causal_apob',
+    title: 'ApoB True Causal Driver',
+    icon: '🎯',
+    badge: '1 Particle = 1 ApoB',
+    color: 'rgba(16,185,129,.15)',
+    textColor: 'var(--green-1)',
+    desc: 'Every atherogenic lipoprotein (LDL, VLDL, IDL, Lp(a)) carries exactly one molecule of Apolipoprotein B-100. Massive Mendelian randomization studies (Sniderman, Ference) prove that cardiovascular risk is determined by circulating particle count, not the mass of cholesterol (LDL-C) carried within them.',
+    action: 'Track ApoB directly on routine blood panels. Aim for <60 mg/dL for proactive longevity, and <80 mg/dL for primary prevention.'
+  },
+  {
+    id: 'discordance',
+    title: 'LDL-C vs ApoB Discordance',
+    icon: '⚖️',
+    badge: 'Stealth Particle Shift',
+    color: 'rgba(239,68,68,.15)',
+    textColor: 'var(--red-1,#ef4444)',
+    desc: 'In hypertriglyceridemia, prediabetes, or insulin resistance, LDL particles become cholesterol-depleted, small, and dense. This creates severe clinical discordance: LDL-C appears "normal" (~90 mg/dL), but ApoB is dangerously elevated (>100 mg/dL). Clinical outcomes track ApoB, leaving standard LDL-C patients undertreated.',
+    action: 'If Triglycerides >100 mg/dL or Triglyceride/HDL ratio >1.5, never rely on LDL-C alone. Demand an ApoB or Non-HDL cholesterol measurement.'
+  },
+  {
+    id: 'auc_concept',
+    title: 'Cumulative AUC Particle Exposure',
+    icon: '⏳',
+    badge: 'ApoB × Lifespan (Years)',
+    color: 'rgba(59,130,246,.15)',
+    textColor: 'var(--brand-1)',
+    desc: 'Atherosclerosis is an cumulative exposure disease analogous to pack-years of smoking: Plaque Burden = ApoB × Time. Maintaining an ApoB of 60 mg/dL for 60 years produces identical cumulative arterial particle penetration to having an ApoB of 120 mg/dL for only 30 years.',
+    action: 'Initiate atherogenic particle control early in 20s and 30s to permanently prevent soft lipid core formation and fibrous cap vulnerability.'
+  },
+  {
+    id: 'lpa_hazard',
+    title: 'Lipoprotein(a) Genetic Factor',
+    icon: '🧬',
+    badge: 'Thrombotic Hazard',
+    color: 'rgba(245,158,11,.15)',
+    textColor: 'var(--yellow-1,#eab308)',
+    desc: 'Lipoprotein(a) consists of an ApoB particle covalently bound to apolipoprotein(a), mimicking plasminogen. It possesses dual pathogenicity: accelerating subendothelial oxidized plaque accumulation while concurrently inhibiting fibrinolysis (promoting thrombosis). It is 80–90% genetically predetermined and largely refractory to diet.',
+    action: 'Test Lp(a) at least once in adult life. If >50 mg/dL (>125 nmol/L), compensate with ultra-aggressive lowering of general ApoB (<50 mg/dL).'
+  },
+  {
+    id: 'bile_sequestration',
+    title: 'Viscous Soluble Fiber Sequestration',
+    icon: '🌾',
+    badge: 'LDLR Upregulation',
+    color: 'rgba(16,185,129,.15)',
+    textColor: 'var(--green-1)',
+    desc: 'Viscous soluble fibers (psyllium husk, oat beta-glucan) form an unabsorbable gel mesh in the ileum, binding bile acids and forcing their fecal excretion. The liver is obligated to convert intrahepatic cholesterol into new bile acids, drastically upregulating cell-surface LDL receptors and clearing circulating ApoB by 10–20%.',
+    action: 'Consume 10–15g of unflavored psyllium husk or oat soluble fiber daily in water, ideally 15 minutes before high-fat or high-calorie meals.'
+  },
+  {
+    id: 'satfat_ldlr',
+    title: 'Saturated Fat LDLR Downregulation',
+    icon: '🥩',
+    badge: 'SREBP-2 Suppression',
+    color: 'rgba(139,92,246,.15)',
+    textColor: '#8b5cf6',
+    desc: 'Excess dietary saturated fatty acids (particularly palmitic, myristic, and lauric acids) increase the intrahepatic regulatory pool of cholesterol, suppressing SREBP-2 transcription and downregulating hepatic LDL receptor density. This prolongs LDL plasma residence time from ~2.5 days to over 4.5 days.',
+    action: 'Limit saturated fat to <6–7% of daily calories. Swap saturated fats with polyunsaturated (omega-3, walnuts, flax) and monounsaturated (extra virgin olive oil) lipids.'
+  }
+];
+
+const APOB_UI = {
+  openBtn: document.getElementById('apob-open'),
+  openSideBtn: document.getElementById('apob-open-side'),
+  mask: document.getElementById('apob-mask'),
+  xBtn: document.getElementById('apob-x'),
+  closeBtn: document.getElementById('apob-close-btn'),
+  levelInput: document.getElementById('apob-level-input'),
+  tgInput: document.getElementById('apob-tg-input'),
+  satfatInput: document.getElementById('apob-satfat-input'),
+  fiberInput: document.getElementById('apob-fiber-input'),
+  lpaInput: document.getElementById('apob-lpa-input'),
+  ageInput: document.getElementById('apob-age-input'),
+  kpiTier: document.getElementById('apob-kpi-tier'),
+  kpiDiscordance: document.getElementById('apob-kpi-discordance'),
+  kpiAuc: document.getElementById('apob-kpi-auc'),
+  kpiReceptors: document.getElementById('apob-kpi-receptors'),
+  cardsGrid: document.getElementById('apob-cards-grid'),
+  routineDesc: document.getElementById('apob-routine-desc'),
+  exportBtn: document.getElementById('apob-export'),
+  shareX: document.getElementById('apob-share-x'),
+  shareWa: document.getElementById('apob-share-wa'),
+  shareLi: document.getElementById('apob-share-li'),
+  msg: document.getElementById('apob-copy-msg')
+};
+
+let apobSettings = {
+  level: 'low',
+  tg: 'normal',
+  satfat: 'moderate',
+  fiber: 'moderate',
+  lpa: 'normal',
+  age: 'mid'
+};
+
+try {
+  const savedApob = localStorage.getItem('eb_apob_settings');
+  if (savedApob) {
+    apobSettings = Object.assign(apobSettings, JSON.parse(savedApob));
+  }
+} catch (e) {}
+
+function renderApobCards() {
+  if (!APOB_UI.cardsGrid) return;
+  APOB_UI.cardsGrid.innerHTML = APOB_CARDS_DATA.map(c => `
+    <div class="apob-card">
+      <div class="apob-head">
+        <span class="apob-title"><span>${c.icon}</span> ${c.title}</span>
+        <span class="apob-badge" style="background:${c.color};color:${c.textColor}">${c.badge}</span>
+      </div>
+      <div class="apob-desc">${c.desc}</div>
+      <div class="apob-action"><strong>Action:</strong> ${c.action}</div>
+    </div>
+  `).join('');
+}
+
+function calculateApobMetrics() {
+  const levelVal = APOB_UI.levelInput?.value || apobSettings.level;
+  const tgVal = APOB_UI.tgInput?.value || apobSettings.tg;
+  const satfatVal = APOB_UI.satfatInput?.value || apobSettings.satfat;
+  const fiberVal = APOB_UI.fiberInput?.value || apobSettings.fiber;
+  const lpaVal = APOB_UI.lpaInput?.value || apobSettings.lpa;
+  const ageVal = APOB_UI.ageInput?.value || apobSettings.age;
+
+  apobSettings.level = levelVal;
+  apobSettings.tg = tgVal;
+  apobSettings.satfat = satfatVal;
+  apobSettings.fiber = fiberVal;
+  apobSettings.lpa = lpaVal;
+  apobSettings.age = ageVal;
+
+  try {
+    localStorage.setItem('eb_apob_settings', JSON.stringify(apobSettings));
+  } catch (e) {}
+
+  // 1. ApoB Concentration Tier
+  let tierText = '60–80 mg/dL';
+  let tierColor = 'var(--green-1)';
+  let estApoB = 75;
+  if (levelVal === 'optimal') {
+    tierText = '<60 mg/dL';
+    tierColor = 'var(--green-1)';
+    estApoB = 55;
+  } else if (levelVal === 'low') {
+    tierText = '60–80 mg/dL';
+    tierColor = 'var(--green-1)';
+    estApoB = 75;
+  } else if (levelVal === 'moderate') {
+    tierText = '81–100 mg/dL';
+    tierColor = 'var(--yellow-1,#eab308)';
+    estApoB = 92;
+  } else if (levelVal === 'elevated') {
+    tierText = '>100 mg/dL';
+    tierColor = 'var(--red-1,#ef4444)';
+    estApoB = 118;
+  }
+
+  // Dietary shifts
+  if (satfatVal === 'high') estApoB += 15;
+  else if (satfatVal === 'low') estApoB -= 8;
+
+  if (fiberVal === 'optimal') estApoB -= 10;
+  else if (fiberVal === 'low') estApoB += 6;
+
+  // 2. Discordance Status
+  let discText = 'Concordant';
+  let discColor = 'var(--green-1)';
+  if (tgVal === 'high') {
+    discText = 'Underestimated!';
+    discColor = 'var(--red-1,#ef4444)';
+  } else if (tgVal === 'borderline') {
+    discText = 'Borderline';
+    discColor = 'var(--yellow-1,#eab308)';
+  }
+
+  // 3. 30-Year Cumulative AUC
+  const aucScore = Math.round(estApoB * 30);
+  let aucText = 'Low (<1,800)';
+  let aucColor = 'var(--green-1)';
+  if (aucScore >= 2700 || lpaVal === 'high') {
+    aucText = `High (${aucScore.toLocaleString()} mg·yr)`;
+    aucColor = 'var(--red-1,#ef4444)';
+  } else if (aucScore >= 1800 || lpaVal === 'elevated') {
+    aucText = `Moderate (${aucScore.toLocaleString()} mg·yr)`;
+    aucColor = 'var(--yellow-1,#eab308)';
+  } else {
+    aucText = `Optimal (${aucScore.toLocaleString()} mg·yr)`;
+    aucColor = 'var(--green-1)';
+  }
+
+  // 4. Hepatic LDLR Status
+  let ldlrText = 'Standard';
+  let ldlrColor = 'var(--green-1)';
+  if (satfatVal === 'high' && fiberVal === 'low') {
+    ldlrText = 'Downregulated (-30%)';
+    ldlrColor = 'var(--red-1,#ef4444)';
+  } else if (satfatVal === 'high') {
+    ldlrText = 'Suppressed (-18%)';
+    ldlrColor = 'var(--yellow-1,#eab308)';
+  } else if (satfatVal === 'low' && fiberVal === 'optimal') {
+    ldlrText = 'Super-Upregulated (+25%)';
+    ldlrColor = 'var(--green-1)';
+  } else if (fiberVal === 'optimal' || satfatVal === 'low') {
+    ldlrText = 'Upregulated (+15%)';
+    ldlrColor = 'var(--green-1)';
+  }
+
+  // Update KPIs
+  if (APOB_UI.kpiTier) {
+    APOB_UI.kpiTier.textContent = tierText;
+    APOB_UI.kpiTier.style.color = tierColor;
+  }
+  if (APOB_UI.kpiDiscordance) {
+    APOB_UI.kpiDiscordance.textContent = discText;
+    APOB_UI.kpiDiscordance.style.color = discColor;
+  }
+  if (APOB_UI.kpiAuc) {
+    APOB_UI.kpiAuc.textContent = aucText;
+    APOB_UI.kpiAuc.style.color = aucColor;
+  }
+  if (APOB_UI.kpiReceptors) {
+    APOB_UI.kpiReceptors.textContent = ldlrText;
+    APOB_UI.kpiReceptors.style.color = ldlrColor;
+  }
+
+  // Dynamic Clinical Summary
+  if (APOB_UI.routineDesc) {
+    APOB_UI.routineDesc.innerHTML = `
+      <strong>Atherogenic Particle Concentration:</strong> Baseline tier <strong>${tierText}</strong> (Net est. particle load: <strong>~${estApoB} mg/dL</strong>). ${estApoB <= 75 ? '<span style="color:var(--green-1);font-weight:700">Excellent primary prevention / longevity particle suppression.</span>' : '<span style="color:var(--red-1,#ef4444);font-weight:700">Elevated particle load actively entering subendothelial intima.</span>'}<br>
+      <strong>Phenotypic Discordance Hazard:</strong> ${tgVal === 'high' ? '<span style="color:var(--red-1,#ef4444);font-weight:700">Severe Discordance Detected.</span> Elevated triglycerides (&gt;150 mg/dL) generate small, cholesterol-depleted dense LDL. Standard LDL-C severely underestimates your true atherogenic burden.' : tgVal === 'borderline' ? '<span style="color:var(--yellow-1,#eab308);font-weight:700">Moderate particle discordance risk.</span> Monitor Non-HDL cholesterol alongside ApoB.' : '<span style="color:var(--green-1);font-weight:700">Concordant lipid profile.</span> Triglycerides &lt;100 mg/dL confirm optimal LDL particle volume balance.'}<br>
+      <strong>Lifetime Cumulative AUC Burden:</strong> Projected 30-year exposure: <strong>${aucScore.toLocaleString()} mg·yr/dL</strong>. ${aucScore < 1800 ? 'Particle exposure remains well below the atherosclerotic threshold.' : '<span style="color:var(--red-1,#ef4444);font-weight:700">Cumulative particle exposure exceeds plaque formation threshold.</span> Early therapeutic or nutritional lowering is critical.'}<br>
+      <strong>Hepatic Clearance Dynamics:</strong> ${ldlrText}. ${satfatVal === 'high' ? 'High saturated fat intake suppresses hepatic LDLR density via SREBP-2 down-regulation.' : 'Controlled saturated fat (&lt;7% calories) maximizes cell-surface LDL receptor recycling.'} ${fiberVal === 'optimal' ? '<span style="color:var(--green-1);font-weight:700">Daily psyllium/soluble fiber binds bile acids, driving hepatic cholesterol clearance.</span>' : 'Adding 10g psyllium husk daily can further clear circulating ApoB by 10–15%.'}<br>
+      <strong>Genetic Lp(a) Factor:</strong> ${lpaVal === 'high' ? '<span style="color:var(--red-1,#ef4444);font-weight:700">High Genetically Determined Lp(a) (&gt;50 mg/dL).</span> High thrombotic &amp; atherogenic risk multiplier. Drive standard ApoB under 50 mg/dL to compensate.' : lpaVal === 'elevated' ? 'Borderline Lp(a) detected. Ensure aggressive lifestyle optimization.' : 'Normal Lp(a) genetics.'}
+    `;
+  }
+}
+
+function initApobUI() {
+  if (!APOB_UI.mask) return;
+
+  renderApobCards();
+
+  if (APOB_UI.levelInput) APOB_UI.levelInput.value = apobSettings.level;
+  if (APOB_UI.tgInput) APOB_UI.tgInput.value = apobSettings.tg;
+  if (APOB_UI.satfatInput) APOB_UI.satfatInput.value = apobSettings.satfat;
+  if (APOB_UI.fiberInput) APOB_UI.fiberInput.value = apobSettings.fiber;
+  if (APOB_UI.lpaInput) APOB_UI.lpaInput.value = apobSettings.lpa;
+  if (APOB_UI.ageInput) APOB_UI.ageInput.value = apobSettings.age;
+
+  calculateApobMetrics();
+}
+
+initApobUI();
+
+function openApobModal() {
+  if (!APOB_UI.mask) return;
+  APOB_UI.mask.hidden = false;
+  document.body.style.overflow = 'hidden';
+  APOB_UI.levelInput?.focus();
+}
+
+function closeApobModal() {
+  if (!APOB_UI.mask) return;
+  APOB_UI.mask.hidden = true;
+  document.body.style.overflow = '';
+}
+
+APOB_UI.openBtn?.addEventListener('click', openApobModal);
+APOB_UI.openSideBtn?.addEventListener('click', openApobModal);
+APOB_UI.xBtn?.addEventListener('click', closeApobModal);
+APOB_UI.closeBtn?.addEventListener('click', closeApobModal);
+
+APOB_UI.mask?.addEventListener('click', (e) => {
+  if (e.target === APOB_UI.mask) closeApobModal();
+});
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && APOB_UI.mask && !APOB_UI.mask.hidden) {
+    closeApobModal();
+  }
+});
+
+const apobInputElements = [
+  APOB_UI.levelInput,
+  APOB_UI.tgInput,
+  APOB_UI.satfatInput,
+  APOB_UI.fiberInput,
+  APOB_UI.lpaInput,
+  APOB_UI.ageInput
+];
+apobInputElements.forEach(el => {
+  el?.addEventListener('input', calculateApobMetrics);
+  el?.addEventListener('change', calculateApobMetrics);
+});
+
+APOB_UI.exportBtn?.addEventListener('click', async () => {
+  let md = `# Advanced Lipidology & ApoB Particle Concentration Protocol\n`;
+  md += `*Evidence-Based Atherogenic Particle Clearance & Cardiovascular Longevity Architecture*\n\n`;
+  md += `**ApoB Tier**: ${apobSettings.level.toUpperCase()} | Fasting Triglycerides: ${apobSettings.tg.toUpperCase()}\n`;
+  md += `**Saturated Fat Share**: ${apobSettings.satfat.toUpperCase()} | Viscous Soluble Fiber: ${apobSettings.fiber.toUpperCase()}\n`;
+  md += `**Lipoprotein(a) Status**: ${apobSettings.lpa.toUpperCase()} | Age Horizon: ${apobSettings.age.toUpperCase()}\n\n`;
+  md += `**ApoB Particle Concentration**: ${APOB_UI.kpiTier?.textContent || '60–80 mg/dL'}\n`;
+  md += `**LDL-C vs ApoB Discordance**: ${APOB_UI.kpiDiscordance?.textContent || 'Concordant'}\n`;
+  md += `**30-Year Cumulative AUC**: ${APOB_UI.kpiAuc?.textContent || 'Low'}\n`;
+  md += `**Hepatic LDLR Clearance**: ${APOB_UI.kpiReceptors?.textContent || 'Standard'}\n\n`;
+
+  md += `## 1. Core Atherogenic Particle Mechanisms\n`;
+  APOB_CARDS_DATA.forEach(c => {
+    md += `- **${c.title}** (${c.icon}) [${c.badge}]\n`;
+    md += `  - Evidence: ${c.desc}\n`;
+    md += `  - Clinical Target: ${c.action}\n`;
+  });
+
+  md += `\n## 2. Actionable Clinical Lipidology Spec\n`;
+  md += `${(APOB_UI.routineDesc?.textContent || '').trim()}\n\n`;
+
+  md += `---\n*Generated by The Evidence-Based Life Lipidology Engine: https://parveen0029.github.io/The-Evidence-Based-Life/*\n`;
+
+  try {
+    await navigator.clipboard.writeText(md);
+    if (APOB_UI.msg) {
+      APOB_UI.msg.textContent = '✓ Lipidology protocol copied to clipboard!';
+      APOB_UI.msg.hidden = false;
+      setTimeout(() => { APOB_UI.msg.hidden = true; }, 3500);
+    }
+  } catch (err) {
+    prompt('Copy your Lipidology Protocol below:', md);
+  }
+});
+
+APOB_UI.shareX?.addEventListener('click', () => {
+  const text = `ApoB is the true causal driver of atherosclerotic cardiovascular disease, not LDL cholesterol mass. Calculate your atherogenic particle count, discordance risk & AUC:`;
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+APOB_UI.shareWa?.addEventListener('click', () => {
+  const text = `*Advanced Lipidology & ApoB Particle Matrix*\nCalculate your atherogenic particle concentration, LDL-C vs ApoB discordance, and 30-year AUC plaque burden:\n\nhttps://parveen0029.github.io/The-Evidence-Based-Life/`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+});
+
+APOB_UI.shareLi?.addEventListener('click', () => {
   const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
 });
