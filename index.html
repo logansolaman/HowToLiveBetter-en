@@ -1367,6 +1367,42 @@ html.dark .focus-toggle-chip.active{color:#1b1b1f}
   #vagus-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Bone Mineral Density, Sarcopenia & Musculoskeletal Resilience Matrix Modal */
+#bone-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#bone-mask[hidden]{display:none}
+#bone-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(940px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+
+.bone-params-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;gap:10px;background:var(--bg-alt);border:1px solid var(--divider);border-radius:12px;padding:12px 14px;margin-bottom:14px}
+@media (max-width:860px){.bone-params-grid{grid-template-columns:1fr 1fr 1fr}}
+@media (max-width:540px){.bone-params-grid{grid-template-columns:1fr 1fr}}
+
+.bone-param-cell{display:flex;flex-direction:column;gap:4px}
+.bone-param-label{font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px}
+.bone-param-input{padding:7px 10px;border-radius:6px;border:1px solid var(--divider);background:var(--bg-elv);color:var(--t1);font-size:13px}
+
+.bone-kpi-banner{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;background:var(--bg-elv);border:1px solid var(--divider);border-radius:12px;padding:12px 16px;margin-bottom:14px}
+@media (max-width:760px){.bone-kpi-banner{grid-template-columns:1fr 1fr}}
+.bone-kpi-item{display:flex;flex-direction:column;gap:2px}
+.bone-kpi-val{font-size:20px;font-weight:900;color:var(--green-1)}
+.bone-kpi-lbl{font-size:11px;color:var(--t3)}
+
+.bone-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-bottom:14px}
+.bone-card{background:var(--bg-alt);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.bone-head{display:flex;align-items:center;justify-content:space-between}
+.bone-title{font-size:13px;font-weight:700;color:var(--t1);display:flex;align-items:center;gap:6px}
+.bone-badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:12px;background:rgba(239,68,68,.15);color:var(--red-1,#ef4444)}
+.bone-desc{font-size:12px;color:var(--t2);line-height:1.45}
+.bone-action{font-size:11.5px;color:var(--t3);line-height:1.4}
+
+.bone-summary-box{background:var(--bg-elv);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;margin-bottom:14px}
+.bone-summary-title{font-size:12px;font-weight:700;color:var(--t1);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.bone-summary-text{font-size:12px;color:var(--t2);line-height:1.5}
+
+@media (max-width:820px){
+  #bone-mask{padding:0}
+  #bone-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
 /* Floating Audio Dock */
 #audio-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:70;background:var(--bg-elv);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);padding:10px 18px;display:flex;align-items:center;gap:14px;max-width:min(700px,calc(100vw - 32px));width:100%;backdrop-filter:blur(10px);transition:all .25s ease}
 #audio-dock[hidden]{display:none}
@@ -1453,7 +1489,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#light-mask,#light-open,#light-open-side,#sleep-mask,#sleep-open,#sleep-open-side,#glucose-mask,#glucose-open,#glucose-open-side,#inflam-mask,#inflam-open,#inflam-open-side,#apob-mask,#apob-open,#apob-open-side,#brain-mask,#brain-open,#brain-open-side,#mito-mask,#mito-open,#mito-open-side,#vagus-mask,#vagus-open,#vagus-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#light-mask,#light-open,#light-open-side,#sleep-mask,#sleep-open,#sleep-open-side,#glucose-mask,#glucose-open,#glucose-open-side,#inflam-mask,#inflam-open,#inflam-open-side,#apob-mask,#apob-open,#apob-open-side,#brain-mask,#brain-open,#brain-open-side,#mito-mask,#mito-open,#mito-open-side,#vagus-mask,#vagus-open,#vagus-open-side,#bone-mask,#bone-open,#bone-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -1559,6 +1595,7 @@ html.dark .hc-action{color:#1b1b1f!important}
       <button class="icon-btn" id="brain-open" title="Cognitive Resilience & Brain Longevity Matrix" aria-label="Brain Longevity Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04zm5 0A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"/></svg></button>
       <button class="icon-btn" id="mito-open" title="Mitochondrial Bioenergetics & Cellular Longevity Matrix" aria-label="Mitochondrial Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3M4.93 4.93l2.12 2.12m9.9 9.9l2.12 2.12M4.93 19.07l2.12-2.12m9.9-9.9l2.12-2.12"/></svg></button>
       <button class="icon-btn" id="vagus-open" title="Autonomic Nervous System & Vagal Tone Matrix" aria-label="Vagal Tone Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12h5l3-8 4 16 3-8h5"/></svg></button>
+      <button class="icon-btn" id="bone-open" title="Bone Mineral Density & Sarcopenia Matrix" aria-label="Bone Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 4a2.5 2.5 0 0 1 2.45 2 2.5 2.5 0 0 1-.55 4.5l-8.4 8.4a2.5 2.5 0 0 1-4.5.55 2.5 2.5 0 1 1-2.9-2.9 2.5 2.5 0 0 1 .55-4.5l8.4-8.4A2.5 2.5 0 0 1 15.5 4H18z"/></svg></button>
       <a class="icon-btn" href="selfcheck.html" title="Take 2-Minute Life Health & Risk Audit" aria-label="Self-Audit Quiz"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></a>
       <a class="icon-btn" href="README.md" title="View README.md" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn" href="https://github.com/parveen0029/The-Evidence-Based-Life" target="_blank" rel="noopener" title="View repository on GitHub" aria-label="GitHub Repository"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
@@ -1626,6 +1663,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     <button class="btn-sm ghost" id="brain-open-side" type="button" style="margin-top:6px;font-size:12px">🧠 Cognitive Resilience &amp; Brain Matrix</button>
     <button class="btn-sm ghost" id="mito-open-side" type="button" style="margin-top:6px;font-size:12px">⚡ Mitochondrial &amp; Cellular Bioenergetics</button>
     <button class="btn-sm ghost" id="vagus-open-side" type="button" style="margin-top:6px;font-size:12px">💓 Autonomic Nervous System &amp; HRV</button>
+    <button class="btn-sm ghost" id="bone-open-side" type="button" style="margin-top:6px;font-size:12px">🦴 Bone Mineral &amp; Sarcopenia Matrix</button>
   </div>
   <div class="group" id="g-upd" hidden>
     <div class="gt">Recent Updates <small>Content revisions</small></div>
@@ -3641,6 +3679,106 @@ html.dark .hc-action{color:#1b1b1f!important}
         <button class="btn-sm ghost" id="vagus-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
         <button class="btn-sm ghost" id="vagus-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
         <p id="vagus-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="bone-mask" hidden>
+  <div id="bone-box" role="dialog" aria-modal="true" aria-labelledby="bone-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="bone-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 4a2.5 2.5 0 0 1 2.45 2 2.5 2.5 0 0 1-.55 4.5l-8.4 8.4a2.5 2.5 0 0 1-4.5.55 2.5 2.5 0 1 1-2.9-2.9 2.5 2.5 0 0 1 .55-4.5l8.4-8.4A2.5 2.5 0 0 1 15.5 4H18z"/></svg> <span>Bone Mineral Density, Sarcopenia &amp; Musculoskeletal Matrix</span></div>
+      <button type="button" id="bone-x" aria-label="Close bone mineral matrix">✕</button>
+    </div>
+    <div class="stats-scroll">
+      <div class="stats-lead">Master the mechanobiology of bone remodeling and myofibrillar hypertrophy. Accelerate osteoblast mineral accretion via ground reaction impact forces (>1.5–2x bodyweight), suppress osteoclastic resorption through synergistic Vitamin K2 MK-7 carboxylation, overcome age-related anabolic resistance with threshold leucine boluses, and preserve vestibular-proprioceptive reflexes to eliminate fall-induced fracture hazards.</div>
+
+      <div class="bone-params-grid">
+        <div class="bone-param-cell">
+          <label class="bone-param-label" for="bone-load-input">Axial Mechanical Impact &amp; Lifting</label>
+          <select id="bone-load-input" class="bone-param-input">
+            <option value="heavy" selected>Heavy Compound Loading (&gt;75% 1RM) + Plyometrics</option>
+            <option value="moderate">Moderate Bodyweight / Resistance Machines</option>
+            <option value="sedentary">Sedentary / Non-Impact (Walking/Swimming only)</option>
+          </select>
+        </div>
+        <div class="bone-param-cell">
+          <label class="bone-param-label" for="bone-protein-input">Protein &amp; Leucine Threshold (SMI)</label>
+          <select id="bone-protein-input" class="bone-param-input">
+            <option value="optimal" selected>1.6–2.2 g/kg with ≥2.5–3g Leucine per Meal</option>
+            <option value="moderate">1.0–1.4 g/kg Standard Protein Intake</option>
+            <option value="low">&lt;0.8 g/kg Insufficient (Sarcopenic Risk)</option>
+          </select>
+        </div>
+        <div class="bone-param-cell">
+          <label class="bone-param-label" for="bone-mineral-input">D3 + K2 (MK-7) &amp; Mineral Synergists</label>
+          <select id="bone-mineral-input" class="bone-param-input">
+            <option value="synergistic" selected>Full Synergy: D3 + K2 MK-7 (100–200μg) + Ca/Mg/Boron</option>
+            <option value="calcium_d3_only">Calcium + D3 Only (No Vitamin K2 / MK-7)</option>
+            <option value="deficient">Deficient / Unsupplemented Low Mineral Diet</option>
+          </select>
+        </div>
+        <div class="bone-param-cell">
+          <label class="bone-param-label" for="bone-dexa-input">Baseline DEXA T-Score History</label>
+          <select id="bone-dexa-input" class="bone-param-input">
+            <option value="normal" selected>Normal Bone Density (T-Score &gt; -1.0)</option>
+            <option value="osteopenia">Osteopenia (T-Score -1.0 to -2.5)</option>
+            <option value="osteoporosis">Osteoporosis (T-Score &lt; -2.5 / Prior Fracture)</option>
+          </select>
+        </div>
+        <div class="bone-param-cell">
+          <label class="bone-param-label" for="bone-balance-input">Proprioception &amp; Balance Stability</label>
+          <select id="bone-balance-input" class="bone-param-input">
+            <option value="trained" selected>Daily Practice: Single-Leg Stance (&gt;30s Eyes Closed)</option>
+            <option value="casual">Occasional Dynamic Agility / Balance Challenges</option>
+            <option value="untrained">Untrained / Vestibular Instability / Fall Risk</option>
+          </select>
+        </div>
+        <div class="bone-param-cell">
+          <label class="bone-param-label" for="bone-hormone-input">Hormonal Axis &amp; Age Remodeling State</label>
+          <select id="bone-hormone-input" class="bone-param-input">
+            <option value="robust" selected>Optimal Gonadal/Steroid Axis (Young / Healthy Steroids)</option>
+            <option value="transitional">Perimenopause / Andropause / Decreased Estrogen/Testosterone</option>
+            <option value="catabolic">High Chronic Glucocorticoid / Glucocorticoid Therapy</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="bone-kpi-banner">
+        <div class="bone-kpi-item">
+          <span class="bone-kpi-val" id="bone-kpi-score" style="color:var(--green-1)">+42% Osteogenic Surge</span>
+          <span class="bone-kpi-lbl">Osteoblast Mineral Accretion</span>
+        </div>
+        <div class="bone-kpi-item">
+          <span class="bone-kpi-val" id="bone-kpi-sarc" style="color:var(--green-1)">Sarcopenia Immune</span>
+          <span class="bone-kpi-lbl">Appendicular Muscle Reserve</span>
+        </div>
+        <div class="bone-kpi-item">
+          <span class="bone-kpi-val" id="bone-kpi-k2" style="color:var(--green-1)">100% Bone Directed</span>
+          <span class="bone-kpi-lbl">Osteocalcin Carboxylation (K2)</span>
+        </div>
+        <div class="bone-kpi-item">
+          <span class="bone-kpi-val" id="bone-kpi-fall" style="color:var(--green-1)">Elite Protection (&gt;88%)</span>
+          <span class="bone-kpi-lbl">10-Year Fracture Risk Mitigation</span>
+        </div>
+      </div>
+
+      <div class="bone-grid" id="bone-cards-grid">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="bone-summary-box">
+        <div class="bone-summary-title"><span>🦴 Clinical Musculoskeletal &amp; Osteogenic Protocol</span></div>
+        <div class="bone-summary-text" id="bone-routine-desc">Calculating musculoskeletal and bone remodeling protocol...</div>
+      </div>
+
+      <div class="calc-footer">
+        <button class="btn-sm" id="bone-export" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy Clinical Musculoskeletal Protocol</button>
+        <button class="btn-sm ghost" id="bone-share-x" type="button" style="width:auto;padding:8px 14px">𝕏 Share</button>
+        <button class="btn-sm ghost" id="bone-share-wa" type="button" style="width:auto;padding:8px 14px">WhatsApp</button>
+        <button class="btn-sm ghost" id="bone-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
+        <button class="btn-sm ghost" id="bone-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
+        <p id="bone-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
       </div>
     </div>
   </div>
@@ -13290,6 +13428,366 @@ VAGUS_UI.shareWa?.addEventListener('click', () => {
 });
 
 VAGUS_UI.shareLi?.addEventListener('click', () => {
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+/* ---------- Bone Mineral Density, Sarcopenia & Musculoskeletal Resilience Matrix ---------- */
+const BONE_CARDS_DATA = [
+  {
+    id: 'mechanotransduction',
+    title: 'Mechanotransduction & Wolff’s Law',
+    icon: '🏋️',
+    badge: 'Osteoblast Accretion',
+    color: 'rgba(16,185,129,.15)',
+    textColor: 'var(--green-1)',
+    desc: 'Wolff’s Law dictates that healthy bone remodels along lines of mechanical stress. Dynamic impact forces (>1.5–2.0x bodyweight) generate interstitial fluid shear stress in osteocyte canaliculi, triggering Wnt/β-catenin and prostaglandin E2 cascades to suppress sclerostin and drive hydroxyapatite mineralization.',
+    action: 'Perform multi-joint axial loading (barbell squats, deadlifts, overhead presses) and brief plyometric jumps (10–20 hops daily) to provoke peak osteogenic threshold.'
+  },
+  {
+    id: 'k2_synergy',
+    title: 'Vitamin K2 MK-7 & Osteocalcin Carboxylation',
+    icon: '🧬',
+    badge: 'Targeted Mineralization',
+    color: 'rgba(59,130,246,.15)',
+    textColor: '#3b82f6',
+    desc: 'Calcium and Vitamin D3 increase circulating osteocalcin, but in the absence of Vitamin K2 (menaquinone-7), osteocalcin remains uncarboxylated and inactive. Uncarboxylated osteocalcin fails to bind calcium into the hydroxyapatite matrix, leading to ectopic calcium deposition in arterial walls (vascular calcification).',
+    action: 'Pair dietary or supplemental calcium and Vitamin D3 (2000–5000 IU) with 100–200 mcg of Vitamin K2 MK-7 and 300–400mg elemental magnesium daily.'
+  },
+  {
+    id: 'leucine_threshold',
+    title: 'Leucine Threshold & Sarcopenia Brake',
+    icon: '🥩',
+    badge: 'mTORC1 Anabolic Trigger',
+    color: 'rgba(245,158,11,.15)',
+    textColor: 'var(--yellow-1,#eab308)',
+    desc: 'Aging skeletal muscle exhibits "anabolic resistance", requiring higher intracellular concentrations of essential amino acids to stimulate muscle protein synthesis (MPS). Reaching a per-meal bolus threshold of 2.5–3.0g leucine (found in ~30–40g high-quality protein) is required to phosphorylate S6K1 and initiate translation.',
+    action: 'Consume 1.6–2.2g/kg protein daily divided into 3–4 meals, ensuring each meal supplies at least 3g of leucine from eggs, poultry, fish, whey, or soy isolate.'
+  },
+  {
+    id: 'vestibular_balance',
+    title: 'Proprioception, Vestibular & Fall Immunity',
+    icon: '🤸',
+    badge: 'Fracture Prevention',
+    color: 'rgba(139,92,246,.15)',
+    textColor: '#8b5cf6',
+    desc: 'Falls are the proximate causal trigger for >90% of all hip and wrist fragility fractures. Declining proprioception, somatosensory degradation, and inner ear vestibular drift create postural sway. Routine unipedal stance, tandem walks, and reactive stepping maintain cerebellar reflex arcs and fall avoidance.',
+    action: 'Practice unipedal single-leg balance (>30s eyes open, then eyes closed) while brushing teeth or reading, and incorporate directional agility drills weekly.'
+  },
+  {
+    id: 'dexa_stratification',
+    title: 'DEXA T-Score & Trabecular Microarchitecture',
+    icon: '🔬',
+    badge: 'Clinical Stratification',
+    color: 'rgba(6,182,212,.15)',
+    textColor: '#06b6d4',
+    desc: 'Dual-Energy X-ray Absorptiometry (DEXA) evaluates areal bone mineral density (aBMD) at the femoral neck, total hip, and lumbar spine. T-score compares density to peak young-adult reference (+1.0 to -1.0 normal, -1.0 to -2.5 osteopenia, <-2.5 osteoporosis). Every 1 standard deviation drop doubles fracture hazard.',
+    action: 'Acquire a baseline DEXA scan at age 40–50 (or earlier with risk factors) to establish a personalized bone mineral density trajectory.'
+  },
+  {
+    id: 'axial_spine_loading',
+    title: 'Axial Compression & Vertebral Height',
+    icon: '🦴',
+    badge: 'Spinal Alignment',
+    color: 'rgba(239,68,68,.15)',
+    textColor: 'var(--red-1,#ef4444)',
+    desc: 'Thoracic wedge compression fractures cause gradual loss of stature, hyperkyphosis ("dowager’s hump"), and diminished pulmonary vital capacity. Heavy loaded carries (farmers walks), trap-bar deadlifts, and hip hinge patterns create vital axial compressive forces that stimulate trabecular bone in the vertebral column.',
+    action: 'Incorporate heavy farmers walks (50–100% bodyweight total) and hip hinges 2x weekly to preserve vertebral height and posterior chain tensile strength.'
+  }
+];
+
+const BONE_UI = {
+  openBtn: document.getElementById('bone-open'),
+  openSideBtn: document.getElementById('bone-open-side'),
+  mask: document.getElementById('bone-mask'),
+  xBtn: document.getElementById('bone-x'),
+  closeBtn: document.getElementById('bone-close-btn'),
+  loadInput: document.getElementById('bone-load-input'),
+  proteinInput: document.getElementById('bone-protein-input'),
+  mineralInput: document.getElementById('bone-mineral-input'),
+  dexaInput: document.getElementById('bone-dexa-input'),
+  balanceInput: document.getElementById('bone-balance-input'),
+  hormoneInput: document.getElementById('bone-hormone-input'),
+  kpiScore: document.getElementById('bone-kpi-score'),
+  kpiSarc: document.getElementById('bone-kpi-sarc'),
+  kpiK2: document.getElementById('bone-kpi-k2'),
+  kpiFall: document.getElementById('bone-kpi-fall'),
+  cardsGrid: document.getElementById('bone-cards-grid'),
+  routineDesc: document.getElementById('bone-routine-desc'),
+  exportBtn: document.getElementById('bone-export'),
+  shareX: document.getElementById('bone-share-x'),
+  shareWa: document.getElementById('bone-share-wa'),
+  shareLi: document.getElementById('bone-share-li'),
+  msg: document.getElementById('bone-copy-msg')
+};
+
+let boneSettings = {
+  load: 'heavy',
+  protein: 'optimal',
+  mineral: 'synergistic',
+  dexa: 'normal',
+  balance: 'trained',
+  hormone: 'robust'
+};
+
+try {
+  const savedBone = localStorage.getItem('eb_bone_settings');
+  if (savedBone) {
+    boneSettings = Object.assign(boneSettings, JSON.parse(savedBone));
+  }
+} catch (e) {}
+
+function renderBoneCards() {
+  if (!BONE_UI.cardsGrid) return;
+  BONE_UI.cardsGrid.innerHTML = BONE_CARDS_DATA.map(c => `
+    <div class="bone-card">
+      <div class="bone-head">
+        <span class="bone-title"><span>${c.icon}</span> ${c.title}</span>
+        <span class="bone-badge" style="background:${c.color};color:${c.textColor}">${c.badge}</span>
+      </div>
+      <div class="bone-desc">${c.desc}</div>
+      <div class="bone-action"><strong>Action:</strong> ${c.action}</div>
+    </div>
+  `).join('');
+}
+
+function calculateBoneMetrics() {
+  const loadVal = BONE_UI.loadInput?.value || boneSettings.load;
+  const proteinVal = BONE_UI.proteinInput?.value || boneSettings.protein;
+  const mineralVal = BONE_UI.mineralInput?.value || boneSettings.mineral;
+  const dexaVal = BONE_UI.dexaInput?.value || boneSettings.dexa;
+  const balanceVal = BONE_UI.balanceInput?.value || boneSettings.balance;
+  const hormoneVal = BONE_UI.hormoneInput?.value || boneSettings.hormone;
+
+  boneSettings.load = loadVal;
+  boneSettings.protein = proteinVal;
+  boneSettings.mineral = mineralVal;
+  boneSettings.dexa = dexaVal;
+  boneSettings.balance = balanceVal;
+  boneSettings.hormone = hormoneVal;
+
+  try {
+    localStorage.setItem('eb_bone_settings', JSON.stringify(boneSettings));
+  } catch (e) {}
+
+  // 1. Osteogenic Remodeling Score
+  let osteoScore = 0;
+  if (loadVal === 'heavy') osteoScore += 30;
+  else if (loadVal === 'moderate') osteoScore += 15;
+  else osteoScore -= 15;
+
+  if (proteinVal === 'optimal') osteoScore += 20;
+  else if (proteinVal === 'moderate') osteoScore += 10;
+  else osteoScore -= 15;
+
+  if (mineralVal === 'synergistic') osteoScore += 25;
+  else if (mineralVal === 'calcium_d3_only') osteoScore += 5;
+  else osteoScore -= 20;
+
+  if (dexaVal === 'normal') osteoScore += 15;
+  else if (dexaVal === 'osteopenia') osteoScore += 0;
+  else osteoScore -= 15;
+
+  if (balanceVal === 'trained') osteoScore += 10;
+  else if (balanceVal === 'casual') osteoScore += 5;
+
+  if (hormoneVal === 'robust') osteoScore += 10;
+  else if (hormoneVal === 'transitional') osteoScore -= 5;
+  else osteoScore -= 20;
+
+  let osteoText = '+42% Osteogenic Surge';
+  let osteoColor = 'var(--green-1)';
+  if (osteoScore >= 70) {
+    osteoText = `+${osteoScore}% Elite Accretion`;
+    osteoColor = 'var(--green-1)';
+  } else if (osteoScore >= 35) {
+    osteoText = `+${osteoScore}% Positive Balance`;
+    osteoColor = 'var(--green-1)';
+  } else if (osteoScore >= 0) {
+    osteoText = `Neutral Remodeling (${osteoScore}%)`;
+    osteoColor = 'var(--yellow-1,#eab308)';
+  } else {
+    osteoText = `Resorption Deficit (${osteoScore}%)`;
+    osteoColor = 'var(--red-1,#ef4444)';
+  }
+
+  // 2. Appendicular Muscle Reserve / Sarcopenia
+  let sarcText = 'Sarcopenia Immune';
+  let sarcColor = 'var(--green-1)';
+  if (proteinVal === 'optimal' && loadVal === 'heavy') {
+    sarcText = 'Sarcopenia Immune (Peak SMI)';
+    sarcColor = 'var(--green-1)';
+  } else if (proteinVal !== 'low' && loadVal !== 'sedentary') {
+    sarcText = 'Muscle Preserved (Stable)';
+    sarcColor = 'var(--yellow-1,#eab308)';
+  } else {
+    sarcText = 'Sarcopenic Decline Alert';
+    sarcColor = 'var(--red-1,#ef4444)';
+  }
+
+  // 3. Calcium-K2 Carboxylation Tier
+  let k2Text = '100% Bone Directed';
+  let k2Color = 'var(--green-1)';
+  if (mineralVal === 'synergistic') {
+    k2Text = '100% Bone Directed (MK-7)';
+    k2Color = 'var(--green-1)';
+  } else if (mineralVal === 'calcium_d3_only') {
+    k2Text = 'Vascular Risk / Low K2';
+    k2Color = 'var(--red-1,#ef4444)';
+  } else {
+    k2Text = 'Mineral Deficient';
+    k2Color = 'var(--yellow-1,#eab308)';
+  }
+
+  // 4. 10-Year Fracture Risk Mitigation
+  let fallText = 'Elite Protection (>88%)';
+  let fallColor = 'var(--green-1)';
+  if (balanceVal === 'trained' && loadVal !== 'sedentary' && dexaVal !== 'osteoporosis') {
+    fallText = 'Elite Protection (>88%)';
+    fallColor = 'var(--green-1)';
+  } else if (balanceVal !== 'untrained' && dexaVal !== 'osteoporosis') {
+    fallText = 'Moderate (65–85%)';
+    fallColor = 'var(--yellow-1,#eab308)';
+  } else {
+    fallText = 'High Fracture Hazard';
+    fallColor = 'var(--red-1,#ef4444)';
+  }
+
+  // Update UI KPIs
+  if (BONE_UI.kpiScore) {
+    BONE_UI.kpiScore.textContent = osteoText;
+    BONE_UI.kpiScore.style.color = osteoColor;
+  }
+  if (BONE_UI.kpiSarc) {
+    BONE_UI.kpiSarc.textContent = sarcText;
+    BONE_UI.kpiSarc.style.color = sarcColor;
+  }
+  if (BONE_UI.kpiK2) {
+    BONE_UI.kpiK2.textContent = k2Text;
+    BONE_UI.kpiK2.style.color = k2Color;
+  }
+  if (BONE_UI.kpiFall) {
+    BONE_UI.kpiFall.textContent = fallText;
+    BONE_UI.kpiFall.style.color = fallColor;
+  }
+
+  // Dynamic Clinical Summary
+  if (BONE_UI.routineDesc) {
+    BONE_UI.routineDesc.innerHTML = `
+      <strong>Osteogenic Mechanotransduction:</strong> Remodeling state is <strong>${osteoText}</strong>. ${loadVal === 'heavy' ? '<span style="color:var(--green-1);font-weight:700">Heavy multi-joint loading (>75% 1RM) and plyometrics provide peak osteocyte strain</span>, suppressing sclerostin to build trabecular density.' : '<span style="color:var(--yellow-1,#eab308);font-weight:700">Non-impact movement provides zero osteogenic stimulus.</span> Add structured progressive axial loading (squats, deadlifts, loaded carries).'}<br>
+      <strong>Calcium Partitioning &amp; Vitamin K2:</strong> ${k2Text}. ${mineralVal === 'calcium_d3_only' ? '<span style="color:var(--red-1,#ef4444);font-weight:700">Critical Warning:</span> Taking calcium with D3 without Vitamin K2 (MK-7) leaves osteocalcin uncarboxylated, accelerating coronary artery calcification instead of bone deposition.' : '<span style="color:var(--green-1);font-weight:700">MK-7 carboxylation active.</span> Circulating calcium is locked directly into hydroxyapatite mineral scaffolding.'}<br>
+      <strong>Muscle Mass &amp; Anabolic Resistance:</strong> Muscle status: <strong>${sarcText}</strong>. ${proteinVal === 'optimal' ? '<span style="color:var(--green-1);font-weight:700">Leucine threshold (>2.5–3.0g per meal) achieved</span>, maximally activating mTORC1 translation.' : 'Ensure each meal delivers at least 30g protein with 3g leucine to avoid insidious sarcopenia.'}<br>
+      <strong>Fracture Vector Neutralization:</strong> Fall mitigation capacity: <strong>${fallText}</strong>. ${balanceVal === 'trained' ? 'Daily unipedal stability preserves cerebellar vestibular pathways, eliminating the slips that drive 90% of hip fractures.' : 'Incorporate daily 30-second single-leg eyes-closed balance holds.'}<br>
+      <strong>DEXA Baseline:</strong> Current bone density baseline is <strong>${dexaVal.toUpperCase()}</strong>. ${hormoneVal === 'catabolic' ? '<span style="color:var(--red-1,#ef4444);font-weight:700">High catabolic stress or steroid exposure</span> accelerates osteoclast resorption.' : 'Hormonal and mechanical scaffolding aligned for long-term skeletal density.'}
+    `;
+  }
+}
+
+function initBoneUI() {
+  if (!BONE_UI.mask) return;
+
+  renderBoneCards();
+
+  if (BONE_UI.loadInput) BONE_UI.loadInput.value = boneSettings.load;
+  if (BONE_UI.proteinInput) BONE_UI.proteinInput.value = boneSettings.protein;
+  if (BONE_UI.mineralInput) BONE_UI.mineralInput.value = boneSettings.mineral;
+  if (BONE_UI.dexaInput) BONE_UI.dexaInput.value = boneSettings.dexa;
+  if (BONE_UI.balanceInput) BONE_UI.balanceInput.value = boneSettings.balance;
+  if (BONE_UI.hormoneInput) BONE_UI.hormoneInput.value = boneSettings.hormone;
+
+  calculateBoneMetrics();
+}
+
+initBoneUI();
+
+function openBoneModal() {
+  if (!BONE_UI.mask) return;
+  BONE_UI.mask.hidden = false;
+  document.body.style.overflow = 'hidden';
+  BONE_UI.loadInput?.focus();
+}
+
+function closeBoneModal() {
+  if (!BONE_UI.mask) return;
+  BONE_UI.mask.hidden = true;
+  document.body.style.overflow = '';
+}
+
+BONE_UI.openBtn?.addEventListener('click', openBoneModal);
+BONE_UI.openSideBtn?.addEventListener('click', openBoneModal);
+BONE_UI.xBtn?.addEventListener('click', closeBoneModal);
+BONE_UI.closeBtn?.addEventListener('click', closeBoneModal);
+
+BONE_UI.mask?.addEventListener('click', (e) => {
+  if (e.target === BONE_UI.mask) closeBoneModal();
+});
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && BONE_UI.mask && !BONE_UI.mask.hidden) {
+    closeBoneModal();
+  }
+});
+
+const boneInputElements = [
+  BONE_UI.loadInput,
+  BONE_UI.proteinInput,
+  BONE_UI.mineralInput,
+  BONE_UI.dexaInput,
+  BONE_UI.balanceInput,
+  BONE_UI.hormoneInput
+];
+boneInputElements.forEach(el => {
+  el?.addEventListener('input', calculateBoneMetrics);
+  el?.addEventListener('change', calculateBoneMetrics);
+});
+
+BONE_UI.exportBtn?.addEventListener('click', async () => {
+  let md = `# Bone Mineral Density, Sarcopenia & Musculoskeletal Protocol\n`;
+  md += `*Evidence-Based Mechanotransduction, Osteocalcin Carboxylation & Sarcopenia Prevention*\n\n`;
+  md += `**Axial Mechanical Impact**: ${boneSettings.load.toUpperCase()} | Protein & Leucine: ${boneSettings.protein.toUpperCase()}\n`;
+  md += `**Mineral Synergists (D3/K2 MK-7)**: ${boneSettings.mineral.toUpperCase()} | DEXA Baseline: ${boneSettings.dexa.toUpperCase()}\n`;
+  md += `**Proprioception / Balance**: ${boneSettings.balance.toUpperCase()} | Hormonal Axis: ${boneSettings.hormone.toUpperCase()}\n\n`;
+  md += `**Osteoblast Mineral Accretion**: ${BONE_UI.kpiScore?.textContent || 'Elite'}\n`;
+  md += `**Appendicular Muscle Reserve**: ${BONE_UI.kpiSarc?.textContent || 'Preserved'}\n`;
+  md += `**Osteocalcin Carboxylation (K2)**: ${BONE_UI.kpiK2?.textContent || 'Bone Directed'}\n`;
+  md += `**10-Year Fracture Risk Mitigation**: ${BONE_UI.kpiFall?.textContent || 'Elite Protection'}\n\n`;
+
+  md += `## 1. Core Musculoskeletal & Osteogenic Mechanisms\n`;
+  BONE_CARDS_DATA.forEach(c => {
+    md += `- **${c.title}** (${c.icon}) [${c.badge}]\n`;
+    md += `  - Evidence: ${c.desc}\n`;
+    md += `  - Clinical Target: ${c.action}\n`;
+  });
+
+  md += `\n## 2. Actionable Musculoskeletal Spec\n`;
+  md += `${(BONE_UI.routineDesc?.textContent || '').trim()}\n\n`;
+
+  md += `---\n*Generated by The Evidence-Based Life Musculoskeletal Engine: https://parveen0029.github.io/The-Evidence-Based-Life/*\n`;
+
+  try {
+    await navigator.clipboard.writeText(md);
+    if (BONE_UI.msg) {
+      BONE_UI.msg.textContent = '✓ Musculoskeletal protocol copied to clipboard!';
+      BONE_UI.msg.hidden = false;
+      setTimeout(() => { BONE_UI.msg.hidden = true; }, 3500);
+    }
+  } catch (err) {
+    prompt('Copy your Musculoskeletal Protocol below:', md);
+  }
+});
+
+BONE_UI.shareX?.addEventListener('click', () => {
+  const text = `Bone mineral density and skeletal muscle mass dictate independence and fracture survival. Calculate your osteogenic loading score, Vitamin K2 carboxylation tier, and sarcopenia resistance:`;
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+BONE_UI.shareWa?.addEventListener('click', () => {
+  const text = `*Bone Mineral Density & Musculoskeletal Matrix*\nCalculate your osteogenic remodeling score, Vitamin K2 MK-7 calcium carboxylation, and sarcopenia prevention protocol:\n\nhttps://parveen0029.github.io/The-Evidence-Based-Life/`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+});
+
+BONE_UI.shareLi?.addEventListener('click', () => {
   const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
 });
