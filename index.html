@@ -1043,6 +1043,42 @@ html.dark .focus-toggle-chip.active{color:#1b1b1f}
   #nutri-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Environmental Toxins & Indoor Air Quality Diagnostics Modal */
+#air-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#air-mask[hidden]{display:none}
+#air-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(940px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+
+.air-params-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:10px;background:var(--bg-alt);border:1px solid var(--divider);border-radius:12px;padding:12px 14px;margin-bottom:14px}
+@media (max-width:860px){.air-params-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.air-params-grid{grid-template-columns:1fr}}
+
+.air-param-cell{display:flex;flex-direction:column;gap:4px}
+.air-param-label{font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px}
+.air-param-input{padding:7px 10px;border-radius:6px;border:1px solid var(--divider);background:var(--bg-elv);color:var(--t1);font-size:13px}
+
+.air-kpi-banner{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;background:var(--bg-elv);border:1px solid var(--divider);border-radius:12px;padding:12px 16px;margin-bottom:14px}
+@media (max-width:760px){.air-kpi-banner{grid-template-columns:1fr 1fr}}
+.air-kpi-item{display:flex;flex-direction:column;gap:2px}
+.air-kpi-val{font-size:20px;font-weight:900;color:var(--green-1)}
+.air-kpi-lbl{font-size:11px;color:var(--t3)}
+
+.air-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-bottom:14px}
+.air-card{background:var(--bg-alt);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.air-head{display:flex;align-items:center;justify-content:space-between}
+.air-title{font-size:13px;font-weight:700;color:var(--t1);display:flex;align-items:center;gap:6px}
+.air-badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:12px;background:rgba(59,130,246,.15);color:var(--blue-1,#3b82f6)}
+.air-desc{font-size:12px;color:var(--t2);line-height:1.45}
+.air-action{font-size:11.5px;color:var(--t3);line-height:1.4}
+
+.air-summary-box{background:var(--bg-elv);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;margin-bottom:14px}
+.air-summary-title{font-size:12px;font-weight:700;color:var(--t1);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.air-summary-text{font-size:12px;color:var(--t2);line-height:1.5}
+
+@media (max-width:820px){
+  #air-mask{padding:0}
+  #air-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
 /* Floating Audio Dock */
 #audio-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:70;background:var(--bg-elv);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);padding:10px 18px;display:flex;align-items:center;gap:14px;max-width:min(700px,calc(100vw - 32px));width:100%;backdrop-filter:blur(10px);transition:all .25s ease}
 #audio-dock[hidden]{display:none}
@@ -1129,7 +1165,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -1226,6 +1262,7 @@ html.dark .hc-action{color:#1b1b1f!important}
       <button class="icon-btn" id="focus-open" title="Ultradian Rhythm & Pomodoro Focus Timer" aria-label="Ultradian Focus Timer"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 6 12 12 16 14"/></svg></button>
       <button class="icon-btn" id="fit-open" title="Evidence-Based Fitness & Longevity Calculator" aria-label="Fitness Calculator"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 5v14M18 5v14M2 9v6M22 9v6M6 12h12"/></svg></button>
       <button class="icon-btn" id="nutri-open" title="Clinical Nutrition & Micronutrient Deficiency Matrix" aria-label="Nutrition Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2a5 5 0 0 0-5 5c0 4 5 13 5 13s5-9 5-13a5 5 0 0 0-5-5z"/><circle cx="12" cy="7" r="1.5"/></svg></button>
+      <button class="icon-btn" id="air-open" title="Environmental Toxins & Indoor Air Quality Diagnostics" aria-label="Indoor Air Quality Diagnostics"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg></button>
       <a class="icon-btn" href="selfcheck.html" title="Take 2-Minute Life Health & Risk Audit" aria-label="Self-Audit Quiz"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></a>
       <a class="icon-btn" href="README.md" title="View README.md" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn" href="https://github.com/parveen0029/The-Evidence-Based-Life" target="_blank" rel="noopener" title="View repository on GitHub" aria-label="GitHub Repository"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
@@ -1284,6 +1321,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     <button class="btn-sm ghost" id="focus-open-side" type="button" style="margin-top:6px;font-size:12px">⏱️ Ultradian Focus & Pomodoro Timer</button>
     <button class="btn-sm ghost" id="fit-open-side" type="button" style="margin-top:6px;font-size:12px">🏋️ Fitness Volume & Longevity Calculator</button>
     <button class="btn-sm ghost" id="nutri-open-side" type="button" style="margin-top:6px;font-size:12px">🥗 Clinical Nutrition & Micronutrient Matrix</button>
+    <button class="btn-sm ghost" id="air-open-side" type="button" style="margin-top:6px;font-size:12px">💨 Indoor Air Quality &amp; Toxin Diagnostics</button>
   </div>
   <div class="group" id="g-upd" hidden>
     <div class="gt">Recent Updates <small>Content revisions</small></div>
@@ -2409,6 +2447,102 @@ html.dark .hc-action{color:#1b1b1f!important}
         <button class="btn-sm ghost" id="nutri-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
         <button class="btn-sm ghost" id="nutri-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
         <p id="nutri-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="air-mask" hidden>
+  <div id="air-box" role="dialog" aria-modal="true" aria-labelledby="air-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="air-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg> <span>Environmental Toxins &amp; Indoor Air Quality Diagnostics</span></div>
+      <button type="button" id="air-x" aria-label="Close air quality diagnostics">✕</button>
+    </div>
+    <div class="stats-scroll">
+      <div class="stats-lead">
+        Evidence-based environmental diagnostic engine based on <strong>Chapter 7 (Home Office &amp; Environment)</strong> and <strong>Chapter 28 (Biomarkers &amp; Health)</strong>. Quantify your indoor CO2 cognitive impairment hazard, calculate AHAM AC-1 HEPA CADR purifier sizing, and mitigate radon, VOCs, and drinking water contaminants.
+      </div>
+
+      <div class="air-params-grid">
+        <div class="air-param-cell">
+          <label class="air-param-label" for="air-area-input">Room Area</label>
+          <div style="display:flex;gap:4px">
+            <input type="number" id="air-area-input" class="air-param-input" style="flex:1;min-width:0" min="50" max="2500" value="200" step="10">
+            <button type="button" class="btn-sm ghost" id="air-unit-btn" style="padding:4px 8px;font-size:11px" title="Toggle sq ft and m²">sq ft</button>
+          </div>
+        </div>
+        <div class="air-param-cell">
+          <label class="air-param-label" for="air-height-input">Ceiling Height</label>
+          <select id="air-height-input" class="air-param-input">
+            <option value="8" selected>8 ft (2.4 m) Standard</option>
+            <option value="9">9 ft (2.7 m) Modern</option>
+            <option value="10">10 ft (3.0 m) High</option>
+            <option value="12">12 ft (3.6 m) Loft</option>
+          </select>
+        </div>
+        <div class="air-param-cell">
+          <label class="air-param-label" for="air-occ-input">Room Occupants</label>
+          <select id="air-occ-input" class="air-param-input">
+            <option value="1" selected>1 Person (Solo Work)</option>
+            <option value="2">2 People (Pair / Shared)</option>
+            <option value="3">3 People (Small Meeting)</option>
+            <option value="4">4+ People (Crowded)</option>
+          </select>
+        </div>
+        <div class="air-param-cell">
+          <label class="air-param-label" for="air-aqi-input">Outdoor AQI / Smog</label>
+          <select id="air-aqi-input" class="air-param-input">
+            <option value="good" selected>Good (&lt;12 µg/m³ PM2.5)</option>
+            <option value="moderate">Moderate (12–35 µg/m³)</option>
+            <option value="high">High Smog (35–55 µg/m³)</option>
+            <option value="wildfire">Severe / Wildfire (&gt;55 µg/m³)</option>
+          </select>
+        </div>
+        <div class="air-param-cell">
+          <label class="air-param-label" for="air-vent-input">Ventilation Setup</label>
+          <select id="air-vent-input" class="air-param-input">
+            <option value="sealed" selected>Sealed Room (Closed Windows)</option>
+            <option value="crack">Window Crack (Passive Airflow)</option>
+            <option value="hrv">Mechanical HRV/ERV (Active Fresh)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="air-kpi-banner">
+        <div class="air-kpi-item">
+          <span class="air-kpi-val" id="air-kpi-co2">~1,180 ppm</span>
+          <span class="air-kpi-lbl">Est. 2h CO2 Concentration</span>
+        </div>
+        <div class="air-kpi-item">
+          <span class="air-kpi-val" id="air-kpi-cadr" style="color:var(--blue-1,#3b82f6)">135 CFM</span>
+          <span class="air-kpi-lbl">Min. HEPA CADR (4.8 ACH)</span>
+        </div>
+        <div class="air-kpi-item">
+          <span class="air-kpi-val" id="air-kpi-cog" style="color:var(--yellow-1,#eab308)">-15%</span>
+          <span class="air-kpi-lbl">Cognitive Acuity Impact</span>
+        </div>
+        <div class="air-kpi-item">
+          <span class="air-kpi-val" id="air-kpi-vent">18 CFM</span>
+          <span class="air-kpi-lbl">Req. Fresh Air Intake / Person</span>
+        </div>
+      </div>
+
+      <div class="air-grid" id="air-cards-grid">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="air-summary-box">
+        <div class="air-summary-title"><span>🛠️ Air Purifier Recommendation &amp; DIY Corsi-Rosenthal Alternative</span></div>
+        <div class="air-summary-text" id="air-purifier-desc">Calculating sizing specs...</div>
+      </div>
+
+      <div class="calc-footer">
+        <button class="btn-sm" id="air-export" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy Indoor Environmental &amp; Air Quality Protocol</button>
+        <button class="btn-sm ghost" id="air-share-x" type="button" style="width:auto;padding:8px 14px">𝕏 Share</button>
+        <button class="btn-sm ghost" id="air-share-wa" type="button" style="width:auto;padding:8px 14px">WhatsApp</button>
+        <button class="btn-sm ghost" id="air-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
+        <button class="btn-sm ghost" id="air-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
+        <p id="air-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
       </div>
     </div>
   </div>
@@ -8993,6 +9127,341 @@ NUTRI_UI.shareWa?.addEventListener('click', () => {
 });
 
 NUTRI_UI.shareLi?.addEventListener('click', () => {
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+/* ---------- Milestone 30: Environmental Toxins & Indoor Air Quality Diagnostics ---------- */
+const AIR_CARDS_DATA = [
+  {
+    id: 'co2',
+    icon: '🫁',
+    title: 'Indoor CO2 & Cognitive Acuity',
+    badge: 'Cognitive Trap',
+    color: 'rgba(239,68,68,.15)',
+    textColor: '#ef4444',
+    desc: 'Harvard T.H. Chan studies show cognitive scores drop 15% at 1,000 ppm and collapse 50% at 1,400 ppm (especially strategic planning and crisis response).',
+    action: 'Target: Maintain room <800 ppm. Crack window 2-3 inches or flush fresh air for 5 minutes every 60-90 minutes of focused work.'
+  },
+  {
+    id: 'pm25',
+    icon: '🌫️',
+    title: 'PM2.5 & HEPA CADR Sizing',
+    badge: 'Aerosol Defense',
+    color: 'rgba(59,130,246,.15)',
+    textColor: '#3b82f6',
+    desc: 'WHO guideline: annual PM2.5 <5 µg/m³. Sub-2.5µm fine particles enter pulmonary capillaries, inducing chronic systemic inflammation and vascular plaque.',
+    action: 'Prescription: True HEPA (H13 99.97% @ 0.3µm) sized to ≥4.8 air changes/hour (AHAM AC-1). Run continuous medium fan speed.'
+  },
+  {
+    id: 'radon',
+    icon: '☢️',
+    title: 'Radon Gas (#1 Non-Smoker Lung Carcinogen)',
+    badge: 'Invisible Hazard',
+    color: 'rgba(234,179,8,.15)',
+    textColor: '#eab308',
+    desc: 'Colorless radioactive decay daughter of subterranean uranium causes ~21,000 annual US lung cancer deaths. EPA action limit: 4.0 pCi/L (WHO: 2.7 pCi/L).',
+    action: 'Protocol: Test ground floors and basements with a 90-day winter alpha-track or digital pulse monitor. If >4 pCi/L, install sub-slab depressurization.'
+  },
+  {
+    id: 'water',
+    icon: '🚰',
+    title: 'Drinking Water Purity & RO Matrix',
+    badge: 'Cellular Hydration',
+    color: 'rgba(16,185,129,.15)',
+    textColor: '#10b981',
+    desc: 'Municipal tap contains PFAS forever chemicals, microplastics, lead from aging brass fittings, and chlorinated trihalomethane byproducts.',
+    action: 'Standard: Gravity carbon pitchers remove chlorine taste only. Gold standard: NSF 58 Under-sink Multi-stage Reverse Osmosis + remineralizer.'
+  },
+  {
+    id: 'voc',
+    icon: '🛋️',
+    title: 'VOCs & Formaldehyde Off-Gassing',
+    badge: 'Chemical Burden',
+    color: 'rgba(168,85,247,.15)',
+    textColor: '#a855f7',
+    desc: 'Polyurethane foam, MDF adhesive resins, and fresh paint off-gas benzene, toluene, and formaldehyde for 3-12 months, triggering neuro-inflammation.',
+    action: 'Protocol: 72-hour thermal bake-out (heat room to 26-28°C with open window exhaust). Use Greenguard Gold / OEKO-TEX Standard 100 materials.'
+  },
+  {
+    id: 'rh',
+    icon: '💧',
+    title: 'Relative Humidity (40%–50% RH Zone)',
+    badge: 'Mucosal Barrier',
+    color: 'rgba(14,165,233,.15)',
+    textColor: '#0ea5e9',
+    desc: 'Below 30% RH: Nasal mucosal clearance paralyzes and viral aerosol suspension increases 3x. Above 60% RH: Dust mites and toxic mold proliferate.',
+    action: 'Prescription: Maintain 40%-50% RH via evaporative/ultrasonic humidifier (use distilled/RO water to avoid white mineral aerosol dust) + digital hygrometer.'
+  }
+];
+
+const AIR_UI = {
+  openBtn: document.getElementById('air-open'),
+  openSideBtn: document.getElementById('air-open-side'),
+  mask: document.getElementById('air-mask'),
+  xBtn: document.getElementById('air-x'),
+  closeBtn: document.getElementById('air-close-btn'),
+  areaInput: document.getElementById('air-area-input'),
+  unitBtn: document.getElementById('air-unit-btn'),
+  heightInput: document.getElementById('air-height-input'),
+  occInput: document.getElementById('air-occ-input'),
+  aqiInput: document.getElementById('air-aqi-input'),
+  ventInput: document.getElementById('air-vent-input'),
+  kpiCo2: document.getElementById('air-kpi-co2'),
+  kpiCadr: document.getElementById('air-kpi-cadr'),
+  kpiCog: document.getElementById('air-kpi-cog'),
+  kpiVent: document.getElementById('air-kpi-vent'),
+  cardsGrid: document.getElementById('air-cards-grid'),
+  purifierDesc: document.getElementById('air-purifier-desc'),
+  exportBtn: document.getElementById('air-export'),
+  shareX: document.getElementById('air-share-x'),
+  shareWa: document.getElementById('air-share-wa'),
+  shareLi: document.getElementById('air-share-li'),
+  msg: document.getElementById('air-copy-msg')
+};
+
+let airSettings = {
+  area: 200,
+  unit: 'sqft',
+  height: 8,
+  occupants: 1,
+  aqi: 'good',
+  vent: 'sealed'
+};
+
+try {
+  const savedAir = localStorage.getItem('eb_air_settings');
+  if (savedAir) {
+    airSettings = Object.assign(airSettings, JSON.parse(savedAir));
+  }
+} catch (e) {}
+
+function renderAirCards() {
+  if (!AIR_UI.cardsGrid) return;
+  AIR_UI.cardsGrid.innerHTML = AIR_CARDS_DATA.map(c => `
+    <div class="air-card">
+      <div class="air-head">
+        <span class="air-title"><span>${c.icon}</span> ${c.title}</span>
+        <span class="air-badge" style="background:${c.color};color:${c.textColor}">${c.badge}</span>
+      </div>
+      <div class="air-desc">${c.desc}</div>
+      <div class="air-action"><strong>Action:</strong> ${c.action}</div>
+    </div>
+  `).join('');
+}
+
+function calculateAirMetrics() {
+  const isSqm = airSettings.unit === 'sqm';
+  const areaVal = parseFloat(AIR_UI.areaInput?.value || airSettings.area) || 200;
+  const areaSqFt = isSqm ? areaVal * 10.7639 : areaVal;
+  const heightFt = parseFloat(AIR_UI.heightInput?.value || airSettings.height) || 8;
+  const occupants = parseInt(AIR_UI.occInput?.value || airSettings.occupants) || 1;
+  const aqiTier = AIR_UI.aqiInput?.value || airSettings.aqi;
+  const ventMode = AIR_UI.ventInput?.value || airSettings.vent;
+
+  airSettings.area = areaVal;
+  airSettings.height = heightFt;
+  airSettings.occupants = occupants;
+  airSettings.aqi = aqiTier;
+  airSettings.vent = ventMode;
+
+  try {
+    localStorage.setItem('eb_air_settings', JSON.stringify(airSettings));
+  } catch (e) {}
+
+  // 1. Room Volume
+  const volumeCuFt = areaSqFt * heightFt;
+  const volumeLiters = volumeCuFt * 28.3168;
+
+  // 2. CADR Calculation (AHAM 2/3 Rule: Area * 2/3 gives 4.8 ACH for 8ft ceilings)
+  let cadrMultiplier = heightFt / 8;
+  if (aqiTier === 'moderate') cadrMultiplier *= 1.15;
+  if (aqiTier === 'high') cadrMultiplier *= 1.35;
+  if (aqiTier === 'wildfire') cadrMultiplier *= 1.6;
+
+  const minCadrCfm = Math.round((areaSqFt * (2 / 3)) * cadrMultiplier);
+  const minCadrM3h = Math.round(minCadrCfm * 1.699);
+
+  // 3. CO2 Accumulation over 2 hours of closed room work
+  // Human exhalation: ~19 Liters CO2 / hour at desk work
+  const co2PerHour = occupants * 19;
+  const addedPpm = (co2PerHour * 2 * 1000000) / volumeLiters;
+  let estCo2 = 420;
+
+  if (ventMode === 'sealed') {
+    estCo2 = Math.round(420 + (addedPpm * 0.85));
+  } else if (ventMode === 'crack') {
+    estCo2 = Math.round(Math.min(420 + (addedPpm * 0.35), 920));
+  } else if (ventMode === 'hrv') {
+    estCo2 = Math.round(Math.min(420 + (addedPpm * 0.15), 620));
+  }
+
+  // 4. Cognitive Impact Tier
+  let cogImpact = '0% (Optimal)';
+  let cogColor = 'var(--green-1)';
+  if (estCo2 > 1400) {
+    cogImpact = '-50% (Severe Loss)';
+    cogColor = '#ef4444';
+  } else if (estCo2 > 1000) {
+    cogImpact = '-15% (Cognitive Fatigue)';
+    cogColor = 'var(--yellow-1,#eab308)';
+  } else if (estCo2 >= 800) {
+    cogImpact = '-5% (Minor Sluggishness)';
+    cogColor = 'var(--blue-1,#3b82f6)';
+  }
+
+  // 5. Fresh Air Intake Requirement (ASHRAE 62.1: 15-20 CFM/person)
+  const reqVentCfm = occupants * 18;
+  const reqVentM3h = Math.round(reqVentCfm * 1.7);
+
+  // Update KPI Banner
+  if (AIR_UI.kpiCo2) {
+    AIR_UI.kpiCo2.textContent = `~${estCo2.toLocaleString()} ppm`;
+    AIR_UI.kpiCo2.style.color = estCo2 > 1000 ? '#ef4444' : (estCo2 > 800 ? 'var(--yellow-1,#eab308)' : 'var(--green-1)');
+  }
+  if (AIR_UI.kpiCadr) {
+    AIR_UI.kpiCadr.textContent = isSqm ? `${minCadrM3h} m³/h` : `${minCadrCfm} CFM`;
+  }
+  if (AIR_UI.kpiCog) {
+    AIR_UI.kpiCog.textContent = cogImpact;
+    AIR_UI.kpiCog.style.color = cogColor;
+  }
+  if (AIR_UI.kpiVent) {
+    AIR_UI.kpiVent.textContent = isSqm ? `${reqVentM3h} m³/h` : `${reqVentCfm} CFM`;
+  }
+
+  // Update Purifier & Corsi-Rosenthal Recommendation Box
+  if (AIR_UI.purifierDesc) {
+    AIR_UI.purifierDesc.innerHTML = `
+      <strong>Recommended Commercial Sizing:</strong> Minimum <strong>${minCadrCfm} Smoke CADR CFM</strong> (${minCadrM3h} m³/h) to guarantee &ge; 4.8 air changes per hour (ACH). Look for AHAM AC-1 certified True HEPA (H13) units with a sealed gasket and activated carbon pellet stage (&ge; 1 lb carbon).<br><br>
+      <strong>DIY Corsi-Rosenthal Box Alternative ($60–$75):</strong> Build using 1× 20-inch box fan + 4× 20×20×2 MERV-13 pleated filters + cardboard shroud. Delivers <strong>~550–620 CFM CADR</strong> (surpassing $450 commercial purifiers) with 3.5× longer filter life due to massive surface area and significantly quieter operation at equal air delivery rate.
+    `;
+  }
+}
+
+function initAirUI() {
+  if (!AIR_UI.mask) return;
+
+  renderAirCards();
+
+  if (AIR_UI.areaInput) {
+    AIR_UI.areaInput.value = airSettings.area;
+  }
+  if (AIR_UI.unitBtn) {
+    AIR_UI.unitBtn.textContent = airSettings.unit === 'sqm' ? 'm²' : 'sq ft';
+  }
+  if (AIR_UI.heightInput) {
+    AIR_UI.heightInput.value = String(airSettings.height);
+  }
+  if (AIR_UI.occInput) {
+    AIR_UI.occInput.value = String(airSettings.occupants);
+  }
+  if (AIR_UI.aqiInput) {
+    AIR_UI.aqiInput.value = airSettings.aqi;
+  }
+  if (AIR_UI.ventInput) {
+    AIR_UI.ventInput.value = airSettings.vent;
+  }
+
+  calculateAirMetrics();
+}
+
+initAirUI();
+
+function openAirModal() {
+  if (!AIR_UI.mask) return;
+  AIR_UI.mask.hidden = false;
+  document.body.style.overflow = 'hidden';
+  AIR_UI.areaInput?.focus();
+}
+
+function closeAirModal() {
+  if (!AIR_UI.mask) return;
+  AIR_UI.mask.hidden = true;
+  document.body.style.overflow = '';
+}
+
+AIR_UI.openBtn?.addEventListener('click', openAirModal);
+AIR_UI.openSideBtn?.addEventListener('click', openAirModal);
+AIR_UI.xBtn?.addEventListener('click', closeAirModal);
+AIR_UI.closeBtn?.addEventListener('click', closeAirModal);
+
+AIR_UI.mask?.addEventListener('click', (e) => {
+  if (e.target === AIR_UI.mask) closeAirModal();
+});
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && AIR_UI.mask && !AIR_UI.mask.hidden) {
+    closeAirModal();
+  }
+});
+
+AIR_UI.unitBtn?.addEventListener('click', () => {
+  const currentArea = parseFloat(AIR_UI.areaInput?.value) || 200;
+  if (airSettings.unit === 'sqft') {
+    airSettings.unit = 'sqm';
+    AIR_UI.unitBtn.textContent = 'm²';
+    AIR_UI.areaInput.value = Math.round(currentArea / 10.7639);
+  } else {
+    airSettings.unit = 'sqft';
+    AIR_UI.unitBtn.textContent = 'sq ft';
+    AIR_UI.areaInput.value = Math.round(currentArea * 10.7639);
+  }
+  calculateAirMetrics();
+});
+
+const airInputElements = [AIR_UI.areaInput, AIR_UI.heightInput, AIR_UI.occInput, AIR_UI.aqiInput, AIR_UI.ventInput];
+airInputElements.forEach(el => {
+  el?.addEventListener('input', calculateAirMetrics);
+  el?.addEventListener('change', calculateAirMetrics);
+});
+
+AIR_UI.exportBtn?.addEventListener('click', async () => {
+  let md = `# Indoor Environmental & Air Quality Protocol\n`;
+  md += `*Harvard CogFX CO2 Standards, AHAM AC-1 CADR Sizing & Toxin Mitigation*\n\n`;
+  md += `**Room Configuration**: ${airSettings.area} ${airSettings.unit} | Ceiling: ${airSettings.height} ft | Occupants: ${airSettings.occupants}\n`;
+  md += `**Outdoor AQI Condition**: ${airSettings.aqi.toUpperCase()} | **Ventilation Mode**: ${airSettings.vent.toUpperCase()}\n`;
+  md += `**Estimated 2-Hour CO2**: ${AIR_UI.kpiCo2?.textContent || '1,180 ppm'}\n`;
+  md += `**Cognitive Impact**: ${AIR_UI.kpiCog?.textContent || '-15%'}\n`;
+  md += `**Minimum HEPA CADR Requirement**: ${AIR_UI.kpiCadr?.textContent || '135 CFM'}\n`;
+  md += `**Required Fresh Air Intake**: ${AIR_UI.kpiVent?.textContent || '18 CFM'}\n\n`;
+
+  md += `## 1. Environmental Hazard Diagnostics\n`;
+  AIR_CARDS_DATA.forEach(c => {
+    md += `- **${c.title}** (${c.icon}) [${c.badge}]\n`;
+    md += `  - Evidence: ${c.desc}\n`;
+    md += `  - Action: ${c.action}\n`;
+  });
+
+  md += `\n## 2. Filtration & Purifier Specifications\n`;
+  md += `${(AIR_UI.purifierDesc?.textContent || '').trim()}\n\n`;
+
+  md += `---\n*Generated by The Evidence-Based Life Environmental Engine: https://parveen0029.github.io/The-Evidence-Based-Life/*\n`;
+
+  try {
+    await navigator.clipboard.writeText(md);
+    if (AIR_UI.msg) {
+      AIR_UI.msg.textContent = '✓ Environmental protocol copied to clipboard!';
+      AIR_UI.msg.hidden = false;
+      setTimeout(() => { AIR_UI.msg.hidden = true; }, 3500);
+    }
+  } catch (err) {
+    prompt('Copy your Indoor Environmental Protocol below:', md);
+  }
+});
+
+AIR_UI.shareX?.addEventListener('click', () => {
+  const text = `At >1,000 ppm CO2, decision-making performance drops by 15% (Harvard Chan School). Calculate your room's HEPA CADR sizing and air quality risk:`;
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+AIR_UI.shareWa?.addEventListener('click', () => {
+  const text = `*Indoor Air Quality & Environmental Toxin Diagnostics*\nCalculate your room's CO2 cognitive impairment hazard, AHAM AC-1 HEPA CADR sizing, and radon/water filtration protocols:\n\nhttps://parveen0029.github.io/The-Evidence-Based-Life/`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+});
+
+AIR_UI.shareLi?.addEventListener('click', () => {
   const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
 });
