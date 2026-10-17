@@ -237,12 +237,12 @@ python -m http.server 8000
 
 Open `http://localhost:8000/` in your browser. The web reader is completely static: `README.md` and `book/` serve as its live database.
 
-To build the offline distribution packages locally:
+To build the offline distribution packages locally (run from repository root):
 
 ```bash
-cd tools/epub && npm ci && npm run build   # EPUB
-node tools/offline/build.mjs               # Offline single-file HTML
-node tools/pdf/build.mjs                   # PDF (requires pandoc >= 3.1 and typst >= 0.13)
+npm --prefix tools/epub ci && npm --prefix tools/epub run build   # EPUB
+node tools/offline/build.mjs                                     # Offline single-file HTML
+node tools/pdf/build.mjs                                         # PDF (requires pandoc >= 3.1 and typst >= 0.13)
 ```
 
 Generated files are placed in `dist/`.
