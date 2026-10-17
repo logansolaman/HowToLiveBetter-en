@@ -1007,6 +1007,42 @@ html.dark .focus-toggle-chip.active{color:#1b1b1f}
   #fit-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Empirical Nutrition & Micronutrient Deficiency Matrix Modal */
+#nutri-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#nutri-mask[hidden]{display:none}
+#nutri-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(940px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+
+.nutri-params-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;background:var(--bg-alt);border:1px solid var(--divider);border-radius:12px;padding:12px 14px;margin-bottom:14px}
+@media (max-width:760px){.nutri-params-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.nutri-params-grid{grid-template-columns:1fr}}
+
+.nutri-param-cell{display:flex;flex-direction:column;gap:4px}
+.nutri-param-label{font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px}
+.nutri-param-input{padding:7px 10px;border-radius:6px;border:1px solid var(--divider);background:var(--bg-elv);color:var(--t1);font-size:13px}
+
+.nutri-kpi-banner{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;background:var(--bg-elv);border:1px solid var(--divider);border-radius:12px;padding:12px 16px;margin-bottom:14px}
+@media (max-width:760px){.nutri-kpi-banner{grid-template-columns:1fr 1fr}}
+.nutri-kpi-item{display:flex;flex-direction:column;gap:2px}
+.nutri-kpi-val{font-size:20px;font-weight:900;color:var(--green-1)}
+.nutri-kpi-lbl{font-size:11px;color:var(--t3)}
+
+.nutri-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-bottom:14px}
+.nutri-card{background:var(--bg-alt);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.nutri-head{display:flex;align-items:center;justify-content:space-between}
+.nutri-title{font-size:13px;font-weight:700;color:var(--t1);display:flex;align-items:center;gap:6px}
+.nutri-target{font-size:11px;font-weight:700;padding:2px 8px;border-radius:12px;background:rgba(16,185,129,.15);color:var(--green-1)}
+.nutri-desc{font-size:12px;color:var(--t2);line-height:1.45}
+.nutri-sources{font-size:11.5px;color:var(--t3);line-height:1.4}
+
+.nutri-food-box{background:var(--bg-elv);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;margin-bottom:14px}
+.nutri-food-title{font-size:12px;font-weight:700;color:var(--t1);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.nutri-food-text{font-size:12px;color:var(--t2);line-height:1.5}
+
+@media (max-width:820px){
+  #nutri-mask{padding:0}
+  #nutri-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
 /* Floating Audio Dock */
 #audio-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:70;background:var(--bg-elv);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);padding:10px 18px;display:flex;align-items:center;gap:14px;max-width:min(700px,calc(100vw - 32px));width:100%;backdrop-filter:blur(10px);transition:all .25s ease}
 #audio-dock[hidden]{display:none}
@@ -1093,7 +1129,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -1189,6 +1225,7 @@ html.dark .hc-action{color:#1b1b1f!important}
       <button class="icon-btn" id="habit-open" title="Micro-Habit Loop Builder & Implementation Intentions" aria-label="Habit Loop Builder"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22v-7m0 0c-3-2-6-1-7 2 0-4 3-7 7-7s7 3 7 7c-1-3-4-4-7-2zM12 10V2"/><circle cx="12" cy="2" r="1"/></svg></button>
       <button class="icon-btn" id="focus-open" title="Ultradian Rhythm & Pomodoro Focus Timer" aria-label="Ultradian Focus Timer"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 6 12 12 16 14"/></svg></button>
       <button class="icon-btn" id="fit-open" title="Evidence-Based Fitness & Longevity Calculator" aria-label="Fitness Calculator"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 5v14M18 5v14M2 9v6M22 9v6M6 12h12"/></svg></button>
+      <button class="icon-btn" id="nutri-open" title="Clinical Nutrition & Micronutrient Deficiency Matrix" aria-label="Nutrition Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2a5 5 0 0 0-5 5c0 4 5 13 5 13s5-9 5-13a5 5 0 0 0-5-5z"/><circle cx="12" cy="7" r="1.5"/></svg></button>
       <a class="icon-btn" href="selfcheck.html" title="Take 2-Minute Life Health & Risk Audit" aria-label="Self-Audit Quiz"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></a>
       <a class="icon-btn" href="README.md" title="View README.md" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn" href="https://github.com/parveen0029/The-Evidence-Based-Life" target="_blank" rel="noopener" title="View repository on GitHub" aria-label="GitHub Repository"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
@@ -1246,6 +1283,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     <button class="btn-sm ghost" id="habit-open-side" type="button" style="margin-top:6px;font-size:12px">🌱 Micro-Habit Loop & Intentions</button>
     <button class="btn-sm ghost" id="focus-open-side" type="button" style="margin-top:6px;font-size:12px">⏱️ Ultradian Focus & Pomodoro Timer</button>
     <button class="btn-sm ghost" id="fit-open-side" type="button" style="margin-top:6px;font-size:12px">🏋️ Fitness Volume & Longevity Calculator</button>
+    <button class="btn-sm ghost" id="nutri-open-side" type="button" style="margin-top:6px;font-size:12px">🥗 Clinical Nutrition & Micronutrient Matrix</button>
   </div>
   <div class="group" id="g-upd" hidden>
     <div class="gt">Recent Updates <small>Content revisions</small></div>
@@ -2291,6 +2329,86 @@ html.dark .hc-action{color:#1b1b1f!important}
         <button class="btn-sm ghost" id="fit-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
         <button class="btn-sm ghost" id="fit-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
         <p id="fit-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="nutri-mask" hidden>
+  <div id="nutri-box" role="dialog" aria-modal="true" aria-labelledby="nutri-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="nutri-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2a5 5 0 0 0-5 5c0 4 5 13 5 13s5-9 5-13a5 5 0 0 0-5-5z"/><circle cx="12" cy="7" r="1.5"/></svg> <span>Clinical Nutrition &amp; Micronutrient Deficiency Matrix</span></div>
+      <button type="button" id="nutri-x" aria-label="Close nutrition matrix">✕</button>
+    </div>
+    <div class="stats-scroll">
+      <div class="stats-lead">Target the evidence-based Muscle Protein Synthesis (MPS) breakpoint (Morton et al. 2018: 1.6–2.2g/kg/day with &ge;2.5g leucine per bolus) and screen 6 high-prevalence subclinical micronutrient deficits. Eliminate ultra-processed food (UPF) hyper-palatability drivers (Chapters 5, 6 &amp; 28).</div>
+
+      <div class="nutri-params-grid">
+        <div class="nutri-param-cell">
+          <label class="nutri-param-label" for="nutri-in-weight">Body Weight (kg)</label>
+          <input class="nutri-param-input" id="nutri-in-weight" type="number" min="35" max="180" value="75">
+        </div>
+        <div class="nutri-param-cell">
+          <label class="nutri-param-label" for="nutri-in-activity">Activity Multiplier</label>
+          <select class="nutri-param-input" id="nutri-in-activity">
+            <option value="1.2">Sedentary (Desk Job, 1.2x)</option>
+            <option value="1.4" selected>Moderate (3x Training, 1.4x)</option>
+            <option value="1.6">High (4-5x Hard Training, 1.6x)</option>
+            <option value="1.8">Athlete / Heavy Labor (1.8x)</option>
+          </select>
+        </div>
+        <div class="nutri-param-cell">
+          <label class="nutri-param-label" for="nutri-in-diet">Dietary Pattern</label>
+          <select class="nutri-param-input" id="nutri-in-diet">
+            <option value="omnivore" selected>Omnivore (Unprocessed)</option>
+            <option value="pescatarian">Pescatarian (Seafood + Plant)</option>
+            <option value="plant">Plant-Based / Vegan</option>
+          </select>
+        </div>
+        <div class="nutri-param-cell">
+          <label class="nutri-param-label" for="nutri-in-goal">Primary Composition Goal</label>
+          <select class="nutri-param-input" id="nutri-in-goal">
+            <option value="longevity" selected>Longevity &amp; Maintenance (TDEE)</option>
+            <option value="fatloss">Moderate Fat Loss (-400 kcal deficit)</option>
+            <option value="surplus">Lean Muscle Hypertrophy (+300 kcal)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="nutri-kpi-banner">
+        <div class="nutri-kpi-item">
+          <div class="nutri-kpi-val" id="nutri-kpi-protein">135 g/day</div>
+          <div class="nutri-kpi-lbl">Optimal Protein Target (Morton 1.8g/kg)</div>
+        </div>
+        <div class="nutri-kpi-item">
+          <div class="nutri-kpi-val" id="nutri-kpi-bolus">34–45 g / meal</div>
+          <div class="nutri-kpi-lbl">Per-Meal Leucine Trigger (3–4 meals)</div>
+        </div>
+        <div class="nutri-kpi-item">
+          <div class="nutri-kpi-val" id="nutri-kpi-fiber">38 g/day</div>
+          <div class="nutri-kpi-lbl">Prebiotic Fermentable Fiber Anchor</div>
+        </div>
+        <div class="nutri-kpi-item">
+          <div class="nutri-kpi-val" id="nutri-kpi-calories" style="color:var(--brand-1)">~2,350 kcal</div>
+          <div class="nutri-kpi-lbl">Target Daily Energy Intake</div>
+        </div>
+      </div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--t1);margin-bottom:8px">6 Critical Subclinical Micronutrient Deficit Biomarkers</div>
+      <div class="nutri-grid" id="nutri-micronutrients-cards"></div>
+
+      <div class="nutri-food-box">
+        <div class="nutri-food-title"><span>🥑 Dietary Pattern Whole-Food Prioritizer (NOVA Group 1–3)</span></div>
+        <div class="nutri-food-text" id="nutri-food-desc">Loading whole-food staples...</div>
+      </div>
+
+      <div class="calc-footer">
+        <button class="btn-sm" id="nutri-export" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy Clinical Nutrition &amp; Micronutrient Protocol</button>
+        <button class="btn-sm ghost" id="nutri-share-x" type="button" style="width:auto;padding:8px 14px">𝕏 Share</button>
+        <button class="btn-sm ghost" id="nutri-share-wa" type="button" style="width:auto;padding:8px 14px">WhatsApp</button>
+        <button class="btn-sm ghost" id="nutri-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
+        <button class="btn-sm ghost" id="nutri-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
+        <p id="nutri-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
       </div>
     </div>
   </div>
@@ -8625,6 +8743,256 @@ FIT_UI.shareWa?.addEventListener('click', () => {
 });
 
 FIT_UI.shareLi?.addEventListener('click', () => {
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+/* ---------- Clinical Nutrition & Micronutrient Deficiency Matrix ---------- */
+const NUTRI_MICROS = [
+  {
+    id: 'vit_d',
+    name: 'Vitamin D3 + K2 (MK-7)',
+    icon: '☀️',
+    target: 'Serum 40–60 ng/mL (100–150 nmol/L)',
+    desc: 'Steroid hormone precursor regulating 1,000+ genes, innate immune function, and bone density. Pair with K2 for arterial calcium clearance.',
+    sources: 'Sunlight (10–20 min solar noon), Wild sockeye salmon, Sardines, D3 2,000–4,000 IU/day with healthy dietary fat.'
+  },
+  {
+    id: 'omega3',
+    name: 'Omega-3 Index (EPA + DHA)',
+    icon: '🐟',
+    target: 'Erythrocyte Membrane Index ≥ 8.0%',
+    desc: 'Anti-inflammatory eicosanoids, cell membrane fluidity, and cardiovascular risk reduction (-35% sudden cardiac death in Framingham cohort).',
+    sources: 'Wild fatty cold-water fish (SMASH: Salmon, Mackerel, Anchovies, Sardines, Herring) 2–3x/wk or 1,000–2,000mg combined EPA/DHA.'
+  },
+  {
+    id: 'magnesium',
+    name: 'Elemental Magnesium (Chelated)',
+    icon: '⚡',
+    target: '300–420 mg / day elemental',
+    desc: 'Cofactor in 300+ enzymatic reactions, cellular ATP synthesis, NMDA receptor antagonism, and slow-wave restorative sleep architecture.',
+    sources: 'Pumpkin seeds, Spinach, Black beans, Almonds, Dark chocolate (85%+), or Magnesium Glycinate / Malate / L-Threonate.'
+  },
+  {
+    id: 'creatine',
+    name: 'Creatine Monohydrate',
+    icon: '🧠',
+    target: '5 g / day continuous saturation',
+    desc: 'Replenishes cellular phosphocreatine in fast-twitch muscle fibers and cerebral prefrontal cortex; improves working memory and high-intensity power.',
+    sources: 'Red meat, Wild herring, or pure Creatine Monohydrate powder (no loading phase needed, take daily with water/meal).'
+  },
+  {
+    id: 'ferritin_b12',
+    name: 'Ferritin & Active Vitamin B12',
+    icon: '🩸',
+    target: 'Ferritin 50–100 ng/mL | B12 > 500 pg/mL',
+    desc: 'Hemoglobin oxygen transport capacity and myelin sheath integrity. Subclinical deficiency causes fatigue, brain fog, and exercise intolerance.',
+    sources: 'Grass-fed beef, Pasture-raised eggs, Nutritional yeast, Clams, or Methylcobalamin / Iron bisglycinate if serum-deficient.'
+  },
+  {
+    id: 'fiber_scfa',
+    name: 'Prebiotic Fermentable Fiber',
+    icon: '🥬',
+    target: '35–45 g / day (30+ plant species/wk)',
+    desc: 'Microbiome fermentation produces Short-Chain Fatty Acids (Butyrate, Acetate, Propionate), nourishing colonocyte tight junctions and blunting glucose spikes.',
+    sources: 'Oats (beta-glucan), Chia & flax seeds, Legumes, Inulin (onions, garlic, leeks), Cooked and cooled potatoes (resistant starch).'
+  }
+];
+
+const NUTRI_UI = {
+  mask: document.getElementById('nutri-mask'),
+  openBtn: document.getElementById('nutri-open'),
+  openSideBtn: document.getElementById('nutri-open-side'),
+  closeBtn: document.getElementById('nutri-x'),
+  doneBtn: document.getElementById('nutri-close-btn'),
+  inWeight: document.getElementById('nutri-in-weight'),
+  inActivity: document.getElementById('nutri-in-activity'),
+  inDiet: document.getElementById('nutri-in-diet'),
+  inGoal: document.getElementById('nutri-in-goal'),
+  kpiProtein: document.getElementById('nutri-kpi-protein'),
+  kpiBolus: document.getElementById('nutri-kpi-bolus'),
+  kpiFiber: document.getElementById('nutri-kpi-fiber'),
+  kpiCalories: document.getElementById('nutri-kpi-calories'),
+  microsContainer: document.getElementById('nutri-micronutrients-cards'),
+  foodDesc: document.getElementById('nutri-food-desc'),
+  exportBtn: document.getElementById('nutri-export'),
+  shareX: document.getElementById('nutri-share-x'),
+  shareWa: document.getElementById('nutri-share-wa'),
+  shareLi: document.getElementById('nutri-share-li'),
+  msg: document.getElementById('nutri-copy-msg')
+};
+
+let nutriSettings = {
+  weight: 75,
+  activity: 1.4,
+  diet: 'omnivore',
+  goal: 'longevity'
+};
+
+try {
+  const savedNutri = localStorage.getItem('eb_nutri_settings');
+  if (savedNutri) nutriSettings = Object.assign(nutriSettings, JSON.parse(savedNutri));
+} catch (e) {}
+
+function saveNutriSettings() {
+  try {
+    localStorage.setItem('eb_nutri_settings', JSON.stringify(nutriSettings));
+  } catch (e) {}
+}
+
+function calculateNutrition() {
+  const weight = Math.max(35, Math.min(180, parseFloat(nutriSettings.weight) || 75));
+  const activity = parseFloat(nutriSettings.activity) || 1.4;
+  const diet = nutriSettings.diet || 'omnivore';
+  const goal = nutriSettings.goal || 'longevity';
+
+  // Morton MPS Protein Target
+  let proteinFactor = 1.6;
+  if (goal === 'fatloss') proteinFactor = 2.0; // Sparing lean tissue in deficit
+  else if (goal === 'surplus') proteinFactor = 1.8;
+
+  if (diet === 'plant') proteinFactor *= 1.1; // Compensate for plant amino acid bioavailability
+
+  const dailyProtein = Math.round(weight * proteinFactor);
+  const perMealLow = Math.round(dailyProtein / 4);
+  const perMealHigh = Math.round(dailyProtein / 3);
+
+  // Fiber target
+  const targetFiber = Math.min(48, Math.max(35, Math.round(weight * 0.5)));
+
+  // Calorie approximation
+  const bmr = Math.round(22.5 * weight);
+  let tdee = Math.round(bmr * activity);
+  if (goal === 'fatloss') tdee -= 400;
+  else if (goal === 'surplus') tdee += 300;
+
+  if (NUTRI_UI.kpiProtein) NUTRI_UI.kpiProtein.textContent = `${dailyProtein} g/day`;
+  if (NUTRI_UI.kpiBolus) NUTRI_UI.kpiBolus.textContent = `${perMealLow}–${perMealHigh} g / meal`;
+  if (NUTRI_UI.kpiFiber) NUTRI_UI.kpiFiber.textContent = `${targetFiber} g/day`;
+  if (NUTRI_UI.kpiCalories) NUTRI_UI.kpiCalories.textContent = `~${tdee.toLocaleString()} kcal`;
+
+  // Render micronutrient cards
+  if (NUTRI_UI.microsContainer) {
+    NUTRI_UI.microsContainer.innerHTML = NUTRI_MICROS.map(m => `
+      <div class="nutri-card">
+        <div class="nutri-head">
+          <span class="nutri-title">${m.icon} ${m.name}</span>
+          <span class="nutri-target">${m.target}</span>
+        </div>
+        <div class="nutri-desc">${m.desc}</div>
+        <div class="nutri-sources"><strong>Optimal Whole Food Sources:</strong> ${m.sources}</div>
+      </div>
+    `).join('');
+  }
+
+  // Dietary staples recommendation
+  if (NUTRI_UI.foodDesc) {
+    let foodTxt = '';
+    if (diet === 'omnivore') {
+      foodTxt = `<strong>Unprocessed Whole-Food Foundation:</strong> Wild sockeye salmon, sardines, pasture-raised eggs (choline & lutein), plain Greek yogurt, chicken breast, grass-fed beef (iron/creatine), lentils, black beans, pumpkin seeds, rolled oats, extra virgin olive oil, and 30+ diverse seasonal vegetables/berries per week. Avoid hyper-palatable industrial ultra-processed foods (NOVA Group 4).`;
+    } else if (diet === 'pescatarian') {
+      foodTxt = `<strong>Seafood & Plant-Rich Foundation:</strong> Wild fatty fish (SMASH: Salmon, Mackerel, Anchovies, Sardines, Herring), shellfish (zinc & B12), pasture-raised eggs, organic tempeh, edamame, lentils, quinoa, walnuts, hemp hearts, chia seeds, and leafy cruciferous vegetables. High Omega-3 Index naturally achieved.`;
+    } else {
+      foodTxt = `<strong>Plant-Based & Vegan Optimizer:</strong> Organic tempeh, firm tofu, edamame, seitan, lentils, chickpeas, nutritional yeast (fortified B12), hemp hearts, pumpkin seeds, and diverse fermented vegetables. <em>Essential Biomarker Note:</em> Enforce daily supplementation of Vitamin B12 (methylcobalamin), Vitamin D3 (vegan lichen source), Algae-derived EPA/DHA (1,000mg), and pure Creatine Monohydrate (5g/day) to match omnivore neuro-energetic reserves (Ch 6.2 & 28.3).`;
+    }
+    NUTRI_UI.foodDesc.innerHTML = foodTxt;
+  }
+}
+
+function openNutriModal() {
+  if (!NUTRI_UI.mask) return;
+  NUTRI_UI.mask.hidden = false;
+  document.body.style.overflow = 'hidden';
+
+  if (NUTRI_UI.inWeight) NUTRI_UI.inWeight.value = nutriSettings.weight;
+  if (NUTRI_UI.inActivity) NUTRI_UI.inActivity.value = nutriSettings.activity;
+  if (NUTRI_UI.inDiet) NUTRI_UI.inDiet.value = nutriSettings.diet;
+  if (NUTRI_UI.inGoal) NUTRI_UI.inGoal.value = nutriSettings.goal;
+
+  calculateNutrition();
+}
+
+function closeNutriModal() {
+  if (!NUTRI_UI.mask) return;
+  NUTRI_UI.mask.hidden = true;
+  document.body.style.overflow = '';
+}
+
+NUTRI_UI.openBtn?.addEventListener('click', openNutriModal);
+NUTRI_UI.openSideBtn?.addEventListener('click', openNutriModal);
+NUTRI_UI.closeBtn?.addEventListener('click', closeNutriModal);
+NUTRI_UI.doneBtn?.addEventListener('click', closeNutriModal);
+
+NUTRI_UI.mask?.addEventListener('click', (e) => {
+  if (e.target === NUTRI_UI.mask) closeNutriModal();
+});
+
+document.addEventListener('keydown', ev => {
+  if (ev.key === 'Escape' && NUTRI_UI.mask && !NUTRI_UI.mask.hidden) {
+    ev.stopPropagation();
+    closeNutriModal();
+  }
+}, true);
+
+const onNutriInputChange = () => {
+  if (NUTRI_UI.inWeight) nutriSettings.weight = parseFloat(NUTRI_UI.inWeight.value) || 75;
+  if (NUTRI_UI.inActivity) nutriSettings.activity = parseFloat(NUTRI_UI.inActivity.value) || 1.4;
+  if (NUTRI_UI.inDiet) nutriSettings.diet = NUTRI_UI.inDiet.value || 'omnivore';
+  if (NUTRI_UI.inGoal) nutriSettings.goal = NUTRI_UI.inGoal.value || 'longevity';
+
+  saveNutriSettings();
+  calculateNutrition();
+};
+
+NUTRI_UI.inWeight?.addEventListener('input', onNutriInputChange);
+NUTRI_UI.inActivity?.addEventListener('change', onNutriInputChange);
+NUTRI_UI.inDiet?.addEventListener('change', onNutriInputChange);
+NUTRI_UI.inGoal?.addEventListener('change', onNutriInputChange);
+
+NUTRI_UI.exportBtn?.addEventListener('click', async () => {
+  let md = `# Clinical Nutrition & Micronutrient Protocol\n`;
+  md += `*Morton MPS Protein Breakpoint & Evidence-Based Biomarker Anchors*\n\n`;
+  md += `**Body Weight**: ${nutriSettings.weight} kg | **Dietary Pattern**: ${nutriSettings.diet.toUpperCase()}\n`;
+  md += `**Daily Target Protein**: ${NUTRI_UI.kpiProtein?.textContent || '135 g/day'}\n`;
+  md += `**Per-Meal Leucine Trigger**: ${NUTRI_UI.kpiBolus?.textContent || '34-45 g / meal'}\n`;
+  md += `**Prebiotic Fiber Anchor**: ${NUTRI_UI.kpiFiber?.textContent || '38 g/day'}\n`;
+  md += `**Estimated Daily Energy Target**: ${NUTRI_UI.kpiCalories?.textContent || '~2,350 kcal'}\n\n`;
+
+  md += `## 1. Subclinical Micronutrient Deficit Anchors\n`;
+  NUTRI_MICROS.forEach(m => {
+    md += `- **${m.name}** (${m.icon}): Target ${m.target}\n`;
+    md += `  - Sources: ${m.sources}\n`;
+  });
+
+  md += `\n## 2. Whole Food Staples (NOVA Group 1-3)\n`;
+  md += `${(NUTRI_UI.foodDesc?.textContent || '').trim()}\n\n`;
+
+  md += `---\n*Generated by The Evidence-Based Life Nutrition Engine: https://parveen0029.github.io/The-Evidence-Based-Life/*\n`;
+
+  try {
+    await navigator.clipboard.writeText(md);
+    if (NUTRI_UI.msg) {
+      NUTRI_UI.msg.textContent = '✓ Nutrition protocol copied to clipboard!';
+      NUTRI_UI.msg.hidden = false;
+      setTimeout(() => { NUTRI_UI.msg.hidden = true; }, 3500);
+    }
+  } catch (err) {
+    prompt('Copy your Nutrition Protocol below:', md);
+  }
+});
+
+NUTRI_UI.shareX?.addEventListener('click', () => {
+  const text = `Optimize daily protein for Muscle Protein Synthesis (Morton meta-analysis) and screen 6 critical micronutrient deficits:`;
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+NUTRI_UI.shareWa?.addEventListener('click', () => {
+  const text = `*Clinical Nutrition & Micronutrient Deficiency Matrix*\nCalculate your evidence-based protein targets (Morton 1.6-2.2g/kg MPS threshold) and prebiotic fiber anchors:\n\nhttps://parveen0029.github.io/The-Evidence-Based-Life/`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+});
+
+NUTRI_UI.shareLi?.addEventListener('click', () => {
   const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
 });
