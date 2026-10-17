@@ -1187,6 +1187,42 @@ html.dark .focus-toggle-chip.active{color:#1b1b1f}
   #glucose-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Chronic Inflammation & hs-CRP Lifestyle Matrix Modal */
+#inflam-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#inflam-mask[hidden]{display:none}
+#inflam-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(940px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+
+.inflam-params-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;gap:10px;background:var(--bg-alt);border:1px solid var(--divider);border-radius:12px;padding:12px 14px;margin-bottom:14px}
+@media (max-width:860px){.inflam-params-grid{grid-template-columns:1fr 1fr 1fr}}
+@media (max-width:540px){.inflam-params-grid{grid-template-columns:1fr 1fr}}
+
+.inflam-param-cell{display:flex;flex-direction:column;gap:4px}
+.inflam-param-label{font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px}
+.inflam-param-input{padding:7px 10px;border-radius:6px;border:1px solid var(--divider);background:var(--bg-elv);color:var(--t1);font-size:13px}
+
+.inflam-kpi-banner{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;background:var(--bg-elv);border:1px solid var(--divider);border-radius:12px;padding:12px 16px;margin-bottom:14px}
+@media (max-width:760px){.inflam-kpi-banner{grid-template-columns:1fr 1fr}}
+.inflam-kpi-item{display:flex;flex-direction:column;gap:2px}
+.inflam-kpi-val{font-size:20px;font-weight:900;color:var(--green-1)}
+.inflam-kpi-lbl{font-size:11px;color:var(--t3)}
+
+.inflam-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-bottom:14px}
+.inflam-card{background:var(--bg-alt);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.inflam-head{display:flex;align-items:center;justify-content:space-between}
+.inflam-title{font-size:13px;font-weight:700;color:var(--t1);display:flex;align-items:center;gap:6px}
+.inflam-badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:12px;background:rgba(239,68,68,.15);color:var(--red-1,#ef4444)}
+.inflam-desc{font-size:12px;color:var(--t2);line-height:1.45}
+.inflam-action{font-size:11.5px;color:var(--t3);line-height:1.4}
+
+.inflam-summary-box{background:var(--bg-elv);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;margin-bottom:14px}
+.inflam-summary-title{font-size:12px;font-weight:700;color:var(--t1);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.inflam-summary-text{font-size:12px;color:var(--t2);line-height:1.5}
+
+@media (max-width:820px){
+  #inflam-mask{padding:0}
+  #inflam-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
 /* Floating Audio Dock */
 #audio-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:70;background:var(--bg-elv);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);padding:10px 18px;display:flex;align-items:center;gap:14px;max-width:min(700px,calc(100vw - 32px));width:100%;backdrop-filter:blur(10px);transition:all .25s ease}
 #audio-dock[hidden]{display:none}
@@ -1273,7 +1309,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#light-mask,#light-open,#light-open-side,#sleep-mask,#sleep-open,#sleep-open-side,#glucose-mask,#glucose-open,#glucose-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#light-mask,#light-open,#light-open-side,#sleep-mask,#sleep-open,#sleep-open-side,#glucose-mask,#glucose-open,#glucose-open-side,#inflam-mask,#inflam-open,#inflam-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -1374,6 +1410,7 @@ html.dark .hc-action{color:#1b1b1f!important}
       <button class="icon-btn" id="light-open" title="Circadian Light & Melatonin Phase Shift Optimizer" aria-label="Circadian Light Optimizer"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></button>
       <button class="icon-btn" id="sleep-open" title="Sleep Architecture & Polysomnography Optimizer" aria-label="Sleep Architecture Optimizer"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></svg></button>
       <button class="icon-btn" id="glucose-open" title="Metabolic Health & Postprandial Glucose Matrix" aria-label="Glucose Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></button>
+      <button class="icon-btn" id="inflam-open" title="Chronic Inflammation & hs-CRP Lifestyle Matrix" aria-label="Inflammation Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></button>
       <a class="icon-btn" href="selfcheck.html" title="Take 2-Minute Life Health & Risk Audit" aria-label="Self-Audit Quiz"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></a>
       <a class="icon-btn" href="README.md" title="View README.md" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn" href="https://github.com/parveen0029/The-Evidence-Based-Life" target="_blank" rel="noopener" title="View repository on GitHub" aria-label="GitHub Repository"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
@@ -1436,6 +1473,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     <button class="btn-sm ghost" id="light-open-side" type="button" style="margin-top:6px;font-size:12px">☀️ Circadian Light &amp; Melatonin Optimizer</button>
     <button class="btn-sm ghost" id="sleep-open-side" type="button" style="margin-top:6px;font-size:12px">🛏️ Sleep Architecture &amp; Polysomnography</button>
     <button class="btn-sm ghost" id="glucose-open-side" type="button" style="margin-top:6px;font-size:12px">🩸 Metabolic Health &amp; Glucose Matrix</button>
+    <button class="btn-sm ghost" id="inflam-open-side" type="button" style="margin-top:6px;font-size:12px">🛡️ Chronic Inflammation &amp; hs-CRP Matrix</button>
   </div>
   <div class="group" id="g-upd" hidden>
     <div class="gt">Recent Updates <small>Content revisions</small></div>
@@ -2940,6 +2978,109 @@ html.dark .hc-action{color:#1b1b1f!important}
         <button class="btn-sm ghost" id="glucose-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
         <button class="btn-sm ghost" id="glucose-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
         <p id="glucose-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="inflam-mask" hidden>
+  <div id="inflam-box" role="dialog" aria-modal="true" aria-labelledby="inflam-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="inflam-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg> <span>Chronic Inflammation &amp; hs-CRP Lifestyle Matrix</span></div>
+      <button type="button" id="inflam-x" aria-label="Close inflammation matrix">✕</button>
+    </div>
+    <div class="stats-scroll">
+      <div class="stats-lead">
+        Evidence-based systemic inflammation diagnostics and resolvin cascade engine based on <strong>Chapter 5 (Nutrition)</strong>, <strong>Chapter 6 (Exercise &amp; Longevity)</strong>, <strong>Chapter 28 (Biomarkers &amp; Health)</strong>, and <strong>Chapter 1 (Sleep)</strong>. Calculate your projected high-sensitivity C-reactive Protein (hs-CRP) tier, model your Omega-6:3 resolvin ratio, and eliminate silent cytokine leaks.
+      </div>
+
+      <div class="inflam-params-grid">
+        <div class="inflam-param-cell">
+          <label class="inflam-param-label" for="inflam-exercise-input">Weekly Exercise Volume</label>
+          <select id="inflam-exercise-input" class="inflam-param-input">
+            <option value="sedentary">Sedentary (&lt;60 min/wk)</option>
+            <option value="moderate" selected>Moderate (150–250 min/wk + 2x Lifting)</option>
+            <option value="high">Optimal (300+ min/wk Zone 2 + Heavy Lifts)</option>
+            <option value="overtrained">Excessive / Overtrained (No Recovery)</option>
+          </select>
+        </div>
+        <div class="inflam-param-cell">
+          <label class="inflam-param-label" for="inflam-upf-input">Ultra-Processed Food %</label>
+          <select id="inflam-upf-input" class="inflam-param-input">
+            <option value="low">&lt;10% Calories (Whole Food Clean)</option>
+            <option value="moderate" selected>20%–40% Calories (Standard)</option>
+            <option value="high">&gt;50% Calories (Refined / Seed Oils)</option>
+          </select>
+        </div>
+        <div class="inflam-param-cell">
+          <label class="inflam-param-label" for="inflam-omega-input">Weekly Fatty Fish / EPA</label>
+          <select id="inflam-omega-input" class="inflam-param-input">
+            <option value="none">0 Servings (Omega-3 Deficient)</option>
+            <option value="low" selected>1 Serving / Low Dose (&lt;500mg EPA)</option>
+            <option value="optimal">2–3 Servings (Wild Salmon / &gt;2g EPA)</option>
+          </select>
+        </div>
+        <div class="inflam-param-cell">
+          <label class="inflam-param-label" for="inflam-floss-input">Dental Flossing Cadence</label>
+          <select id="inflam-floss-input" class="inflam-param-input">
+            <option value="daily" selected>Daily Interdental Clean / Floss</option>
+            <option value="rare">Occasional / Rarely</option>
+            <option value="bleeding">Bleeding Gums / Active Gingivitis</option>
+          </select>
+        </div>
+        <div class="inflam-param-cell">
+          <label class="inflam-param-label" for="inflam-whtr-input">Waist-to-Height Ratio</label>
+          <select id="inflam-whtr-input" class="inflam-param-input">
+            <option value="lean" selected>Lean (&lt;0.48 / Minimal Visceral Fat)</option>
+            <option value="borderline">Borderline (0.49–0.54)</option>
+            <option value="elevated">Elevated (&gt;0.55 / Central Adiposity)</option>
+          </select>
+        </div>
+        <div class="inflam-param-cell">
+          <label class="inflam-param-label" for="inflam-sleep-input">Average Nightly Sleep</label>
+          <select id="inflam-sleep-input" class="inflam-param-input">
+            <option value="7_9" selected>7.5–8.5 Hours Restorative</option>
+            <option value="6_7">6.0–7.0 Hours (Slightly Short)</option>
+            <option value="under6">&lt;6.0 Hours (Chronic Deprivation)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="inflam-kpi-banner">
+        <div class="inflam-kpi-item">
+          <span class="inflam-kpi-val" id="inflam-kpi-crp" style="color:var(--green-1)">&lt;0.5 mg/L</span>
+          <span class="inflam-kpi-lbl">Est. hs-CRP Inflammatory Tier</span>
+        </div>
+        <div class="inflam-kpi-item">
+          <span class="inflam-kpi-val" id="inflam-kpi-ratio" style="color:var(--yellow-1,#eab308)">~8:1</span>
+          <span class="inflam-kpi-lbl">Omega-6 to Omega-3 Balance</span>
+        </div>
+        <div class="inflam-kpi-item">
+          <span class="inflam-kpi-val" id="inflam-kpi-myokine" style="color:var(--green-1)">Optimal</span>
+          <span class="inflam-kpi-lbl">Myokine IL-6 Anti-TNF Cascade</span>
+        </div>
+        <div class="inflam-kpi-item">
+          <span class="inflam-kpi-val" id="inflam-kpi-risk" style="color:var(--green-1)">Low Risk</span>
+          <span class="inflam-kpi-lbl">Vascular Plaque Hazard Tier</span>
+        </div>
+      </div>
+
+      <div class="inflam-grid" id="inflam-cards-grid">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="inflam-summary-box">
+        <div class="inflam-summary-title"><span>🛡️ Clinical Anti-Inflammatory &amp; Resolvin Protocol</span></div>
+        <div class="inflam-summary-text" id="inflam-routine-desc">Calculating inflammation protocol...</div>
+      </div>
+
+      <div class="calc-footer">
+        <button class="btn-sm" id="inflam-export" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy Clinical Anti-Inflammatory Protocol</button>
+        <button class="btn-sm ghost" id="inflam-share-x" type="button" style="width:auto;padding:8px 14px">𝕏 Share</button>
+        <button class="btn-sm ghost" id="inflam-share-wa" type="button" style="width:auto;padding:8px 14px">WhatsApp</button>
+        <button class="btn-sm ghost" id="inflam-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
+        <button class="btn-sm ghost" id="inflam-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
+        <p id="inflam-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
       </div>
     </div>
   </div>
@@ -10814,6 +10955,375 @@ GLUCOSE_UI.shareWa?.addEventListener('click', () => {
 });
 
 GLUCOSE_UI.shareLi?.addEventListener('click', () => {
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+/* ---------- Chronic Inflammation & hs-CRP Lifestyle Matrix Modal ---------- */
+const INFLAM_CARDS_DATA = [
+  {
+    id: 'crp',
+    title: 'hs-CRP Vascular Stratification',
+    icon: '🩸',
+    badge: '<0.5 mg/L Optimal',
+    color: 'rgba(16,185,129,.15)',
+    textColor: 'var(--green-1)',
+    desc: 'Synthesized by hepatocytes stimulated by IL-6, hs-CRP directly reflects systemic arterial and endothelial micro-inflammation. The landmark JUPITER trial demonstrated that individuals with hs-CRP <0.5–1.0 mg/L experienced drastically lower cardiovascular and all-cause mortality events even with average cholesterol.',
+    action: 'Aim for hs-CRP <0.5 mg/L in absence of acute viral or physical trauma. Re-test if acute infection elevates levels above 10.0 mg/L.'
+  },
+  {
+    id: 'omega',
+    title: 'Omega-6:3 Resolvin Cascade',
+    icon: '🐟',
+    badge: '<4:1 Resolvin Surge',
+    color: 'rgba(59,130,246,.15)',
+    textColor: 'var(--brand-1)',
+    desc: 'While Arachidonic Acid (AA, Omega-6) generates pro-inflammatory 2-series prostaglandins and 4-series leukotrienes, EPA and DHA (Omega-3) synthesize Specialized Pro-Resolving Mediators (SPMs: Resolvins E/D, Protectins, and Maresins) that actively switch off leukocyte extravasation and clear cellular debris.',
+    action: 'Consume 2–3 weekly servings of low-mercury wild fatty fish (sardines, wild salmon, mackerel) or 2,000–3,000 mg molecularly distilled EPA+DHA daily to keep AA/EPA ratio <3.0.'
+  },
+  {
+    id: 'dental',
+    title: 'Periodontal Endothelial Leak',
+    icon: '🦷',
+    badge: 'Silent Bacteremia Leak',
+    color: 'rgba(239,68,68,.15)',
+    textColor: 'var(--red-1,#ef4444)',
+    desc: 'Periodontal pathogens (notably Porphyromonas gingivalis) degrade junctional epithelial barriers, continuously seeding oral bacteria and endotoxins (LPS) into systemic circulation. This triggers chronic TLR4 activation, elevated circulating IL-6/TNF-α, and accelerated carotid atherosclerotic intima-media thickening.',
+    action: 'Execute daily mechanical interdental cleaning (flossing or interdental brushes) and biannual professional ultrasonic scaling. Bleeding gums signify open endothelial micro-wounds.'
+  },
+  {
+    id: 'vat',
+    title: 'Visceral Adipose Tissue (VAT)',
+    icon: '📏',
+    badge: 'WHtR <0.50 Target',
+    color: 'rgba(245,158,11,.15)',
+    textColor: 'var(--yellow-1,#eab308)',
+    desc: 'Unlike subcutaneous fat, visceral adipose tissue surrounding abdominal organs acts as an active endocrine pathogen. Hypertrophied visceral adipocytes undergo hypoxia and necrotic apoptosis, recruiting crown-like CD68+ M1 macrophages that pump continuous TNF-α, IL-6, and MCP-1 into the portal vein.',
+    action: 'Maintain a Waist-to-Height Ratio (WHtR) below 0.50 (waist circumference at navel less half height) through caloric moderation and progressive resistance training.'
+  },
+  {
+    id: 'myokine',
+    title: 'Myokine Anti-TNF-α Engine',
+    icon: '💪',
+    badge: 'Muscular IL-6 Cascade',
+    color: 'rgba(16,185,129,.15)',
+    textColor: 'var(--green-1)',
+    desc: 'Contraction of skeletal muscle during sustained aerobic or resistance exercise releases massive physiological spikes of muscle-derived IL-6. Unlike pathological macrophage IL-6, muscular IL-6 induces a potent systemic anti-inflammatory surge: stimulating anti-inflammatory cytokines IL-10 and IL-1ra while directly suppressing systemic TNF-α.',
+    action: 'Accumulate 150–300 minutes of weekly Zone 2 aerobic base conditioning combined with 2–3 full-body progressive resistance lifting sessions.'
+  },
+  {
+    id: 'sleep_inflam',
+    title: 'Circadian Sleep & NF-κB Priming',
+    icon: '🌙',
+    badge: 'NF-κB Suppression',
+    color: 'rgba(139,92,246,.15)',
+    textColor: '#8b5cf6',
+    desc: 'Partial sleep deprivation (<6 hours/night) activates leukocyte inflammatory transcription factor NF-κB within 24 hours. Circulating monocytes double their basal production of TNF-α and IL-6, sustaining low-grade arterial wall endothelitis and impairing insulin-mediated tissue clearance.',
+    action: 'Maintain an uncompromised 7.5–8.5 hour sleep opportunity in a cool (<19°C), dark, quiet room with consistent circadian timing.'
+  }
+];
+
+const INFLAM_UI = {
+  openBtn: document.getElementById('inflam-open'),
+  openSideBtn: document.getElementById('inflam-open-side'),
+  mask: document.getElementById('inflam-mask'),
+  xBtn: document.getElementById('inflam-x'),
+  closeBtn: document.getElementById('inflam-close-btn'),
+  exerciseInput: document.getElementById('inflam-exercise-input'),
+  upfInput: document.getElementById('inflam-upf-input'),
+  omegaInput: document.getElementById('inflam-omega-input'),
+  flossInput: document.getElementById('inflam-floss-input'),
+  whtrInput: document.getElementById('inflam-whtr-input'),
+  sleepInput: document.getElementById('inflam-sleep-input'),
+  kpiCrp: document.getElementById('inflam-kpi-crp'),
+  kpiRatio: document.getElementById('inflam-kpi-ratio'),
+  kpiMyokine: document.getElementById('inflam-kpi-myokine'),
+  kpiRisk: document.getElementById('inflam-kpi-risk'),
+  cardsGrid: document.getElementById('inflam-cards-grid'),
+  routineDesc: document.getElementById('inflam-routine-desc'),
+  exportBtn: document.getElementById('inflam-export'),
+  shareX: document.getElementById('inflam-share-x'),
+  shareWa: document.getElementById('inflam-share-wa'),
+  shareLi: document.getElementById('inflam-share-li'),
+  msg: document.getElementById('inflam-copy-msg')
+};
+
+let inflamSettings = {
+  exercise: 'moderate',
+  upf: 'moderate',
+  omega: 'low',
+  floss: 'daily',
+  whtr: 'lean',
+  sleep: '7_9'
+};
+
+try {
+  const savedInflam = localStorage.getItem('eb_inflam_settings');
+  if (savedInflam) {
+    inflamSettings = Object.assign(inflamSettings, JSON.parse(savedInflam));
+  }
+} catch (e) {}
+
+function renderInflamCards() {
+  if (!INFLAM_UI.cardsGrid) return;
+  INFLAM_UI.cardsGrid.innerHTML = INFLAM_CARDS_DATA.map(c => `
+    <div class="inflam-card">
+      <div class="inflam-head">
+        <span class="inflam-title"><span>${c.icon}</span> ${c.title}</span>
+        <span class="inflam-badge" style="background:${c.color};color:${c.textColor}">${c.badge}</span>
+      </div>
+      <div class="inflam-desc">${c.desc}</div>
+      <div class="inflam-action"><strong>Action:</strong> ${c.action}</div>
+    </div>
+  `).join('');
+}
+
+function calculateInflamMetrics() {
+  const exerciseVal = INFLAM_UI.exerciseInput?.value || inflamSettings.exercise;
+  const upfVal = INFLAM_UI.upfInput?.value || inflamSettings.upf;
+  const omegaVal = INFLAM_UI.omegaInput?.value || inflamSettings.omega;
+  const flossVal = INFLAM_UI.flossInput?.value || inflamSettings.floss;
+  const whtrVal = INFLAM_UI.whtrInput?.value || inflamSettings.whtr;
+  const sleepVal = INFLAM_UI.sleepInput?.value || inflamSettings.sleep;
+
+  inflamSettings.exercise = exerciseVal;
+  inflamSettings.upf = upfVal;
+  inflamSettings.omega = omegaVal;
+  inflamSettings.floss = flossVal;
+  inflamSettings.whtr = whtrVal;
+  inflamSettings.sleep = sleepVal;
+
+  try {
+    localStorage.setItem('eb_inflam_settings', JSON.stringify(inflamSettings));
+  } catch (e) {}
+
+  // 1. Calculate Estimated hs-CRP
+  let crpScore = 0.3; // baseline
+  if (exerciseVal === 'sedentary') crpScore += 0.7;
+  else if (exerciseVal === 'overtrained') crpScore += 0.5;
+  else if (exerciseVal === 'high') crpScore -= 0.1;
+
+  if (upfVal === 'moderate') crpScore += 0.4;
+  else if (upfVal === 'high') crpScore += 1.3;
+
+  if (omegaVal === 'none') crpScore += 0.8;
+  else if (omegaVal === 'low') crpScore += 0.2;
+  else if (omegaVal === 'optimal') crpScore -= 0.1;
+
+  if (flossVal === 'rare') crpScore += 0.4;
+  else if (flossVal === 'bleeding') crpScore += 1.2;
+
+  if (whtrVal === 'borderline') crpScore += 0.6;
+  else if (whtrVal === 'elevated') crpScore += 1.5;
+
+  if (sleepVal === '6_7') crpScore += 0.4;
+  else if (sleepVal === 'under6') crpScore += 1.2;
+
+  let crpTierText = '<0.5 mg/L';
+  let crpColor = 'var(--green-1)';
+  if (crpScore >= 3.0) {
+    crpTierText = '>3.0 mg/L';
+    crpColor = 'var(--red-1,#ef4444)';
+  } else if (crpScore >= 1.0) {
+    crpTierText = '1.0–3.0 mg/L';
+    crpColor = 'var(--yellow-1,#eab308)';
+  } else if (crpScore >= 0.5) {
+    crpTierText = '0.5–1.0 mg/L';
+    crpColor = 'var(--green-1)';
+  }
+
+  // 2. Omega-6 to Omega-3 Ratio
+  let ratioText = '~8:1';
+  let ratioColor = 'var(--yellow-1,#eab308)';
+  if (upfVal === 'high' && omegaVal === 'none') {
+    ratioText = '~20:1';
+    ratioColor = 'var(--red-1,#ef4444)';
+  } else if (upfVal === 'high' || omegaVal === 'none') {
+    ratioText = '~15:1';
+    ratioColor = 'var(--red-1,#ef4444)';
+  } else if (upfVal === 'moderate' && omegaVal === 'none') {
+    ratioText = '~14:1';
+    ratioColor = 'var(--yellow-1,#eab308)';
+  } else if (upfVal === 'moderate' && omegaVal === 'low') {
+    ratioText = '~8:1';
+    ratioColor = 'var(--yellow-1,#eab308)';
+  } else if (upfVal === 'low' && omegaVal === 'none') {
+    ratioText = '~8:1';
+    ratioColor = 'var(--yellow-1,#eab308)';
+  } else if (upfVal === 'low' && omegaVal === 'low') {
+    ratioText = '~5:1';
+    ratioColor = 'var(--green-1)';
+  } else if (upfVal === 'moderate' && omegaVal === 'optimal') {
+    ratioText = '~4:1';
+    ratioColor = 'var(--green-1)';
+  } else if (upfVal === 'low' && omegaVal === 'optimal') {
+    ratioText = '<3:1';
+    ratioColor = 'var(--green-1)';
+  }
+
+  // 3. Myokine Anti-TNF Cascade
+  let myokineText = 'Active';
+  let myokineColor = 'var(--green-1)';
+  if (exerciseVal === 'high') {
+    myokineText = 'Optimal';
+    myokineColor = 'var(--green-1)';
+  } else if (exerciseVal === 'moderate') {
+    myokineText = 'Active';
+    myokineColor = 'var(--green-1)';
+  } else if (exerciseVal === 'sedentary') {
+    myokineText = 'Impaired';
+    myokineColor = 'var(--red-1,#ef4444)';
+  } else if (exerciseVal === 'overtrained') {
+    myokineText = 'Exhausted';
+    myokineColor = 'var(--yellow-1,#eab308)';
+  }
+
+  // 4. Vascular Plaque Hazard Tier
+  let riskText = 'Low Risk';
+  let riskColor = 'var(--green-1)';
+  if (crpScore >= 3.0 || flossVal === 'bleeding' || whtrVal === 'elevated') {
+    riskText = 'Elevated Hazard';
+    riskColor = 'var(--red-1,#ef4444)';
+  } else if (crpScore >= 1.0 || flossVal === 'rare' || whtrVal === 'borderline' || sleepVal === 'under6') {
+    riskText = 'Moderate Hazard';
+    riskColor = 'var(--yellow-1,#eab308)';
+  }
+
+  // Update UI KPI
+  if (INFLAM_UI.kpiCrp) {
+    INFLAM_UI.kpiCrp.textContent = crpTierText;
+    INFLAM_UI.kpiCrp.style.color = crpColor;
+  }
+  if (INFLAM_UI.kpiRatio) {
+    INFLAM_UI.kpiRatio.textContent = ratioText;
+    INFLAM_UI.kpiRatio.style.color = ratioColor;
+  }
+  if (INFLAM_UI.kpiMyokine) {
+    INFLAM_UI.kpiMyokine.textContent = myokineText;
+    INFLAM_UI.kpiMyokine.style.color = myokineColor;
+  }
+  if (INFLAM_UI.kpiRisk) {
+    INFLAM_UI.kpiRisk.textContent = riskText;
+    INFLAM_UI.kpiRisk.style.color = riskColor;
+  }
+
+  // Dynamic Clinical Summary
+  if (INFLAM_UI.routineDesc) {
+    INFLAM_UI.routineDesc.innerHTML = `
+      <strong>Systemic hs-CRP Tier:</strong> Projected range <strong>${crpTierText}</strong> (${crpScore < 1.0 ? '<span style="color:var(--green-1);font-weight:700">Low Endothelial Inflammation</span>' : '<span style="color:var(--red-1,#ef4444);font-weight:700">Active Arterial Micro-Inflammation</span>'}). Landmarked by the JUPITER trial, hs-CRP &lt;0.5 mg/L represents the optimal longevity threshold.<br>
+      <strong>Resolvin Synthesis (Omega-6:3 Balance):</strong> Estimated tissue balance <strong>${ratioText}</strong>. ${omegaVal === 'optimal' ? '<span style="color:var(--green-1);font-weight:700">Sufficient EPA/DHA substrate</span> available for resolving cascades.' : 'Increase wild fatty fish or EPA/DHA supplementation to shift away from pro-inflammatory arachidonic acid cascades.'}<br>
+      <strong>Periodontal Vascular Barrier:</strong> ${flossVal === 'daily' ? '<span style="color:var(--green-1);font-weight:700">Intact junctional barrier.</span> Zero persistent bacteremic leakage into carotid circulation.' : '<span style="color:var(--red-1,#ef4444);font-weight:700">Endothelial micro-wound detected.</span> Subgingival bacteremia seeds continuous oral LPS directly into arterial walls. Immediate daily flossing indicated.'}<br>
+      <strong>Visceral Adipose Status:</strong> ${whtrVal === 'lean' ? 'Minimal visceral adipocyte hypertrophy. Normal portal vein adipokine output.' : '<span style="color:var(--yellow-1,#eab308);font-weight:700">Visceral adipose tissue accumulation</span> recruiting inflammatory crown-like CD68+ M1 macrophages.'}<br>
+      <strong>Muscular Myokines &amp; Circadian Priming:</strong> ${exerciseVal === 'high' || exerciseVal === 'moderate' ? 'Active muscular IL-6 release suppressing systemic TNF-α.' : 'Sedentary status lacks muscular myokine anti-inflammatory pulses.'} ${sleepVal === 'under6' ? '<span style="color:var(--red-1,#ef4444);font-weight:700">Severe sleep deprivation activating NF-κB monocyte surge.</span>' : 'Restorative sleep schedule prevents nocturnal monocyte cytokine priming.'}
+    `;
+  }
+}
+
+function initInflamUI() {
+  if (!INFLAM_UI.mask) return;
+
+  renderInflamCards();
+
+  if (INFLAM_UI.exerciseInput) INFLAM_UI.exerciseInput.value = inflamSettings.exercise;
+  if (INFLAM_UI.upfInput) INFLAM_UI.upfInput.value = inflamSettings.upf;
+  if (INFLAM_UI.omegaInput) INFLAM_UI.omegaInput.value = inflamSettings.omega;
+  if (INFLAM_UI.flossInput) INFLAM_UI.flossInput.value = inflamSettings.floss;
+  if (INFLAM_UI.whtrInput) INFLAM_UI.whtrInput.value = inflamSettings.whtr;
+  if (INFLAM_UI.sleepInput) INFLAM_UI.sleepInput.value = inflamSettings.sleep;
+
+  calculateInflamMetrics();
+}
+
+initInflamUI();
+
+function openInflamModal() {
+  if (!INFLAM_UI.mask) return;
+  INFLAM_UI.mask.hidden = false;
+  document.body.style.overflow = 'hidden';
+  INFLAM_UI.exerciseInput?.focus();
+}
+
+function closeInflamModal() {
+  if (!INFLAM_UI.mask) return;
+  INFLAM_UI.mask.hidden = true;
+  document.body.style.overflow = '';
+}
+
+INFLAM_UI.openBtn?.addEventListener('click', openInflamModal);
+INFLAM_UI.openSideBtn?.addEventListener('click', openInflamModal);
+INFLAM_UI.xBtn?.addEventListener('click', closeInflamModal);
+INFLAM_UI.closeBtn?.addEventListener('click', closeInflamModal);
+
+INFLAM_UI.mask?.addEventListener('click', (e) => {
+  if (e.target === INFLAM_UI.mask) closeInflamModal();
+});
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && INFLAM_UI.mask && !INFLAM_UI.mask.hidden) {
+    closeInflamModal();
+  }
+});
+
+const inflamInputElements = [
+  INFLAM_UI.exerciseInput,
+  INFLAM_UI.upfInput,
+  INFLAM_UI.omegaInput,
+  INFLAM_UI.flossInput,
+  INFLAM_UI.whtrInput,
+  INFLAM_UI.sleepInput
+];
+inflamInputElements.forEach(el => {
+  el?.addEventListener('input', calculateInflamMetrics);
+  el?.addEventListener('change', calculateInflamMetrics);
+});
+
+INFLAM_UI.exportBtn?.addEventListener('click', async () => {
+  let md = `# Chronic Inflammation & hs-CRP Resolvin Lifestyle Protocol\n`;
+  md += `*Evidence-Based Systemic Cytokine Suppression & Endothelial Protection*\n\n`;
+  md += `**Exercise Volume**: ${inflamSettings.exercise.toUpperCase()} | UPF Calorie Share: ${inflamSettings.upf.toUpperCase()}\n`;
+  md += `**Omega-3 / Fish Intake**: ${inflamSettings.omega.toUpperCase()} | Dental Flossing: ${inflamSettings.floss.toUpperCase()}\n`;
+  md += `**Waist-to-Height Ratio**: ${inflamSettings.whtr.toUpperCase()} | Nightly Sleep: ${inflamSettings.sleep.toUpperCase()}\n\n`;
+  md += `**Estimated hs-CRP Tier**: ${INFLAM_UI.kpiCrp?.textContent || '<0.5 mg/L'}\n`;
+  md += `**Omega-6 to Omega-3 Balance**: ${INFLAM_UI.kpiRatio?.textContent || '~8:1'}\n`;
+  md += `**Myokine Anti-TNF Cascade**: ${INFLAM_UI.kpiMyokine?.textContent || 'Optimal'}\n`;
+  md += `**Vascular Plaque Hazard Tier**: ${INFLAM_UI.kpiRisk?.textContent || 'Low Risk'}\n\n`;
+
+  md += `## 1. Core Inflammatory & Resolvin Mechanisms\n`;
+  INFLAM_CARDS_DATA.forEach(c => {
+    md += `- **${c.title}** (${c.icon}) [${c.badge}]\n`;
+    md += `  - Evidence: ${c.desc}\n`;
+    md += `  - Clinical Target: ${c.action}\n`;
+  });
+
+  md += `\n## 2. Actionable Clinical Inflammation Spec\n`;
+  md += `${(INFLAM_UI.routineDesc?.textContent || '').trim()}\n\n`;
+
+  md += `---\n*Generated by The Evidence-Based Life Inflammation Engine: https://parveen0029.github.io/The-Evidence-Based-Life/*\n`;
+
+  try {
+    await navigator.clipboard.writeText(md);
+    if (INFLAM_UI.msg) {
+      INFLAM_UI.msg.textContent = '✓ Anti-Inflammatory protocol copied to clipboard!';
+      INFLAM_UI.msg.hidden = false;
+      setTimeout(() => { INFLAM_UI.msg.hidden = true; }, 3500);
+    }
+  } catch (err) {
+    prompt('Copy your Anti-Inflammatory Protocol below:', md);
+  }
+});
+
+INFLAM_UI.shareX?.addEventListener('click', () => {
+  const text = `Low-grade chronic inflammation (hs-CRP >1.0 mg/L) drives atherosclerotic plaque and accelerated aging. Calculate your systemic inflammation score & resolvin protocol:`;
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+INFLAM_UI.shareWa?.addEventListener('click', () => {
+  const text = `*Chronic Inflammation & hs-CRP Resolvin Matrix*\nAssess your systemic inflammatory tier, Omega-6:3 balance, dental cytokine leak, and myokine anti-TNF protection:\n\nhttps://parveen0029.github.io/The-Evidence-Based-Life/`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+});
+
+INFLAM_UI.shareLi?.addEventListener('click', () => {
   const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
 });
