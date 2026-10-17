@@ -971,6 +971,42 @@ html.dark .focus-toggle-chip.active{color:#1b1b1f}
   #focus-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Evidence-Based Fitness Volume & Strength Progression Modal */
+#fit-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#fit-mask[hidden]{display:none}
+#fit-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(940px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+
+.fit-params-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;background:var(--bg-alt);border:1px solid var(--divider);border-radius:12px;padding:12px 14px;margin-bottom:14px}
+@media (max-width:760px){.fit-params-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.fit-params-grid{grid-template-columns:1fr}}
+
+.fit-param-cell{display:flex;flex-direction:column;gap:4px}
+.fit-param-label{font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px}
+.fit-param-input{padding:7px 10px;border-radius:6px;border:1px solid var(--divider);background:var(--bg-elv);color:var(--t1);font-size:13px}
+
+.fit-kpi-banner{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;background:var(--bg-elv);border:1px solid var(--divider);border-radius:12px;padding:12px 16px;margin-bottom:14px}
+@media (max-width:760px){.fit-kpi-banner{grid-template-columns:1fr 1fr}}
+.fit-kpi-item{display:flex;flex-direction:column;gap:2px}
+.fit-kpi-val{font-size:20px;font-weight:900;color:var(--brand-1)}
+.fit-kpi-lbl{font-size:11px;color:var(--t3)}
+
+.fit-patterns-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin-bottom:14px}
+.fit-pattern-card{background:var(--bg-alt);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.fit-pattern-head{display:flex;align-items:center;justify-content:space-between}
+.fit-pattern-title{font-size:13px;font-weight:700;color:var(--t1);display:flex;align-items:center;gap:6px}
+.fit-pattern-badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:12px;background:var(--brand-soft);color:var(--brand-1)}
+.fit-pattern-body{font-size:12px;color:var(--t2);line-height:1.45}
+.fit-pattern-recs{font-size:11.5px;color:var(--t3)}
+
+.fit-split-box{background:var(--bg-elv);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;margin-bottom:14px}
+.fit-split-title{font-size:12px;font-weight:700;color:var(--t1);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.fit-split-text{font-size:12px;color:var(--t2);line-height:1.5}
+
+@media (max-width:820px){
+  #fit-mask{padding:0}
+  #fit-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
 /* Floating Audio Dock */
 #audio-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:70;background:var(--bg-elv);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);padding:10px 18px;display:flex;align-items:center;gap:14px;max-width:min(700px,calc(100vw - 32px));width:100%;backdrop-filter:blur(10px);transition:all .25s ease}
 #audio-dock[hidden]{display:none}
@@ -1057,7 +1093,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -1152,6 +1188,7 @@ html.dark .hc-action{color:#1b1b1f!important}
       <button class="icon-btn" id="bias-open" title="Cognitive Bias & Decision Hygiene Matrix" aria-label="Decision Hygiene Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 9 9m-9 9a9 9 0 0 1-9-9"/><path d="M12 7v5l3 3"/></svg></button>
       <button class="icon-btn" id="habit-open" title="Micro-Habit Loop Builder & Implementation Intentions" aria-label="Habit Loop Builder"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22v-7m0 0c-3-2-6-1-7 2 0-4 3-7 7-7s7 3 7 7c-1-3-4-4-7-2zM12 10V2"/><circle cx="12" cy="2" r="1"/></svg></button>
       <button class="icon-btn" id="focus-open" title="Ultradian Rhythm & Pomodoro Focus Timer" aria-label="Ultradian Focus Timer"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 6 12 12 16 14"/></svg></button>
+      <button class="icon-btn" id="fit-open" title="Evidence-Based Fitness & Longevity Calculator" aria-label="Fitness Calculator"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 5v14M18 5v14M2 9v6M22 9v6M6 12h12"/></svg></button>
       <a class="icon-btn" href="selfcheck.html" title="Take 2-Minute Life Health & Risk Audit" aria-label="Self-Audit Quiz"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></a>
       <a class="icon-btn" href="README.md" title="View README.md" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn" href="https://github.com/parveen0029/The-Evidence-Based-Life" target="_blank" rel="noopener" title="View repository on GitHub" aria-label="GitHub Repository"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
@@ -1208,6 +1245,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     <button class="btn-sm ghost" id="bias-open-side" type="button" style="margin-top:6px;font-size:12px">🧠 Cognitive Bias & Decision Hygiene</button>
     <button class="btn-sm ghost" id="habit-open-side" type="button" style="margin-top:6px;font-size:12px">🌱 Micro-Habit Loop & Intentions</button>
     <button class="btn-sm ghost" id="focus-open-side" type="button" style="margin-top:6px;font-size:12px">⏱️ Ultradian Focus & Pomodoro Timer</button>
+    <button class="btn-sm ghost" id="fit-open-side" type="button" style="margin-top:6px;font-size:12px">🏋️ Fitness Volume & Longevity Calculator</button>
   </div>
   <div class="group" id="g-upd" hidden>
     <div class="gt">Recent Updates <small>Content revisions</small></div>
@@ -2176,6 +2214,83 @@ html.dark .hc-action{color:#1b1b1f!important}
         <button class="btn-sm ghost" id="focus-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
         <button class="btn-sm ghost" id="focus-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
         <p id="focus-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="fit-mask" hidden>
+  <div id="fit-box" role="dialog" aria-modal="true" aria-labelledby="fit-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="fit-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 5v14M18 5v14M2 9v6M22 9v6M6 12h12"/></svg> <span>Evidence-Based Fitness Volume &amp; Longevity Calculator</span></div>
+      <button type="button" id="fit-x" aria-label="Close fitness calculator">✕</button>
+    </div>
+    <div class="stats-scroll">
+      <div class="stats-lead">Calculate your optimal weekly resistance training volume (Brad Schoenfeld meta-analyses: 10–20 hard sets/muscle/week) and Zone 2 aerobic base cardio (150–300 min/week). Maximize mitochondrial biogenesis and reduce all-cause mortality hazard by up to 80% (Mandsager et al. 2018 Cleveland Clinic cohort; Chapters 2 &amp; 6).</div>
+
+      <div class="fit-params-grid">
+        <div class="fit-param-cell">
+          <label class="fit-param-label" for="fit-in-age">Age (Years)</label>
+          <input class="fit-param-input" id="fit-in-age" type="number" min="15" max="95" value="30">
+        </div>
+        <div class="fit-param-cell">
+          <label class="fit-param-label" for="fit-in-rhr">Resting Heart Rate (bpm)</label>
+          <input class="fit-param-input" id="fit-in-rhr" type="number" min="35" max="110" value="62">
+        </div>
+        <div class="fit-param-cell">
+          <label class="fit-param-label" for="fit-in-days">Training Days / Week</label>
+          <select class="fit-param-input" id="fit-in-days">
+            <option value="2">2 Days (Full Body AB)</option>
+            <option value="3" selected>3 Days (Full Body 3x)</option>
+            <option value="4">4 Days (Upper / Lower)</option>
+            <option value="5">5 Days (Upper / Lower + Cardio)</option>
+            <option value="6">6 Days (Push / Pull / Legs)</option>
+          </select>
+        </div>
+        <div class="fit-param-cell">
+          <label class="fit-param-label" for="fit-in-focus">Primary Objective</label>
+          <select class="fit-param-input" id="fit-in-focus">
+            <option value="longevity" selected>Longevity &amp; Vitality (Balanced 50/50)</option>
+            <option value="hypertrophy">Hypertrophy &amp; Strength (High Volume)</option>
+            <option value="cardio">Mitochondrial Cardio &amp; VO2 Max</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="fit-kpi-banner">
+        <div class="fit-kpi-item">
+          <div class="fit-kpi-val" id="fit-kpi-z2hr">145–155 bpm</div>
+          <div class="fit-kpi-lbl">Target Zone 2 Heart Rate Window</div>
+        </div>
+        <div class="fit-kpi-item">
+          <div class="fit-kpi-val" id="fit-kpi-z2min">180 min/wk</div>
+          <div class="fit-kpi-lbl">Prescribed Aerobic Base Volume</div>
+        </div>
+        <div class="fit-kpi-item">
+          <div class="fit-kpi-val" id="fit-kpi-sets">48 Hard Sets</div>
+          <div class="fit-kpi-lbl">Weekly Total Resistance Sets</div>
+        </div>
+        <div class="fit-kpi-item">
+          <div class="fit-kpi-val" id="fit-kpi-mortality" style="color:var(--green-1)">-68% Risk</div>
+          <div class="fit-kpi-lbl">All-Cause Mortality Hazard Reduction</div>
+        </div>
+      </div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--t1);margin-bottom:8px">Prescribed Movement Patterns (Schoenfeld Dose-Response Inverted-U)</div>
+      <div class="fit-patterns-grid" id="fit-patterns-cards"></div>
+
+      <div class="fit-split-box">
+        <div class="fit-split-title"><span>📅 Recommended Weekly Workout Split Architecture</span></div>
+        <div class="fit-split-text" id="fit-split-desc">Loading split structure...</div>
+      </div>
+
+      <div class="calc-footer">
+        <button class="btn-sm" id="fit-export" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy Exercise Protocol &amp; Spec Sheet</button>
+        <button class="btn-sm ghost" id="fit-share-x" type="button" style="width:auto;padding:8px 14px">𝕏 Share</button>
+        <button class="btn-sm ghost" id="fit-share-wa" type="button" style="width:auto;padding:8px 14px">WhatsApp</button>
+        <button class="btn-sm ghost" id="fit-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
+        <button class="btn-sm ghost" id="fit-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
+        <p id="fit-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
       </div>
     </div>
   </div>
@@ -8249,6 +8364,267 @@ FOCUS_UI.shareWa?.addEventListener('click', () => {
 });
 
 FOCUS_UI.shareLi?.addEventListener('click', () => {
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+/* ---------- Evidence-Based Fitness Volume & Longevity Calculator ---------- */
+const FIT_PATTERNS = [
+  {
+    id: 'squat',
+    name: 'Knee-Dominant (Squat)',
+    icon: '🦵',
+    recs: 'Goblet Squats, Bulgarian Split Squats, Front Squats, Leg Press',
+    citation: 'Ch 2.2 & Ch 6.1 (Grade A - Quad hypertrophy & patellar tendon stiffness)'
+  },
+  {
+    id: 'hinge',
+    name: 'Hip-Dominant (Hinge)',
+    icon: '🍑',
+    recs: 'Romanian Deadlifts (RDL), Kettlebell Swings, Glute Bridges',
+    citation: 'Ch 2.2 & Ch 6.1 (Grade A - Posterior chain & spine sparing)'
+  },
+  {
+    id: 'push',
+    name: 'Upper Body Push (Horiz/Vert)',
+    icon: '🏋️',
+    recs: 'Incline Dumbbell Bench Press, Standing Overhead Press, Deficit Push-ups',
+    citation: 'Ch 6.2 (Grade A - Glenohumeral stabilization & bone density)'
+  },
+  {
+    id: 'pull',
+    name: 'Upper Body Pull (Horiz/Vert)',
+    icon: '🧗',
+    recs: 'Chest-Supported Row, Neutral-Grip Pull-ups, Lat Pulldowns, Face Pulls',
+    citation: 'Ch 2.2 & Ch 6.2 (Grade A - Scapular retraction & postural reverse)'
+  },
+  {
+    id: 'carry',
+    name: 'Loaded Carry & Spinal Stability',
+    icon: '🧳',
+    recs: 'Farmer\'s Walk (50% bodyweight), Suitcase Carry, McGill Big 3',
+    citation: 'Ch 2.3 & Ch 6.3 (Grade A - Grip strength mortality biomarker & QL core)'
+  }
+];
+
+const FIT_UI = {
+  mask: document.getElementById('fit-mask'),
+  openBtn: document.getElementById('fit-open'),
+  openSideBtn: document.getElementById('fit-open-side'),
+  closeBtn: document.getElementById('fit-x'),
+  doneBtn: document.getElementById('fit-close-btn'),
+  inAge: document.getElementById('fit-in-age'),
+  inRhr: document.getElementById('fit-in-rhr'),
+  inDays: document.getElementById('fit-in-days'),
+  inFocus: document.getElementById('fit-in-focus'),
+  kpiZ2Hr: document.getElementById('fit-kpi-z2hr'),
+  kpiZ2Min: document.getElementById('fit-kpi-z2min'),
+  kpiSets: document.getElementById('fit-kpi-sets'),
+  kpiMortality: document.getElementById('fit-kpi-mortality'),
+  patternsContainer: document.getElementById('fit-patterns-cards'),
+  splitDesc: document.getElementById('fit-split-desc'),
+  exportBtn: document.getElementById('fit-export'),
+  shareX: document.getElementById('fit-share-x'),
+  shareWa: document.getElementById('fit-share-wa'),
+  shareLi: document.getElementById('fit-share-li'),
+  msg: document.getElementById('fit-copy-msg')
+};
+
+let fitSettings = {
+  age: 30,
+  rhr: 62,
+  days: 3,
+  focus: 'longevity'
+};
+
+try {
+  const savedFit = localStorage.getItem('eb_fit_settings');
+  if (savedFit) fitSettings = Object.assign(fitSettings, JSON.parse(savedFit));
+} catch (e) {}
+
+function saveFitSettings() {
+  try {
+    localStorage.setItem('eb_fit_settings', JSON.stringify(fitSettings));
+  } catch (e) {}
+}
+
+function calculateFitnessPrescription() {
+  const age = Math.max(15, Math.min(95, parseInt(fitSettings.age, 10) || 30));
+  const rhr = Math.max(35, Math.min(110, parseInt(fitSettings.rhr, 10) || 62));
+  const days = parseInt(fitSettings.days, 10) || 3;
+  const focus = fitSettings.focus || 'longevity';
+
+  // Maffetone formula + resting heart rate modifier
+  let baseHr = 180 - age;
+  if (rhr < 55) baseHr += 5;
+  else if (rhr > 75) baseHr -= 5;
+  const z2Low = baseHr - 5;
+  const z2High = baseHr + 5;
+
+  let z2Min = 180;
+  let patternSets = { squat: 8, hinge: 8, push: 10, pull: 10, carry: 6 };
+  let mortalityRed = '-68% Risk';
+
+  if (focus === 'hypertrophy') {
+    z2Min = 120;
+    patternSets = { squat: 12, hinge: 12, push: 14, pull: 14, carry: 6 };
+    mortalityRed = '-58% Risk';
+  } else if (focus === 'cardio') {
+    z2Min = 260;
+    patternSets = { squat: 6, hinge: 6, push: 6, pull: 6, carry: 8 };
+    mortalityRed = '-78% Risk';
+  }
+
+  const totalSets = Object.values(patternSets).reduce((a, b) => a + b, 0);
+
+  if (FIT_UI.kpiZ2Hr) FIT_UI.kpiZ2Hr.textContent = `${z2Low}–${z2High} bpm`;
+  if (FIT_UI.kpiZ2Min) FIT_UI.kpiZ2Min.textContent = `${z2Min} min/wk`;
+  if (FIT_UI.kpiSets) FIT_UI.kpiSets.textContent = `${totalSets} Hard Sets`;
+  if (FIT_UI.kpiMortality) FIT_UI.kpiMortality.textContent = mortalityRed;
+
+  // Render pattern cards
+  if (FIT_UI.patternsContainer) {
+    FIT_UI.patternsContainer.innerHTML = FIT_PATTERNS.map(p => {
+      const sets = patternSets[p.id];
+      const perSession = Math.round(sets / days);
+      return `
+        <div class="fit-pattern-card">
+          <div class="fit-pattern-head">
+            <span class="fit-pattern-title">${p.icon} ${p.name}</span>
+            <span class="fit-pattern-badge">${sets} Sets/Wk (~${perSession}/day)</span>
+          </div>
+          <div class="fit-pattern-body"><strong>Primary Exercises:</strong> ${p.recs}</div>
+          <div class="fit-pattern-recs"><em>Empirical Anchor:</em> ${p.citation}</div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // Recommended split text
+  if (FIT_UI.splitDesc) {
+    let splitTxt = '';
+    if (days === 2) {
+      splitTxt = `<strong>Full-Body A / B (2x/week):</strong> Day 1 (Squat + Bench Press + Row + Farmer Walk) | Day 2 (Romanian Deadlift + Overhead Press + Pull-ups + Core). Complete 2x 60-min Zone 2 sessions on non-lifting days.`;
+    } else if (days === 3) {
+      splitTxt = `<strong>Full-Body 3x (Gold Standard for Longevity):</strong> Mon/Wed/Fri alternating heavy compound movements (3–4 sets per pattern). Tue/Thu 45–60 min steady-state Zone 2 cardio (jogging, cycling, rowing at ${z2Low}–${z2High} bpm).`;
+    } else if (days === 4) {
+      splitTxt = `<strong>Upper / Lower Split (4x/week):</strong> Mon (Upper Heavy) | Tue (Lower Quad/Glute) | Thu (Upper Volume) | Fri (Lower Posterior/Hinge). Weekend 90-min outdoor Zone 2 hike or cycle.`;
+    } else if (days === 5) {
+      splitTxt = `<strong>Upper / Lower 4x + Dedicated Zone 2 Day:</strong> 4 days hypertrophy volume loading + 1 dedicated 90-min low-intensity steady-state cardiovascular engine builder.`;
+    } else {
+      splitTxt = `<strong>Push / Pull / Legs (PPL 6x/week):</strong> High-volume split for advanced trainees. 2x Push, 2x Pull, 2x Legs. Monitor systemic nervous fatigue closely (Ch 6.3).`;
+    }
+    FIT_UI.splitDesc.innerHTML = splitTxt;
+  }
+}
+
+function openFitModal() {
+  if (!FIT_UI.mask) return;
+  FIT_UI.mask.hidden = false;
+  document.body.style.overflow = 'hidden';
+
+  if (FIT_UI.inAge) FIT_UI.inAge.value = fitSettings.age;
+  if (FIT_UI.inRhr) FIT_UI.inRhr.value = fitSettings.rhr;
+  if (FIT_UI.inDays) FIT_UI.inDays.value = fitSettings.days;
+  if (FIT_UI.inFocus) FIT_UI.inFocus.value = fitSettings.focus;
+
+  calculateFitnessPrescription();
+}
+
+function closeFitModal() {
+  if (!FIT_UI.mask) return;
+  FIT_UI.mask.hidden = true;
+  document.body.style.overflow = '';
+}
+
+FIT_UI.openBtn?.addEventListener('click', openFitModal);
+FIT_UI.openSideBtn?.addEventListener('click', openFitModal);
+FIT_UI.closeBtn?.addEventListener('click', closeFitModal);
+FIT_UI.doneBtn?.addEventListener('click', closeFitModal);
+
+FIT_UI.mask?.addEventListener('click', (e) => {
+  if (e.target === FIT_UI.mask) closeFitModal();
+});
+
+document.addEventListener('keydown', ev => {
+  if (ev.key === 'Escape' && FIT_UI.mask && !FIT_UI.mask.hidden) {
+    ev.stopPropagation();
+    closeFitModal();
+  }
+}, true);
+
+const onFitInputChange = () => {
+  if (FIT_UI.inAge) fitSettings.age = parseInt(FIT_UI.inAge.value, 10) || 30;
+  if (FIT_UI.inRhr) fitSettings.rhr = parseInt(FIT_UI.inRhr.value, 10) || 62;
+  if (FIT_UI.inDays) fitSettings.days = parseInt(FIT_UI.inDays.value, 10) || 3;
+  if (FIT_UI.inFocus) fitSettings.focus = FIT_UI.inFocus.value || 'longevity';
+
+  saveFitSettings();
+  calculateFitnessPrescription();
+};
+
+FIT_UI.inAge?.addEventListener('input', onFitInputChange);
+FIT_UI.inRhr?.addEventListener('input', onFitInputChange);
+FIT_UI.inDays?.addEventListener('change', onFitInputChange);
+FIT_UI.inFocus?.addEventListener('change', onFitInputChange);
+
+FIT_UI.exportBtn?.addEventListener('click', async () => {
+  const age = fitSettings.age;
+  const days = fitSettings.days;
+  const focus = fitSettings.focus;
+
+  let baseHr = 180 - age;
+  if (fitSettings.rhr < 55) baseHr += 5;
+  else if (fitSettings.rhr > 75) baseHr -= 5;
+  const z2Low = baseHr - 5;
+  const z2High = baseHr + 5;
+
+  let md = `# Weekly Evidence-Based Fitness & Longevity Spec Sheet\n`;
+  md += `*Brad Schoenfeld Volume Dose-Response & Maffetone Zone 2 Architecture*\n\n`;
+  md += `**Trainee Age**: ${age} | **Resting Heart Rate**: ${fitSettings.rhr} bpm\n`;
+  md += `**Weekly Frequency**: ${days} Days/Week | **Primary Objective**: ${focus.toUpperCase()}\n\n`;
+
+  md += `## 1. Cardiovascular Aerobic Base (Zone 2)\n`;
+  md += `- **Target Heart Rate Window**: ${z2Low}–${z2High} bpm (Blood Lactate < 2.0 mmol/L)\n`;
+  md += `- **Weekly Aerobic Volume**: ${FIT_UI.kpiZ2Min?.textContent || '180 min/wk'}\n`;
+  md += `- **Cardiovascular Mortality Benefit**: Up to 80% hazard reduction (Mandsager et al. 2018 Cleveland Clinic cohort)\n\n`;
+
+  md += `## 2. Weekly Resistance Movement Patterns (Schoenfeld Curve)\n`;
+  FIT_PATTERNS.forEach(p => {
+    md += `- **${p.name}** (${p.icon}):\n`;
+    md += `  - Key Movements: ${p.recs}\n`;
+    md += `  - Evidence: ${p.citation}\n`;
+  });
+
+  md += `\n## 3. Recommended Schedule Architecture\n`;
+  md += `${(FIT_UI.splitDesc?.textContent || '').trim()}\n\n`;
+
+  md += `---\n*Generated by The Evidence-Based Life Fitness Engine: https://parveen0029.github.io/The-Evidence-Based-Life/*\n`;
+
+  try {
+    await navigator.clipboard.writeText(md);
+    if (FIT_UI.msg) {
+      FIT_UI.msg.textContent = '✓ Fitness protocol copied to clipboard!';
+      FIT_UI.msg.hidden = false;
+      setTimeout(() => { FIT_UI.msg.hidden = true; }, 3500);
+    }
+  } catch (err) {
+    prompt('Copy your Fitness Protocol below:', md);
+  }
+});
+
+FIT_UI.shareX?.addEventListener('click', () => {
+  const text = `Optimize workout volume and aerobic longevity with Brad Schoenfeld's set-volume curve and Maffetone Zone 2 cardio:`;
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+FIT_UI.shareWa?.addEventListener('click', () => {
+  const text = `*Evidence-Based Fitness Volume & Longevity Calculator*\nCalculate your personalized weekly resistance training volume (Schoenfeld dose-response) and Zone 2 cardio targets:\n\nhttps://parveen0029.github.io/The-Evidence-Based-Life/`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+});
+
+FIT_UI.shareLi?.addEventListener('click', () => {
   const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
 });
