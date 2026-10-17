@@ -1619,6 +1619,42 @@ html.dark .focus-toggle-chip.active{color:#1b1b1f}
   #epi-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Immune Senescence, Thymic Involution & Immunorestoration Modal */
+#immuno-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#immuno-mask[hidden]{display:none}
+#immuno-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(940px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+
+.immuno-params-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;gap:10px;background:var(--bg-alt);border:1px solid var(--divider);border-radius:12px;padding:12px 14px;margin-bottom:14px}
+@media (max-width:860px){.immuno-params-grid{grid-template-columns:1fr 1fr 1fr}}
+@media (max-width:540px){.immuno-params-grid{grid-template-columns:1fr 1fr}}
+
+.immuno-param-cell{display:flex;flex-direction:column;gap:4px}
+.immuno-param-label{font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px}
+.immuno-param-input{padding:7px 10px;border-radius:6px;border:1px solid var(--divider);background:var(--bg-elv);color:var(--t1);font-size:13px}
+
+.immuno-kpi-banner{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;background:var(--bg-elv);border:1px solid var(--divider);border-radius:12px;padding:12px 16px;margin-bottom:14px}
+@media (max-width:760px){.immuno-kpi-banner{grid-template-columns:1fr 1fr}}
+.immuno-kpi-item{display:flex;flex-direction:column;gap:2px}
+.immuno-kpi-val{font-size:20px;font-weight:900;color:var(--green-1)}
+.immuno-kpi-lbl{font-size:11px;color:var(--t3)}
+
+.immuno-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-bottom:14px}
+.immuno-card{background:var(--bg-alt);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.immuno-head{display:flex;align-items:center;justify-content:space-between}
+.immuno-title{font-size:13px;font-weight:700;color:var(--t1);display:flex;align-items:center;gap:6px}
+.immuno-badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:12px;background:rgba(239,68,68,.15);color:var(--red-1,#ef4444)}
+.immuno-desc{font-size:12px;color:var(--t2);line-height:1.45}
+.immuno-action{font-size:11.5px;color:var(--t3);line-height:1.4}
+
+.immuno-summary-box{background:var(--bg-elv);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;margin-bottom:14px}
+.immuno-summary-title{font-size:12px;font-weight:700;color:var(--t1);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.immuno-summary-text{font-size:12px;color:var(--t2);line-height:1.5}
+
+@media (max-width:820px){
+  #immuno-mask{padding:0}
+  #immuno-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
 /* Floating Audio Dock */
 #audio-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:70;background:var(--bg-elv);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);padding:10px 18px;display:flex;align-items:center;gap:14px;max-width:min(700px,calc(100vw - 32px));width:100%;backdrop-filter:blur(10px);transition:all .25s ease}
 #audio-dock[hidden]{display:none}
@@ -1705,7 +1741,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#light-mask,#light-open,#light-open-side,#sleep-mask,#sleep-open,#sleep-open-side,#glucose-mask,#glucose-open,#glucose-open-side,#inflam-mask,#inflam-open,#inflam-open-side,#apob-mask,#apob-open,#apob-open-side,#brain-mask,#brain-open,#brain-open-side,#mito-mask,#mito-open,#mito-open-side,#vagus-mask,#vagus-open,#vagus-open-side,#bone-mask,#bone-open,#bone-open-side,#endo-mask,#endo-open,#endo-open-side,#seno-mask,#seno-open,#seno-open-side,#glyco-mask,#glyco-open,#glyco-open-side,#microbiome-mask,#microbiome-open,#microbiome-open-side,#telo-mask,#telo-open,#telo-open-side,#epi-mask,#epi-open,#epi-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#light-mask,#light-open,#light-open-side,#sleep-mask,#sleep-open,#sleep-open-side,#glucose-mask,#glucose-open,#glucose-open-side,#inflam-mask,#inflam-open,#inflam-open-side,#apob-mask,#apob-open,#apob-open-side,#brain-mask,#brain-open,#brain-open-side,#mito-mask,#mito-open,#mito-open-side,#vagus-mask,#vagus-open,#vagus-open-side,#bone-mask,#bone-open,#bone-open-side,#endo-mask,#endo-open,#endo-open-side,#seno-mask,#seno-open,#seno-open-side,#glyco-mask,#glyco-open,#glyco-open-side,#microbiome-mask,#microbiome-open,#microbiome-open-side,#telo-mask,#telo-open,#telo-open-side,#epi-mask,#epi-open,#epi-open-side,#immuno-mask,#immuno-open,#immuno-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -1818,6 +1854,7 @@ html.dark .hc-action{color:#1b1b1f!important}
       <button class="icon-btn" id="microbiome-open" title="Gut Microbiome Diversity &amp; Intestinal Barrier Matrix" aria-label="Microbiome Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M6.5 6.5l1.5 1.5M16 16l1.5 1.5M6.5 17.5 8 16M16 8l1.5-1.5"/><circle cx="8" cy="12" r="1"/><circle cx="16" cy="12" r="1"/></svg></button>
       <button class="icon-btn" id="telo-open" title="Telomere Biology &amp; Replicative Lifespan Matrix" aria-label="Telomere Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2c-1.5 2-3 4-3 7s3 5 3 7-1.5 5-3 6"/><path d="M9 2c1.5 2 3 4 3 7s-3 5-3 7 1.5 5 3 6"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="6" y1="12" x2="18" y2="12"/><line x1="8" y1="18" x2="16" y2="18"/></svg></button>
       <button class="icon-btn" id="epi-open" title="Epigenetic Clocks &amp; Biological Age Matrix" aria-label="Epigenetic Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 6 12 12 15 15"/><path d="M16.5 7.5A9 9 0 0 0 7.5 16.5"/></svg></button>
+      <button class="icon-btn" id="immuno-open" title="Immune Senescence, Thymic Involution &amp; Immunorestoration Matrix" aria-label="Immune Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="14"/><line x1="9" y1="11" x2="15" y2="11"/></svg></button>
       <a class="icon-btn" href="selfcheck.html" title="Take 2-Minute Life Health & Risk Audit" aria-label="Self-Audit Quiz"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></a>
       <a class="icon-btn" href="README.md" title="View README.md" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn" href="https://github.com/parveen0029/The-Evidence-Based-Life" target="_blank" rel="noopener" title="View repository on GitHub" aria-label="GitHub Repository"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
@@ -1892,6 +1929,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     <button class="btn-sm ghost" id="microbiome-open-side" type="button" style="margin-top:6px;font-size:12px">🦠 Gut Microbiome &amp; Intestinal Barrier</button>
     <button class="btn-sm ghost" id="telo-open-side" type="button" style="margin-top:6px;font-size:12px">🧬 Telomere Biology &amp; Replicative Lifespan</button>
     <button class="btn-sm ghost" id="epi-open-side" type="button" style="margin-top:6px;font-size:12px">⏰ Epigenetic Clocks &amp; Biological Age</button>
+    <button class="btn-sm ghost" id="immuno-open-side" type="button" style="margin-top:6px;font-size:12px">🛡️ Immune Senescence &amp; Thymic Matrix</button>
   </div>
   <div class="group" id="g-upd" hidden>
     <div class="gt">Recent Updates <small>Content revisions</small></div>
@@ -4611,6 +4649,105 @@ html.dark .hc-action{color:#1b1b1f!important}
         <button class="btn-sm ghost" id="epi-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
         <button class="btn-sm ghost" id="epi-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
         <p id="epi-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="immuno-mask" hidden>
+  <div id="immuno-box" role="dialog" aria-modal="true" aria-labelledby="immuno-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="immuno-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="14"/><line x1="9" y1="11" x2="15" y2="11"/></svg> <span>Immune Senescence, Thymic Involution &amp; Immunorestoration Matrix</span></div>
+      <button type="button" id="immuno-x" aria-label="Close immune matrix">✕</button>
+    </div>
+
+    <div class="stats-body" style="padding:16px 20px 24px;overflow-y:auto">
+      <div class="immuno-params-grid">
+        <div class="immuno-param-cell">
+          <label class="immuno-param-label" for="immuno-exercise-input">Myokine / Physical Exertion</label>
+          <select id="immuno-exercise-input" class="immuno-param-input">
+            <option value="optimal" selected>Resistance &amp; Zone 2 / High IL-7 &amp; IL-15 Myokines</option>
+            <option value="moderate">Moderate Physical Activity / Occasional Exertion</option>
+            <option value="sedentary">Sedentary / Sarcopenia / Sarcopenic Thymic Lipolysis</option>
+          </select>
+        </div>
+        <div class="immuno-param-cell">
+          <label class="immuno-param-label" for="immuno-cmv-input">CMV &amp; Chronic Viral Load</label>
+          <select id="immuno-cmv-input" class="immuno-param-input">
+            <option value="optimal" selected>Seronegative or Suppressed / Low TEMRA Clones</option>
+            <option value="moderate">Seropositive Latent / Controlled Clonal Expansion</option>
+            <option value="high">High CMV Reactivation / Massive CD8+ TEMRA Inflation</option>
+          </select>
+        </div>
+        <div class="immuno-param-cell">
+          <label class="immuno-param-label" for="immuno-micronutrient-input">Immunonutrition &amp; Zinc</label>
+          <select id="immuno-micronutrient-input" class="immuno-param-input">
+            <option value="optimal" selected>Optimal Zinc Homeostasis / 25(OH)D 45–70 ng/mL</option>
+            <option value="moderate">Borderline Micronutrients / Vitamin D 25–40 ng/mL</option>
+            <option value="deficient">Zinc Deficient / 25(OH)D &lt;20 ng/mL / Low Cathelicidin</option>
+          </select>
+        </div>
+        <div class="immuno-param-cell">
+          <label class="immuno-param-label" for="immuno-sleep-input">Slow-Wave Sleep &amp; Homing</label>
+          <select id="immuno-sleep-input" class="immuno-param-input">
+            <option value="optimal" selected>7.5–8.5h Deep SWS / Lymphoid Homing / Low Cortisol</option>
+            <option value="moderate">6.5–7h Variable Sleep / Suboptimal SWS Proportion</option>
+            <option value="disrupted">Chronic Insomnia / Fragmented SWS / High Nocturnal Cortisol</option>
+          </select>
+        </div>
+        <div class="immuno-param-cell">
+          <label class="immuno-param-label" for="immuno-inflam-input">Inflammaging Baseline</label>
+          <select id="immuno-inflam-input" class="immuno-param-input">
+            <option value="low" selected>hs-CRP &lt;0.5 mg/L / Basal IL-6 &lt;1.5 pg/mL</option>
+            <option value="moderate">hs-CRP 1.0–2.0 mg/L / Mild Low-Grade SASP</option>
+            <option value="high">hs-CRP &gt;3.0 mg/L / Severe Chronic Systemic Cytokinemia</option>
+          </select>
+        </div>
+        <div class="immuno-param-cell">
+          <label class="immuno-param-label" for="immuno-age-input">Chronological &amp; Thymic Base</label>
+          <select id="immuno-age-input" class="immuno-param-input">
+            <option value="young" selected>Young Adult (20–35 yrs) / Robust Thymic Parenchyma</option>
+            <option value="midlife">Midlife (36–55 yrs) / Progressive Adipose Involution</option>
+            <option value="mature">Mature (56–75+ yrs) / Minimal Native Thymopoiesis</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="immuno-kpi-banner">
+        <div class="immuno-kpi-item">
+          <span class="immuno-kpi-val" id="immuno-kpi-index" style="color:var(--green-1)">Low / Preserved</span>
+          <span class="immuno-kpi-lbl">Immune Senescence Index</span>
+        </div>
+        <div class="immuno-kpi-item">
+          <span class="immuno-kpi-val" id="immuno-kpi-ratio" style="color:var(--green-1)">2.2 (Optimal)</span>
+          <span class="immuno-kpi-lbl">CD4:CD8 Ratio (OCTO/NONA)</span>
+        </div>
+        <div class="immuno-kpi-item">
+          <span class="immuno-kpi-val" id="immuno-kpi-thymus" style="color:var(--green-1)">High TREC / 82%</span>
+          <span class="immuno-kpi-lbl">Thymic Output Reserve</span>
+        </div>
+        <div class="immuno-kpi-item">
+          <span class="immuno-kpi-val" id="immuno-kpi-defense" style="color:var(--green-1)">Optimal / Broad TCR</span>
+          <span class="immuno-kpi-lbl">Pathogen Defense Capacity</span>
+        </div>
+      </div>
+
+      <div class="immuno-grid" id="immuno-cards-grid">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="immuno-summary-box">
+        <div class="immuno-summary-title"><span>🛡️ Clinical Immunorestoration &amp; Thymic Preservation Protocol</span></div>
+        <div class="immuno-summary-text" id="immuno-routine-desc">Calculating immune senescence and thymic involution parameters...</div>
+      </div>
+
+      <div class="calc-footer">
+        <button class="btn-sm" id="immuno-export" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy Immunorestoration Protocol</button>
+        <button class="btn-sm ghost" id="immuno-share-x" type="button" style="width:auto;padding:8px 14px">𝕏 Share</button>
+        <button class="btn-sm ghost" id="immuno-share-wa" type="button" style="width:auto;padding:8px 14px">WhatsApp</button>
+        <button class="btn-sm ghost" id="immuno-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
+        <button class="btn-sm ghost" id="immuno-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
+        <p id="immuno-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
       </div>
     </div>
   </div>
@@ -16781,6 +16918,353 @@ EPI_UI.shareWa?.addEventListener('click', () => {
 });
 
 EPI_UI.shareLi?.addEventListener('click', () => {
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+/* ---------- Immune Senescence, Thymic Involution & Immunorestoration Matrix ---------- */
+const IMMUNO_CARDS_DATA = [
+  {
+    id: 'thymic_involution',
+    title: 'Thymic Involution & T-Cell Neogenesis',
+    icon: '🫀',
+    badge: 'TREC / Naive T-Cells',
+    desc: 'The thymus undergoes progressive adipose involution from adolescence, attenuating naive T-cell (CD45RA+) emigration, lowering T-cell receptor excision circles (TREC), and contracting the TCR repertoire against novel antigens.',
+    action: 'Preserve perithymic vascularity and stromal cell survival via vigorous physical exertion, zinc repletion, and avoidance of excessive glucocorticoid exposure.'
+  },
+  {
+    id: 'cmv_exhaustion',
+    title: 'CMV Latency & Memory Inflation',
+    icon: '🦠',
+    badge: 'CD8+ TEMRA Clones',
+    desc: 'Cytomegalovirus (CMV) drives chronic clonal expansion, occupying up to 30–50% of the circulating CD8+ T-cell pool with terminally differentiated, senescent CD28- CD57+ KLRG1+ TEMRA cells producing pro-inflammatory cytokines.',
+    action: 'Maintain robust viral suppression and cellular immunity through optimal serum 25(OH)D (45–70 ng/mL), zinc sufficiency, and circadian rest.'
+  },
+  {
+    id: 'cd4_cd8_ratio',
+    title: 'Immune Risk Profile (IRP) & CD4:CD8',
+    icon: '⚖️',
+    badge: 'Swedish OCTO/NONA',
+    desc: 'An inverted CD4:CD8 ratio (<1.0), in combination with CMV seropositivity and poor T-cell mitogen response, characterizes the Immune Risk Profile (IRP), an independent predictor of 2-to-8 year all-cause mortality in elder cohorts.',
+    action: 'Maintain balanced immune surveillance: prevent chronic subclinical antigen burden and quench systemic inflammaging to keep CD4:CD8 ratio between 1.5 and 2.5.'
+  },
+  {
+    id: 'myokine_crosstalk',
+    title: 'Skeletal Muscle Myokine-Thymus Axis',
+    icon: '🏋️',
+    badge: 'IL-7 & IL-15 Myokines',
+    desc: 'Skeletal muscle acts as an endocrine organ during contractile work, producing interleukin-7 (IL-7) and interleukin-15 (IL-15) that protect thymic epithelial cells, support extrathymic naive T-cell survival, and maintain NK cytolysis.',
+    action: 'Perform progressive resistance training 2–3x/week and regular Zone 2 aerobic sessions to generate repeated systemic myokine pulses.'
+  },
+  {
+    id: 'nutritional_immunomodulation',
+    title: 'Micronutrient Immunocompetence',
+    icon: '🥗',
+    badge: 'Zinc & Vitamin D3',
+    desc: 'Thymulin hormone requires stoichiometric zinc binding for biological activation. Calcitriol (1,25(OH)2D3) binds nuclear VDR on monocytes to transcribe antimicrobial peptides cathelicidin (LL-37) and beta-defensin.',
+    action: 'Maintain zinc intake (15–30 mg elemental with copper balance) and supplement vitamin D3 (2000–5000 IU/day with K2) targeted to 45–70 ng/mL 25(OH)D.'
+  },
+  {
+    id: 'circadian_lymphatic',
+    title: 'Circadian T-Cell Homing & Lymphatic Flux',
+    icon: '🌙',
+    badge: 'Slow-Wave Sleep Homing',
+    desc: 'During nocturnal slow-wave sleep (SWS), low cortisol and elevated growth hormone / prolactin direct naive and central memory T-cells to extravasate into secondary lymphoid organs for immune surveillance and memory consolidation.',
+    action: 'Protect consistent 7.5–8.5 hours of sleep, maximizing deep slow-wave sleep by eliminating evening blue light, late caffeine, and alcohol.'
+  }
+];
+
+const IMMUNO_UI = {
+  mask: document.getElementById('immuno-mask'),
+  openBtn: document.getElementById('immuno-open'),
+  openSideBtn: document.getElementById('immuno-open-side'),
+  xBtn: document.getElementById('immuno-x'),
+  closeBtn: document.getElementById('immuno-close-btn'),
+  cardsGrid: document.getElementById('immuno-cards-grid'),
+  routineDesc: document.getElementById('immuno-routine-desc'),
+  exportBtn: document.getElementById('immuno-export'),
+  shareX: document.getElementById('immuno-share-x'),
+  shareWa: document.getElementById('immuno-share-wa'),
+  shareLi: document.getElementById('immuno-share-li'),
+  msg: document.getElementById('immuno-copy-msg'),
+  exerciseInput: document.getElementById('immuno-exercise-input'),
+  cmvInput: document.getElementById('immuno-cmv-input'),
+  micronutrientInput: document.getElementById('immuno-micronutrient-input'),
+  sleepInput: document.getElementById('immuno-sleep-input'),
+  inflamInput: document.getElementById('immuno-inflam-input'),
+  ageInput: document.getElementById('immuno-age-input'),
+  kpiIndex: document.getElementById('immuno-kpi-index'),
+  kpiRatio: document.getElementById('immuno-kpi-ratio'),
+  kpiThymus: document.getElementById('immuno-kpi-thymus'),
+  kpiDefense: document.getElementById('immuno-kpi-defense')
+};
+
+const immunoSettings = {
+  exercise: 'optimal',
+  cmv: 'optimal',
+  micronutrient: 'optimal',
+  sleep: 'optimal',
+  inflam: 'low',
+  age: 'young'
+};
+
+function renderImmunoCards() {
+  if (!IMMUNO_UI.cardsGrid) return;
+  IMMUNO_UI.cardsGrid.innerHTML = IMMUNO_CARDS_DATA.map(card => `
+    <div class="immuno-card">
+      <div class="immuno-head">
+        <div class="immuno-title">
+          <span>${card.icon}</span>
+          <span>${card.title}</span>
+        </div>
+        <span class="immuno-badge">${card.badge}</span>
+      </div>
+      <div class="immuno-desc">${card.desc}</div>
+      <div class="immuno-action"><strong>Clinical Action:</strong> ${card.action}</div>
+    </div>
+  `).join('');
+}
+
+function calculateImmunoMetrics() {
+  const exerciseVal = IMMUNO_UI.exerciseInput?.value || 'optimal';
+  const cmvVal = IMMUNO_UI.cmvInput?.value || 'optimal';
+  const microVal = IMMUNO_UI.micronutrientInput?.value || 'optimal';
+  const sleepVal = IMMUNO_UI.sleepInput?.value || 'optimal';
+  const inflamVal = IMMUNO_UI.inflamInput?.value || 'low';
+  const ageVal = IMMUNO_UI.ageInput?.value || 'young';
+
+  immunoSettings.exercise = exerciseVal;
+  immunoSettings.cmv = cmvVal;
+  immunoSettings.micronutrient = microVal;
+  immunoSettings.sleep = sleepVal;
+  immunoSettings.inflam = inflamVal;
+  immunoSettings.age = ageVal;
+
+  let score = 0;
+  if (exerciseVal === 'optimal') score += 20;
+  else if (exerciseVal === 'moderate') score += 10;
+
+  if (cmvVal === 'optimal') score += 20;
+  else if (cmvVal === 'moderate') score += 10;
+
+  if (microVal === 'optimal') score += 15;
+  else if (microVal === 'moderate') score += 8;
+
+  if (sleepVal === 'optimal') score += 15;
+  else if (sleepVal === 'moderate') score += 8;
+
+  if (inflamVal === 'low') score += 20;
+  else if (inflamVal === 'moderate') score += 10;
+
+  if (ageVal === 'young') score += 10;
+  else if (ageVal === 'midlife') score += 5;
+
+  // KPI Calculations
+  let indexStatus = 'Low / Preserved';
+  let indexColor = 'var(--green-1)';
+  if (score >= 80) {
+    indexStatus = 'Low / Preserved';
+    indexColor = 'var(--green-1)';
+  } else if (score >= 50) {
+    indexStatus = 'Moderate Senescence';
+    indexColor = 'var(--amber-1, #f59e0b)';
+  } else {
+    indexStatus = 'Severe / Accelerated';
+    indexColor = 'var(--red-1, #ef4444)';
+  }
+
+  // CD4:CD8 Ratio Calculation
+  let ratioVal = 2.2;
+  if (cmvVal === 'high') ratioVal -= 0.9;
+  else if (cmvVal === 'moderate') ratioVal -= 0.3;
+
+  if (inflamVal === 'high') ratioVal -= 0.5;
+  else if (inflamVal === 'moderate') ratioVal -= 0.2;
+
+  if (exerciseVal === 'sedentary') ratioVal -= 0.2;
+  if (ageVal === 'mature') ratioVal -= 0.3;
+  else if (ageVal === 'midlife') ratioVal -= 0.1;
+
+  ratioVal = Math.max(0.4, Math.round(ratioVal * 10) / 10);
+
+  let ratioStatus = `${ratioVal.toFixed(1)} (Optimal)`;
+  let ratioColor = 'var(--green-1)';
+  if (ratioVal < 1.0) {
+    ratioStatus = `${ratioVal.toFixed(1)} (Inverted / IRP Risk)`;
+    ratioColor = 'var(--red-1, #ef4444)';
+  } else if (ratioVal < 1.5) {
+    ratioStatus = `${ratioVal.toFixed(1)} (Borderline)`;
+    ratioColor = 'var(--amber-1, #f59e0b)';
+  }
+
+  // Thymic Output Reserve (TREC Estimate)
+  let trecPct = 85;
+  if (ageVal === 'mature') trecPct -= 45;
+  else if (ageVal === 'midlife') trecPct -= 25;
+
+  if (exerciseVal === 'optimal') trecPct += 10;
+  else if (exerciseVal === 'sedentary') trecPct -= 15;
+
+  if (microVal === 'deficient') trecPct -= 10;
+  trecPct = Math.max(10, Math.min(95, trecPct));
+
+  let thymusStatus = `High TREC / ${trecPct}%`;
+  let thymusColor = 'var(--green-1)';
+  if (trecPct < 35) {
+    thymusStatus = `Depleted / ${trecPct}%`;
+    thymusColor = 'var(--red-1, #ef4444)';
+  } else if (trecPct < 60) {
+    thymusStatus = `Moderate / ${trecPct}%`;
+    thymusColor = 'var(--amber-1, #f59e0b)';
+  }
+
+  // Pathogen Defense Capacity
+  let defenseStatus = 'Optimal / Broad TCR';
+  let defenseColor = 'var(--green-1)';
+  if (score >= 80 && ratioVal >= 1.5) {
+    defenseStatus = 'Optimal / Broad TCR';
+    defenseColor = 'var(--green-1)';
+  } else if (score >= 50 && ratioVal >= 1.0) {
+    defenseStatus = 'Moderate Repertoire';
+    defenseColor = 'var(--amber-1, #f59e0b)';
+  } else {
+    defenseStatus = 'Compromised / Oligoclonal';
+    defenseColor = 'var(--red-1, #ef4444)';
+  }
+
+  if (IMMUNO_UI.kpiIndex) {
+    IMMUNO_UI.kpiIndex.textContent = indexStatus;
+    IMMUNO_UI.kpiIndex.style.color = indexColor;
+  }
+  if (IMMUNO_UI.kpiRatio) {
+    IMMUNO_UI.kpiRatio.textContent = ratioStatus;
+    IMMUNO_UI.kpiRatio.style.color = ratioColor;
+  }
+  if (IMMUNO_UI.kpiThymus) {
+    IMMUNO_UI.kpiThymus.textContent = thymusStatus;
+    IMMUNO_UI.kpiThymus.style.color = thymusColor;
+  }
+  if (IMMUNO_UI.kpiDefense) {
+    IMMUNO_UI.kpiDefense.textContent = defenseStatus;
+    IMMUNO_UI.kpiDefense.style.color = defenseColor;
+  }
+
+  if (IMMUNO_UI.routineDesc) {
+    IMMUNO_UI.routineDesc.innerHTML = `
+      <strong>Myokine-Thymus Axis:</strong> <strong>${exerciseVal.toUpperCase()}</strong>. ${exerciseVal === 'optimal' ? '<span style="color:var(--green-1);font-weight:700">Pulsatile IL-7 &amp; IL-15 myokine flux:</span> Contracting skeletal muscles suppress thymic adipogenesis and support peripheral naive T-cell survival.' : 'Incorporate regular resistance training and Zone 2 aerobic exertion to trigger endocrine myokine release.'}<br>
+      <strong>Cytomegalovirus Latency &amp; Clonal Balance:</strong> <strong>${cmvVal.toUpperCase()}</strong>. ${cmvVal === 'optimal' ? 'Suppressed viral replication prevents CD8+ TEMRA memory inflation, conserving T-cell repertoire diversity.' : '<span style="color:var(--red-1,#ef4444);font-weight:700">Clonal exhaustion risk:</span> CMV reactivations exhaust immune resources, driving terminal CD28- CD57+ differentiation.'}<br>
+      <strong>Immunonutrition &amp; Thymulin Activation:</strong> <strong>${microVal.toUpperCase()}</strong>. ${microVal === 'optimal' ? 'Adequate zinc ensures thymulin bioactivity, while optimal calcitriol (45–70 ng/mL) primes cathelicidin antimicrobial defense.' : 'Correct subclinical zinc deficiency and optimize vitamin D3 to sustain thymic hormone synthesis.'}<br>
+      <strong>Slow-Wave Sleep Homing:</strong> <strong>${sleepVal.toUpperCase()}</strong>. ${sleepVal === 'optimal' ? 'High SWS proportion enables nocturnal T-cell extravasation into lymphoid nodes under low cortisol.' : 'Optimize sleep hygiene to prevent nocturnal glucocorticoid surges and preserve immune homing.'}<br>
+      <strong>Inflammaging Modulation:</strong> <strong>${inflamVal.toUpperCase()}</strong>. ${inflamVal === 'low' ? 'Low basal cytokines prevent chronic antigen driving and avert the Swedish Immune Risk Profile (IRP).' : '<span style="color:var(--red-1,#ef4444);font-weight:700">Elevated SASP:</span> Chronic hs-CRP accelerates myeloid skewing and T-cell exhaustion.'}
+    `;
+  }
+}
+
+function initImmunoUI() {
+  if (!IMMUNO_UI.mask) return;
+
+  renderImmunoCards();
+
+  if (IMMUNO_UI.exerciseInput) IMMUNO_UI.exerciseInput.value = immunoSettings.exercise;
+  if (IMMUNO_UI.cmvInput) IMMUNO_UI.cmvInput.value = immunoSettings.cmv;
+  if (IMMUNO_UI.micronutrientInput) IMMUNO_UI.micronutrientInput.value = immunoSettings.micronutrient;
+  if (IMMUNO_UI.sleepInput) IMMUNO_UI.sleepInput.value = immunoSettings.sleep;
+  if (IMMUNO_UI.inflamInput) IMMUNO_UI.inflamInput.value = immunoSettings.inflam;
+  if (IMMUNO_UI.ageInput) IMMUNO_UI.ageInput.value = immunoSettings.age;
+
+  calculateImmunoMetrics();
+}
+
+initImmunoUI();
+
+function openImmunoModal() {
+  if (!IMMUNO_UI.mask) return;
+  IMMUNO_UI.mask.hidden = false;
+  document.body.style.overflow = 'hidden';
+  IMMUNO_UI.exerciseInput?.focus();
+}
+
+function closeImmunoModal() {
+  if (!IMMUNO_UI.mask) return;
+  IMMUNO_UI.mask.hidden = true;
+  document.body.style.overflow = '';
+}
+
+IMMUNO_UI.openBtn?.addEventListener('click', openImmunoModal);
+IMMUNO_UI.openSideBtn?.addEventListener('click', openImmunoModal);
+IMMUNO_UI.xBtn?.addEventListener('click', closeImmunoModal);
+IMMUNO_UI.closeBtn?.addEventListener('click', closeImmunoModal);
+
+IMMUNO_UI.mask?.addEventListener('click', (e) => {
+  if (e.target === IMMUNO_UI.mask) closeImmunoModal();
+});
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && IMMUNO_UI.mask && !IMMUNO_UI.mask.hidden) {
+    closeImmunoModal();
+  }
+});
+
+const immunoInputElements = [
+  IMMUNO_UI.exerciseInput,
+  IMMUNO_UI.cmvInput,
+  IMMUNO_UI.micronutrientInput,
+  IMMUNO_UI.sleepInput,
+  IMMUNO_UI.inflamInput,
+  IMMUNO_UI.ageInput
+];
+immunoInputElements.forEach(el => {
+  el?.addEventListener('input', calculateImmunoMetrics);
+  el?.addEventListener('change', calculateImmunoMetrics);
+});
+
+IMMUNO_UI.exportBtn?.addEventListener('click', async () => {
+  let md = `# Immune Senescence, Thymic Involution & Immunorestoration Protocol\n`;
+  md += `*Evidence-Based Thymic Output Reserve, CD4:CD8 Ratio, CMV Memory Inflation & Myokine Crosstalk*\n\n`;
+  md += `**Myokine / Physical Exertion**: ${immunoSettings.exercise.toUpperCase()} | CMV Viral Load: ${immunoSettings.cmv.toUpperCase()}\n`;
+  md += `**Immunonutrition & Zinc**: ${immunoSettings.micronutrient.toUpperCase()} | Slow-Wave Sleep Homing: ${immunoSettings.sleep.toUpperCase()}\n`;
+  md += `**Inflammaging Baseline**: ${immunoSettings.inflam.toUpperCase()} | Chronological Age Reserve: ${immunoSettings.age.toUpperCase()}\n\n`;
+  md += `**Immune Senescence Index**: ${IMMUNO_UI.kpiIndex?.textContent || 'Low / Preserved'}\n`;
+  md += `**CD4:CD8 Ratio (OCTO/NONA)**: ${IMMUNO_UI.kpiRatio?.textContent || '2.2 (Optimal)'}\n`;
+  md += `**Thymic Output Reserve**: ${IMMUNO_UI.kpiThymus?.textContent || 'High TREC / 82%'}\n`;
+  md += `**Pathogen Defense Capacity**: ${IMMUNO_UI.kpiDefense?.textContent || 'Optimal / Broad TCR'}\n\n`;
+
+  md += `## 1. Core Immunosenescence Mechanisms\n`;
+  IMMUNO_CARDS_DATA.forEach(c => {
+    md += `- **${c.title}** (${c.icon}) [${c.badge}]\n`;
+    md += `  - Evidence: ${c.desc}\n`;
+    md += `  - Clinical Target: ${c.action}\n`;
+  });
+
+  md += `\n## 2. Actionable Immunorestoration Prescription\n`;
+  md += `${(IMMUNO_UI.routineDesc?.textContent || '').trim()}\n\n`;
+
+  md += `---\n*Generated by The Evidence-Based Life Immunosenescence Engine: https://parveen0029.github.io/The-Evidence-Based-Life/*\n`;
+
+  try {
+    await navigator.clipboard.writeText(md);
+    if (IMMUNO_UI.msg) {
+      IMMUNO_UI.msg.textContent = '✓ Immunorestoration protocol copied to clipboard!';
+      IMMUNO_UI.msg.hidden = false;
+      setTimeout(() => { IMMUNO_UI.msg.hidden = true; }, 3500);
+    }
+  } catch (err) {
+    prompt('Copy your Immunorestoration Protocol below:', md);
+  }
+});
+
+IMMUNO_UI.shareX?.addEventListener('click', () => {
+  const text = `Immune senescence, thymic involution, and CMV clonal exhaustion govern adaptive immunity and late-life mortality. Model your immunorestoration protocol:`;
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+IMMUNO_UI.shareWa?.addEventListener('click', () => {
+  const text = `*Immune Senescence & Thymic Involution Matrix*\nModel your CD4:CD8 ratio, thymic output reserve, and myokine-thymus restoration protocol:\n\nhttps://parveen0029.github.io/The-Evidence-Based-Life/`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+});
+
+IMMUNO_UI.shareLi?.addEventListener('click', () => {
   const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
 });
