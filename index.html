@@ -1151,6 +1151,42 @@ html.dark .focus-toggle-chip.active{color:#1b1b1f}
   #sleep-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Metabolic Health & Postprandial Glucose Matrix Modal */
+#glucose-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#glucose-mask[hidden]{display:none}
+#glucose-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(940px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+
+.glucose-params-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:10px;background:var(--bg-alt);border:1px solid var(--divider);border-radius:12px;padding:12px 14px;margin-bottom:14px}
+@media (max-width:860px){.glucose-params-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.glucose-params-grid{grid-template-columns:1fr}}
+
+.glucose-param-cell{display:flex;flex-direction:column;gap:4px}
+.glucose-param-label{font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px}
+.glucose-param-input{padding:7px 10px;border-radius:6px;border:1px solid var(--divider);background:var(--bg-elv);color:var(--t1);font-size:13px}
+
+.glucose-kpi-banner{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;background:var(--bg-elv);border:1px solid var(--divider);border-radius:12px;padding:12px 16px;margin-bottom:14px}
+@media (max-width:760px){.glucose-kpi-banner{grid-template-columns:1fr 1fr}}
+.glucose-kpi-item{display:flex;flex-direction:column;gap:2px}
+.glucose-kpi-val{font-size:20px;font-weight:900;color:var(--green-1)}
+.glucose-kpi-lbl{font-size:11px;color:var(--t3)}
+
+.glucose-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-bottom:14px}
+.glucose-card{background:var(--bg-alt);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.glucose-head{display:flex;align-items:center;justify-content:space-between}
+.glucose-title{font-size:13px;font-weight:700;color:var(--t1);display:flex;align-items:center;gap:6px}
+.glucose-badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:12px;background:rgba(16,185,129,.15);color:var(--green-1,#10b981)}
+.glucose-desc{font-size:12px;color:var(--t2);line-height:1.45}
+.glucose-action{font-size:11.5px;color:var(--t3);line-height:1.4}
+
+.glucose-summary-box{background:var(--bg-elv);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;margin-bottom:14px}
+.glucose-summary-title{font-size:12px;font-weight:700;color:var(--t1);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.glucose-summary-text{font-size:12px;color:var(--t2);line-height:1.5}
+
+@media (max-width:820px){
+  #glucose-mask{padding:0}
+  #glucose-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
 /* Floating Audio Dock */
 #audio-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:70;background:var(--bg-elv);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);padding:10px 18px;display:flex;align-items:center;gap:14px;max-width:min(700px,calc(100vw - 32px));width:100%;backdrop-filter:blur(10px);transition:all .25s ease}
 #audio-dock[hidden]{display:none}
@@ -1237,7 +1273,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#light-mask,#light-open,#light-open-side,#sleep-mask,#sleep-open,#sleep-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#light-mask,#light-open,#light-open-side,#sleep-mask,#sleep-open,#sleep-open-side,#glucose-mask,#glucose-open,#glucose-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -1337,6 +1373,7 @@ html.dark .hc-action{color:#1b1b1f!important}
       <button class="icon-btn" id="air-open" title="Environmental Toxins & Indoor Air Quality Diagnostics" aria-label="Indoor Air Quality Diagnostics"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg></button>
       <button class="icon-btn" id="light-open" title="Circadian Light & Melatonin Phase Shift Optimizer" aria-label="Circadian Light Optimizer"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></button>
       <button class="icon-btn" id="sleep-open" title="Sleep Architecture & Polysomnography Optimizer" aria-label="Sleep Architecture Optimizer"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></svg></button>
+      <button class="icon-btn" id="glucose-open" title="Metabolic Health & Postprandial Glucose Matrix" aria-label="Glucose Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></button>
       <a class="icon-btn" href="selfcheck.html" title="Take 2-Minute Life Health & Risk Audit" aria-label="Self-Audit Quiz"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></a>
       <a class="icon-btn" href="README.md" title="View README.md" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn" href="https://github.com/parveen0029/The-Evidence-Based-Life" target="_blank" rel="noopener" title="View repository on GitHub" aria-label="GitHub Repository"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
@@ -1398,6 +1435,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     <button class="btn-sm ghost" id="air-open-side" type="button" style="margin-top:6px;font-size:12px">💨 Indoor Air Quality &amp; Toxin Diagnostics</button>
     <button class="btn-sm ghost" id="light-open-side" type="button" style="margin-top:6px;font-size:12px">☀️ Circadian Light &amp; Melatonin Optimizer</button>
     <button class="btn-sm ghost" id="sleep-open-side" type="button" style="margin-top:6px;font-size:12px">🛏️ Sleep Architecture &amp; Polysomnography</button>
+    <button class="btn-sm ghost" id="glucose-open-side" type="button" style="margin-top:6px;font-size:12px">🩸 Metabolic Health &amp; Glucose Matrix</button>
   </div>
   <div class="group" id="g-upd" hidden>
     <div class="gt">Recent Updates <small>Content revisions</small></div>
@@ -2806,6 +2844,102 @@ html.dark .hc-action{color:#1b1b1f!important}
         <button class="btn-sm ghost" id="sleep-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
         <button class="btn-sm ghost" id="sleep-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
         <p id="sleep-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="glucose-mask" hidden>
+  <div id="glucose-box" role="dialog" aria-modal="true" aria-labelledby="glucose-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="glucose-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> <span>Metabolic Health &amp; Postprandial Glucose Matrix</span></div>
+      <button type="button" id="glucose-x" aria-label="Close glucose matrix">✕</button>
+    </div>
+    <div class="stats-scroll">
+      <div class="stats-lead">
+        Evidence-based glycemic control and metabolic longevity engine based on <strong>Chapter 5 (Food Economy)</strong>, <strong>Chapter 6 (Body Composition &amp; Fitness)</strong>, and <strong>Chapter 28 (Biomarkers &amp; Health)</strong>. Quantify your postprandial glucose spike reduction via food sequencing (Shukla Weill Cornell protocol) and muscular GLUT4 translocation.
+      </div>
+
+      <div class="glucose-params-grid">
+        <div class="glucose-param-cell">
+          <label class="glucose-param-label" for="glucose-meal-input">Meal Carbs / Glycemic Load</label>
+          <select id="glucose-meal-input" class="glucose-param-input">
+            <option value="low">Low Carb / Keto (&lt;25g Net Carbs)</option>
+            <option value="moderate" selected>Moderate Carb (35–60g Starch/Whole Grain)</option>
+            <option value="high">High Carb / Fast Starch (70–120g Refined Rice/Pasta)</option>
+            <option value="ultra">Ultra-Processed / Sugar Bomb (&gt;100g High GI)</option>
+          </select>
+        </div>
+        <div class="glucose-param-cell">
+          <label class="glucose-param-label" for="glucose-order-input">Food Eating Sequence</label>
+          <select id="glucose-order-input" class="glucose-param-input">
+            <option value="carbs_first">Carbs / Starches First (Bread/Rice first)</option>
+            <option value="mixed" selected>Mixed (Everything Eaten Together)</option>
+            <option value="veggies_first">Veggies/Fiber &amp; Protein First (Shukla Protocol)</option>
+          </select>
+        </div>
+        <div class="glucose-param-cell">
+          <label class="glucose-param-label" for="glucose-walk-input">Post-Meal Movement</label>
+          <select id="glucose-walk-input" class="glucose-param-input">
+            <option value="sedentary" selected>Sedentary (Immediate Couch / Desk Sitting)</option>
+            <option value="light">Light Standing / Household Chores (10 min)</option>
+            <option value="walk10">10-Minute Continuous Brisk Walk</option>
+            <option value="walk20">20-Minute Postprandial Walk / Soleus Pushups</option>
+          </select>
+        </div>
+        <div class="glucose-param-cell">
+          <label class="glucose-param-label" for="glucose-fasting-input">Fasting Glucose Tier</label>
+          <select id="glucose-fasting-input" class="glucose-param-input">
+            <option value="optimal" selected>Optimal (&lt;85 mg/dL / 4.7 mmol/L)</option>
+            <option value="normal">Normal (85–99 mg/dL / 4.7–5.5 mmol/L)</option>
+            <option value="prediabetes">Impaired / Prediabetes (100–125 mg/dL)</option>
+          </select>
+        </div>
+        <div class="glucose-param-cell">
+          <label class="glucose-param-label" for="glucose-fiber-input">Pre-Meal Fiber Viscosity</label>
+          <select id="glucose-fiber-input" class="glucose-param-input">
+            <option value="none" selected>None (Standard Meal)</option>
+            <option value="vinegar">Apple Cider Vinegar (1 tbsp diluted in water)</option>
+            <option value="psyllium">Psyllium Husk / Beta-Glucan (5g Viscous Gel)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="glucose-kpi-banner">
+        <div class="glucose-kpi-item">
+          <span class="glucose-kpi-val" id="glucose-kpi-reduction" style="color:var(--green-1)">-0%</span>
+          <span class="glucose-kpi-lbl">Est. Postprandial Spike Dampening</span>
+        </div>
+        <div class="glucose-kpi-item">
+          <span class="glucose-kpi-val" id="glucose-kpi-peak" style="color:var(--yellow-1,#eab308)">~142 mg/dL</span>
+          <span class="glucose-kpi-lbl">Est. 1h Glucose Peak</span>
+        </div>
+        <div class="glucose-kpi-item">
+          <span class="glucose-kpi-val" id="glucose-kpi-insulin" style="color:var(--blue-1,#3b82f6)">Moderate</span>
+          <span class="glucose-kpi-lbl">Pancreatic Insulin Demand</span>
+        </div>
+        <div class="glucose-kpi-item">
+          <span class="glucose-kpi-val" id="glucose-kpi-auc" style="color:var(--green-1)">Baseline</span>
+          <span class="glucose-kpi-lbl">Glycemic Excursion AUC</span>
+        </div>
+      </div>
+
+      <div class="glucose-grid" id="glucose-cards-grid">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="glucose-summary-box">
+        <div class="glucose-summary-title"><span>🥗 Evidence-Based Meal Sequencing &amp; GLUT4 Protocol</span></div>
+        <div class="glucose-summary-text" id="glucose-routine-desc">Calculating metabolic protocol...</div>
+      </div>
+
+      <div class="calc-footer">
+        <button class="btn-sm" id="glucose-export" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy Metabolic Health &amp; Glucose Protocol</button>
+        <button class="btn-sm ghost" id="glucose-share-x" type="button" style="width:auto;padding:8px 14px">𝕏 Share</button>
+        <button class="btn-sm ghost" id="glucose-share-wa" type="button" style="width:auto;padding:8px 14px">WhatsApp</button>
+        <button class="btn-sm ghost" id="glucose-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
+        <button class="btn-sm ghost" id="glucose-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
+        <p id="glucose-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
       </div>
     </div>
   </div>
@@ -10356,6 +10490,330 @@ SLEEP_UI.shareWa?.addEventListener('click', () => {
 });
 
 SLEEP_UI.shareLi?.addEventListener('click', () => {
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+/* ---------- Milestone 33: Metabolic Health, Insulin Sensitivity & Postprandial Glucose Matrix ---------- */
+const GLUCOSE_CARDS_DATA = [
+  {
+    id: 'sequencing',
+    icon: '🥗',
+    title: 'Shukla Food Sequencing Protocol (Weill Cornell)',
+    badge: 'Incretin & GLP-1',
+    color: 'rgba(16,185,129,.15)',
+    textColor: '#10b981',
+    desc: 'Eating fiber and protein 10-15 minutes BEFORE carbohydrates reduces postprandial glucose spikes by 37% and insulin secretion by 48% (Diabetes Care 2015).',
+    action: 'Prescription: Order of eating: 1) Non-starchy vegetables & fiber, 2) Protein & healthy lipids, 3) Starches, grains, and carbs last.'
+  },
+  {
+    id: 'glut4',
+    icon: '🚶',
+    title: 'Muscular GLUT4 Translocation (Non-Insulin Siphon)',
+    badge: 'AMPK Activation',
+    color: 'rgba(59,130,246,.15)',
+    textColor: '#3b82f6',
+    desc: 'Contraction of large lower-body muscles (quads, glutes, soleus) drives GLUT4 glucose transporter vesicles to muscle cell membranes independently of insulin.',
+    action: 'Prescription: Take a 10–15 minute continuous brisk walk within 20 minutes of finishing a meal. Sinks 25–35% of circulating glucose directly into myofibrils.'
+  },
+  {
+    id: 'vinegar',
+    icon: '🧪',
+    title: 'Acetic Acid & Amylase Deceleration',
+    badge: 'Enzyme Buffer',
+    color: 'rgba(234,179,8,.15)',
+    textColor: '#eab308',
+    desc: 'Acetic acid (vinegar) temporarily inactivates salivary and pancreatic alpha-amylase enzymes, slowing starch digestion into free glucose disaccharides.',
+    action: 'Protocol: Consume 1 tablespoon apple cider vinegar diluted in a tall glass of water 5-10 minutes prior to starchy meals to blunt glycemic area under curve (AUC).'
+  },
+  {
+    id: 'biomarkers',
+    icon: '🔬',
+    title: 'Metabolic Longevity Biomarkers & Thresholds',
+    badge: 'Clinical Cutoffs',
+    color: 'rgba(99,102,241,.15)',
+    textColor: '#6366f1',
+    desc: 'Fasting glucose 72–85 mg/dL (4.0–4.7 mmol/L) is optimal; >90 mg/dL carries escalating cardiovascular hazard. HbA1c <5.3% predicts minimal microvascular damage.',
+    action: 'Target: Screen annual fasting insulin (<5 µIU/mL, HOMA-IR <1.0) and maintain Triglyceride-to-HDL ratio strictly below 1.5.'
+  },
+  {
+    id: 'glycation',
+    icon: '⚡',
+    title: 'Advanced Glycation End-Products (AGEs) & Stiffening',
+    badge: 'Vascular Aging',
+    color: 'rgba(239,68,68,.15)',
+    textColor: '#ef4444',
+    desc: 'Repetitive glucose peaks above 140 mg/dL bond non-enzymatically with vascular collagen and elastin, creating cross-linked AGEs that accelerate arterial stiffness.',
+    action: 'Standard: Keep post-meal glucose excursions strictly <130-140 mg/dL with rapid return to pre-prandial baseline within 2 to 2.5 hours.'
+  },
+  {
+    id: 'resistant',
+    icon: '🥔',
+    title: 'Retrograded Resistant Starch (RS3) Cooking Protocol',
+    badge: 'Microbiome Fuel',
+    color: 'rgba(168,85,247,.15)',
+    textColor: '#a855f7',
+    desc: 'Cooking and subsequently cooling starches (potatoes, rice, legumes) for 12–24 hours retrogrades amylose into crystalline resistant starch, cutting available glucose by up to 40%.',
+    action: 'Protocol: Cook rice or potatoes in advance and refrigerate overnight. Reheating retains the recrystallized resistant starch while fueling colon butyrate synthesis.'
+  }
+];
+
+const GLUCOSE_UI = {
+  openBtn: document.getElementById('glucose-open'),
+  openSideBtn: document.getElementById('glucose-open-side'),
+  mask: document.getElementById('glucose-mask'),
+  xBtn: document.getElementById('glucose-x'),
+  closeBtn: document.getElementById('glucose-close-btn'),
+  mealInput: document.getElementById('glucose-meal-input'),
+  orderInput: document.getElementById('glucose-order-input'),
+  walkInput: document.getElementById('glucose-walk-input'),
+  fastingInput: document.getElementById('glucose-fasting-input'),
+  fiberInput: document.getElementById('glucose-fiber-input'),
+  kpiReduction: document.getElementById('glucose-kpi-reduction'),
+  kpiPeak: document.getElementById('glucose-kpi-peak'),
+  kpiInsulin: document.getElementById('glucose-kpi-insulin'),
+  kpiAuc: document.getElementById('glucose-kpi-auc'),
+  cardsGrid: document.getElementById('glucose-cards-grid'),
+  routineDesc: document.getElementById('glucose-routine-desc'),
+  exportBtn: document.getElementById('glucose-export'),
+  shareX: document.getElementById('glucose-share-x'),
+  shareWa: document.getElementById('glucose-share-wa'),
+  shareLi: document.getElementById('glucose-share-li'),
+  msg: document.getElementById('glucose-copy-msg')
+};
+
+let glucoseSettings = {
+  meal: 'moderate',
+  order: 'mixed',
+  walk: 'sedentary',
+  fasting: 'optimal',
+  fiber: 'none'
+};
+
+try {
+  const savedGlucose = localStorage.getItem('eb_glucose_settings');
+  if (savedGlucose) {
+    glucoseSettings = Object.assign(glucoseSettings, JSON.parse(savedGlucose));
+  }
+} catch (e) {}
+
+function renderGlucoseCards() {
+  if (!GLUCOSE_UI.cardsGrid) return;
+  GLUCOSE_UI.cardsGrid.innerHTML = GLUCOSE_CARDS_DATA.map(c => `
+    <div class="glucose-card">
+      <div class="glucose-head">
+        <span class="glucose-title"><span>${c.icon}</span> ${c.title}</span>
+        <span class="glucose-badge" style="background:${c.color};color:${c.textColor}">${c.badge}</span>
+      </div>
+      <div class="glucose-desc">${c.desc}</div>
+      <div class="glucose-action"><strong>Action:</strong> ${c.action}</div>
+    </div>
+  `).join('');
+}
+
+function calculateGlucoseMetrics() {
+  const mealVal = GLUCOSE_UI.mealInput?.value || glucoseSettings.meal;
+  const orderVal = GLUCOSE_UI.orderInput?.value || glucoseSettings.order;
+  const walkVal = GLUCOSE_UI.walkInput?.value || glucoseSettings.walk;
+  const fastingVal = GLUCOSE_UI.fastingInput?.value || glucoseSettings.fasting;
+  const fiberVal = GLUCOSE_UI.fiberInput?.value || glucoseSettings.fiber;
+
+  glucoseSettings.meal = mealVal;
+  glucoseSettings.order = orderVal;
+  glucoseSettings.walk = walkVal;
+  glucoseSettings.fasting = fastingVal;
+  glucoseSettings.fiber = fiberVal;
+
+  try {
+    localStorage.setItem('eb_glucose_settings', JSON.stringify(glucoseSettings));
+  } catch (e) {}
+
+  // 1. Calculate Dampening Multipliers
+  let orderDamp = 0;
+  if (orderVal === 'veggies_first') orderDamp = 0.37;
+  else if (orderVal === 'mixed') orderDamp = 0.08;
+
+  let walkDamp = 0;
+  if (walkVal === 'walk20') walkDamp = 0.35;
+  else if (walkVal === 'walk10') walkDamp = 0.25;
+  else if (walkVal === 'light') walkDamp = 0.12;
+
+  let fiberDamp = 0;
+  if (fiberVal === 'psyllium') fiberDamp = 0.20;
+  else if (fiberVal === 'vinegar') fiberDamp = 0.15;
+
+  // Synergistic spike reduction: 1 - (1 - d1)(1 - d2)(1 - d3)
+  const totalDampFactor = 1 - (1 - orderDamp) * (1 - walkDamp) * (1 - fiberDamp);
+  const reductionPct = Math.round(totalDampFactor * 100);
+
+  // 2. Base 1h Peak by meal load (mg/dL)
+  let basePeak = 145;
+  let fastingBase = 82;
+  if (fastingVal === 'normal') { fastingBase = 92; basePeak += 10; }
+  else if (fastingVal === 'prediabetes') { fastingBase = 110; basePeak += 28; }
+
+  if (mealVal === 'low') basePeak = fastingBase + 22;
+  else if (mealVal === 'moderate') basePeak = fastingBase + 55;
+  else if (mealVal === 'high') basePeak = fastingBase + 85;
+  else if (mealVal === 'ultra') basePeak = fastingBase + 120;
+
+  // Reduced peak
+  const deltaAboveFasting = (basePeak - fastingBase) * (1 - totalDampFactor);
+  const finalPeak = Math.round(fastingBase + deltaAboveFasting);
+  const finalPeakMmol = (finalPeak / 18.018).toFixed(1);
+
+  // 3. Pancreatic Insulin Demand
+  let insulinDemand = 'Moderate';
+  let insulinColor = 'var(--blue-1,#3b82f6)';
+  if (reductionPct >= 40 && (mealVal === 'low' || mealVal === 'moderate')) {
+    insulinDemand = 'Low / Sparing';
+    insulinColor = 'var(--green-1)';
+  } else if (mealVal === 'ultra' && reductionPct < 25) {
+    insulinDemand = 'Severe / Exhaustion';
+    insulinColor = '#ef4444';
+  } else if (mealVal === 'high' && reductionPct < 30) {
+    insulinDemand = 'High Spike';
+    insulinColor = 'var(--yellow-1,#eab308)';
+  }
+
+  // 4. AUC Tier
+  let aucTier = 'Standard';
+  let aucColor = 'var(--t2)';
+  if (reductionPct >= 45) {
+    aucTier = 'Optimal Flatline';
+    aucColor = 'var(--green-1)';
+  } else if (reductionPct >= 20) {
+    aucTier = 'Well Buffered';
+    aucColor = 'var(--blue-1,#3b82f6)';
+  } else if (mealVal === 'high' || mealVal === 'ultra') {
+    aucTier = 'Glycemic Rollercoaster';
+    aucColor = '#ef4444';
+  }
+
+  // Update KPI Banner
+  if (GLUCOSE_UI.kpiReduction) {
+    GLUCOSE_UI.kpiReduction.textContent = `-${reductionPct}%`;
+  }
+  if (GLUCOSE_UI.kpiPeak) {
+    GLUCOSE_UI.kpiPeak.textContent = `~${finalPeak} mg/dL (${finalPeakMmol} mmol/L)`;
+    GLUCOSE_UI.kpiPeak.style.color = finalPeak < 130 ? 'var(--green-1)' : (finalPeak > 160 ? '#ef4444' : 'var(--yellow-1,#eab308)');
+  }
+  if (GLUCOSE_UI.kpiInsulin) {
+    GLUCOSE_UI.kpiInsulin.textContent = insulinDemand;
+    GLUCOSE_UI.kpiInsulin.style.color = insulinColor;
+  }
+  if (GLUCOSE_UI.kpiAuc) {
+    GLUCOSE_UI.kpiAuc.textContent = aucTier;
+    GLUCOSE_UI.kpiAuc.style.color = aucColor;
+  }
+
+  // Update Protocol Box
+  if (GLUCOSE_UI.routineDesc) {
+    GLUCOSE_UI.routineDesc.innerHTML = `
+      • <strong>Pre-Meal Primer:</strong> ${fiberVal !== 'none' ? `Take <strong>${fiberVal === 'vinegar' ? '1 tbsp apple cider vinegar in water' : '5g psyllium husk'}</strong> 5–10 min prior to eating (-${fiberVal === 'vinegar' ? '15%' : '20%'} amylase damping).` : 'Optional: Add 1 tbsp apple cider vinegar or 5g soluble fiber before high-carb meals for an additional -15% to -20% spike reduction.'}<br>
+      • <strong>Meal Sequencing Execution:</strong> ${orderVal === 'veggies_first' ? '<span style="color:var(--green-1);font-weight:700">Strict Shukla Protocol Active.</span> Eat vegetables/fiber and protein first. Starches/carbs consumed 10–15 min later encounter a viscous intestinal mesh, reducing glucose peak by <strong>-37%</strong>.' : 'Switch to eating vegetables & protein first, leaving starches for last to immediately unlock a <strong>-37% glucose spike reduction</strong>.'}<br>
+      • <strong>Post-Meal GLUT4 Movement:</strong> ${walkVal !== 'sedentary' ? `Active postprandial movement engaged (<strong>${walkVal}</strong>), siphoning circulating glucose directly into skeletal muscle fibers without pancreatic insulin demand.` : '<span style="color:var(--yellow-1,#eab308);font-weight:700">Sedentary desk/couch sitting detected.</span> A simple 10-minute walk post-meal would immediately shave an extra <strong>25%</strong> off your circulating glucose peak.'}<br>
+      • <strong>Net Metabolic Impact:</strong> Projected 1-hour peak: <strong>~${finalPeak} mg/dL</strong> (estimated <strong>-${reductionPct}%</strong> total spike dampening vs unbuffered meal).
+    `;
+  }
+}
+
+function initGlucoseUI() {
+  if (!GLUCOSE_UI.mask) return;
+
+  renderGlucoseCards();
+
+  if (GLUCOSE_UI.mealInput) GLUCOSE_UI.mealInput.value = glucoseSettings.meal;
+  if (GLUCOSE_UI.orderInput) GLUCOSE_UI.orderInput.value = glucoseSettings.order;
+  if (GLUCOSE_UI.walkInput) GLUCOSE_UI.walkInput.value = glucoseSettings.walk;
+  if (GLUCOSE_UI.fastingInput) GLUCOSE_UI.fastingInput.value = glucoseSettings.fasting;
+  if (GLUCOSE_UI.fiberInput) GLUCOSE_UI.fiberInput.value = glucoseSettings.fiber;
+
+  calculateGlucoseMetrics();
+}
+
+initGlucoseUI();
+
+function openGlucoseModal() {
+  if (!GLUCOSE_UI.mask) return;
+  GLUCOSE_UI.mask.hidden = false;
+  document.body.style.overflow = 'hidden';
+  GLUCOSE_UI.mealInput?.focus();
+}
+
+function closeGlucoseModal() {
+  if (!GLUCOSE_UI.mask) return;
+  GLUCOSE_UI.mask.hidden = true;
+  document.body.style.overflow = '';
+}
+
+GLUCOSE_UI.openBtn?.addEventListener('click', openGlucoseModal);
+GLUCOSE_UI.openSideBtn?.addEventListener('click', openGlucoseModal);
+GLUCOSE_UI.xBtn?.addEventListener('click', closeGlucoseModal);
+GLUCOSE_UI.closeBtn?.addEventListener('click', closeGlucoseModal);
+
+GLUCOSE_UI.mask?.addEventListener('click', (e) => {
+  if (e.target === GLUCOSE_UI.mask) closeGlucoseModal();
+});
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && GLUCOSE_UI.mask && !GLUCOSE_UI.mask.hidden) {
+    closeGlucoseModal();
+  }
+});
+
+const glucoseInputElements = [GLUCOSE_UI.mealInput, GLUCOSE_UI.orderInput, GLUCOSE_UI.walkInput, GLUCOSE_UI.fastingInput, GLUCOSE_UI.fiberInput];
+glucoseInputElements.forEach(el => {
+  el?.addEventListener('input', calculateGlucoseMetrics);
+  el?.addEventListener('change', calculateGlucoseMetrics);
+});
+
+GLUCOSE_UI.exportBtn?.addEventListener('click', async () => {
+  let md = `# Metabolic Health & Postprandial Glucose Protocol\n`;
+  md += `*Shukla Food Sequencing, Muscular GLUT4 Translocation & Glycemic Stability*\n\n`;
+  md += `**Meal Configuration**: ${glucoseSettings.meal.toUpperCase()} | Eating Order: ${glucoseSettings.order.toUpperCase()}\n`;
+  md += `**Post-Meal Movement**: ${glucoseSettings.walk.toUpperCase()} | Pre-Meal Buffer: ${glucoseSettings.fiber.toUpperCase()}\n`;
+  md += `**Estimated Spike Dampening**: ${GLUCOSE_UI.kpiReduction?.textContent || '-0%'}\n`;
+  md += `**Projected 1-Hour Glucose Peak**: ${GLUCOSE_UI.kpiPeak?.textContent || '~142 mg/dL'}\n`;
+  md += `**Pancreatic Insulin Demand**: ${GLUCOSE_UI.kpiInsulin?.textContent || 'Moderate'}\n`;
+  md += `**Glycemic Excursion Status**: ${GLUCOSE_UI.kpiAuc?.textContent || 'Standard'}\n\n`;
+
+  md += `## 1. Metabolic Principles & Incretin Dynamics\n`;
+  GLUCOSE_CARDS_DATA.forEach(c => {
+    md += `- **${c.title}** (${c.icon}) [${c.badge}]\n`;
+    md += `  - Evidence: ${c.desc}\n`;
+    md += `  - Action: ${c.action}\n`;
+  });
+
+  md += `\n## 2. Actionable Meal Sequencing Spec\n`;
+  md += `${(GLUCOSE_UI.routineDesc?.textContent || '').trim()}\n\n`;
+
+  md += `---\n*Generated by The Evidence-Based Life Metabolic Engine: https://parveen0029.github.io/The-Evidence-Based-Life/*\n`;
+
+  try {
+    await navigator.clipboard.writeText(md);
+    if (GLUCOSE_UI.msg) {
+      GLUCOSE_UI.msg.textContent = '✓ Glucose protocol copied to clipboard!';
+      GLUCOSE_UI.msg.hidden = false;
+      setTimeout(() => { GLUCOSE_UI.msg.hidden = true; }, 3500);
+    }
+  } catch (err) {
+    prompt('Copy your Glucose Protocol below:', md);
+  }
+});
+
+GLUCOSE_UI.shareX?.addEventListener('click', () => {
+  const text = `Eating vegetables & protein before carbs reduces glucose spikes by 37% and insulin by 48% (Weill Cornell Shukla study). Calculate your metabolic protocol:`;
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+GLUCOSE_UI.shareWa?.addEventListener('click', () => {
+  const text = `*Metabolic Health & Postprandial Glucose Matrix*\nCalculate your food sequencing spike reduction (-37%), muscular GLUT4 walk benefit, and glycemic longevity targets:\n\nhttps://parveen0029.github.io/The-Evidence-Based-Life/`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+});
+
+GLUCOSE_UI.shareLi?.addEventListener('click', () => {
   const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
 });
