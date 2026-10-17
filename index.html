@@ -1511,6 +1511,42 @@ html.dark .focus-toggle-chip.active{color:#1b1b1f}
   #glyco-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Gut Microbiome Diversity, SCFAs & Intestinal Barrier Modal */
+#microbiome-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#microbiome-mask[hidden]{display:none}
+#microbiome-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(940px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+
+.microbiome-params-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;gap:10px;background:var(--bg-alt);border:1px solid var(--divider);border-radius:12px;padding:12px 14px;margin-bottom:14px}
+@media (max-width:860px){.microbiome-params-grid{grid-template-columns:1fr 1fr 1fr}}
+@media (max-width:540px){.microbiome-params-grid{grid-template-columns:1fr 1fr}}
+
+.microbiome-param-cell{display:flex;flex-direction:column;gap:4px}
+.microbiome-param-label{font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px}
+.microbiome-param-input{padding:7px 10px;border-radius:6px;border:1px solid var(--divider);background:var(--bg-elv);color:var(--t1);font-size:13px}
+
+.microbiome-kpi-banner{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;background:var(--bg-elv);border:1px solid var(--divider);border-radius:12px;padding:12px 16px;margin-bottom:14px}
+@media (max-width:760px){.microbiome-kpi-banner{grid-template-columns:1fr 1fr}}
+.microbiome-kpi-item{display:flex;flex-direction:column;gap:2px}
+.microbiome-kpi-val{font-size:20px;font-weight:900;color:var(--green-1)}
+.microbiome-kpi-lbl{font-size:11px;color:var(--t3)}
+
+.microbiome-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-bottom:14px}
+.microbiome-card{background:var(--bg-alt);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.microbiome-head{display:flex;align-items:center;justify-content:space-between}
+.microbiome-title{font-size:13px;font-weight:700;color:var(--t1);display:flex;align-items:center;gap:6px}
+.microbiome-badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:12px;background:rgba(239,68,68,.15);color:var(--red-1,#ef4444)}
+.microbiome-desc{font-size:12px;color:var(--t2);line-height:1.45}
+.microbiome-action{font-size:11.5px;color:var(--t3);line-height:1.4}
+
+.microbiome-summary-box{background:var(--bg-elv);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;margin-bottom:14px}
+.microbiome-summary-title{font-size:12px;font-weight:700;color:var(--t1);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.microbiome-summary-text{font-size:12px;color:var(--t2);line-height:1.5}
+
+@media (max-width:820px){
+  #microbiome-mask{padding:0}
+  #microbiome-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
 /* Floating Audio Dock */
 #audio-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:70;background:var(--bg-elv);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);padding:10px 18px;display:flex;align-items:center;gap:14px;max-width:min(700px,calc(100vw - 32px));width:100%;backdrop-filter:blur(10px);transition:all .25s ease}
 #audio-dock[hidden]{display:none}
@@ -1597,7 +1633,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#light-mask,#light-open,#light-open-side,#sleep-mask,#sleep-open,#sleep-open-side,#glucose-mask,#glucose-open,#glucose-open-side,#inflam-mask,#inflam-open,#inflam-open-side,#apob-mask,#apob-open,#apob-open-side,#brain-mask,#brain-open,#brain-open-side,#mito-mask,#mito-open,#mito-open-side,#vagus-mask,#vagus-open,#vagus-open-side,#bone-mask,#bone-open,#bone-open-side,#endo-mask,#endo-open,#endo-open-side,#seno-mask,#seno-open,#seno-open-side,#glyco-mask,#glyco-open,#glyco-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#light-mask,#light-open,#light-open-side,#sleep-mask,#sleep-open,#sleep-open-side,#glucose-mask,#glucose-open,#glucose-open-side,#inflam-mask,#inflam-open,#inflam-open-side,#apob-mask,#apob-open,#apob-open-side,#brain-mask,#brain-open,#brain-open-side,#mito-mask,#mito-open,#mito-open-side,#vagus-mask,#vagus-open,#vagus-open-side,#bone-mask,#bone-open,#bone-open-side,#endo-mask,#endo-open,#endo-open-side,#seno-mask,#seno-open,#seno-open-side,#glyco-mask,#glyco-open,#glyco-open-side,#microbiome-mask,#microbiome-open,#microbiome-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -1707,6 +1743,7 @@ html.dark .hc-action{color:#1b1b1f!important}
       <button class="icon-btn" id="endo-open" title="Hormonal Optimization & Endocrine Matrix" aria-label="Endocrine Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><line x1="6" y1="9" x2="6" y2="15"/><line x1="9" y1="6" x2="15" y2="6"/><line x1="9" y1="18" x2="15" y2="18"/><line x1="18" y1="9" x2="18" y2="15"/><line x1="8.12" y1="8.12" x2="15.88" y2="15.88"/></svg></button>
       <button class="icon-btn" id="seno-open" title="Cellular Senescence &amp; Senolytic Matrix" aria-label="Senolytic Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/></svg></button>
       <button class="icon-btn" id="glyco-open" title="Endothelial Glycocalyx &amp; Microvascular Matrix" aria-label="Glycocalyx Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h3c2 0 3-3 5-3s3 6 5 6 3-3 5-3h2"/><path d="M6 7v3M10 5v2M14 17v2M18 14v3"/><circle cx="12" cy="12" r="1"/></svg></button>
+      <button class="icon-btn" id="microbiome-open" title="Gut Microbiome Diversity &amp; Intestinal Barrier Matrix" aria-label="Microbiome Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M6.5 6.5l1.5 1.5M16 16l1.5 1.5M6.5 17.5 8 16M16 8l1.5-1.5"/><circle cx="8" cy="12" r="1"/><circle cx="16" cy="12" r="1"/></svg></button>
       <a class="icon-btn" href="selfcheck.html" title="Take 2-Minute Life Health & Risk Audit" aria-label="Self-Audit Quiz"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></a>
       <a class="icon-btn" href="README.md" title="View README.md" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn" href="https://github.com/parveen0029/The-Evidence-Based-Life" target="_blank" rel="noopener" title="View repository on GitHub" aria-label="GitHub Repository"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
@@ -1778,6 +1815,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     <button class="btn-sm ghost" id="endo-open-side" type="button" style="margin-top:6px;font-size:12px">🧪 Hormonal Rhythms &amp; Endocrine Matrix</button>
     <button class="btn-sm ghost" id="seno-open-side" type="button" style="margin-top:6px;font-size:12px">⏳ Cellular Senescence &amp; Senolytics</button>
     <button class="btn-sm ghost" id="glyco-open-side" type="button" style="margin-top:6px;font-size:12px">🌊 Endothelial Glycocalyx &amp; Microvascular</button>
+    <button class="btn-sm ghost" id="microbiome-open-side" type="button" style="margin-top:6px;font-size:12px">🦠 Gut Microbiome &amp; Intestinal Barrier</button>
   </div>
   <div class="group" id="g-upd" hidden>
     <div class="gt">Recent Updates <small>Content revisions</small></div>
@@ -4194,6 +4232,107 @@ html.dark .hc-action{color:#1b1b1f!important}
         <button class="btn-sm ghost" id="glyco-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
         <button class="btn-sm ghost" id="glyco-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
         <p id="glyco-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Gut Microbiome Diversity, SCFAs & Intestinal Barrier Modal -->
+<div id="microbiome-mask" hidden>
+  <div id="microbiome-box" role="dialog" aria-modal="true" aria-labelledby="microbiome-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="microbiome-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M6.5 6.5l1.5 1.5M16 16l1.5 1.5M6.5 17.5 8 16M16 8l1.5-1.5"/><circle cx="8" cy="12" r="1"/><circle cx="16" cy="12" r="1"/></svg> <span>Gut Microbiome Diversity, SCFAs &amp; Intestinal Barrier Integrity Matrix</span></div>
+      <button type="button" id="microbiome-x" aria-label="Close microbiome matrix">✕</button>
+    </div>
+    <div class="stats-scroll">
+      <div class="stats-lead">Model and optimize your colonic microbiome ecosystem (~3.8×10¹³ microbial cells). Quantify dietary botanical diversity (The American Gut Project 30+ plants/week), short-chain fatty acid (butyrate) synthesis, intestinal tight junction (ZO-1/claudin) barrier integrity, and mucosal defense against systemic endotoxin (LPS) translocation.</div>
+
+      <div class="microbiome-params-grid">
+        <div class="microbiome-param-cell">
+          <label class="microbiome-param-label" for="microbiome-plants-input">Botanical Diversity</label>
+          <select id="microbiome-plants-input" class="microbiome-param-input">
+            <option value="optimal" selected>≥30 Plant Species/Week (Peak Alpha-Diversity &amp; Richness)</option>
+            <option value="moderate">15–29 Plant Species/Week (Moderate Microbiome Breadth)</option>
+            <option value="low">&lt;10 Plant Species/Week (Monoculture / Depleted Taxa)</option>
+          </select>
+        </div>
+        <div class="microbiome-param-cell">
+          <label class="microbiome-param-label" for="microbiome-fermented-input">Fermented Foods (Stanford)</label>
+          <select id="microbiome-fermented-input" class="microbiome-param-input">
+            <option value="optimal" selected>4–6 Diverse Servings/Day (Kefir, Kimchi, Kraut, Live Yogurt)</option>
+            <option value="moderate">1–3 Servings/Day (Baseline Commensal Seeding)</option>
+            <option value="none">0 Servings / Sterile Diet (Higher Inflammatory Cytokines)</option>
+          </select>
+        </div>
+        <div class="microbiome-param-cell">
+          <label class="microbiome-param-label" for="microbiome-fiber-input">Prebiotic Soluble Fiber</label>
+          <select id="microbiome-fiber-input" class="microbiome-param-input">
+            <option value="optimal" selected>≥35–45g Daily (Resistant Starch, Beta-Glucans, Inulin)</option>
+            <option value="moderate">20–34g Daily (Standard Whole Food Intake)</option>
+            <option value="deficient">&lt;15g Daily (Starved Commensal Fermentation / Mucus Erosion)</option>
+          </select>
+        </div>
+        <div class="microbiome-param-cell">
+          <label class="microbiome-param-label" for="microbiome-barrier-input">Intestinal Barrier Stressors</label>
+          <select id="microbiome-barrier-input" class="microbiome-param-input">
+            <option value="optimal" selected>Negligible Stressors (Zero NSAIDs, Minimal Alcohol, Clean)</option>
+            <option value="moderate">Occasional Alcohol / Intermittent NSAID Use</option>
+            <option value="disrupted">Chronic NSAIDs / Frequent Alcohol / Processed Emulsifiers</option>
+          </select>
+        </div>
+        <div class="microbiome-param-cell">
+          <label class="microbiome-param-label" for="microbiome-polyphenol-input">Polyphenols &amp; Akkermansia</label>
+          <select id="microbiome-polyphenol-input" class="microbiome-param-input">
+            <option value="optimal" selected>High Polyphenols (Cranberries, Pomegranate, Green Tea, Cocoa)</option>
+            <option value="moderate">Average Dietary Polyphenol Intake</option>
+            <option value="low">Low Polyphenol Intake / Blunted Mucosal Turnover</option>
+          </select>
+        </div>
+        <div class="microbiome-param-cell">
+          <label class="microbiome-param-label" for="microbiome-abx-input">Antibiotic History &amp; Stability</label>
+          <select id="microbiome-abx-input" class="microbiome-param-input">
+            <option value="optimal" selected>&gt;2 Years Free of Broad-Spectrum Antibiotics (Climax Biome)</option>
+            <option value="recovering">Recent Course (&lt;12 Months) / Rebuilding Resilience</option>
+            <option value="chronic">Frequent / Repeated Antibiotic Cycles (Significant Depletion)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="microbiome-kpi-banner">
+        <div class="microbiome-kpi-item">
+          <span class="microbiome-kpi-val" id="microbiome-kpi-diversity" style="color:var(--green-1)">Shannon 4.2 High</span>
+          <span class="microbiome-kpi-lbl">Microbiome Alpha-Diversity</span>
+        </div>
+        <div class="microbiome-kpi-item">
+          <span class="microbiome-kpi-val" id="microbiome-kpi-scfa" style="color:var(--green-1)">Peak Butyrate (+92%)</span>
+          <span class="microbiome-kpi-lbl">Colonic Butyrate Synthesis</span>
+        </div>
+        <div class="microbiome-kpi-item">
+          <span class="microbiome-kpi-val" id="microbiome-kpi-tight" style="color:var(--green-1)">Hermetic Seal</span>
+          <span class="microbiome-kpi-lbl">Tight Junction (ZO-1) Integrity</span>
+        </div>
+        <div class="microbiome-kpi-item">
+          <span class="microbiome-kpi-val" id="microbiome-kpi-endotoxin" style="color:var(--green-1)">Impermeable Shield</span>
+          <span class="microbiome-kpi-lbl">Systemic Endotoxin (LPS) Shield</span>
+        </div>
+      </div>
+
+      <div class="microbiome-grid" id="microbiome-cards-grid">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="microbiome-summary-box">
+        <div class="microbiome-summary-title"><span>🦠 Clinical Gut Microbiome &amp; Barrier Prescription</span></div>
+        <div class="microbiome-summary-text" id="microbiome-routine-desc">Calculating gut microbiome and intestinal barrier protocol...</div>
+      </div>
+
+      <div class="calc-footer">
+        <button class="btn-sm" id="microbiome-export" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy Gut Microbiome Protocol</button>
+        <button class="btn-sm ghost" id="microbiome-share-x" type="button" style="width:auto;padding:8px 14px">𝕏 Share</button>
+        <button class="btn-sm ghost" id="microbiome-share-wa" type="button" style="width:auto;padding:8px 14px">WhatsApp</button>
+        <button class="btn-sm ghost" id="microbiome-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
+        <button class="btn-sm ghost" id="microbiome-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
+        <p id="microbiome-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
       </div>
     </div>
   </div>
@@ -15281,6 +15420,365 @@ GLYCO_UI.shareWa?.addEventListener('click', () => {
 });
 
 GLYCO_UI.shareLi?.addEventListener('click', () => {
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+/* ---------- Gut Microbiome Diversity, SCFAs & Intestinal Barrier Integrity Matrix ---------- */
+const MICROBIOME_CARDS_DATA = [
+  {
+    id: 'botanical_diversity',
+    title: 'Dietary Botanical Diversity (30+ Plants/Week)',
+    icon: '🌾',
+    badge: 'Alpha-Diversity Driver',
+    color: 'rgba(16,185,129,.15)',
+    textColor: '#10b981',
+    desc: 'The American Gut Project established that individuals consuming ≥30 distinct plant types per week exhibit significantly greater microbiome diversity, enriched short-chain fatty acid pathways, and lower antibiotic resistance gene loads compared to those consuming <10 plants/week.',
+    action: 'Count weekly distinct botanicals (vegetables, fruits, herbs, spices, nuts, seeds, legumes, whole grains) targeting ≥30 unique species.'
+  },
+  {
+    id: 'scfa_butyrate_flux',
+    title: 'Short-Chain Fatty Acid (SCFA) Synthesis & Colonocyte Fuel',
+    icon: '🧈',
+    badge: 'Colonic Epithelial Fuel',
+    color: 'rgba(245,158,11,.15)',
+    textColor: '#f59e0b',
+    desc: 'Bacterial anaerobic fermentation of prebiotic non-digestible polysaccharides yields butyrate, acetate, and propionate. Butyrate supplies >70% of total colonocyte mitochondrial energy, acts as an endogenous histone deacetylase (HDAC) inhibitor, and induces FOXP3+ regulatory T-cells (Tregs) that suppress systemic inflammatory cytokine cascades.',
+    action: 'Ingest ≥35–45g/day total fiber, emphasizing resistant starch (cooked and cooled potatoes/rice/legumes), beta-glucans (oats), and inulin (onions, garlic, leeks).'
+  },
+  {
+    id: 'tight_junction_barrier',
+    title: 'Tight Junction Permeability & Zonulin Regulation (Leaky Gut)',
+    icon: '🧱',
+    badge: 'Paracellular Barrier Integrity',
+    color: 'rgba(59,130,246,.15)',
+    textColor: '#3b82f6',
+    desc: 'The intestinal epithelial monolayer is sealed by apical junctional complexes consisting of claudins, occludin, and zonula occludens-1 (ZO-1). Chronic exposure to alcohol, synthetic dietary emulsifiers (polysorbate-80, carboxymethylcellulose), NSAIDs, and gluten-induced zonulin disassembles tight junctions, causing paracellular leakage of bacterial lipopolysaccharide (LPS) into portal venous blood.',
+    action: 'Strictly eliminate ultra-processed dietary emulsifiers, limit NSAID frequency, and moderate alcohol intake to maintain hermetic tight junction seals.'
+  },
+  {
+    id: 'akkermansia_mucus',
+    title: 'Akkermansia muciniphila & Mucus Layer Turnover',
+    icon: '🦠',
+    badge: 'Mucosal Glycan Defense',
+    color: 'rgba(99,102,241,.15)',
+    textColor: '#6366f1',
+    desc: 'Akkermansia muciniphila lives in the nutrient-dense inner mucosal gel, degrading host glycans to produce acetate and propionate while signaling goblet cells to continuously synthesize and secrete fresh MUC2 mucin. This continuous turnover maintains an impenetrable 100–150 μm physical barrier preventing luminal microbes from direct contact with epithelial apical surfaces.',
+    action: 'Feed Akkermansia with ellagitannin-rich polyphenol sources: pomegranate, dark berries (cranberries, blackberries), green tea (EGCG), and 85%+ dark cocoa.'
+  },
+  {
+    id: 'fermented_keystones',
+    title: 'Fermented Food Commensal Inoculation (Stanford RCT)',
+    icon: '🥬',
+    badge: 'Dynamic Immune Remodeling',
+    color: 'rgba(236,72,153,.15)',
+    textColor: '#ec4899',
+    desc: 'In a landmark 10-week clinical trial (Wastyk & Sonnenburg, Cell 2021), a high-fermented food diet (4–6 servings daily of kimchi, kefir, kombucha, live brine pickles, yogurt) linearly expanded microbial alpha-diversity and suppressed 19 circulating inflammatory biomarkers (including IL-6, IL-1b, and TNF-a).',
+    action: 'Incorporate 2–4 diverse servings of living, unpasteurized fermented foods daily to seed transient beneficial microbes and enrich ecological complexity.'
+  },
+  {
+    id: 'antibiotic_resilience',
+    title: 'Antibiotic Resilience & Ecological Rehabilitation',
+    icon: '🛡️',
+    badge: 'Dysbiosis Rehabilitation',
+    color: 'rgba(6,182,212,.15)',
+    textColor: '#06b6d4',
+    desc: 'A single 5-day course of broad-spectrum antibiotics (e.g. ciprofloxacin, amoxicillin-clavulanate) can eradicate up to a third of intestinal taxa, with some keystone species failing to recover after 6–12 months. Co-administration of Saccharomyces boulardii probiotic yeast protects mucosal barrier integrity without transferring antibiotic-resistance genes.',
+    action: 'Reserve broad-spectrum antibiotics strictly for verified bacterial infections; during and post-treatment, deploy Saccharomyces boulardii and steadily re-titrate soluble prebiotic fibers.'
+  }
+];
+
+const MICROBIOME_UI = {
+  openBtn: document.getElementById('microbiome-open'),
+  openSideBtn: document.getElementById('microbiome-open-side'),
+  mask: document.getElementById('microbiome-mask'),
+  xBtn: document.getElementById('microbiome-x'),
+  closeBtn: document.getElementById('microbiome-close-btn'),
+  plantsInput: document.getElementById('microbiome-plants-input'),
+  fermentedInput: document.getElementById('microbiome-fermented-input'),
+  fiberInput: document.getElementById('microbiome-fiber-input'),
+  barrierInput: document.getElementById('microbiome-barrier-input'),
+  polyphenolInput: document.getElementById('microbiome-polyphenol-input'),
+  abxInput: document.getElementById('microbiome-abx-input'),
+  kpiDiversity: document.getElementById('microbiome-kpi-diversity'),
+  kpiScfa: document.getElementById('microbiome-kpi-scfa'),
+  kpiTight: document.getElementById('microbiome-kpi-tight'),
+  kpiEndotoxin: document.getElementById('microbiome-kpi-endotoxin'),
+  cardsGrid: document.getElementById('microbiome-cards-grid'),
+  routineDesc: document.getElementById('microbiome-routine-desc'),
+  exportBtn: document.getElementById('microbiome-export'),
+  shareX: document.getElementById('microbiome-share-x'),
+  shareWa: document.getElementById('microbiome-share-wa'),
+  shareLi: document.getElementById('microbiome-share-li'),
+  msg: document.getElementById('microbiome-copy-msg')
+};
+
+let microbiomeSettings = {
+  plants: 'optimal',
+  fermented: 'optimal',
+  fiber: 'optimal',
+  barrier: 'optimal',
+  polyphenol: 'optimal',
+  abx: 'optimal'
+};
+
+try {
+  const savedMicrobiome = localStorage.getItem('eb_microbiome_settings');
+  if (savedMicrobiome) {
+    microbiomeSettings = Object.assign(microbiomeSettings, JSON.parse(savedMicrobiome));
+  }
+} catch (e) {}
+
+function renderMicrobiomeCards() {
+  if (!MICROBIOME_UI.cardsGrid) return;
+  MICROBIOME_UI.cardsGrid.innerHTML = MICROBIOME_CARDS_DATA.map(c => `
+    <div class="microbiome-card">
+      <div class="microbiome-head">
+        <span class="microbiome-title"><span>${c.icon}</span> ${c.title}</span>
+        <span class="microbiome-badge" style="background:${c.color};color:${c.textColor}">${c.badge}</span>
+      </div>
+      <div class="microbiome-desc">${c.desc}</div>
+      <div class="microbiome-action"><strong>Action:</strong> ${c.action}</div>
+    </div>
+  `).join('');
+}
+
+function calculateMicrobiomeMetrics() {
+  const plantsVal = MICROBIOME_UI.plantsInput?.value || microbiomeSettings.plants;
+  const fermentedVal = MICROBIOME_UI.fermentedInput?.value || microbiomeSettings.fermented;
+  const fiberVal = MICROBIOME_UI.fiberInput?.value || microbiomeSettings.fiber;
+  const barrierVal = MICROBIOME_UI.barrierInput?.value || microbiomeSettings.barrier;
+  const polyphenolVal = MICROBIOME_UI.polyphenolInput?.value || microbiomeSettings.polyphenol;
+  const abxVal = MICROBIOME_UI.abxInput?.value || microbiomeSettings.abx;
+
+  microbiomeSettings.plants = plantsVal;
+  microbiomeSettings.fermented = fermentedVal;
+  microbiomeSettings.fiber = fiberVal;
+  microbiomeSettings.barrier = barrierVal;
+  microbiomeSettings.polyphenol = polyphenolVal;
+  microbiomeSettings.abx = abxVal;
+
+  try {
+    localStorage.setItem('eb_microbiome_settings', JSON.stringify(microbiomeSettings));
+  } catch (e) {}
+
+  let score = 0;
+  if (plantsVal === 'optimal') score += 25;
+  else if (plantsVal === 'moderate') score += 12;
+  else score -= 15;
+
+  if (fermentedVal === 'optimal') score += 25;
+  else if (fermentedVal === 'moderate') score += 10;
+  else score -= 10;
+
+  if (fiberVal === 'optimal') score += 20;
+  else if (fiberVal === 'moderate') score += 10;
+  else score -= 15;
+
+  if (barrierVal === 'optimal') score += 20;
+  else if (barrierVal === 'moderate') score += 5;
+  else score -= 20;
+
+  if (polyphenolVal === 'optimal') score += 10;
+  else if (polyphenolVal === 'moderate') score += 5;
+  else score -= 5;
+
+  if (abxVal === 'optimal') score += 10;
+  else if (abxVal === 'recovering') score += 3;
+  else score -= 15;
+
+  // KPIs
+  let divText = 'Shannon 4.2 High';
+  let divColor = 'var(--green-1,#10b981)';
+  if (score >= 90) {
+    divText = 'Shannon 4.2 High';
+    divColor = 'var(--green-1,#10b981)';
+  } else if (score >= 65) {
+    divText = 'Shannon 3.4 Moderate';
+    divColor = 'var(--green-1,#10b981)';
+  } else if (score >= 40) {
+    divText = 'Shannon 2.5 Low';
+    divColor = 'var(--yellow-1,#eab308)';
+  } else {
+    divText = 'Shannon <1.8 Dysbiosis';
+    divColor = 'var(--red-1,#ef4444)';
+  }
+
+  let scfaText = 'Peak Butyrate (+92%)';
+  let scfaColor = 'var(--green-1,#10b981)';
+  if (score >= 90) {
+    scfaText = 'Peak Butyrate (+92%)';
+    scfaColor = 'var(--green-1,#10b981)';
+  } else if (score >= 65) {
+    scfaText = 'Standard SCFA (+55%)';
+    scfaColor = 'var(--green-1,#10b981)';
+  } else if (score >= 40) {
+    scfaText = 'Blunted Butyrate (+20%)';
+    scfaColor = 'var(--yellow-1,#eab308)';
+  } else {
+    scfaText = 'Starved Colonocytes';
+    scfaColor = 'var(--red-1,#ef4444)';
+  }
+
+  let tightText = 'Hermetic Seal';
+  let tightColor = 'var(--green-1,#10b981)';
+  if (score >= 85) {
+    tightText = 'Hermetic Seal (ZO-1)';
+    tightColor = 'var(--green-1,#10b981)';
+  } else if (score >= 60) {
+    tightText = 'Borderline Permeable';
+    tightColor = 'var(--yellow-1,#eab308)';
+  } else {
+    tightText = 'Compromised (Leaky)';
+    tightColor = 'var(--red-1,#ef4444)';
+  }
+
+  let lpsText = 'Impermeable Shield';
+  let lpsColor = 'var(--green-1,#10b981)';
+  if (score >= 85) {
+    lpsText = 'Impermeable Shield';
+    lpsColor = 'var(--green-1,#10b981)';
+  } else if (score >= 60) {
+    lpsText = 'Mild Endotoxin Flux';
+    lpsColor = 'var(--yellow-1,#eab308)';
+  } else {
+    lpsText = 'Metabolic Endotoxemia';
+    lpsColor = 'var(--red-1,#ef4444)';
+  }
+
+  if (MICROBIOME_UI.kpiDiversity) {
+    MICROBIOME_UI.kpiDiversity.textContent = divText;
+    MICROBIOME_UI.kpiDiversity.style.color = divColor;
+  }
+  if (MICROBIOME_UI.kpiScfa) {
+    MICROBIOME_UI.kpiScfa.textContent = scfaText;
+    MICROBIOME_UI.kpiScfa.style.color = scfaColor;
+  }
+  if (MICROBIOME_UI.kpiTight) {
+    MICROBIOME_UI.kpiTight.textContent = tightText;
+    MICROBIOME_UI.kpiTight.style.color = tightColor;
+  }
+  if (MICROBIOME_UI.kpiEndotoxin) {
+    MICROBIOME_UI.kpiEndotoxin.textContent = lpsText;
+    MICROBIOME_UI.kpiEndotoxin.style.color = lpsColor;
+  }
+
+  if (MICROBIOME_UI.routineDesc) {
+    MICROBIOME_UI.routineDesc.innerHTML = `
+      <strong>Microbial Alpha-Diversity:</strong> Ecosystem richness: <strong>${divText}</strong>. ${plantsVal === 'optimal' ? '<span style="color:var(--green-1);font-weight:700">American Gut Project 30+ target met:</span> Consuming ≥30 distinct plant species weekly fuels diverse bacterial niches and minimizes competitive monoculture.' : (plantsVal === 'low' ? '<span style="color:var(--red-1,#ef4444);font-weight:700">Dietary plant monoculture:</span> Less than 10 plants/week starves specialized commensal phyla.' : 'Expand botanical variety across legumes, seeds, nuts, and herbs to reach the 30 species threshold.')}<br>
+      <strong>Colonic Butyrate &amp; SCFA Flux:</strong> Synthesis rate: <strong>${scfaText}</strong>. ${fiberVal === 'optimal' ? '<span style="color:var(--green-1);font-weight:700">Prebiotic substrates robust (≥35g):</span> Resistant starch and beta-glucan fermentation provides colonocyte ATP and drives Treg anti-inflammatory suppression.' : '<span style="color:var(--yellow-1,#eab308);font-weight:700">Insufficient fiber substrate:</span> Commensals forced into mucin glycan consumption when dietary fiber is below 15g/day.'}<br>
+      <strong>Intestinal Tight Junction Integrity:</strong> Barrier status: <strong>${tightText}</strong>. ${barrierVal === 'optimal' ? 'Zero NSAIDs and absence of emulsifiers preserves claudin-1 and occludin protein crosslinks.' : '<span style="color:var(--red-1,#ef4444);font-weight:700">Barrier stress active:</span> Alcohol, NSAIDs, or synthetic emulsifiers disassemble tight junctions, triggering paracellular LPS leak.'}<br>
+      <strong>Fermented Food Seeding &amp; Immune Remodeling:</strong> Daily fermented intake: <strong>${fermentedVal.toUpperCase()}</strong>. ${fermentedVal === 'optimal' ? '<span style="color:var(--green-1);font-weight:700">Stanford protocol active (4–6 svgs):</span> Living food microbes suppress 19 circulating inflammatory cytokines (including IL-6 and TNF-a).' : 'Incorporate living unpasteurized kefir, kimchi, sauerkraut, or live yogurt daily.'}<br>
+      <strong>Mucosal Lining &amp; Endotoxin Defense:</strong> Systemic LPS barrier: <strong>${lpsText}</strong>. ${polyphenolVal === 'optimal' ? 'Polyphenolic ellagitannins feed Akkermansia muciniphila to continuously regenerate the protective inner MUC2 mucus gel.' : 'Add dark berries, pomegranate, and green tea to stimulate mucosal turnover.'}
+    `;
+  }
+}
+
+function initMicrobiomeUI() {
+  if (!MICROBIOME_UI.mask) return;
+
+  renderMicrobiomeCards();
+
+  if (MICROBIOME_UI.plantsInput) MICROBIOME_UI.plantsInput.value = microbiomeSettings.plants;
+  if (MICROBIOME_UI.fermentedInput) MICROBIOME_UI.fermentedInput.value = microbiomeSettings.fermented;
+  if (MICROBIOME_UI.fiberInput) MICROBIOME_UI.fiberInput.value = microbiomeSettings.fiber;
+  if (MICROBIOME_UI.barrierInput) MICROBIOME_UI.barrierInput.value = microbiomeSettings.barrier;
+  if (MICROBIOME_UI.polyphenolInput) MICROBIOME_UI.polyphenolInput.value = microbiomeSettings.polyphenol;
+  if (MICROBIOME_UI.abxInput) MICROBIOME_UI.abxInput.value = microbiomeSettings.abx;
+
+  calculateMicrobiomeMetrics();
+}
+
+initMicrobiomeUI();
+
+function openMicrobiomeModal() {
+  if (!MICROBIOME_UI.mask) return;
+  MICROBIOME_UI.mask.hidden = false;
+  document.body.style.overflow = 'hidden';
+  MICROBIOME_UI.plantsInput?.focus();
+}
+
+function closeMicrobiomeModal() {
+  if (!MICROBIOME_UI.mask) return;
+  MICROBIOME_UI.mask.hidden = true;
+  document.body.style.overflow = '';
+}
+
+MICROBIOME_UI.openBtn?.addEventListener('click', openMicrobiomeModal);
+MICROBIOME_UI.openSideBtn?.addEventListener('click', openMicrobiomeModal);
+MICROBIOME_UI.xBtn?.addEventListener('click', closeMicrobiomeModal);
+MICROBIOME_UI.closeBtn?.addEventListener('click', closeMicrobiomeModal);
+
+MICROBIOME_UI.mask?.addEventListener('click', (e) => {
+  if (e.target === MICROBIOME_UI.mask) closeMicrobiomeModal();
+});
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && MICROBIOME_UI.mask && !MICROBIOME_UI.mask.hidden) {
+    closeMicrobiomeModal();
+  }
+});
+
+const microbiomeInputElements = [
+  MICROBIOME_UI.plantsInput,
+  MICROBIOME_UI.fermentedInput,
+  MICROBIOME_UI.fiberInput,
+  MICROBIOME_UI.barrierInput,
+  MICROBIOME_UI.polyphenolInput,
+  MICROBIOME_UI.abxInput
+];
+microbiomeInputElements.forEach(el => {
+  el?.addEventListener('input', calculateMicrobiomeMetrics);
+  el?.addEventListener('change', calculateMicrobiomeMetrics);
+});
+
+MICROBIOME_UI.exportBtn?.addEventListener('click', async () => {
+  let md = `# Gut Microbiome Diversity, SCFAs & Intestinal Barrier Protocol\n`;
+  md += `*Evidence-Based Botanical Diversity, Colonic Butyrate Synthesis, Tight Junction Integrity & Mucosal Defense*\n\n`;
+  md += `**Botanical Diversity (Plants/Wk)**: ${microbiomeSettings.plants.toUpperCase()} | Fermented Food Servings: ${microbiomeSettings.fermented.toUpperCase()}\n`;
+  md += `**Prebiotic Soluble Fiber**: ${microbiomeSettings.fiber.toUpperCase()} | Intestinal Barrier Stressors: ${microbiomeSettings.barrier.toUpperCase()}\n`;
+  md += `**Polyphenols & Akkermansia**: ${microbiomeSettings.polyphenol.toUpperCase()} | Antibiotic Stability: ${microbiomeSettings.abx.toUpperCase()}\n\n`;
+  md += `**Microbiome Alpha-Diversity**: ${MICROBIOME_UI.kpiDiversity?.textContent || 'Shannon 4.2 High'}\n`;
+  md += `**Colonic Butyrate Synthesis**: ${MICROBIOME_UI.kpiScfa?.textContent || 'Peak Butyrate'}\n`;
+  md += `**Tight Junction (ZO-1) Integrity**: ${MICROBIOME_UI.kpiTight?.textContent || 'Hermetic Seal'}\n`;
+  md += `**Systemic Endotoxin (LPS) Shield**: ${MICROBIOME_UI.kpiEndotoxin?.textContent || 'Impermeable'}\n\n`;
+
+  md += `## 1. Core Microbiome & Intestinal Mechanisms\n`;
+  MICROBIOME_CARDS_DATA.forEach(c => {
+    md += `- **${c.title}** (${c.icon}) [${c.badge}]\n`;
+    md += `  - Evidence: ${c.desc}\n`;
+    md += `  - Clinical Target: ${c.action}\n`;
+  });
+
+  md += `\n## 2. Actionable Gut Microbiome Prescription\n`;
+  md += `${(MICROBIOME_UI.routineDesc?.textContent || '').trim()}\n\n`;
+
+  md += `---\n*Generated by The Evidence-Based Life Microbiome Engine: https://parveen0029.github.io/The-Evidence-Based-Life/*\n`;
+
+  try {
+    await navigator.clipboard.writeText(md);
+    if (MICROBIOME_UI.msg) {
+      MICROBIOME_UI.msg.textContent = '✓ Gut microbiome protocol copied to clipboard!';
+      MICROBIOME_UI.msg.hidden = false;
+      setTimeout(() => { MICROBIOME_UI.msg.hidden = true; }, 3500);
+    }
+  } catch (err) {
+    prompt('Copy your Gut Microbiome Protocol below:', md);
+  }
+});
+
+MICROBIOME_UI.shareX?.addEventListener('click', () => {
+  const text = `Your gut microbiome houses 38 trillion microbes. Eating 30+ plants/week and fermented foods restores alpha-diversity, butyrate synthesis, and tight junction barrier integrity. Calculate your protocol:`;
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+MICROBIOME_UI.shareWa?.addEventListener('click', () => {
+  const text = `*Gut Microbiome Diversity & Intestinal Barrier Matrix*\nModel your microbial alpha-diversity, colonic butyrate flux, and tight junction leaky gut defense protocol:\n\nhttps://parveen0029.github.io/The-Evidence-Based-Life/`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+});
+
+MICROBIOME_UI.shareLi?.addEventListener('click', () => {
   const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
 });
