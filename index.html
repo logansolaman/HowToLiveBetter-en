@@ -1079,6 +1079,42 @@ html.dark .focus-toggle-chip.active{color:#1b1b1f}
   #air-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Circadian Light Exposure & Melatonin Phase Shift Optimizer Modal */
+#light-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#light-mask[hidden]{display:none}
+#light-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(940px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+
+.light-params-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:10px;background:var(--bg-alt);border:1px solid var(--divider);border-radius:12px;padding:12px 14px;margin-bottom:14px}
+@media (max-width:860px){.light-params-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.light-params-grid{grid-template-columns:1fr}}
+
+.light-param-cell{display:flex;flex-direction:column;gap:4px}
+.light-param-label{font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px}
+.light-param-input{padding:7px 10px;border-radius:6px;border:1px solid var(--divider);background:var(--bg-elv);color:var(--t1);font-size:13px}
+
+.light-kpi-banner{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;background:var(--bg-elv);border:1px solid var(--divider);border-radius:12px;padding:12px 16px;margin-bottom:14px}
+@media (max-width:760px){.light-kpi-banner{grid-template-columns:1fr 1fr}}
+.light-kpi-item{display:flex;flex-direction:column;gap:2px}
+.light-kpi-val{font-size:20px;font-weight:900;color:var(--green-1)}
+.light-kpi-lbl{font-size:11px;color:var(--t3)}
+
+.light-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-bottom:14px}
+.light-card{background:var(--bg-alt);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.light-head{display:flex;align-items:center;justify-content:space-between}
+.light-title{font-size:13px;font-weight:700;color:var(--t1);display:flex;align-items:center;gap:6px}
+.light-badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:12px;background:rgba(234,179,8,.15);color:var(--yellow-1,#eab308)}
+.light-desc{font-size:12px;color:var(--t2);line-height:1.45}
+.light-action{font-size:11.5px;color:var(--t3);line-height:1.4}
+
+.light-summary-box{background:var(--bg-elv);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;margin-bottom:14px}
+.light-summary-title{font-size:12px;font-weight:700;color:var(--t1);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.light-summary-text{font-size:12px;color:var(--t2);line-height:1.5}
+
+@media (max-width:820px){
+  #light-mask{padding:0}
+  #light-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
 /* Floating Audio Dock */
 #audio-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:70;background:var(--bg-elv);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);padding:10px 18px;display:flex;align-items:center;gap:14px;max-width:min(700px,calc(100vw - 32px));width:100%;backdrop-filter:blur(10px);transition:all .25s ease}
 #audio-dock[hidden]{display:none}
@@ -1165,7 +1201,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#light-mask,#light-open,#light-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -1263,6 +1299,7 @@ html.dark .hc-action{color:#1b1b1f!important}
       <button class="icon-btn" id="fit-open" title="Evidence-Based Fitness & Longevity Calculator" aria-label="Fitness Calculator"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 5v14M18 5v14M2 9v6M22 9v6M6 12h12"/></svg></button>
       <button class="icon-btn" id="nutri-open" title="Clinical Nutrition & Micronutrient Deficiency Matrix" aria-label="Nutrition Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2a5 5 0 0 0-5 5c0 4 5 13 5 13s5-9 5-13a5 5 0 0 0-5-5z"/><circle cx="12" cy="7" r="1.5"/></svg></button>
       <button class="icon-btn" id="air-open" title="Environmental Toxins & Indoor Air Quality Diagnostics" aria-label="Indoor Air Quality Diagnostics"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg></button>
+      <button class="icon-btn" id="light-open" title="Circadian Light & Melatonin Phase Shift Optimizer" aria-label="Circadian Light Optimizer"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></button>
       <a class="icon-btn" href="selfcheck.html" title="Take 2-Minute Life Health & Risk Audit" aria-label="Self-Audit Quiz"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></a>
       <a class="icon-btn" href="README.md" title="View README.md" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn" href="https://github.com/parveen0029/The-Evidence-Based-Life" target="_blank" rel="noopener" title="View repository on GitHub" aria-label="GitHub Repository"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
@@ -1322,6 +1359,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     <button class="btn-sm ghost" id="fit-open-side" type="button" style="margin-top:6px;font-size:12px">🏋️ Fitness Volume & Longevity Calculator</button>
     <button class="btn-sm ghost" id="nutri-open-side" type="button" style="margin-top:6px;font-size:12px">🥗 Clinical Nutrition & Micronutrient Matrix</button>
     <button class="btn-sm ghost" id="air-open-side" type="button" style="margin-top:6px;font-size:12px">💨 Indoor Air Quality &amp; Toxin Diagnostics</button>
+    <button class="btn-sm ghost" id="light-open-side" type="button" style="margin-top:6px;font-size:12px">☀️ Circadian Light &amp; Melatonin Optimizer</button>
   </div>
   <div class="group" id="g-upd" hidden>
     <div class="gt">Recent Updates <small>Content revisions</small></div>
@@ -2543,6 +2581,95 @@ html.dark .hc-action{color:#1b1b1f!important}
         <button class="btn-sm ghost" id="air-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
         <button class="btn-sm ghost" id="air-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
         <p id="air-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="light-mask" hidden>
+  <div id="light-box" role="dialog" aria-modal="true" aria-labelledby="light-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="light-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg> <span>Circadian Light Exposure &amp; Melatonin Phase Shift Optimizer</span></div>
+      <button type="button" id="light-x" aria-label="Close circadian light optimizer">✕</button>
+    </div>
+    <div class="stats-scroll">
+      <div class="stats-lead">
+        Evidence-based circadian photobiology engine based on <strong>Chapter 1 (Sleep &amp; Circadian Rhythm)</strong> and <strong>Chapter 7 (Lighting &amp; Ergonomics)</strong>. Optimize your morning ipRGC melanopic lux entrainment, calculate evening pineal melatonin suppression risk, and time phase-shift light exposure.
+      </div>
+
+      <div class="light-params-grid">
+        <div class="light-param-cell">
+          <label class="light-param-label" for="light-wake-input">Target Wake Time</label>
+          <input type="time" id="light-wake-input" class="light-param-input" value="07:00">
+        </div>
+        <div class="light-param-cell">
+          <label class="light-param-label" for="light-sleep-input">Target Sleep Time</label>
+          <input type="time" id="light-sleep-input" class="light-param-input" value="23:00">
+        </div>
+        <div class="light-param-cell">
+          <label class="light-param-label" for="light-sky-input">Morning Sky / Light</label>
+          <select id="light-sky-input" class="light-param-input">
+            <option value="clear" selected>Clear Sunny Day (30k–100k lux)</option>
+            <option value="overcast">Cloudy / Overcast (10k–20k lux)</option>
+            <option value="dense">Dense Rain / Dark Winter (2k–5k lux)</option>
+            <option value="sad">10,000 Lux Light Box (Therapy)</option>
+            <option value="indoor">Indoor Artificial Only (300–500 lux)</option>
+          </select>
+        </div>
+        <div class="light-param-cell">
+          <label class="light-param-label" for="light-mins-input">Morning Outdoor Mins</label>
+          <select id="light-mins-input" class="light-param-input">
+            <option value="0">0 mins (Directly to Desk)</option>
+            <option value="10" selected>10 mins (Quick Balcony/Walk)</option>
+            <option value="20">20 mins (Brisk Walk)</option>
+            <option value="30">30+ mins (Outdoor Exercise)</option>
+          </select>
+        </div>
+        <div class="light-param-cell">
+          <label class="light-param-label" for="light-screen-input">Night Screen / Lighting</label>
+          <select id="light-screen-input" class="light-param-input">
+            <option value="dim">Amber Low-Lux (&lt;15 lux, Blue-Blocked)</option>
+            <option value="filtered" selected>Night Shift / f.lux + Low Ceiling</option>
+            <option value="bright">Full Brightness Screens &amp; Overhead LEDs</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="light-kpi-banner">
+        <div class="light-kpi-item">
+          <span class="light-kpi-val" id="light-kpi-onset">~9:30 PM</span>
+          <span class="light-kpi-lbl">Est. Melatonin Onset (DLMO)</span>
+        </div>
+        <div class="light-kpi-item">
+          <span class="light-kpi-val" id="light-kpi-req" style="color:var(--yellow-1,#eab308)">15 mins</span>
+          <span class="light-kpi-lbl">Min. Morning Lux Dose</span>
+        </div>
+        <div class="light-kpi-item">
+          <span class="light-kpi-val" id="light-kpi-supp" style="color:var(--yellow-1,#eab308)">-35%</span>
+          <span class="light-kpi-lbl">Evening Melatonin Suppression</span>
+        </div>
+        <div class="light-kpi-item">
+          <span class="light-kpi-val" id="light-kpi-phase" style="color:var(--blue-1,#3b82f6)">Entrained</span>
+          <span class="light-kpi-lbl">Circadian Phase Status</span>
+        </div>
+      </div>
+
+      <div class="light-grid" id="light-cards-grid">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="light-summary-box">
+        <div class="light-summary-title"><span>⏰ Personalized 24-Hour Circadian Lux &amp; Melatonin Schedule</span></div>
+        <div class="light-summary-text" id="light-schedule-desc">Calculating light protocol...</div>
+      </div>
+
+      <div class="calc-footer">
+        <button class="btn-sm" id="light-export" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy Circadian Light &amp; Melatonin Protocol</button>
+        <button class="btn-sm ghost" id="light-share-x" type="button" style="width:auto;padding:8px 14px">𝕏 Share</button>
+        <button class="btn-sm ghost" id="light-share-wa" type="button" style="width:auto;padding:8px 14px">WhatsApp</button>
+        <button class="btn-sm ghost" id="light-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
+        <button class="btn-sm ghost" id="light-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
+        <p id="light-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
       </div>
     </div>
   </div>
@@ -9462,6 +9589,335 @@ AIR_UI.shareWa?.addEventListener('click', () => {
 });
 
 AIR_UI.shareLi?.addEventListener('click', () => {
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+/* ---------- Milestone 31: Circadian Light Exposure & Melatonin Phase Shift Optimizer ---------- */
+const LIGHT_CARDS_DATA = [
+  {
+    id: 'iprgc',
+    icon: '☀️',
+    title: 'ipRGC Melanopsin Phototransduction',
+    badge: 'SCN Master Clock',
+    color: 'rgba(234,179,8,.15)',
+    textColor: '#eab308',
+    desc: 'Intrinsically photosensitive retinal ganglion cells express melanopsin (peak sensitivity 480 nm). Sunlight delivers 10,000–100,000 lux, triggering the cortisol awakening pulse.',
+    action: 'Prescription: Get outdoors within 30-60 mins of waking. Direct retinal exposure without sunglasses (regular corrective lenses are fine; window glass blocks 50%+ intensity).'
+  },
+  {
+    id: 'dlmo',
+    icon: '⏳',
+    title: '14–16 Hour Melatonin Countdown',
+    badge: 'Biological Timer',
+    color: 'rgba(59,130,246,.15)',
+    textColor: '#3b82f6',
+    desc: 'Early morning photon bombardment resets the Suprachiasmatic Nucleus (SCN), programming Dim Light Melatonin Onset (DLMO) to fire 14 to 16 hours later.',
+    action: 'Target: Consistent morning anchor sets nighttime sleep propensity clock. Missing morning lux delays sleep onset by 45–90 minutes.'
+  },
+  {
+    id: 'suppression',
+    icon: '🌙',
+    title: 'Blue-Light Melatonin Suppression',
+    badge: 'Pineal Blocker',
+    color: 'rgba(239,68,68,.15)',
+    textColor: '#ef4444',
+    desc: 'Gooley / Czeisler clinical trials demonstrate that 15–30 lux of blue-enriched light (>460 nm) suppresses melatonin by up to 50% and delays REM architecture.',
+    action: 'Prescription: Implement "Digital Sunset" 2 hours before bed: turn off overhead LEDs, switch to indirect low-angle warm light (<2,200K, <10 lux).'
+  },
+  {
+    id: 'prc',
+    icon: '🔄',
+    title: 'Phase Response Curve (PRC) Dynamics',
+    badge: 'Phase Shifting',
+    color: 'rgba(16,185,129,.15)',
+    textColor: '#10b981',
+    desc: 'Light exposure after core body temperature minimum (Tmin, ~2h before natural wake) advances circadian phase (earlier sleep/wake). Light before Tmin delays phase.',
+    action: 'Protocol: To cure night owl syndrome, expose eyes to 20-30 min bright sunlight immediately at desired wake time and eliminate light 3h before bed.'
+  },
+  {
+    id: 'screens',
+    icon: '💻',
+    title: 'Display Spectrum & Ambient Balancing',
+    badge: 'Ocular Ergonomics',
+    color: 'rgba(168,85,247,.15)',
+    textColor: '#a855f7',
+    desc: 'Bright displays in dark rooms create high contrast pupillary strain. High color temperatures (6500K) sustain daytime cognitive arousal past bedtime.',
+    action: 'Standard: Enable f.lux / Night Shift to 1,900K at dusk. Match display nit luminance to room illuminance to avoid focal pupillary exhaustion.'
+  },
+  {
+    id: 'midday',
+    icon: '⛅',
+    title: 'Midday Photon Inoculation Buffer',
+    badge: 'Circadian Buffer',
+    color: 'rgba(14,165,233,.15)',
+    textColor: '#0ea5e9',
+    desc: 'Studies show that a 15–20 minute outdoor sunlight burst between 12:00 PM and 2:00 PM significantly reduces retinal sensitivity to evening light pollution.',
+    action: 'Protocol: Take a 15-minute post-lunch walk. Enhances daytime alertness, mitigates postprandial fatigue, and protects evening melatonin release.'
+  }
+];
+
+const LIGHT_UI = {
+  openBtn: document.getElementById('light-open'),
+  openSideBtn: document.getElementById('light-open-side'),
+  mask: document.getElementById('light-mask'),
+  xBtn: document.getElementById('light-x'),
+  closeBtn: document.getElementById('light-close-btn'),
+  wakeInput: document.getElementById('light-wake-input'),
+  sleepInput: document.getElementById('light-sleep-input'),
+  skyInput: document.getElementById('light-sky-input'),
+  minsInput: document.getElementById('light-mins-input'),
+  screenInput: document.getElementById('light-screen-input'),
+  kpiOnset: document.getElementById('light-kpi-onset'),
+  kpiReq: document.getElementById('light-kpi-req'),
+  kpiSupp: document.getElementById('light-kpi-supp'),
+  kpiPhase: document.getElementById('light-kpi-phase'),
+  cardsGrid: document.getElementById('light-cards-grid'),
+  scheduleDesc: document.getElementById('light-schedule-desc'),
+  exportBtn: document.getElementById('light-export'),
+  shareX: document.getElementById('light-share-x'),
+  shareWa: document.getElementById('light-share-wa'),
+  shareLi: document.getElementById('light-share-li'),
+  msg: document.getElementById('light-copy-msg')
+};
+
+let lightSettings = {
+  wake: '07:00',
+  sleep: '23:00',
+  sky: 'clear',
+  mins: 10,
+  screen: 'filtered'
+};
+
+try {
+  const savedLight = localStorage.getItem('eb_light_settings');
+  if (savedLight) {
+    lightSettings = Object.assign(lightSettings, JSON.parse(savedLight));
+  }
+} catch (e) {}
+
+function renderLightCards() {
+  if (!LIGHT_UI.cardsGrid) return;
+  LIGHT_UI.cardsGrid.innerHTML = LIGHT_CARDS_DATA.map(c => `
+    <div class="light-card">
+      <div class="light-head">
+        <span class="light-title"><span>${c.icon}</span> ${c.title}</span>
+        <span class="light-badge" style="background:${c.color};color:${c.textColor}">${c.badge}</span>
+      </div>
+      <div class="light-desc">${c.desc}</div>
+      <div class="light-action"><strong>Action:</strong> ${c.action}</div>
+    </div>
+  `).join('');
+}
+
+function calculateLightMetrics() {
+  const wakeVal = LIGHT_UI.wakeInput?.value || lightSettings.wake;
+  const sleepVal = LIGHT_UI.sleepInput?.value || lightSettings.sleep;
+  const skyVal = LIGHT_UI.skyInput?.value || lightSettings.sky;
+  const minsVal = parseInt(LIGHT_UI.minsInput?.value || lightSettings.mins) || 0;
+  const screenVal = LIGHT_UI.screenInput?.value || lightSettings.screen;
+
+  lightSettings.wake = wakeVal;
+  lightSettings.sleep = sleepVal;
+  lightSettings.sky = skyVal;
+  lightSettings.mins = minsVal;
+  lightSettings.screen = screenVal;
+
+  try {
+    localStorage.setItem('eb_light_settings', JSON.stringify(lightSettings));
+  } catch (e) {}
+
+  // 1. Required morning lux dose based on sky condition
+  let reqMins = 10;
+  if (skyVal === 'clear') reqMins = 10;
+  else if (skyVal === 'overcast') reqMins = 20;
+  else if (skyVal === 'dense') reqMins = 35;
+  else if (skyVal === 'sad') reqMins = 25;
+  else if (skyVal === 'indoor') reqMins = 120; // indoor cannot match sunlight without hours
+
+  // 2. Melatonin Onset Calculation (DLMO)
+  const [sleepH, sleepM] = sleepVal.split(':').map(Number);
+  let dlmoMinutes = (sleepH * 60 + sleepM) - 120; // nominal 2 hours before bed
+  if (dlmoMinutes < 0) dlmoMinutes += 1440;
+
+  // Modifiers: lack of morning light delays DLMO
+  let delayMinutes = 0;
+  if (minsVal < reqMins) {
+    delayMinutes += Math.round(((reqMins - minsVal) / reqMins) * 50);
+  }
+  if (screenVal === 'bright') {
+    delayMinutes += 45;
+  } else if (screenVal === 'filtered') {
+    delayMinutes += 15;
+  }
+
+  const actualDlmoMinutes = (dlmoMinutes + delayMinutes) % 1440;
+  const dlmoH = Math.floor(actualDlmoMinutes / 60);
+  const dlmoM = actualDlmoMinutes % 60;
+  const dlmoAmPm = dlmoH >= 12 ? 'PM' : 'AM';
+  const dlmoDisp12 = ((dlmoH + 11) % 12 + 1) + ':' + (dlmoM < 10 ? '0' : '') + dlmoM + ' ' + dlmoAmPm;
+
+  // 3. Evening Melatonin Suppression
+  let suppPercent = '-5%';
+  let suppColor = 'var(--green-1)';
+  if (screenVal === 'bright') {
+    suppPercent = '-70%';
+    suppColor = '#ef4444';
+  } else if (screenVal === 'filtered') {
+    suppPercent = '-35%';
+    suppColor = 'var(--yellow-1,#eab308)';
+  }
+
+  // 4. Circadian Phase Status
+  let phaseStatus = 'Entrained';
+  let phaseColor = 'var(--blue-1,#3b82f6)';
+  if (minsVal >= reqMins && screenVal === 'dim') {
+    phaseStatus = 'Optimal Entrained';
+    phaseColor = 'var(--green-1)';
+  } else if (screenVal === 'bright' || minsVal === 0) {
+    phaseStatus = 'Phase Delayed';
+    phaseColor = '#ef4444';
+  } else if (minsVal < reqMins) {
+    phaseStatus = 'Sub-optimal Lux';
+    phaseColor = 'var(--yellow-1,#eab308)';
+  }
+
+  // Update KPI Elements
+  if (LIGHT_UI.kpiOnset) {
+    LIGHT_UI.kpiOnset.textContent = `~${dlmoDisp12}`;
+  }
+  if (LIGHT_UI.kpiReq) {
+    LIGHT_UI.kpiReq.textContent = skyVal === 'indoor' ? 'Insufficient' : `${reqMins} mins`;
+    LIGHT_UI.kpiReq.style.color = minsVal >= reqMins ? 'var(--green-1)' : 'var(--yellow-1,#eab308)';
+  }
+  if (LIGHT_UI.kpiSupp) {
+    LIGHT_UI.kpiSupp.textContent = suppPercent;
+    LIGHT_UI.kpiSupp.style.color = suppColor;
+  }
+  if (LIGHT_UI.kpiPhase) {
+    LIGHT_UI.kpiPhase.textContent = phaseStatus;
+    LIGHT_UI.kpiPhase.style.color = phaseColor;
+  }
+
+  // Update Schedule Spec Box
+  if (LIGHT_UI.scheduleDesc) {
+    const [wakeH, wakeM] = wakeVal.split(':').map(Number);
+    const morningEndM = (wakeH * 60 + wakeM + 45) % 1440;
+    const morningEndH = Math.floor(morningEndM / 60);
+    const morningEndMin = morningEndM % 60;
+    const morningEndStr = `${morningEndH}:${morningEndMin < 10 ? '0' : ''}${morningEndMin}`;
+
+    const sunsetM = (sleepH * 60 + sleepM - 120 + 1440) % 1440;
+    const sunsetH = Math.floor(sunsetM / 60);
+    const sunsetMin = sunsetM % 60;
+    const sunsetStr = `${sunsetH}:${sunsetMin < 10 ? '0' : ''}${sunsetMin}`;
+
+    LIGHT_UI.scheduleDesc.innerHTML = `
+      • <strong>${wakeVal} – ${morningEndStr} (Morning Light Window):</strong> Get <strong>${reqMins}+ minutes</strong> of outdoor light (sky condition: ${skyVal.toUpperCase()}). Boosts cortisol awakening response and starts your 14–16 hour pineal timer.<br>
+      • <strong>12:30 PM – 1:30 PM (Midday Photon Buffer):</strong> 15-minute outdoor walk to inoculate against postprandial slump and reduce evening blue-light sensitivity.<br>
+      • <strong>${sunsetStr} (Digital Sunset &amp; Lux Throttle):</strong> Shift all screens to warmer spectrum (<1,900K), extinguish high overhead LEDs, and drop ambient eye-level illuminance below <strong>15 lux</strong>.<br>
+      • <strong>${sleepVal} (Pitch Black Sleep):</strong> Complete darkness (0 lux blackout curtains or sleep mask) and cool ambient (18.3°C / 65°F) for deep NREM Stage 3/4 restorative waves.
+    `;
+  }
+}
+
+function initLightUI() {
+  if (!LIGHT_UI.mask) return;
+
+  renderLightCards();
+
+  if (LIGHT_UI.wakeInput) LIGHT_UI.wakeInput.value = lightSettings.wake;
+  if (LIGHT_UI.sleepInput) LIGHT_UI.sleepInput.value = lightSettings.sleep;
+  if (LIGHT_UI.skyInput) LIGHT_UI.skyInput.value = lightSettings.sky;
+  if (LIGHT_UI.minsInput) LIGHT_UI.minsInput.value = String(lightSettings.mins);
+  if (LIGHT_UI.screenInput) LIGHT_UI.screenInput.value = lightSettings.screen;
+
+  calculateLightMetrics();
+}
+
+initLightUI();
+
+function openLightModal() {
+  if (!LIGHT_UI.mask) return;
+  LIGHT_UI.mask.hidden = false;
+  document.body.style.overflow = 'hidden';
+  LIGHT_UI.wakeInput?.focus();
+}
+
+function closeLightModal() {
+  if (!LIGHT_UI.mask) return;
+  LIGHT_UI.mask.hidden = true;
+  document.body.style.overflow = '';
+}
+
+LIGHT_UI.openBtn?.addEventListener('click', openLightModal);
+LIGHT_UI.openSideBtn?.addEventListener('click', openLightModal);
+LIGHT_UI.xBtn?.addEventListener('click', closeLightModal);
+LIGHT_UI.closeBtn?.addEventListener('click', closeLightModal);
+
+LIGHT_UI.mask?.addEventListener('click', (e) => {
+  if (e.target === LIGHT_UI.mask) closeLightModal();
+});
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && LIGHT_UI.mask && !LIGHT_UI.mask.hidden) {
+    closeLightModal();
+  }
+});
+
+const lightInputElements = [LIGHT_UI.wakeInput, LIGHT_UI.sleepInput, LIGHT_UI.skyInput, LIGHT_UI.minsInput, LIGHT_UI.screenInput];
+lightInputElements.forEach(el => {
+  el?.addEventListener('input', calculateLightMetrics);
+  el?.addEventListener('change', calculateLightMetrics);
+});
+
+LIGHT_UI.exportBtn?.addEventListener('click', async () => {
+  let md = `# Circadian Light & Melatonin Optimization Protocol\n`;
+  md += `*Photobiology Anchors, Melanopic EDI & Phase Response Curve Schedulers*\n\n`;
+  md += `**Target Sleep Architecture**: Wake at ${lightSettings.wake} | Sleep at ${lightSettings.sleep}\n`;
+  md += `**Morning Sky Condition**: ${lightSettings.sky.toUpperCase()} | Morning Dose: ${lightSettings.mins} mins\n`;
+  md += `**Evening Screen Habit**: ${lightSettings.screen.toUpperCase()}\n`;
+  md += `**Estimated Melatonin Onset (DLMO)**: ${LIGHT_UI.kpiOnset?.textContent || '~9:30 PM'}\n`;
+  md += `**Required Morning Sunlight Dose**: ${LIGHT_UI.kpiReq?.textContent || '15 mins'}\n`;
+  md += `**Evening Melatonin Suppression**: ${LIGHT_UI.kpiSupp?.textContent || '-35%'}\n`;
+  md += `**Circadian Entrainment Status**: ${LIGHT_UI.kpiPhase?.textContent || 'Entrained'}\n\n`;
+
+  md += `## 1. Photobiology & Melanopsin Principles\n`;
+  LIGHT_CARDS_DATA.forEach(c => {
+    md += `- **${c.title}** (${c.icon}) [${c.badge}]\n`;
+    md += `  - Evidence: ${c.desc}\n`;
+    md += `  - Action: ${c.action}\n`;
+  });
+
+  md += `\n## 2. 24-Hour Circadian Schedule\n`;
+  md += `${(LIGHT_UI.scheduleDesc?.textContent || '').trim()}\n\n`;
+
+  md += `---\n*Generated by The Evidence-Based Life Circadian Light Engine: https://parveen0029.github.io/The-Evidence-Based-Life/*\n`;
+
+  try {
+    await navigator.clipboard.writeText(md);
+    if (LIGHT_UI.msg) {
+      LIGHT_UI.msg.textContent = '✓ Circadian protocol copied to clipboard!';
+      LIGHT_UI.msg.hidden = false;
+      setTimeout(() => { LIGHT_UI.msg.hidden = true; }, 3500);
+    }
+  } catch (err) {
+    prompt('Copy your Circadian Protocol below:', md);
+  }
+});
+
+LIGHT_UI.shareX?.addEventListener('click', () => {
+  const text = `Sunlight delivers 10,000–100,000 lux to reset your SCN circadian clock and program nighttime melatonin release. Calculate your photobiology protocol:`;
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+LIGHT_UI.shareWa?.addEventListener('click', () => {
+  const text = `*Circadian Light Exposure & Melatonin Optimizer*\nCalculate your morning ipRGC melanopic lux dose, evening pineal melatonin suppression risk, and 24h light schedule:\n\nhttps://parveen0029.github.io/The-Evidence-Based-Life/`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+});
+
+LIGHT_UI.shareLi?.addEventListener('click', () => {
   const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
 });
