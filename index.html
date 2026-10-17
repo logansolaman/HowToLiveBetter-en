@@ -846,6 +846,42 @@ html.dark .threat-toggle-btn.active{color:#1b1b1f}
   #travel-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Cognitive Bias & Decision Hygiene Matrix Modal */
+#bias-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#bias-mask[hidden]{display:none}
+#bias-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(940px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+
+.bias-prompt-row{display:flex;flex-direction:column;gap:6px;background:var(--bg-alt);border:1px solid var(--divider);border-radius:10px;padding:12px 16px;margin-bottom:14px}
+.bias-prompt-label{font-size:12px;font-weight:700;color:var(--t1);display:flex;justify-content:space-between}
+.bias-prompt-input{padding:8px 12px;border-radius:6px;border:1px solid var(--divider);background:var(--bg-elv);color:var(--t1);font-size:13.5px}
+
+.bias-score-banner{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--bg-elv);border:1px solid var(--divider);border-radius:10px;padding:12px 16px;margin-bottom:14px;flex-wrap:wrap}
+.bias-score-num{font-size:24px;font-weight:900;color:var(--brand-1)}
+.bias-score-label{font-size:12px;font-weight:700;color:var(--t1)}
+.bias-score-sub{font-size:11px;color:var(--t3)}
+.bias-presets{display:flex;gap:6px;flex-wrap:wrap}
+.bias-preset-btn{background:var(--bg-alt);border:1px solid var(--divider);border-radius:6px;padding:4px 9px;font-size:11.5px;font-weight:600;color:var(--t2);cursor:pointer}
+.bias-preset-btn:hover{background:var(--brand-soft);color:var(--brand-1);border-color:var(--brand-3)}
+
+.bias-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+@media (max-width:760px){.bias-grid{grid-template-columns:1fr}}
+
+.bias-card{background:var(--bg-alt);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;transition:border-color .15s}
+.bias-card.cleared{border-color:var(--green-1);background:rgba(16,185,129,.04)}
+.bias-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.bias-title{font-size:13px;font-weight:700;color:var(--t1);display:flex;align-items:center;gap:6px}
+.bias-check-btn{background:var(--bg-elv);border:1px solid var(--divider);border-radius:6px;padding:4px 10px;font-size:11px;font-weight:700;color:var(--t2);cursor:pointer}
+.bias-check-btn.active{background:var(--green-1);color:#fff;border-color:var(--green-1)}
+html.dark .bias-check-btn.active{color:#1b1b1f}
+.bias-trap{font-size:11.5px;color:#ef4444;line-height:1.4}
+.bias-antidote{font-size:11.5px;color:var(--t2);line-height:1.45}
+.bias-foot{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--t3);padding-top:2px}
+
+@media (max-width:820px){
+  #bias-mask{padding:0}
+  #bias-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
 /* Floating Audio Dock */
 #audio-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:70;background:var(--bg-elv);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);padding:10px 18px;display:flex;align-items:center;gap:14px;max-width:min(700px,calc(100vw - 32px));width:100%;backdrop-filter:blur(10px);transition:all .25s ease}
 #audio-dock[hidden]{display:none}
@@ -932,7 +968,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -1024,6 +1060,7 @@ html.dark .hc-action{color:#1b1b1f!important}
       <button class="icon-btn" id="ergo-open" title="Ergonomic Workspace Calculator & Posture Guide" aria-label="Ergonomic Workspace Calculator"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></button>
       <button class="icon-btn" id="threat-open" title="Zero-Trust Personal Security & Identity Threat Model" aria-label="Personal Threat Model"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></button>
       <button class="icon-btn" id="travel-open" title="Evidence-Based Travel & Jet Lag Chrono Planner" aria-label="Travel & Jet Lag Planner"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m17.8 19.2 1.7-1.7a2 2 0 0 0 0-2.8l-4-4a2 2 0 0 0-2.8 0L9 14.4l-5-1.4 3-3 7 1 3-3-4-4-3 3 1 7-3.7 3.7a2 2 0 0 0 0 2.8l4 4a2 2 0 0 0 2.8 0l1.7-1.7Z"/></svg></button>
+      <button class="icon-btn" id="bias-open" title="Cognitive Bias & Decision Hygiene Matrix" aria-label="Decision Hygiene Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 9 9m-9 9a9 9 0 0 1-9-9"/><path d="M12 7v5l3 3"/></svg></button>
       <a class="icon-btn" href="selfcheck.html" title="Take 2-Minute Life Health & Risk Audit" aria-label="Self-Audit Quiz"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></a>
       <a class="icon-btn" href="README.md" title="View README.md" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn" href="https://github.com/parveen0029/The-Evidence-Based-Life" target="_blank" rel="noopener" title="View repository on GitHub" aria-label="GitHub Repository"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
@@ -1077,6 +1114,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     <button class="btn-sm ghost" id="ergo-open-side" type="button" style="margin-top:6px;font-size:12px">💺 Ergonomic Workspace & Posture Guide</button>
     <button class="btn-sm ghost" id="threat-open-side" type="button" style="margin-top:6px;font-size:12px">🛡️ Zero-Trust Security & Threat Model</button>
     <button class="btn-sm ghost" id="travel-open-side" type="button" style="margin-top:6px;font-size:12px">✈️ Travel & Jet Lag Chrono Planner</button>
+    <button class="btn-sm ghost" id="bias-open-side" type="button" style="margin-top:6px;font-size:12px">🧠 Cognitive Bias & Decision Hygiene</button>
   </div>
   <div class="group" id="g-upd" hidden>
     <div class="gt">Recent Updates <small>Content revisions</small></div>
@@ -1871,6 +1909,51 @@ html.dark .hc-action{color:#1b1b1f!important}
         <button class="btn-sm ghost" id="travel-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
         <button class="btn-sm ghost" id="travel-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
         <p id="travel-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="bias-mask" hidden>
+  <div id="bias-box" role="dialog" aria-modal="true" aria-labelledby="bias-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="bias-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 9 9m-9 9a9 9 0 0 1-9-9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" fill="none" stroke="currentColor" stroke-width="2"/></svg> <span>Cognitive Bias &amp; Decision Hygiene Matrix</span></div>
+      <button type="button" id="bias-x" aria-label="Close decision matrix">✕</button>
+    </div>
+    <div class="stats-scroll">
+      <div class="stats-lead">Evaluate major life commitments (career transitions, high-stakes investments, leases, medical decisions) against 8 empirical cognitive traps. Clear each cognitive bias using Nobel-prize winning and clinical decision hygiene antidotes (Chapters 4 &amp; 12).</div>
+
+      <div class="bias-prompt-row">
+        <label class="bias-prompt-label" for="bias-decision-prompt">
+          <span>Target Decision Under Consideration</span>
+          <span style="font-weight:normal;color:var(--t3)">Auto-saved locally</span>
+        </label>
+        <input class="bias-prompt-input" id="bias-decision-prompt" type="text" placeholder="e.g., Accepting new engineering offer vs staying at current firm...">
+      </div>
+
+      <div class="bias-score-banner">
+        <div>
+          <div style="display:flex;align-items:baseline;gap:8px">
+            <span class="bias-score-num" id="bias-kpi-score">0%</span>
+            <span class="bias-score-label">De-Biased Hygiene Score</span>
+          </div>
+          <div class="bias-score-sub" id="bias-kpi-sub">0 of 8 Antidotes Verified &amp; Cleared</div>
+        </div>
+        <div class="bias-presets">
+          <button class="bias-preset-btn" id="bias-preset-all" type="button">✓ Verify All Antidotes</button>
+          <button class="bias-preset-btn" id="bias-preset-clear" type="button">🔄 Reset</button>
+        </div>
+      </div>
+
+      <div class="bias-grid" id="bias-cards-container"></div>
+
+      <div class="calc-footer">
+        <button class="btn-sm" id="bias-export" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy Pre-Mortem &amp; Decision Memo</button>
+        <button class="btn-sm ghost" id="bias-share-x" type="button" style="width:auto;padding:8px 14px">𝕏 Share</button>
+        <button class="btn-sm ghost" id="bias-share-wa" type="button" style="width:auto;padding:8px 14px">WhatsApp</button>
+        <button class="btn-sm ghost" id="bias-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
+        <button class="btn-sm ghost" id="bias-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
+        <p id="bias-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
       </div>
     </div>
   </div>
@@ -7011,6 +7094,265 @@ TRAVEL_UI.shareLi?.addEventListener('click', () => {
   const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
 });
+
+/* ---------- Cognitive Bias & Decision Hygiene Matrix ---------- */
+const BIAS_LIST = [
+  {
+    id: 'sunk_cost',
+    title: 'Sunk Cost Fallacy',
+    icon: '⚓',
+    chapter: 'Ch 4 & 12',
+    grade: 'Grade A',
+    trap: 'Continuing an unprofitable or draining commitment simply because of prior irrecoverable time, money, or effort spent.',
+    antidote: 'Clean-Slate Principle: "If you had zero prior investment today, would you invest new resources right now?" Sunk costs are strictly irrecoverable.'
+  },
+  {
+    id: 'base_rate',
+    title: 'Base Rate Neglect',
+    icon: '📊',
+    chapter: 'Ch 4 & 12',
+    grade: 'Grade A',
+    trap: 'Overvaluing emotional optimism and personal anecdotes while completely ignoring the historical statistical success rate for this class of outcome.',
+    antidote: 'Outside View Protocol (Kahneman): Identify the objective reference class first (e.g. startup survival, lease disputes) before forecasting.'
+  },
+  {
+    id: 'confirmation',
+    title: 'Confirmation Bias',
+    icon: '🔍',
+    chapter: 'Ch 4',
+    grade: 'Grade A',
+    trap: 'Subconsciously filtering for data that validates your preferred choice while ignoring, discounting, or rationalizing negative counter-evidence.',
+    antidote: 'Red Team Disconfirmation: Deliberately document 3 strong reasons why this proposal will fail. Appoint an explicit devil\'s advocate.'
+  },
+  {
+    id: 'survivorship',
+    title: 'Survivorship Bias',
+    icon: '🏆',
+    chapter: 'Ch 4 & 12',
+    grade: 'Grade A',
+    trap: 'Emulating visible winner outliers (e.g. college dropouts, crypto winners) who succeeded largely through hidden tail-risk and variance.',
+    antidote: 'Graveyard Audit: Analyze the silent non-survivors who executed identical strategies but suffered total loss.'
+  },
+  {
+    id: 'anchoring',
+    title: 'Anchoring Heuristic',
+    icon: '⚓',
+    chapter: 'Ch 12 & 19',
+    grade: 'Grade A',
+    trap: 'Fixating on the first number presented (initial price quote, starting salary, initial project scope), distorting subsequent rational negotiations.',
+    antidote: 'Independent Baseline Pricing: Establish an independent, empirical valuation range BEFORE seeing any counterparty offer or anchor.'
+  },
+  {
+    id: 'availability',
+    title: 'Availability Cascade',
+    icon: '📰',
+    chapter: 'Ch 4 & 8',
+    grade: 'Grade A',
+    trap: 'Overestimating the likelihood of rare, vivid events (market crashes, rare lawsuits, viral hacks) based on emotional salience and news cycles.',
+    antidote: 'Denominator Check: Always calculate the actual annual frequency per 100,000 population rather than relying on recent news memory.'
+  },
+  {
+    id: 'planning_fallacy',
+    title: 'Planning Fallacy & Pre-Mortem',
+    icon: '⏱️',
+    chapter: 'Ch 4 & 12',
+    grade: 'Grade A',
+    trap: 'Underestimating completion time, financial buffers, and friction by 50–200%, assuming friction-free linear execution.',
+    antidote: 'Klein Pre-Mortem Protocol: "Assume it is 12 months from now and this decision failed catastrophically. Write down why." Add a 30% buffer.'
+  },
+  {
+    id: 'affect_heuristic',
+    title: 'Affect & Hot-State Heuristic',
+    icon: '🔥',
+    chapter: 'Ch 4 & 3',
+    grade: 'Grade A',
+    trap: 'Making permanent, binding decisions under acute physiological arousal, anger, euphoric excitement, fear, or chronic sleep debt.',
+    antidote: 'HALT & 72-Hour Buffer: Never sign or commit while Hungry, Angry, Lonely, or Tired (HALT). Enforce an absolute 72-hour cooling-off window.'
+  }
+];
+
+const BIAS_UI = {
+  mask: document.getElementById('bias-mask'),
+  openBtn: document.getElementById('bias-open'),
+  openSideBtn: document.getElementById('bias-open-side'),
+  closeBtn: document.getElementById('bias-x'),
+  doneBtn: document.getElementById('bias-close-btn'),
+  promptInput: document.getElementById('bias-decision-prompt'),
+  kpiScore: document.getElementById('bias-kpi-score'),
+  kpiSub: document.getElementById('bias-kpi-sub'),
+  presetAll: document.getElementById('bias-preset-all'),
+  presetClear: document.getElementById('bias-preset-clear'),
+  cardsContainer: document.getElementById('bias-cards-container'),
+  exportBtn: document.getElementById('bias-export'),
+  shareX: document.getElementById('bias-share-x'),
+  shareWa: document.getElementById('bias-share-wa'),
+  shareLi: document.getElementById('bias-share-li'),
+  msg: document.getElementById('bias-copy-msg')
+};
+
+let biasState = {};
+try {
+  const savedState = localStorage.getItem('eb_bias_state');
+  if (savedState) biasState = JSON.parse(savedState);
+} catch (e) {
+  biasState = {};
+}
+
+function saveBiasState() {
+  try {
+    localStorage.setItem('eb_bias_state', JSON.stringify(biasState));
+  } catch (e) {}
+}
+
+function updateBiasUI() {
+  if (!BIAS_UI.cardsContainer) return;
+  const total = BIAS_LIST.length;
+  let clearedCount = 0;
+
+  BIAS_UI.cardsContainer.innerHTML = BIAS_LIST.map(bias => {
+    const isCleared = !!biasState[bias.id];
+    if (isCleared) clearedCount++;
+
+    return `
+      <div class="bias-card ${isCleared ? 'cleared' : ''}" data-bias-id="${bias.id}">
+        <div class="bias-head">
+          <span class="bias-title">${bias.icon} ${bias.title}</span>
+          <button type="button" class="bias-check-btn ${isCleared ? 'active' : ''}" data-bias-toggle="${bias.id}">
+            ${isCleared ? '✓ De-Biased' : 'Verify Antidote'}
+          </button>
+        </div>
+        <div class="bias-trap"><strong>⚠️ Cognitive Trap:</strong> ${bias.trap}</div>
+        <div class="bias-antidote"><strong>🛡️ Empirical Antidote:</strong> ${bias.antidote}</div>
+        <div class="bias-foot">
+          <span>${bias.chapter}</span>
+          <span style="font-weight:700;color:var(--brand-1)">${bias.grade}</span>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  const pct = Math.round((clearedCount / total) * 100);
+  if (BIAS_UI.kpiScore) BIAS_UI.kpiScore.textContent = `${pct}%`;
+  if (BIAS_UI.kpiSub) BIAS_UI.kpiSub.textContent = `${clearedCount} of ${total} Antidotes Verified & Cleared`;
+}
+
+function openBiasModal() {
+  if (!BIAS_UI.mask) return;
+  BIAS_UI.mask.hidden = false;
+  document.body.style.overflow = 'hidden';
+  if (BIAS_UI.promptInput) {
+    try {
+      BIAS_UI.promptInput.value = localStorage.getItem('eb_bias_prompt') || '';
+    } catch (e) {}
+  }
+  updateBiasUI();
+}
+
+function closeBiasModal() {
+  if (!BIAS_UI.mask) return;
+  BIAS_UI.mask.hidden = true;
+  document.body.style.overflow = '';
+}
+
+BIAS_UI.openBtn?.addEventListener('click', openBiasModal);
+BIAS_UI.openSideBtn?.addEventListener('click', openBiasModal);
+BIAS_UI.closeBtn?.addEventListener('click', closeBiasModal);
+BIAS_UI.doneBtn?.addEventListener('click', closeBiasModal);
+
+BIAS_UI.mask?.addEventListener('click', (e) => {
+  if (e.target === BIAS_UI.mask) closeBiasModal();
+});
+
+BIAS_UI.promptInput?.addEventListener('input', (e) => {
+  try {
+    localStorage.setItem('eb_bias_prompt', e.target.value);
+  } catch (err) {}
+});
+
+BIAS_UI.presetAll?.addEventListener('click', () => {
+  BIAS_LIST.forEach(b => { biasState[b.id] = true; });
+  saveBiasState();
+  updateBiasUI();
+});
+
+BIAS_UI.presetClear?.addEventListener('click', () => {
+  biasState = {};
+  saveBiasState();
+  updateBiasUI();
+});
+
+BIAS_UI.cardsContainer?.addEventListener('click', (e) => {
+  const btn = e.target.closest('[data-bias-toggle]');
+  if (!btn) return;
+  const biasId = btn.getAttribute('data-bias-toggle');
+  if (biasId) {
+    biasState[biasId] = !biasState[biasId];
+    saveBiasState();
+    updateBiasUI();
+  }
+});
+
+BIAS_UI.exportBtn?.addEventListener('click', async () => {
+  const promptVal = (BIAS_UI.promptInput?.value || '').trim() || 'General Life / Career Decision';
+  let clearedCount = 0;
+  BIAS_LIST.forEach(b => { if (biasState[b.id]) clearedCount++; });
+  const pct = Math.round((clearedCount / BIAS_LIST.length) * 100);
+
+  let md = `# Cognitive Bias & Decision Hygiene Memo\n\n`;
+  md += `**Target Decision**: ${promptVal}\n`;
+  md += `**Audit Date**: ${new Date().toISOString().slice(0, 10)}\n`;
+  md += `**De-Biasing Score**: ${pct}% (${clearedCount}/${BIAS_LIST.length} Antidotes Verified & Cleared)\n\n`;
+
+  md += `## 1. Gary Klein Pre-Mortem Assessment\n`;
+  md += `> *Premise: Assume it is 12 months in the future, and this decision has catastrophically failed. What were the root causes?*\n`;
+  md += `- **Primary Failure Vector**: Underestimating timeline friction and counterparty incentives.\n`;
+  md += `- **Secondary Failure Vector**: Relying on personal optimism rather than historical reference class base rates.\n`;
+  md += `- **Applied Buffer**: Enforce mandatory 30% contingency margin in time, budget, and operational buffers.\n\n`;
+
+  md += `## 2. De-Biasing Checklist & Antidote Matrix\n`;
+  BIAS_LIST.forEach(b => {
+    const isCleared = !!biasState[b.id];
+    md += `- [${isCleared ? 'x' : ' '}] **${b.title}** (${b.chapter} - ${b.grade})\n`;
+    md += `  - *Cognitive Trap*: ${b.trap}\n`;
+    md += `  - *Empirical Antidote*: ${b.antidote}\n`;
+  });
+
+  md += `\n---\n*Generated by The Evidence-Based Life Decision Hygiene Engine: https://parveen0029.github.io/The-Evidence-Based-Life/*\n`;
+
+  try {
+    await navigator.clipboard.writeText(md);
+    if (BIAS_UI.msg) {
+      BIAS_UI.msg.textContent = '✓ Pre-Mortem & Decision Memo copied to clipboard!';
+      BIAS_UI.msg.hidden = false;
+      setTimeout(() => { BIAS_UI.msg.hidden = true; }, 3500);
+    }
+  } catch (err) {
+    prompt('Copy your Decision Memo below:', md);
+  }
+});
+
+BIAS_UI.shareX?.addEventListener('click', () => {
+  const text = `De-bias high-stakes decisions with empirical cognitive hygiene: Sunk Cost, Base Rate Neglect, Confirmation Bias, and Gary Klein's Pre-Mortem protocol:`;
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+BIAS_UI.shareWa?.addEventListener('click', () => {
+  const text = `*Cognitive Bias & Decision Hygiene Matrix*\nAudit major life commitments through 8 empirical cognitive bias traps and Gary Klein Pre-Mortem protocols:\n\nhttps://parveen0029.github.io/The-Evidence-Based-Life/`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+});
+
+BIAS_UI.shareLi?.addEventListener('click', () => {
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+document.addEventListener('keydown', ev => {
+  if (ev.key === 'Escape' && BIAS_UI.mask && !BIAS_UI.mask.hidden) {
+    ev.stopPropagation();
+    closeBiasModal();
+  }
+}, true);
 
 /* ---------- Viral Rule Visual Snapshot Generator ---------- */
 const SNAP_UI = {
