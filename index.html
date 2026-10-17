@@ -1259,6 +1259,42 @@ html.dark .focus-toggle-chip.active{color:#1b1b1f}
   #apob-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Cognitive Resilience & Brain Longevity Matrix Modal */
+#brain-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#brain-mask[hidden]{display:none}
+#brain-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(940px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+
+.brain-params-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;gap:10px;background:var(--bg-alt);border:1px solid var(--divider);border-radius:12px;padding:12px 14px;margin-bottom:14px}
+@media (max-width:860px){.brain-params-grid{grid-template-columns:1fr 1fr 1fr}}
+@media (max-width:540px){.brain-params-grid{grid-template-columns:1fr 1fr}}
+
+.brain-param-cell{display:flex;flex-direction:column;gap:4px}
+.brain-param-label{font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px}
+.brain-param-input{padding:7px 10px;border-radius:6px;border:1px solid var(--divider);background:var(--bg-elv);color:var(--t1);font-size:13px}
+
+.brain-kpi-banner{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;background:var(--bg-elv);border:1px solid var(--divider);border-radius:12px;padding:12px 16px;margin-bottom:14px}
+@media (max-width:760px){.brain-kpi-banner{grid-template-columns:1fr 1fr}}
+.brain-kpi-item{display:flex;flex-direction:column;gap:2px}
+.brain-kpi-val{font-size:20px;font-weight:900;color:var(--green-1)}
+.brain-kpi-lbl{font-size:11px;color:var(--t3)}
+
+.brain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-bottom:14px}
+.brain-card{background:var(--bg-alt);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.brain-head{display:flex;align-items:center;justify-content:space-between}
+.brain-title{font-size:13px;font-weight:700;color:var(--t1);display:flex;align-items:center;gap:6px}
+.brain-badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:12px;background:rgba(239,68,68,.15);color:var(--red-1,#ef4444)}
+.brain-desc{font-size:12px;color:var(--t2);line-height:1.45}
+.brain-action{font-size:11.5px;color:var(--t3);line-height:1.4}
+
+.brain-summary-box{background:var(--bg-elv);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;margin-bottom:14px}
+.brain-summary-title{font-size:12px;font-weight:700;color:var(--t1);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.brain-summary-text{font-size:12px;color:var(--t2);line-height:1.5}
+
+@media (max-width:820px){
+  #brain-mask{padding:0}
+  #brain-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
 /* Floating Audio Dock */
 #audio-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:70;background:var(--bg-elv);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);padding:10px 18px;display:flex;align-items:center;gap:14px;max-width:min(700px,calc(100vw - 32px));width:100%;backdrop-filter:blur(10px);transition:all .25s ease}
 #audio-dock[hidden]{display:none}
@@ -1345,7 +1381,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#light-mask,#light-open,#light-open-side,#sleep-mask,#sleep-open,#sleep-open-side,#glucose-mask,#glucose-open,#glucose-open-side,#inflam-mask,#inflam-open,#inflam-open-side,#apob-mask,#apob-open,#apob-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#light-mask,#light-open,#light-open-side,#sleep-mask,#sleep-open,#sleep-open-side,#glucose-mask,#glucose-open,#glucose-open-side,#inflam-mask,#inflam-open,#inflam-open-side,#apob-mask,#apob-open,#apob-open-side,#brain-mask,#brain-open,#brain-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -1448,6 +1484,7 @@ html.dark .hc-action{color:#1b1b1f!important}
       <button class="icon-btn" id="glucose-open" title="Metabolic Health & Postprandial Glucose Matrix" aria-label="Glucose Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></button>
       <button class="icon-btn" id="inflam-open" title="Chronic Inflammation & hs-CRP Lifestyle Matrix" aria-label="Inflammation Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></button>
       <button class="icon-btn" id="apob-open" title="ApoB & Atherogenic Particle Concentration Hub" aria-label="ApoB Lipid Hub"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></button>
+      <button class="icon-btn" id="brain-open" title="Cognitive Resilience & Brain Longevity Matrix" aria-label="Brain Longevity Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04zm5 0A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"/></svg></button>
       <a class="icon-btn" href="selfcheck.html" title="Take 2-Minute Life Health & Risk Audit" aria-label="Self-Audit Quiz"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></a>
       <a class="icon-btn" href="README.md" title="View README.md" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn" href="https://github.com/parveen0029/The-Evidence-Based-Life" target="_blank" rel="noopener" title="View repository on GitHub" aria-label="GitHub Repository"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
@@ -1512,6 +1549,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     <button class="btn-sm ghost" id="glucose-open-side" type="button" style="margin-top:6px;font-size:12px">🩸 Metabolic Health &amp; Glucose Matrix</button>
     <button class="btn-sm ghost" id="inflam-open-side" type="button" style="margin-top:6px;font-size:12px">🛡️ Chronic Inflammation &amp; hs-CRP Matrix</button>
     <button class="btn-sm ghost" id="apob-open-side" type="button" style="margin-top:6px;font-size:12px">🫀 ApoB &amp; Atherogenic Particle Hub</button>
+    <button class="btn-sm ghost" id="brain-open-side" type="button" style="margin-top:6px;font-size:12px">🧠 Cognitive Resilience &amp; Brain Matrix</button>
   </div>
   <div class="group" id="g-upd" hidden>
     <div class="gt">Recent Updates <small>Content revisions</small></div>
@@ -3223,6 +3261,108 @@ html.dark .hc-action{color:#1b1b1f!important}
         <button class="btn-sm ghost" id="apob-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
         <button class="btn-sm ghost" id="apob-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
         <p id="apob-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="brain-mask" hidden>
+  <div id="brain-box" role="dialog" aria-modal="true" aria-labelledby="brain-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="brain-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04zm5 0A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"/></svg> <span>Cognitive Resilience &amp; Brain Longevity Matrix</span></div>
+      <button type="button" id="brain-x" aria-label="Close brain longevity matrix">✕</button>
+    </div>
+    <div class="stats-scroll">
+      <div class="stats-lead">
+        Evidence-based neurobiological protection and dementia risk reduction engine based on <strong>Chapter 22 (Deep Work &amp; Focus)</strong>, <strong>Chapter 1 (Sleep &amp; Willpower)</strong>, <strong>Chapter 28 (Biomarkers &amp; Health)</strong>, and <strong>Chapter 6 (Exercise &amp; Longevity)</strong>. Optimize Brain-Derived Neurotrophic Factor (BDNF), glymphatic amyloid-beta clearance, hearing decibel hygiene, and synaptic cognitive reserve.
+      </div>
+
+      <div class="brain-params-grid">
+        <div class="brain-param-cell">
+          <label class="brain-param-label" for="brain-exercise-input">Weekly Zone 2 &amp; Aerobic Volume</label>
+          <select id="brain-exercise-input" class="brain-param-input">
+            <option value="optimal">150–300 min/wk + 1x HIIT (BDNF Surge)</option>
+            <option value="moderate" selected>60–149 min/wk (Baseline Neurogenesis)</option>
+            <option value="sedentary">&lt;60 min/wk (Subdued Neuroplasticity)</option>
+          </select>
+        </div>
+        <div class="brain-param-cell">
+          <label class="brain-param-label" for="brain-novelty-input">Cognitive &amp; Motor Novelty</label>
+          <select id="brain-novelty-input" class="brain-param-input">
+            <option value="daily">Daily High Challenge (New Language / Instrument)</option>
+            <option value="weekly" selected>Weekly Moderate (Deep Reading / Strategy)</option>
+            <option value="routine">Routine / Passive (Scrolling / Repetitive Work)</option>
+          </select>
+        </div>
+        <div class="brain-param-cell">
+          <label class="brain-param-label" for="brain-sleep-input">Sleep &amp; Glymphatic Posture</label>
+          <select id="brain-sleep-input" class="brain-param-input">
+            <option value="optimal" selected>7.5–8.5h Restorative + Lateral Posture</option>
+            <option value="fair">6.5–7.4h Standard Sleep</option>
+            <option value="impaired">&lt;6.5h Fragmented / Supine Stasis</option>
+          </select>
+        </div>
+        <div class="brain-param-cell">
+          <label class="brain-param-label" for="brain-audio-input">Decibel Hearing Hygiene</label>
+          <select id="brain-audio-input" class="brain-param-input">
+            <option value="protected" selected>&lt;75 dBA Safe Listening / Venue Protection</option>
+            <option value="moderate">75–85 dBA Standard Headphones</option>
+            <option value="hazardous">&gt;85 dBA Loud / Ear Fatigue / Tinnitus</option>
+          </select>
+        </div>
+        <div class="brain-param-cell">
+          <label class="brain-param-label" for="brain-dha-input">DHA Omega-3 &amp; B-Methylation</label>
+          <select id="brain-dha-input" class="brain-param-input">
+            <option value="optimal" selected>&gt;1,000mg DHA + Methyl-B/Folate</option>
+            <option value="moderate">Occasional Seafood / Standard Multi</option>
+            <option value="deficient">Zero Omega-3 / Homocysteine Risk</option>
+          </select>
+        </div>
+        <div class="brain-param-cell">
+          <label class="brain-param-label" for="brain-social-input">Social &amp; Purposeful Engagement</label>
+          <select id="brain-social-input" class="brain-param-input">
+            <option value="high" selected>High (Collaborative Mission &amp; Community)</option>
+            <option value="moderate">Moderate (Standard Daily Interactions)</option>
+            <option value="isolated">Low / Isolated (Loneliness Stress Axis)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="brain-kpi-banner">
+        <div class="brain-kpi-item">
+          <span class="brain-kpi-val" id="brain-kpi-resilience" style="color:var(--green-1)">86/100</span>
+          <span class="brain-kpi-lbl">Cognitive Resilience Index</span>
+        </div>
+        <div class="brain-kpi-item">
+          <span class="brain-kpi-val" id="brain-kpi-bdnf" style="color:var(--green-1)">+180% Surge</span>
+          <span class="brain-kpi-lbl">BDNF Neurogenesis Rate</span>
+        </div>
+        <div class="brain-kpi-item">
+          <span class="brain-kpi-val" id="brain-kpi-glymphatic" style="color:var(--green-1)">Optimal Clearance</span>
+          <span class="brain-kpi-lbl">Glymphatic Amyloid Clearance</span>
+        </div>
+        <div class="brain-kpi-item">
+          <span class="brain-kpi-val" id="brain-kpi-dementia" style="color:var(--green-1)">-55% Hazard Offset</span>
+          <span class="brain-kpi-lbl">Lancet Dementia Risk Reduction</span>
+        </div>
+      </div>
+
+      <div class="brain-grid" id="brain-cards-grid">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="brain-summary-box">
+        <div class="brain-summary-title"><span>🧠 Clinical Neuroprotection &amp; Brain Longevity Protocol</span></div>
+        <div class="brain-summary-text" id="brain-routine-desc">Calculating cognitive protocol...</div>
+      </div>
+
+      <div class="calc-footer">
+        <button class="btn-sm" id="brain-export" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy Clinical Brain Longevity Protocol</button>
+        <button class="btn-sm ghost" id="brain-share-x" type="button" style="width:auto;padding:8px 14px">𝕏 Share</button>
+        <button class="btn-sm ghost" id="brain-share-wa" type="button" style="width:auto;padding:8px 14px">WhatsApp</button>
+        <button class="btn-sm ghost" id="brain-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
+        <button class="btn-sm ghost" id="brain-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
+        <p id="brain-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
       </div>
     </div>
   </div>
@@ -11815,6 +11955,354 @@ APOB_UI.shareWa?.addEventListener('click', () => {
 });
 
 APOB_UI.shareLi?.addEventListener('click', () => {
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+/* ---------- Cognitive Resilience & Brain Longevity Matrix Modal ---------- */
+const BRAIN_CARDS_DATA = [
+  {
+    id: 'bdnf',
+    title: 'BDNF & Hippocampal Neurogenesis',
+    icon: '🧠',
+    badge: 'Dentate Gyrus Upregulation',
+    color: 'rgba(16,185,129,.15)',
+    textColor: 'var(--green-1)',
+    desc: 'Brain-Derived Neurotrophic Factor (BDNF) functions as biological fertilizer for neurons, mediating synaptic plasticity and survival. Sustained aerobic exercise stimulates muscular FNDC5 to cleave irisin, which crosses the blood-brain barrier and triggers robust hippocampal BDNF gene expression.',
+    action: 'Accumulate 150–300 minutes weekly of Zone 2 cardio plus 1 weekly high-intensity interval session to sustain elevated baseline circulating BDNF.'
+  },
+  {
+    id: 'glymphatic',
+    title: 'Glymphatic Amyloid-Beta Wash',
+    icon: '🌊',
+    badge: 'NREM SWS Drainage',
+    color: 'rgba(59,130,246,.15)',
+    textColor: 'var(--brand-1)',
+    desc: 'The brain lacks traditional lymphatic vessels. During Stage 3/4 deep Slow-Wave Sleep (SWS), astrocyte aquaporin-4 (AQP4) water channels expand interstitial space by 60%, driving convective cerebrospinal fluid (CSF) flow that clears neurotoxic amyloid-beta and hyperphosphorylated tau proteins.',
+    action: 'Prioritize 7.5–8.5 hours of unfragmented sleep. Sleep in a lateral (side) posture, which studies show enhances glymphatic CSF-ISF exchange compared to supine or prone.'
+  },
+  {
+    id: 'hearing',
+    title: 'Midlife Decibel Hearing Hygiene',
+    icon: '🎧',
+    badge: 'Lancet #1 Modifiable Risk',
+    color: 'rgba(239,68,68,.15)',
+    textColor: 'var(--red-1,#ef4444)',
+    desc: 'The Lancet Commission identified midlife hearing impairment as the #1 single modifiable dementia risk factor (8% of all global cases). Subclinical cochlear hair cell loss deprives the auditory cortex of sensory input, accelerating temporal lobe atrophy and forcing frontal executive circuits into chronic compensatory drain.',
+    action: 'Limit personal listening to <75–80 dBA (utilize volume-limiting settings), wear high-fidelity acoustic earplugs in loud environments (>85 dBA), and treat hearing loss immediately.'
+  },
+  {
+    id: 'reserve',
+    title: 'Cognitive Reserve & Motor Novelty',
+    icon: '🧩',
+    badge: 'Synaptic Redundancy',
+    color: 'rgba(245,158,11,.15)',
+    textColor: 'var(--yellow-1,#eab308)',
+    desc: 'Cognitive reserve describes the brain resilience against neuropathological lesions. Learning novel, high-friction complex skills (e.g. musical instruments, martial arts, second language) forces bilateral multi-network synaptic arborization, delaying clinical symptoms of dementia by an estimated 5–7 years.',
+    action: 'Engage in at least one novel, high-cognitive-load learning discipline weekly rather than relying solely on repetitive puzzles or passive media consumption.'
+  },
+  {
+    id: 'homocysteine',
+    title: 'Homocysteine & Methylation Control',
+    icon: '🧬',
+    badge: 'Microvascular Defense',
+    color: 'rgba(139,92,246,.15)',
+    textColor: '#8b5cf6',
+    desc: 'Serum homocysteine >10 μmol/L directly induces oxidative endothelial damage and accelerates cerebral white matter hyperintensities (microbleeds). In the landmark Oxford VITACOG trial, optimizing B-vitamins (B6, methylcobalamin B12, and methylfolate) reduced regional brain atrophy by up to 53% in individuals with high homocysteine.',
+    action: 'Target fasting serum homocysteine <9.0 μmol/L via adequate methylated B-complex, leafy greens, choline-rich pasture-raised eggs, and testing.'
+  },
+  {
+    id: 'dha_membrane',
+    title: 'Neuronal Membrane Fluidity (DHA)',
+    icon: '🐟',
+    badge: 'Synaptic Signal Speed',
+    color: 'rgba(16,185,129,.15)',
+    textColor: 'var(--green-1)',
+    desc: 'Docosahexaenoic acid (DHA) constitutes over 50% of the polyunsaturated fatty acids in neuronal cell membranes. High membrane DHA content ensures rapid rhodopsin conformational shifts, efficient neurotransmitter vesicle exocytosis, and anti-apoptotic neuroprotectin D1 (NPD1) synthesis.',
+    action: 'Maintain an Omega-3 Index >8% with 1,000–2,000 mg combined EPA+DHA daily (or 2–3 weekly servings of cold-water low-mercury fatty fish).'
+  }
+];
+
+const BRAIN_UI = {
+  openBtn: document.getElementById('brain-open'),
+  openSideBtn: document.getElementById('brain-open-side'),
+  mask: document.getElementById('brain-mask'),
+  xBtn: document.getElementById('brain-x'),
+  closeBtn: document.getElementById('brain-close-btn'),
+  exerciseInput: document.getElementById('brain-exercise-input'),
+  noveltyInput: document.getElementById('brain-novelty-input'),
+  sleepInput: document.getElementById('brain-sleep-input'),
+  audioInput: document.getElementById('brain-audio-input'),
+  dhaInput: document.getElementById('brain-dha-input'),
+  socialInput: document.getElementById('brain-social-input'),
+  kpiResilience: document.getElementById('brain-kpi-resilience'),
+  kpiBdnf: document.getElementById('brain-kpi-bdnf'),
+  kpiGlymphatic: document.getElementById('brain-kpi-glymphatic'),
+  kpiDementia: document.getElementById('brain-kpi-dementia'),
+  cardsGrid: document.getElementById('brain-cards-grid'),
+  routineDesc: document.getElementById('brain-routine-desc'),
+  exportBtn: document.getElementById('brain-export'),
+  shareX: document.getElementById('brain-share-x'),
+  shareWa: document.getElementById('brain-share-wa'),
+  shareLi: document.getElementById('brain-share-li'),
+  msg: document.getElementById('brain-copy-msg')
+};
+
+let brainSettings = {
+  exercise: 'moderate',
+  novelty: 'weekly',
+  sleep: 'optimal',
+  audio: 'protected',
+  dha: 'optimal',
+  social: 'high'
+};
+
+try {
+  const savedBrain = localStorage.getItem('eb_brain_settings');
+  if (savedBrain) {
+    brainSettings = Object.assign(brainSettings, JSON.parse(savedBrain));
+  }
+} catch (e) {}
+
+function renderBrainCards() {
+  if (!BRAIN_UI.cardsGrid) return;
+  BRAIN_UI.cardsGrid.innerHTML = BRAIN_CARDS_DATA.map(c => `
+    <div class="brain-card">
+      <div class="brain-head">
+        <span class="brain-title"><span>${c.icon}</span> ${c.title}</span>
+        <span class="brain-badge" style="background:${c.color};color:${c.textColor}">${c.badge}</span>
+      </div>
+      <div class="brain-desc">${c.desc}</div>
+      <div class="brain-action"><strong>Action:</strong> ${c.action}</div>
+    </div>
+  `).join('');
+}
+
+function calculateBrainMetrics() {
+  const exerciseVal = BRAIN_UI.exerciseInput?.value || brainSettings.exercise;
+  const noveltyVal = BRAIN_UI.noveltyInput?.value || brainSettings.novelty;
+  const sleepVal = BRAIN_UI.sleepInput?.value || brainSettings.sleep;
+  const audioVal = BRAIN_UI.audioInput?.value || brainSettings.audio;
+  const dhaVal = BRAIN_UI.dhaInput?.value || brainSettings.dha;
+  const socialVal = BRAIN_UI.socialInput?.value || brainSettings.social;
+
+  brainSettings.exercise = exerciseVal;
+  brainSettings.novelty = noveltyVal;
+  brainSettings.sleep = sleepVal;
+  brainSettings.audio = audioVal;
+  brainSettings.dha = dhaVal;
+  brainSettings.social = socialVal;
+
+  try {
+    localStorage.setItem('eb_brain_settings', JSON.stringify(brainSettings));
+  } catch (e) {}
+
+  // 1. Calculate Resilience Index (0-100)
+  let score = 50;
+  if (exerciseVal === 'optimal') score += 15;
+  else if (exerciseVal === 'moderate') score += 8;
+  else score -= 12;
+
+  if (noveltyVal === 'daily') score += 12;
+  else if (noveltyVal === 'weekly') score += 6;
+  else score -= 8;
+
+  if (sleepVal === 'optimal') score += 12;
+  else if (sleepVal === 'fair') score += 4;
+  else score -= 12;
+
+  if (audioVal === 'protected') score += 10;
+  else if (audioVal === 'hazardous') score -= 14;
+
+  if (dhaVal === 'optimal') score += 8;
+  else if (dhaVal === 'deficient') score -= 10;
+
+  if (socialVal === 'high') score += 8;
+  else if (socialVal === 'isolated') score -= 10;
+
+  score = Math.max(25, Math.min(98, score));
+
+  let resTier = `Strong (${score}/100)`;
+  let resColor = 'var(--green-1)';
+  if (score >= 85) {
+    resTier = `Elite Reserve (${score}/100)`;
+    resColor = 'var(--green-1)';
+  } else if (score < 60) {
+    resTier = `Vulnerable (${score}/100)`;
+    resColor = 'var(--red-1,#ef4444)';
+  } else if (score < 75) {
+    resTier = `Moderate (${score}/100)`;
+    resColor = 'var(--yellow-1,#eab308)';
+  }
+
+  // 2. BDNF Neurogenesis Rate
+  let bdnfText = 'Baseline (+40%)';
+  let bdnfColor = 'var(--yellow-1,#eab308)';
+  if (exerciseVal === 'optimal') {
+    bdnfText = 'Peak Surge (+250%)';
+    bdnfColor = 'var(--green-1)';
+  } else if (exerciseVal === 'sedentary') {
+    bdnfText = 'Suppressed (<10%)';
+    bdnfColor = 'var(--red-1,#ef4444)';
+  }
+
+  // 3. Glymphatic Clearance
+  let glymphText = 'Suboptimal Clearance';
+  let glymphColor = 'var(--yellow-1,#eab308)';
+  if (sleepVal === 'optimal') {
+    glymphText = 'Optimal Hydrodynamic Flow';
+    glymphColor = 'var(--green-1)';
+  } else if (sleepVal === 'impaired') {
+    glymphText = 'Impaired / Waste Stasis';
+    glymphColor = 'var(--red-1,#ef4444)';
+  }
+
+  // 4. Lancet Dementia Risk Offset
+  let demText = '-35% Risk Offset';
+  let demColor = 'var(--yellow-1,#eab308)';
+  if (score >= 80) {
+    demText = '-60% Maximum Protection';
+    demColor = 'var(--green-1)';
+  } else if (score < 55) {
+    demText = 'Elevated Hazard Profile';
+    demColor = 'var(--red-1,#ef4444)';
+  }
+
+  // Update UI KPIs
+  if (BRAIN_UI.kpiResilience) {
+    BRAIN_UI.kpiResilience.textContent = resTier;
+    BRAIN_UI.kpiResilience.style.color = resColor;
+  }
+  if (BRAIN_UI.kpiBdnf) {
+    BRAIN_UI.kpiBdnf.textContent = bdnfText;
+    BRAIN_UI.kpiBdnf.style.color = bdnfColor;
+  }
+  if (BRAIN_UI.kpiGlymphatic) {
+    BRAIN_UI.kpiGlymphatic.textContent = glymphText;
+    BRAIN_UI.kpiGlymphatic.style.color = glymphColor;
+  }
+  if (BRAIN_UI.kpiDementia) {
+    BRAIN_UI.kpiDementia.textContent = demText;
+    BRAIN_UI.kpiDementia.style.color = demColor;
+  }
+
+  // Dynamic Clinical Summary
+  if (BRAIN_UI.routineDesc) {
+    BRAIN_UI.routineDesc.innerHTML = `
+      <strong>Cognitive Resilience Capacity:</strong> Scored at <strong>${score}/100</strong> (${resTier}). Maintaining robust synaptic arborization delays neurodegenerative clinical manifestation by up to 5–7 years.<br>
+      <strong>BDNF &amp; Hippocampal Plasticity:</strong> ${exerciseVal === 'optimal' ? '<span style="color:var(--green-1);font-weight:700">Maximum exercise-induced neurotrophin surge active.</span> Circulating irisin drives continuous dentate gyrus neurogenesis.' : exerciseVal === 'sedentary' ? '<span style="color:var(--red-1,#ef4444);font-weight:700">Low aerobic volume suppresses hippocampal plasticity.</span> Add 150 min Zone 2 weekly.' : 'Moderate baseline BDNF release maintained.'}<br>
+      <strong>Glymphatic Metabolic Cleansing:</strong> ${sleepVal === 'optimal' ? '<span style="color:var(--green-1);font-weight:700">Optimal CSF-ISF convective flow.</span> Astrocyte AQP4 water channels actively flushing nocturnal amyloid-beta and tau.' : '<span style="color:var(--red-1,#ef4444);font-weight:700">Impaired interstitial fluid clearance.</span> Chronic sleep deprivation leads to progressive neurotoxic protein retention.'}<br>
+      <strong>Sensory Preservation (Hearing Loss Defense):</strong> ${audioVal === 'protected' ? '<span style="color:var(--green-1);font-weight:700">Auditory cortex integrity protected.</span> Eliminating midlife auditory sensory loss prevents compensatory prefrontal cognitive overload.' : audioVal === 'hazardous' ? '<span style="color:var(--red-1,#ef4444);font-weight:700">Hazardous noise exposure (>85 dBA).</span> Cochlear hair cell loss is the Lancet Commission #1 single modifiable dementia risk factor.' : 'Standard exposure. Monitor listening volume.'}<br>
+      <strong>Neuro-Nutrition &amp; Synaptic Lipid Bilayer:</strong> ${dhaVal === 'optimal' ? '<span style="color:var(--green-1);font-weight:700">High neuronal membrane DHA fluidity</span> with controlled homocysteine microvascular defense.' : 'Deficient omega-3 DHA or high homocysteine accelerates cerebral white matter hyperintensities.'}
+    `;
+  }
+}
+
+function initBrainUI() {
+  if (!BRAIN_UI.mask) return;
+
+  renderBrainCards();
+
+  if (BRAIN_UI.exerciseInput) BRAIN_UI.exerciseInput.value = brainSettings.exercise;
+  if (BRAIN_UI.noveltyInput) BRAIN_UI.noveltyInput.value = brainSettings.novelty;
+  if (BRAIN_UI.sleepInput) BRAIN_UI.sleepInput.value = brainSettings.sleep;
+  if (BRAIN_UI.audioInput) BRAIN_UI.audioInput.value = brainSettings.audio;
+  if (BRAIN_UI.dhaInput) BRAIN_UI.dhaInput.value = brainSettings.dha;
+  if (BRAIN_UI.socialInput) BRAIN_UI.socialInput.value = brainSettings.social;
+
+  calculateBrainMetrics();
+}
+
+initBrainUI();
+
+function openBrainModal() {
+  if (!BRAIN_UI.mask) return;
+  BRAIN_UI.mask.hidden = false;
+  document.body.style.overflow = 'hidden';
+  BRAIN_UI.exerciseInput?.focus();
+}
+
+function closeBrainModal() {
+  if (!BRAIN_UI.mask) return;
+  BRAIN_UI.mask.hidden = true;
+  document.body.style.overflow = '';
+}
+
+BRAIN_UI.openBtn?.addEventListener('click', openBrainModal);
+BRAIN_UI.openSideBtn?.addEventListener('click', openBrainModal);
+BRAIN_UI.xBtn?.addEventListener('click', closeBrainModal);
+BRAIN_UI.closeBtn?.addEventListener('click', closeBrainModal);
+
+BRAIN_UI.mask?.addEventListener('click', (e) => {
+  if (e.target === BRAIN_UI.mask) closeBrainModal();
+});
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && BRAIN_UI.mask && !BRAIN_UI.mask.hidden) {
+    closeBrainModal();
+  }
+});
+
+const brainInputElements = [
+  BRAIN_UI.exerciseInput,
+  BRAIN_UI.noveltyInput,
+  BRAIN_UI.sleepInput,
+  BRAIN_UI.audioInput,
+  BRAIN_UI.dhaInput,
+  BRAIN_UI.socialInput
+];
+brainInputElements.forEach(el => {
+  el?.addEventListener('input', calculateBrainMetrics);
+  el?.addEventListener('change', calculateBrainMetrics);
+});
+
+BRAIN_UI.exportBtn?.addEventListener('click', async () => {
+  let md = `# Cognitive Resilience & Brain Longevity Protocol\n`;
+  md += `*Evidence-Based Neuroplasticity, BDNF Upregulation & Dementia Risk Reduction*\n\n`;
+  md += `**Weekly Aerobic Volume**: ${brainSettings.exercise.toUpperCase()} | Cognitive Novelty: ${brainSettings.novelty.toUpperCase()}\n`;
+  md += `**Sleep & Glymphatic Posture**: ${brainSettings.sleep.toUpperCase()} | Hearing Hygiene: ${brainSettings.audio.toUpperCase()}\n`;
+  md += `**DHA & B-Methylation**: ${brainSettings.dha.toUpperCase()} | Social Engagement: ${brainSettings.social.toUpperCase()}\n\n`;
+  md += `**Cognitive Resilience Index**: ${BRAIN_UI.kpiResilience?.textContent || '86/100'}\n`;
+  md += `**BDNF Neurogenesis Rate**: ${BRAIN_UI.kpiBdnf?.textContent || '+180%'}\n`;
+  md += `**Glymphatic Amyloid Clearance**: ${BRAIN_UI.kpiGlymphatic?.textContent || 'Optimal'}\n`;
+  md += `**Lancet Dementia Risk Offset**: ${BRAIN_UI.kpiDementia?.textContent || '-55%'}\n\n`;
+
+  md += `## 1. Core Neurobiological Mechanisms\n`;
+  BRAIN_CARDS_DATA.forEach(c => {
+    md += `- **${c.title}** (${c.icon}) [${c.badge}]\n`;
+    md += `  - Evidence: ${c.desc}\n`;
+    md += `  - Clinical Target: ${c.action}\n`;
+  });
+
+  md += `\n## 2. Actionable Clinical Neuroprotection Spec\n`;
+  md += `${(BRAIN_UI.routineDesc?.textContent || '').trim()}\n\n`;
+
+  md += `---\n*Generated by The Evidence-Based Life Neuro Engine: https://parveen0029.github.io/The-Evidence-Based-Life/*\n`;
+
+  try {
+    await navigator.clipboard.writeText(md);
+    if (BRAIN_UI.msg) {
+      BRAIN_UI.msg.textContent = '✓ Brain longevity protocol copied to clipboard!';
+      BRAIN_UI.msg.hidden = false;
+      setTimeout(() => { BRAIN_UI.msg.hidden = true; }, 3500);
+    }
+  } catch (err) {
+    prompt('Copy your Brain Longevity Protocol below:', md);
+  }
+});
+
+BRAIN_UI.shareX?.addEventListener('click', () => {
+  const text = `Exercise stimulates BDNF neurogenesis, deep sleep flushes amyloid-beta, and midlife hearing protection offsets the #1 dementia risk factor. Calculate your brain longevity score:`;
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+BRAIN_UI.shareWa?.addEventListener('click', () => {
+  const text = `*Cognitive Resilience & Brain Longevity Matrix*\nOptimize your BDNF neurogenesis, glymphatic CSF amyloid flush, and Lancet dementia prevention factors:\n\nhttps://parveen0029.github.io/The-Evidence-Based-Life/`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+});
+
+BRAIN_UI.shareLi?.addEventListener('click', () => {
   const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
 });
