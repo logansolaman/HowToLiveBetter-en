@@ -1115,6 +1115,42 @@ html.dark .focus-toggle-chip.active{color:#1b1b1f}
   #light-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Empirical Sleep Architecture & Polysomnography Optimizer Modal */
+#sleep-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#sleep-mask[hidden]{display:none}
+#sleep-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(940px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+
+.sleep-params-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;gap:10px;background:var(--bg-alt);border:1px solid var(--divider);border-radius:12px;padding:12px 14px;margin-bottom:14px}
+@media (max-width:860px){.sleep-params-grid{grid-template-columns:1fr 1fr 1fr}}
+@media (max-width:540px){.sleep-params-grid{grid-template-columns:1fr 1fr}}
+
+.sleep-param-cell{display:flex;flex-direction:column;gap:4px}
+.sleep-param-label{font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px}
+.sleep-param-input{padding:7px 10px;border-radius:6px;border:1px solid var(--divider);background:var(--bg-elv);color:var(--t1);font-size:13px}
+
+.sleep-kpi-banner{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;background:var(--bg-elv);border:1px solid var(--divider);border-radius:12px;padding:12px 16px;margin-bottom:14px}
+@media (max-width:760px){.sleep-kpi-banner{grid-template-columns:1fr 1fr}}
+.sleep-kpi-item{display:flex;flex-direction:column;gap:2px}
+.sleep-kpi-val{font-size:20px;font-weight:900;color:var(--green-1)}
+.sleep-kpi-lbl{font-size:11px;color:var(--t3)}
+
+.sleep-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-bottom:14px}
+.sleep-card{background:var(--bg-alt);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.sleep-head{display:flex;align-items:center;justify-content:space-between}
+.sleep-title{font-size:13px;font-weight:700;color:var(--t1);display:flex;align-items:center;gap:6px}
+.sleep-badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:12px;background:rgba(99,102,241,.15);color:var(--purple-1,#6366f1)}
+.sleep-desc{font-size:12px;color:var(--t2);line-height:1.45}
+.sleep-action{font-size:11.5px;color:var(--t3);line-height:1.4}
+
+.sleep-summary-box{background:var(--bg-elv);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;margin-bottom:14px}
+.sleep-summary-title{font-size:12px;font-weight:700;color:var(--t1);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.sleep-summary-text{font-size:12px;color:var(--t2);line-height:1.5}
+
+@media (max-width:820px){
+  #sleep-mask{padding:0}
+  #sleep-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
 /* Floating Audio Dock */
 #audio-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:70;background:var(--bg-elv);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);padding:10px 18px;display:flex;align-items:center;gap:14px;max-width:min(700px,calc(100vw - 32px));width:100%;backdrop-filter:blur(10px);transition:all .25s ease}
 #audio-dock[hidden]{display:none}
@@ -1201,7 +1237,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#light-mask,#light-open,#light-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#light-mask,#light-open,#light-open-side,#sleep-mask,#sleep-open,#sleep-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -1300,6 +1336,7 @@ html.dark .hc-action{color:#1b1b1f!important}
       <button class="icon-btn" id="nutri-open" title="Clinical Nutrition & Micronutrient Deficiency Matrix" aria-label="Nutrition Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2a5 5 0 0 0-5 5c0 4 5 13 5 13s5-9 5-13a5 5 0 0 0-5-5z"/><circle cx="12" cy="7" r="1.5"/></svg></button>
       <button class="icon-btn" id="air-open" title="Environmental Toxins & Indoor Air Quality Diagnostics" aria-label="Indoor Air Quality Diagnostics"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg></button>
       <button class="icon-btn" id="light-open" title="Circadian Light & Melatonin Phase Shift Optimizer" aria-label="Circadian Light Optimizer"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></button>
+      <button class="icon-btn" id="sleep-open" title="Sleep Architecture & Polysomnography Optimizer" aria-label="Sleep Architecture Optimizer"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></svg></button>
       <a class="icon-btn" href="selfcheck.html" title="Take 2-Minute Life Health & Risk Audit" aria-label="Self-Audit Quiz"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></a>
       <a class="icon-btn" href="README.md" title="View README.md" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn" href="https://github.com/parveen0029/The-Evidence-Based-Life" target="_blank" rel="noopener" title="View repository on GitHub" aria-label="GitHub Repository"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
@@ -1360,6 +1397,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     <button class="btn-sm ghost" id="nutri-open-side" type="button" style="margin-top:6px;font-size:12px">🥗 Clinical Nutrition & Micronutrient Matrix</button>
     <button class="btn-sm ghost" id="air-open-side" type="button" style="margin-top:6px;font-size:12px">💨 Indoor Air Quality &amp; Toxin Diagnostics</button>
     <button class="btn-sm ghost" id="light-open-side" type="button" style="margin-top:6px;font-size:12px">☀️ Circadian Light &amp; Melatonin Optimizer</button>
+    <button class="btn-sm ghost" id="sleep-open-side" type="button" style="margin-top:6px;font-size:12px">🛏️ Sleep Architecture &amp; Polysomnography</button>
   </div>
   <div class="group" id="g-upd" hidden>
     <div class="gt">Recent Updates <small>Content revisions</small></div>
@@ -2670,6 +2708,104 @@ html.dark .hc-action{color:#1b1b1f!important}
         <button class="btn-sm ghost" id="light-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
         <button class="btn-sm ghost" id="light-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
         <p id="light-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="sleep-mask" hidden>
+  <div id="sleep-box" role="dialog" aria-modal="true" aria-labelledby="sleep-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="sleep-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></svg> <span>Empirical Sleep Architecture &amp; Polysomnography Optimizer</span></div>
+      <button type="button" id="sleep-x" aria-label="Close sleep optimizer">✕</button>
+    </div>
+    <div class="stats-scroll">
+      <div class="stats-lead">
+        Clinical sleep architecture and polysomnography engine based on <strong>Chapter 1 (Sleep &amp; Circadian Rhythm)</strong>, <strong>Chapter 6 (Recovery &amp; Longevity)</strong>, and <strong>Chapter 28 (Biomarkers &amp; Health)</strong>. Optimize your Slow-Wave Sleep (SWS) glymphatic wash, model caffeine adenosine receptor half-life clearance, and avoid alcohol REM fragmentation.
+      </div>
+
+      <div class="sleep-params-grid">
+        <div class="sleep-param-cell">
+          <label class="sleep-param-label" for="sleep-bed-input">Target Bedtime</label>
+          <input type="time" id="sleep-bed-input" class="sleep-param-input" value="23:00">
+        </div>
+        <div class="sleep-param-cell">
+          <label class="sleep-param-label" for="sleep-wake-input">Target Wake Time</label>
+          <input type="time" id="sleep-wake-input" class="sleep-param-input" value="07:00">
+        </div>
+        <div class="sleep-param-cell">
+          <label class="sleep-param-label" for="sleep-caff-input">Caffeine Total (mg)</label>
+          <select id="sleep-caff-input" class="sleep-param-input">
+            <option value="0">0 mg (Zero Caffeine)</option>
+            <option value="100">100 mg (1 Cup Coffee)</option>
+            <option value="200" selected>200 mg (2 Cups Coffee)</option>
+            <option value="400">400 mg (Heavy / Pre-workout)</option>
+          </select>
+        </div>
+        <div class="sleep-param-cell">
+          <label class="sleep-param-label" for="sleep-cafftime-input">Latest Caffeine Cup</label>
+          <select id="sleep-cafftime-input" class="sleep-param-input">
+            <option value="10">10:00 AM (Morning Cutoff)</option>
+            <option value="12">12:00 PM (Noon Cutoff)</option>
+            <option value="14" selected>2:00 PM (Afternoon Cup)</option>
+            <option value="17">5:00 PM (Late Afternoon)</option>
+            <option value="20">8:00 PM (Evening)</option>
+          </select>
+        </div>
+        <div class="sleep-param-cell">
+          <label class="sleep-param-label" for="sleep-alc-input">Evening Alcohol Units</label>
+          <select id="sleep-alc-input" class="sleep-param-input">
+            <option value="0" selected>0 Drinks (Sober / Clean)</option>
+            <option value="1">1 Drink (Beer / Wine)</option>
+            <option value="2">2 Drinks (Moderate)</option>
+            <option value="3">3+ Drinks (Heavy)</option>
+          </select>
+        </div>
+        <div class="sleep-param-cell">
+          <label class="sleep-param-label" for="sleep-temp-input">Bedroom Temp</label>
+          <select id="sleep-temp-input" class="sleep-param-input">
+            <option value="65" selected>65°F (18.3°C) Optimal Cool</option>
+            <option value="68">68°F (20.0°C) Mild</option>
+            <option value="72">72°F (22.2°C) Warm / Humid</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="sleep-kpi-banner">
+        <div class="sleep-kpi-item">
+          <span class="sleep-kpi-val" id="sleep-kpi-dur">8.0 hrs</span>
+          <span class="sleep-kpi-lbl">Total Sleep Window (5 Cycles)</span>
+        </div>
+        <div class="sleep-kpi-item">
+          <span class="sleep-kpi-val" id="sleep-kpi-sws" style="color:var(--purple-1,#6366f1)">~1.6 hrs</span>
+          <span class="sleep-kpi-lbl">Est. Stage 3/4 Deep SWS</span>
+        </div>
+        <div class="sleep-kpi-item">
+          <span class="sleep-kpi-val" id="sleep-kpi-rem" style="color:var(--blue-1,#3b82f6)">~1.8 hrs</span>
+          <span class="sleep-kpi-lbl">Est. REM Sleep Architecture</span>
+        </div>
+        <div class="sleep-kpi-item">
+          <span class="sleep-kpi-val" id="sleep-kpi-caffrem" style="color:var(--yellow-1,#eab308)">~42 mg</span>
+          <span class="sleep-kpi-lbl">Bedtime Active Adenosine Block</span>
+        </div>
+      </div>
+
+      <div class="sleep-grid" id="sleep-cards-grid">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="sleep-summary-box">
+        <div class="sleep-summary-title"><span>🌙 Clinical Sleep Architecture &amp; Somnology Protocol</span></div>
+        <div class="sleep-summary-text" id="sleep-routine-desc">Calculating sleep architecture protocol...</div>
+      </div>
+
+      <div class="calc-footer">
+        <button class="btn-sm" id="sleep-export" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy Clinical Sleep Architecture Protocol</button>
+        <button class="btn-sm ghost" id="sleep-share-x" type="button" style="width:auto;padding:8px 14px">𝕏 Share</button>
+        <button class="btn-sm ghost" id="sleep-share-wa" type="button" style="width:auto;padding:8px 14px">WhatsApp</button>
+        <button class="btn-sm ghost" id="sleep-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
+        <button class="btn-sm ghost" id="sleep-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
+        <p id="sleep-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
       </div>
     </div>
   </div>
@@ -9918,6 +10054,308 @@ LIGHT_UI.shareWa?.addEventListener('click', () => {
 });
 
 LIGHT_UI.shareLi?.addEventListener('click', () => {
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+/* ---------- Milestone 32: Empirical Sleep Architecture & Polysomnography Optimizer ---------- */
+const SLEEP_CARDS_DATA = [
+  {
+    id: 'sws',
+    icon: '🧠',
+    title: 'Slow-Wave Sleep (SWS) & Glymphatic Drainage',
+    badge: 'Neural Detox',
+    color: 'rgba(99,102,241,.15)',
+    textColor: '#6366f1',
+    desc: 'Stage 3/4 deep sleep shrinks interstitial space by 60%, allowing cerebrospinal fluid to wash away neurotoxic β-amyloid and tau. Triggers 95% of daily Human Growth Hormone (HGH).',
+    action: 'Target: 1.5–2.0 hours (15–25% of total sleep). Deep sleep is heavily front-loaded in the first third of the night—going to bed late truncates SWS.'
+  },
+  {
+    id: 'rem',
+    icon: '🎭',
+    title: 'REM Sleep & Emotional Recalibration',
+    badge: 'Memory & Affect',
+    color: 'rgba(59,130,246,.15)',
+    textColor: '#3b82f6',
+    desc: 'Characterized by high acetylcholine, low noradrenaline, and muscle atonia. Strips emotional pain from autobiographical memories and synthesizes abstract creative connections.',
+    action: 'Target: 1.5–2.0 hours (20–25% of sleep). Concentrated in the final morning sleep cycles—waking up 90 minutes early cuts 60% of daily REM.'
+  },
+  {
+    id: 'caff',
+    icon: '☕',
+    title: 'Caffeine Adenosine Antagonism (5–7h Half-Life)',
+    badge: 'Adenosine Blocker',
+    color: 'rgba(234,179,8,.15)',
+    textColor: '#eab308',
+    desc: 'Caffeine competitively inhibits adenosine receptors without relieving sleep debt. 200 mg at 2 PM leaves ~50 mg active at midnight, blunting slow-wave delta depth by up to 30%.',
+    action: 'Prescription: Set strict caffeine curfew 10 hours before bedtime. Avoid deceptive sleep latency—you may fall asleep, but deep restorative delta power is crippled.'
+  },
+  {
+    id: 'alc',
+    icon: '🍷',
+    title: 'Alcohol REM Fragmentation & Sympathetic Rebound',
+    badge: 'Sedation Trap',
+    color: 'rgba(239,68,68,.15)',
+    textColor: '#ef4444',
+    desc: 'Alcohol acts as a GABA-A sedative, inducing loss of consciousness rather than restorative sleep. Secondary acetaldehyde metabolites trigger tachycardia and crush REM by 40–60%.',
+    action: 'Standard: Stop alcohol 3-4 hours before bedtime. Hydrate with electrolytes to minimize midnight micro-awakenings and heart rate elevation.'
+  },
+  {
+    id: 'thermo',
+    icon: '❄️',
+    title: 'Thermoregulation & Core Cooling (1.0°C Drop)',
+    badge: 'Temperature Anchor',
+    color: 'rgba(14,165,233,.15)',
+    textColor: '#0ea5e9',
+    desc: 'Initiating sleep requires a 1.0°C (2–3°F) internal core temperature drop. Hands and feet radiate heat via specialized glabrous arteriovenous anastomoses.',
+    action: 'Prescription: Set bedroom ambient to 65°F (18.3°C). Take a hot shower/bath 90 minutes before bed to vasodilate skin vessels and accelerate subsequent core cooling.'
+  },
+  {
+    id: 'efficiency',
+    icon: '⏱️',
+    title: 'Sleep Latency & Continuity Architecture',
+    badge: 'Sleep Efficiency',
+    color: 'rgba(16,185,129,.15)',
+    textColor: '#10b981',
+    desc: 'Healthy clinical sleep efficiency (time asleep / time in bed) is ≥85%. Healthy sleep latency is 15–20 minutes. Falling asleep under 5 minutes reflects chronic severe sleep debt.',
+    action: 'Protocol: If awake in bed for >20 minutes, get up in dim light and read until sleepy. Avoid conditioning the brain to associate the mattress with awake rumination.'
+  }
+];
+
+const SLEEP_UI = {
+  openBtn: document.getElementById('sleep-open'),
+  openSideBtn: document.getElementById('sleep-open-side'),
+  mask: document.getElementById('sleep-mask'),
+  xBtn: document.getElementById('sleep-x'),
+  closeBtn: document.getElementById('sleep-close-btn'),
+  bedInput: document.getElementById('sleep-bed-input'),
+  wakeInput: document.getElementById('sleep-wake-input'),
+  caffInput: document.getElementById('sleep-caff-input'),
+  cafftimeInput: document.getElementById('sleep-cafftime-input'),
+  alcInput: document.getElementById('sleep-alc-input'),
+  tempInput: document.getElementById('sleep-temp-input'),
+  kpiDur: document.getElementById('sleep-kpi-dur'),
+  kpiSws: document.getElementById('sleep-kpi-sws'),
+  kpiRem: document.getElementById('sleep-kpi-rem'),
+  kpiCaffrem: document.getElementById('sleep-kpi-caffrem'),
+  cardsGrid: document.getElementById('sleep-cards-grid'),
+  routineDesc: document.getElementById('sleep-routine-desc'),
+  exportBtn: document.getElementById('sleep-export'),
+  shareX: document.getElementById('sleep-share-x'),
+  shareWa: document.getElementById('sleep-share-wa'),
+  shareLi: document.getElementById('sleep-share-li'),
+  msg: document.getElementById('sleep-copy-msg')
+};
+
+let sleepSettings = {
+  bed: '23:00',
+  wake: '07:00',
+  caff: 200,
+  cafftime: 14,
+  alc: 0,
+  temp: 65
+};
+
+try {
+  const savedSleep = localStorage.getItem('eb_sleep_settings');
+  if (savedSleep) {
+    sleepSettings = Object.assign(sleepSettings, JSON.parse(savedSleep));
+  }
+} catch (e) {}
+
+function renderSleepCards() {
+  if (!SLEEP_UI.cardsGrid) return;
+  SLEEP_UI.cardsGrid.innerHTML = SLEEP_CARDS_DATA.map(c => `
+    <div class="sleep-card">
+      <div class="sleep-head">
+        <span class="sleep-title"><span>${c.icon}</span> ${c.title}</span>
+        <span class="sleep-badge" style="background:${c.color};color:${c.textColor}">${c.badge}</span>
+      </div>
+      <div class="sleep-desc">${c.desc}</div>
+      <div class="sleep-action"><strong>Action:</strong> ${c.action}</div>
+    </div>
+  `).join('');
+}
+
+function calculateSleepMetrics() {
+  const bedVal = SLEEP_UI.bedInput?.value || sleepSettings.bed;
+  const wakeVal = SLEEP_UI.wakeInput?.value || sleepSettings.wake;
+  const caffVal = parseInt(SLEEP_UI.caffInput?.value || sleepSettings.caff) || 0;
+  const cafftimeVal = parseInt(SLEEP_UI.cafftimeInput?.value || sleepSettings.cafftime) || 14;
+  const alcVal = parseInt(SLEEP_UI.alcInput?.value || sleepSettings.alc) || 0;
+  const tempVal = parseInt(SLEEP_UI.tempInput?.value || sleepSettings.temp) || 65;
+
+  sleepSettings.bed = bedVal;
+  sleepSettings.wake = wakeVal;
+  sleepSettings.caff = caffVal;
+  sleepSettings.cafftime = cafftimeVal;
+  sleepSettings.alc = alcVal;
+  sleepSettings.temp = tempVal;
+
+  try {
+    localStorage.setItem('eb_sleep_settings', JSON.stringify(sleepSettings));
+  } catch (e) {}
+
+  // 1. Duration Calculation
+  const [bedH, bedM] = bedVal.split(':').map(Number);
+  const [wakeH, wakeM] = wakeVal.split(':').map(Number);
+  let totalMins = (wakeH * 60 + wakeM) - (bedH * 60 + bedM);
+  if (totalMins <= 0) totalMins += 1440;
+  const totalHours = totalMins / 60;
+  const cycles = Math.floor(totalMins / 90);
+
+  // 2. Caffeine Adenosine Clearance at Bedtime
+  // Hours elapsed between latest caffeine cup and bedtime
+  let hoursElapsed = bedH - cafftimeVal;
+  if (hoursElapsed < 0) hoursElapsed += 24;
+  const activeCaffeine = caffVal > 0 ? Math.round(caffVal * Math.pow(0.5, hoursElapsed / 5.5)) : 0;
+
+  // 3. Stage 3/4 Deep Slow-Wave Sleep (SWS)
+  let swsBaseHours = totalHours * 0.20; // 20% normal baseline
+  if (activeCaffeine > 30) swsBaseHours *= 0.75; // -25% penalty for active caffeine
+  if (tempVal > 70) swsBaseHours *= 0.85; // thermal disruption
+  if (alcVal > 0) swsBaseHours *= 0.90;
+  swsBaseHours = Math.max(0.4, swsBaseHours);
+
+  // 4. REM Sleep Estimation
+  let remBaseHours = totalHours * 0.22; // 22% normal baseline
+  if (alcVal === 1) remBaseHours *= 0.85;
+  else if (alcVal === 2) remBaseHours *= 0.65;
+  else if (alcVal >= 3) remBaseHours *= 0.40;
+  if (totalHours < 7) remBaseHours *= 0.80; // short duration disproportionately truncates morning REM
+  remBaseHours = Math.max(0.3, remBaseHours);
+
+  // Update KPI Banner
+  if (SLEEP_UI.kpiDur) {
+    SLEEP_UI.kpiDur.textContent = `${totalHours.toFixed(1)} hrs (${cycles} cycles)`;
+    SLEEP_UI.kpiDur.style.color = totalHours >= 7 && totalHours <= 9 ? 'var(--green-1)' : (totalHours < 6 ? '#ef4444' : 'var(--yellow-1,#eab308)');
+  }
+  if (SLEEP_UI.kpiSws) {
+    SLEEP_UI.kpiSws.textContent = `~${swsBaseHours.toFixed(1)} hrs`;
+    SLEEP_UI.kpiSws.style.color = swsBaseHours >= 1.4 ? 'var(--purple-1,#6366f1)' : 'var(--yellow-1,#eab308)';
+  }
+  if (SLEEP_UI.kpiRem) {
+    SLEEP_UI.kpiRem.textContent = `~${remBaseHours.toFixed(1)} hrs`;
+    SLEEP_UI.kpiRem.style.color = alcVal > 1 ? '#ef4444' : 'var(--blue-1,#3b82f6)';
+  }
+  if (SLEEP_UI.kpiCaffrem) {
+    SLEEP_UI.kpiCaffrem.textContent = `~${activeCaffeine} mg`;
+    SLEEP_UI.kpiCaffrem.style.color = activeCaffeine <= 20 ? 'var(--green-1)' : (activeCaffeine > 45 ? '#ef4444' : 'var(--yellow-1,#eab308)');
+  }
+
+  // Update Clinical Routine Description
+  if (SLEEP_UI.routineDesc) {
+    const cutoffH = (bedH - 10 + 24) % 24;
+    const cutoffStr = `${cutoffH}:00`;
+    const showerH = (bedH - 1 + 24) % 24;
+    const showerM = (bedM + 30) % 60;
+    const showerStr = `${showerH}:${showerM < 10 ? '0' : ''}${showerM}`;
+
+    SLEEP_UI.routineDesc.innerHTML = `
+      • <strong>${cutoffStr} (Caffeine Hard Curfew):</strong> Stop all caffeine intake (10 hours prior to ${bedVal}). Current settings leave <strong>${activeCaffeine} mg</strong> active at bedtime, ${activeCaffeine > 30 ? '<span style="color:#ef4444;font-weight:700">blunting deep slow-wave delta amplitude</span>' : '<span style="color:var(--green-1);font-weight:700">safely cleared below deep sleep impairment threshold</span>'}.<br>
+      • <strong>${showerStr} (Thermoregulatory Vasodilation):</strong> Take a 10-minute warm bath or shower (40°C / 104°F). Dilates peripheral blood vessels in hands and feet, rapidly dumping internal heat upon stepping out.<br>
+      • <strong>${bedVal} (Bedroom Environment Sizing):</strong> Maintain room at <strong>${tempVal}°F (${Math.round((tempVal - 32) * 5 / 9)}°C)</strong> with pitch darkness (0 lux) and &lt;35 dB ambient sound. Expected sleep architecture: <strong>~${swsBaseHours.toFixed(1)}h Deep SWS</strong> (glymphatic wash) + <strong>~${remBaseHours.toFixed(1)}h REM</strong>.<br>
+      • <strong>Alcohol Warning:</strong> ${alcVal > 0 ? `<span style="color:#ef4444;font-weight:700">Noticeable REM sleep suppression (-${Math.round((1 - remBaseHours / (totalHours * 0.22)) * 100)}%) and second-half sympathetic heart rate elevation detected from ${alcVal} drink(s).</span>` : '<span style="color:var(--green-1);font-weight:700">Clean baseline. Zero alcohol-induced sympathetic heart rate spikes or REM fragmentation.</span>'}
+    `;
+  }
+}
+
+function initSleepUI() {
+  if (!SLEEP_UI.mask) return;
+
+  renderSleepCards();
+
+  if (SLEEP_UI.bedInput) SLEEP_UI.bedInput.value = sleepSettings.bed;
+  if (SLEEP_UI.wakeInput) SLEEP_UI.wakeInput.value = sleepSettings.wake;
+  if (SLEEP_UI.caffInput) SLEEP_UI.caffInput.value = String(sleepSettings.caff);
+  if (SLEEP_UI.cafftimeInput) SLEEP_UI.cafftimeInput.value = String(sleepSettings.cafftime);
+  if (SLEEP_UI.alcInput) SLEEP_UI.alcInput.value = String(sleepSettings.alc);
+  if (SLEEP_UI.tempInput) SLEEP_UI.tempInput.value = String(sleepSettings.temp);
+
+  calculateSleepMetrics();
+}
+
+initSleepUI();
+
+function openSleepModal() {
+  if (!SLEEP_UI.mask) return;
+  SLEEP_UI.mask.hidden = false;
+  document.body.style.overflow = 'hidden';
+  SLEEP_UI.bedInput?.focus();
+}
+
+function closeSleepModal() {
+  if (!SLEEP_UI.mask) return;
+  SLEEP_UI.mask.hidden = true;
+  document.body.style.overflow = '';
+}
+
+SLEEP_UI.openBtn?.addEventListener('click', openSleepModal);
+SLEEP_UI.openSideBtn?.addEventListener('click', openSleepModal);
+SLEEP_UI.xBtn?.addEventListener('click', closeSleepModal);
+SLEEP_UI.closeBtn?.addEventListener('click', closeSleepModal);
+
+SLEEP_UI.mask?.addEventListener('click', (e) => {
+  if (e.target === SLEEP_UI.mask) closeSleepModal();
+});
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && SLEEP_UI.mask && !SLEEP_UI.mask.hidden) {
+    closeSleepModal();
+  }
+});
+
+const sleepInputElements = [SLEEP_UI.bedInput, SLEEP_UI.wakeInput, SLEEP_UI.caffInput, SLEEP_UI.cafftimeInput, SLEEP_UI.alcInput, SLEEP_UI.tempInput];
+sleepInputElements.forEach(el => {
+  el?.addEventListener('input', calculateSleepMetrics);
+  el?.addEventListener('change', calculateSleepMetrics);
+});
+
+SLEEP_UI.exportBtn?.addEventListener('click', async () => {
+  let md = `# Clinical Sleep Architecture & Polysomnography Protocol\n`;
+  md += `*Slow-Wave Sleep (SWS), REM Consolidation & Adenosine Clearance*\n\n`;
+  md += `**Sleep Schedule**: Bed at ${sleepSettings.bed} | Wake at ${sleepSettings.wake} (${SLEEP_UI.kpiDur?.textContent || '8.0 hrs'})\n`;
+  md += `**Caffeine Intake**: ${sleepSettings.caff} mg (Latest cup: ${sleepSettings.cafftime}:00) -> Bedtime Remainder: ${SLEEP_UI.kpiCaffrem?.textContent || '42 mg'}\n`;
+  md += `**Alcohol Consumption**: ${sleepSettings.alc} drinks | **Bedroom Temp**: ${sleepSettings.temp}°F\n`;
+  md += `**Estimated Deep SWS**: ${SLEEP_UI.kpiSws?.textContent || '1.6 hrs'} (Target: 1.5-2.0 hrs)\n`;
+  md += `**Estimated REM Sleep**: ${SLEEP_UI.kpiRem?.textContent || '1.8 hrs'} (Target: 1.5-2.0 hrs)\n\n`;
+
+  md += `## 1. Somnology & Sleep Architecture Principles\n`;
+  SLEEP_CARDS_DATA.forEach(c => {
+    md += `- **${c.title}** (${c.icon}) [${c.badge}]\n`;
+    md += `  - Evidence: ${c.desc}\n`;
+    md += `  - Action: ${c.action}\n`;
+  });
+
+  md += `\n## 2. Nighttime Protocol & Chrono-Schedule\n`;
+  md += `${(SLEEP_UI.routineDesc?.textContent || '').trim()}\n\n`;
+
+  md += `---\n*Generated by The Evidence-Based Life Somnology Engine: https://parveen0029.github.io/The-Evidence-Based-Life/*\n`;
+
+  try {
+    await navigator.clipboard.writeText(md);
+    if (SLEEP_UI.msg) {
+      SLEEP_UI.msg.textContent = '✓ Sleep protocol copied to clipboard!';
+      SLEEP_UI.msg.hidden = false;
+      setTimeout(() => { SLEEP_UI.msg.hidden = true; }, 3500);
+    }
+  } catch (err) {
+    prompt('Copy your Sleep Protocol below:', md);
+  }
+});
+
+SLEEP_UI.shareX?.addEventListener('click', () => {
+  const text = `Caffeine has a 5–7h half-life: 200mg at 2 PM leaves 50mg active at midnight, blunting Stage 4 deep slow-wave sleep by 30%. Calculate your sleep architecture protocol:`;
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+SLEEP_UI.shareWa?.addEventListener('click', () => {
+  const text = `*Empirical Sleep Architecture & Polysomnography Optimizer*\nCalculate your deep SWS glymphatic wash, caffeine clearance half-life, and REM fragmentation index:\n\nhttps://parveen0029.github.io/The-Evidence-Based-Life/`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+});
+
+SLEEP_UI.shareLi?.addEventListener('click', () => {
   const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
 });
