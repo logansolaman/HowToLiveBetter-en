@@ -1403,6 +1403,42 @@ html.dark .focus-toggle-chip.active{color:#1b1b1f}
   #bone-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Hormonal Optimization, Endocrine Rhythms & Thyroid-Adrenal Axis Modal */
+#endo-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#endo-mask[hidden]{display:none}
+#endo-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(940px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+
+.endo-params-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;gap:10px;background:var(--bg-alt);border:1px solid var(--divider);border-radius:12px;padding:12px 14px;margin-bottom:14px}
+@media (max-width:860px){.endo-params-grid{grid-template-columns:1fr 1fr 1fr}}
+@media (max-width:540px){.endo-params-grid{grid-template-columns:1fr 1fr}}
+
+.endo-param-cell{display:flex;flex-direction:column;gap:4px}
+.endo-param-label{font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px}
+.endo-param-input{padding:7px 10px;border-radius:6px;border:1px solid var(--divider);background:var(--bg-elv);color:var(--t1);font-size:13px}
+
+.endo-kpi-banner{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;background:var(--bg-elv);border:1px solid var(--divider);border-radius:12px;padding:12px 16px;margin-bottom:14px}
+@media (max-width:760px){.endo-kpi-banner{grid-template-columns:1fr 1fr}}
+.endo-kpi-item{display:flex;flex-direction:column;gap:2px}
+.endo-kpi-val{font-size:20px;font-weight:900;color:var(--green-1)}
+.endo-kpi-lbl{font-size:11px;color:var(--t3)}
+
+.endo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-bottom:14px}
+.endo-card{background:var(--bg-alt);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.endo-head{display:flex;align-items:center;justify-content:space-between}
+.endo-title{font-size:13px;font-weight:700;color:var(--t1);display:flex;align-items:center;gap:6px}
+.endo-badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:12px;background:rgba(239,68,68,.15);color:var(--red-1,#ef4444)}
+.endo-desc{font-size:12px;color:var(--t2);line-height:1.45}
+.endo-action{font-size:11.5px;color:var(--t3);line-height:1.4}
+
+.endo-summary-box{background:var(--bg-elv);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;margin-bottom:14px}
+.endo-summary-title{font-size:12px;font-weight:700;color:var(--t1);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.endo-summary-text{font-size:12px;color:var(--t2);line-height:1.5}
+
+@media (max-width:820px){
+  #endo-mask{padding:0}
+  #endo-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
 /* Floating Audio Dock */
 #audio-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:70;background:var(--bg-elv);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);padding:10px 18px;display:flex;align-items:center;gap:14px;max-width:min(700px,calc(100vw - 32px));width:100%;backdrop-filter:blur(10px);transition:all .25s ease}
 #audio-dock[hidden]{display:none}
@@ -1489,7 +1525,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#light-mask,#light-open,#light-open-side,#sleep-mask,#sleep-open,#sleep-open-side,#glucose-mask,#glucose-open,#glucose-open-side,#inflam-mask,#inflam-open,#inflam-open-side,#apob-mask,#apob-open,#apob-open-side,#brain-mask,#brain-open,#brain-open-side,#mito-mask,#mito-open,#mito-open-side,#vagus-mask,#vagus-open,#vagus-open-side,#bone-mask,#bone-open,#bone-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#light-mask,#light-open,#light-open-side,#sleep-mask,#sleep-open,#sleep-open-side,#glucose-mask,#glucose-open,#glucose-open-side,#inflam-mask,#inflam-open,#inflam-open-side,#apob-mask,#apob-open,#apob-open-side,#brain-mask,#brain-open,#brain-open-side,#mito-mask,#mito-open,#mito-open-side,#vagus-mask,#vagus-open,#vagus-open-side,#bone-mask,#bone-open,#bone-open-side,#endo-mask,#endo-open,#endo-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -1596,6 +1632,7 @@ html.dark .hc-action{color:#1b1b1f!important}
       <button class="icon-btn" id="mito-open" title="Mitochondrial Bioenergetics & Cellular Longevity Matrix" aria-label="Mitochondrial Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3M4.93 4.93l2.12 2.12m9.9 9.9l2.12 2.12M4.93 19.07l2.12-2.12m9.9-9.9l2.12-2.12"/></svg></button>
       <button class="icon-btn" id="vagus-open" title="Autonomic Nervous System & Vagal Tone Matrix" aria-label="Vagal Tone Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12h5l3-8 4 16 3-8h5"/></svg></button>
       <button class="icon-btn" id="bone-open" title="Bone Mineral Density & Sarcopenia Matrix" aria-label="Bone Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 4a2.5 2.5 0 0 1 2.45 2 2.5 2.5 0 0 1-.55 4.5l-8.4 8.4a2.5 2.5 0 0 1-4.5.55 2.5 2.5 0 1 1-2.9-2.9 2.5 2.5 0 0 1 .55-4.5l8.4-8.4A2.5 2.5 0 0 1 15.5 4H18z"/></svg></button>
+      <button class="icon-btn" id="endo-open" title="Hormonal Optimization & Endocrine Matrix" aria-label="Endocrine Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><line x1="6" y1="9" x2="6" y2="15"/><line x1="9" y1="6" x2="15" y2="6"/><line x1="9" y1="18" x2="15" y2="18"/><line x1="18" y1="9" x2="18" y2="15"/><line x1="8.12" y1="8.12" x2="15.88" y2="15.88"/></svg></button>
       <a class="icon-btn" href="selfcheck.html" title="Take 2-Minute Life Health & Risk Audit" aria-label="Self-Audit Quiz"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></a>
       <a class="icon-btn" href="README.md" title="View README.md" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn" href="https://github.com/parveen0029/The-Evidence-Based-Life" target="_blank" rel="noopener" title="View repository on GitHub" aria-label="GitHub Repository"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
@@ -1664,6 +1701,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     <button class="btn-sm ghost" id="mito-open-side" type="button" style="margin-top:6px;font-size:12px">⚡ Mitochondrial &amp; Cellular Bioenergetics</button>
     <button class="btn-sm ghost" id="vagus-open-side" type="button" style="margin-top:6px;font-size:12px">💓 Autonomic Nervous System &amp; HRV</button>
     <button class="btn-sm ghost" id="bone-open-side" type="button" style="margin-top:6px;font-size:12px">🦴 Bone Mineral &amp; Sarcopenia Matrix</button>
+    <button class="btn-sm ghost" id="endo-open-side" type="button" style="margin-top:6px;font-size:12px">🧪 Hormonal Rhythms &amp; Endocrine Matrix</button>
   </div>
   <div class="group" id="g-upd" hidden>
     <div class="gt">Recent Updates <small>Content revisions</small></div>
@@ -3779,6 +3817,106 @@ html.dark .hc-action{color:#1b1b1f!important}
         <button class="btn-sm ghost" id="bone-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
         <button class="btn-sm ghost" id="bone-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
         <p id="bone-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="endo-mask" hidden>
+  <div id="endo-box" role="dialog" aria-modal="true" aria-labelledby="endo-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="endo-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><line x1="6" y1="9" x2="6" y2="15"/><line x1="9" y1="6" x2="15" y2="6"/><line x1="9" y1="18" x2="15" y2="18"/><line x1="18" y1="9" x2="18" y2="15"/><line x1="8.12" y1="8.12" x2="15.88" y2="15.88"/></svg> <span>Hormonal Optimization, Endocrine Rhythms &amp; Thyroid-Adrenal Axis</span></div>
+      <button type="button" id="endo-x" aria-label="Close endocrine matrix">✕</button>
+    </div>
+    <div class="stats-scroll">
+      <div class="stats-lead">Master the neuroendocrinology of diurnal steroidogenesis and metabolic hormone pulsatility. Optimize the Cortisol Awakening Response (CAR) via retinal phototransduction, elevate free bioavailable androgens/estrogens through dietary lipid precursors and aromatase inhibition, support peripheral T4-to-T3 thyroid deiodination, and synchronize nocturnal slow-wave somatotropin (GH) secretion.</div>
+
+      <div class="endo-params-grid">
+        <div class="endo-param-cell">
+          <label class="endo-param-label" for="endo-car-input">Morning Light &amp; Cortisol Awakening (CAR)</label>
+          <select id="endo-car-input" class="endo-param-input">
+            <option value="optimal" selected>Outdoor Sunlight (&gt;10,000 lux within 30 min of waking)</option>
+            <option value="moderate">Indoor Ambient Light / Delayed Sunlight Exposure</option>
+            <option value="blunted">Blinds Closed / Immediate Blue Screen in Bed (Flattened CAR)</option>
+          </select>
+        </div>
+        <div class="endo-param-cell">
+          <label class="endo-param-label" for="endo-testo-input">Dietary Lipids &amp; Steroid Precursors</label>
+          <select id="endo-testo-input" class="endo-param-input">
+            <option value="optimal" selected>Rich Whole Fats (SFA/MUFA &gt;30% kcal) + Zinc/Magnesium/Boron</option>
+            <option value="moderate">Standard Fat Intake (20–30% kcal) / Variable Minerals</option>
+            <option value="low_fat">Low-Fat Diet (&lt;15% kcal) / Micronutrient Inadequate</option>
+          </select>
+        </div>
+        <div class="endo-param-cell">
+          <label class="endo-param-label" for="endo-thyroid-input">Thyroid Axis &amp; Peripheral T4→T3 Conversion</label>
+          <select id="endo-thyroid-input" class="endo-param-input">
+            <option value="optimal" selected>Euthyroid Base + Selenium (200μg) + Zinc / No Extreme Deficit</option>
+            <option value="stalled">Prolonged Severe Caloric Deficit (&gt;25% cut / Elevated Reverse T3)</option>
+            <option value="hypothyroid">Sluggish Thyroid Tone / Cold Intolerance / Low Deiodinase</option>
+          </select>
+        </div>
+        <div class="endo-param-cell">
+          <label class="endo-param-label" for="endo-gh-input">Nocturnal Fasting &amp; Somatotropin Pulse</label>
+          <select id="endo-gh-input" class="endo-param-input">
+            <option value="optimal" selected>Strict 3h+ Pre-Bed Dinner Cutoff (Low Insulin / Deep NREM)</option>
+            <option value="moderate">1–2 Hours Pre-Bed Cutoff / Light Snack</option>
+            <option value="blunted">Late Night Heavy Dinner / High-Sugar Snacking (Blunted GH)</option>
+          </select>
+        </div>
+        <div class="endo-param-cell">
+          <label class="endo-param-label" for="endo-dhea-input">DHEA-S / Cortisol Anabolic-Catabolic Ratio</label>
+          <select id="endo-dhea-input" class="endo-param-input">
+            <option value="resilient" selected>High Anabolic Ratio (Regulated Stress / Restorative Recovery)</option>
+            <option value="moderate">Moderate Work Tension / Intermittent Elevated Cortisol</option>
+            <option value="depleted">Chronic Burnout / HPA Axis Exhaustion / Elevated Catabolism</option>
+          </select>
+        </div>
+        <div class="endo-param-cell">
+          <label class="endo-param-label" for="endo-sleep-input">Circadian Phase Synchronization</label>
+          <select id="endo-sleep-input" class="endo-param-input">
+            <option value="synchronized" selected>Anchor Bedtime (±30 min nightly) + Pitch Dark Bedroom</option>
+            <option value="variable">Variable Bedtimes (±1–2 hours deviation on weekends)</option>
+            <option value="shift_lag">Social Jetlag / Shift Work / Late Night Blue Light Overload</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="endo-kpi-banner">
+        <div class="endo-kpi-item">
+          <span class="endo-kpi-val" id="endo-kpi-diurnal" style="color:var(--green-1)">Steep Diurnal Slope</span>
+          <span class="endo-kpi-lbl">Cortisol Awakening Response (CAR)</span>
+        </div>
+        <div class="endo-kpi-item">
+          <span class="endo-kpi-val" id="endo-kpi-anabolic" style="color:var(--green-1)">Peak Free Androgen</span>
+          <span class="endo-kpi-lbl">Steroidogenesis Anabolic Reserve</span>
+        </div>
+        <div class="endo-kpi-item">
+          <span class="endo-kpi-val" id="endo-kpi-thyroid" style="color:var(--green-1)">Optimal Conversion</span>
+          <span class="endo-kpi-lbl">Peripheral T4→T3 Deiodinase</span>
+        </div>
+        <div class="endo-kpi-item">
+          <span class="endo-kpi-val" id="endo-kpi-gh" style="color:var(--green-1)">Maximum GH Peak</span>
+          <span class="endo-kpi-lbl">Nocturnal Somatotropin Pulse</span>
+        </div>
+      </div>
+
+      <div class="endo-grid" id="endo-cards-grid">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="endo-summary-box">
+        <div class="endo-summary-title"><span>🧪 Clinical Endocrine &amp; Hormonal Protocol</span></div>
+        <div class="endo-summary-text" id="endo-routine-desc">Calculating endocrine rhythms and hormonal protocol...</div>
+      </div>
+
+      <div class="calc-footer">
+        <button class="btn-sm" id="endo-export" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy Clinical Endocrine Protocol</button>
+        <button class="btn-sm ghost" id="endo-share-x" type="button" style="width:auto;padding:8px 14px">𝕏 Share</button>
+        <button class="btn-sm ghost" id="endo-share-wa" type="button" style="width:auto;padding:8px 14px">WhatsApp</button>
+        <button class="btn-sm ghost" id="endo-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
+        <button class="btn-sm ghost" id="endo-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
+        <p id="endo-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
       </div>
     </div>
   </div>
@@ -13788,6 +13926,367 @@ BONE_UI.shareWa?.addEventListener('click', () => {
 });
 
 BONE_UI.shareLi?.addEventListener('click', () => {
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+/* ---------- Hormonal Optimization, Endocrine Rhythms & Thyroid-Adrenal Axis ---------- */
+const ENDO_CARDS_DATA = [
+  {
+    id: 'car_slope',
+    title: 'Cortisol Awakening Response (CAR)',
+    icon: '🌅',
+    badge: 'Diurnal Glucocorticoid Slope',
+    color: 'rgba(245,158,11,.15)',
+    textColor: 'var(--yellow-1,#eab308)',
+    desc: 'Within 30–45 minutes of waking, retinal ganglion cells convey photons to the suprachiasmatic nucleus (SCN), activating the HPA axis to produce a sharp 50–75% transient rise in cortisol. A steep diurnal slope correlates with low systemic inflammation, robust immune surveillance, and deep midnight cortisol nadirs.',
+    action: 'View 10–20 minutes of direct outdoor natural sunlight (>10,000 lux) within 30 minutes of waking without sunglasses; avoid early morning blue light in bed.'
+  },
+  {
+    id: 'steroidogenesis_fat',
+    title: 'Dietary Lipids & Steroid Precursors',
+    icon: '🥑',
+    badge: 'CYP11A1 Cholesterol Backbone',
+    color: 'rgba(16,185,129,.15)',
+    textColor: 'var(--green-1)',
+    desc: 'All steroid hormones—testosterone, estradiol, progesterone, DHEA, cortisol—are synthesized from intramitochondrial cholesterol via steroidogenic acute regulatory protein (StAR) and CYP11A1 enzyme. Severe low-fat diets (<15–20% of calories) reliably deplete precursor pools, driving hypogonadism and fatigue.',
+    action: 'Maintain dietary fat at 30–40% of total calories from quality saturated and monounsaturated sources (eggs, pasture-raised meats, extra virgin olive oil, avocados) with 15–30mg zinc.'
+  },
+  {
+    id: 't4_t3_conversion',
+    title: 'Peripheral Thyroid Deiodination (T4→T3)',
+    icon: '🦋',
+    badge: 'Metabolic Pace Regulator',
+    color: 'rgba(6,182,212,.15)',
+    textColor: '#06b6d4',
+    desc: 'The thyroid gland primarily releases inactive thyroxine (T4); 80% of biologically active triiodothyronine (T3) is generated in the liver, kidneys, and skeletal muscle via selenium-dependent type 1 and type 2 iodothyronine deiodinases (DIO1/DIO2). Prolonged crash dieting or elevated cortisol shunts T4 into biologically inert reverse T3 (rT3).',
+    action: 'Ensure 200 mcg of dietary selenium (1–2 Brazil nuts daily) and avoid prolonged caloric deficits exceeding 20–25% of maintenance to prevent thyroid downregulation.'
+  },
+  {
+    id: 'nocturnal_gh',
+    title: 'Slow-Wave Somatotropin (GH) Pulsing',
+    icon: '🌙',
+    badge: 'Deep NREM Tissue Repair',
+    color: 'rgba(139,92,246,.15)',
+    textColor: '#8b5cf6',
+    desc: 'Between 60% and 70% of daily growth hormone (somatotropin) is secreted in massive pulsatile volleys during the first two cycles of Stage 3/4 slow-wave deep sleep. Nocturnal hyperinsulinemia directly suppresses pituitary somatotroph secretion; eating within 2–3 hours of bed flattens this regenerative anabolic surge.',
+    action: 'Finish dinner at least 3 hours before sleep to allow circulating insulin and glucose to return to fasting baseline prior to slow-wave sleep onset.'
+  },
+  {
+    id: 'dhea_ratio',
+    title: 'DHEA-S / Cortisol Anabolic Shield',
+    icon: '🛡️',
+    badge: 'Adrenal Resilience Ratio',
+    color: 'rgba(59,130,246,.15)',
+    textColor: '#3b82f6',
+    desc: 'Dehydroepiandrosterone sulfate (DHEA-S) is the most abundant circulating adrenal steroid, functioning as an essential physiological buffer against cortisol neurotoxicity in the hippocampus and peripheral muscle wasting. Chronic psychological overactivation depletes pregnenolone ("pregnenolone steal"), driving catabolic dominance.',
+    action: 'Incorporate regular parasympathetic resets (physiological sighs, cold immersion, 8h sleep) and structured resistance training to preserve a high DHEA-S:cortisol ratio.'
+  },
+  {
+    id: 'aromatase_vat',
+    title: 'Visceral Adiposity & Aromatase Balance',
+    icon: '⚖️',
+    badge: 'Sex Steroid Equilibrium',
+    color: 'rgba(239,68,68,.15)',
+    textColor: 'var(--red-1,#ef4444)',
+    desc: 'Visceral adipose tissue (VAT) expresses high levels of the enzyme CYP19A1 (aromatase), which irreversibly converts circulating testosterone and androstenedione into estradiol and estrone. Elevated visceral fat reduces bioavailable free testosterone in men and creates estrogen dominance, reinforcing metabolic dysfunction.',
+    action: 'Maintain waist-to-height ratio <0.50 through resistance training and high-protein nutrition to keep aromatase expression suppressed and androgens optimized.'
+  }
+];
+
+const ENDO_UI = {
+  openBtn: document.getElementById('endo-open'),
+  openSideBtn: document.getElementById('endo-open-side'),
+  mask: document.getElementById('endo-mask'),
+  xBtn: document.getElementById('endo-x'),
+  closeBtn: document.getElementById('endo-close-btn'),
+  carInput: document.getElementById('endo-car-input'),
+  testoInput: document.getElementById('endo-testo-input'),
+  thyroidInput: document.getElementById('endo-thyroid-input'),
+  ghInput: document.getElementById('endo-gh-input'),
+  dheaInput: document.getElementById('endo-dhea-input'),
+  sleepInput: document.getElementById('endo-sleep-input'),
+  kpiDiurnal: document.getElementById('endo-kpi-diurnal'),
+  kpiAnabolic: document.getElementById('endo-kpi-anabolic'),
+  kpiThyroid: document.getElementById('endo-kpi-thyroid'),
+  kpiGh: document.getElementById('endo-kpi-gh'),
+  cardsGrid: document.getElementById('endo-cards-grid'),
+  routineDesc: document.getElementById('endo-routine-desc'),
+  exportBtn: document.getElementById('endo-export'),
+  shareX: document.getElementById('endo-share-x'),
+  shareWa: document.getElementById('endo-share-wa'),
+  shareLi: document.getElementById('endo-share-li'),
+  msg: document.getElementById('endo-copy-msg')
+};
+
+let endoSettings = {
+  car: 'optimal',
+  testo: 'optimal',
+  thyroid: 'optimal',
+  gh: 'optimal',
+  dhea: 'resilient',
+  sleep: 'synchronized'
+};
+
+try {
+  const savedEndo = localStorage.getItem('eb_endo_settings');
+  if (savedEndo) {
+    endoSettings = Object.assign(endoSettings, JSON.parse(savedEndo));
+  }
+} catch (e) {}
+
+function renderEndoCards() {
+  if (!ENDO_UI.cardsGrid) return;
+  ENDO_UI.cardsGrid.innerHTML = ENDO_CARDS_DATA.map(c => `
+    <div class="endo-card">
+      <div class="endo-head">
+        <span class="endo-title"><span>${c.icon}</span> ${c.title}</span>
+        <span class="endo-badge" style="background:${c.color};color:${c.textColor}">${c.badge}</span>
+      </div>
+      <div class="endo-desc">${c.desc}</div>
+      <div class="endo-action"><strong>Action:</strong> ${c.action}</div>
+    </div>
+  `).join('');
+}
+
+function calculateEndoMetrics() {
+  const carVal = ENDO_UI.carInput?.value || endoSettings.car;
+  const testoVal = ENDO_UI.testoInput?.value || endoSettings.testo;
+  const thyroidVal = ENDO_UI.thyroidInput?.value || endoSettings.thyroid;
+  const ghVal = ENDO_UI.ghInput?.value || endoSettings.gh;
+  const dheaVal = ENDO_UI.dheaInput?.value || endoSettings.dhea;
+  const sleepVal = ENDO_UI.sleepInput?.value || endoSettings.sleep;
+
+  endoSettings.car = carVal;
+  endoSettings.testo = testoVal;
+  endoSettings.thyroid = thyroidVal;
+  endoSettings.gh = ghVal;
+  endoSettings.dhea = dheaVal;
+  endoSettings.sleep = sleepVal;
+
+  try {
+    localStorage.setItem('eb_endo_settings', JSON.stringify(endoSettings));
+  } catch (e) {}
+
+  // 1. Diurnal Cortisol Slope / CAR Score
+  let endoScore = 0;
+  if (carVal === 'optimal') endoScore += 25;
+  else if (carVal === 'moderate') endoScore += 10;
+  else endoScore -= 15;
+
+  if (testoVal === 'optimal') endoScore += 25;
+  else if (testoVal === 'moderate') endoScore += 10;
+  else endoScore -= 20;
+
+  if (thyroidVal === 'optimal') endoScore += 20;
+  else if (thyroidVal === 'stalled') endoScore -= 10;
+  else endoScore -= 20;
+
+  if (ghVal === 'optimal') endoScore += 15;
+  else if (ghVal === 'moderate') endoScore += 5;
+  else endoScore -= 15;
+
+  if (dheaVal === 'resilient') endoScore += 20;
+  else if (dheaVal === 'moderate') endoScore += 5;
+  else endoScore -= 20;
+
+  if (sleepVal === 'synchronized') endoScore += 15;
+  else if (sleepVal === 'variable') endoScore += 0;
+  else endoScore -= 20;
+
+  let diurnalText = 'Steep Diurnal Slope (+85% CAR)';
+  let diurnalColor = 'var(--green-1)';
+  if (endoScore >= 75) {
+    diurnalText = 'Steep Diurnal Slope (+85% CAR)';
+    diurnalColor = 'var(--green-1)';
+  } else if (endoScore >= 40) {
+    diurnalText = 'Balanced Diurnal Slope';
+    diurnalColor = 'var(--green-1)';
+  } else if (endoScore >= 0) {
+    diurnalText = 'Blunted Cortisol Slope';
+    diurnalColor = 'var(--yellow-1,#eab308)';
+  } else {
+    diurnalText = 'Flattened / HPA Exhaustion';
+    diurnalColor = 'var(--red-1,#ef4444)';
+  }
+
+  // 2. Anabolic Reserve / Free Androgens
+  let anabolicText = 'Peak Free Androgen';
+  let anabolicColor = 'var(--green-1)';
+  if (testoVal === 'optimal' && dheaVal === 'resilient') {
+    anabolicText = 'Peak Free Androgen (High SMI)';
+    anabolicColor = 'var(--green-1)';
+  } else if (testoVal !== 'low_fat' && dheaVal !== 'depleted') {
+    anabolicText = 'Standard Anabolic Balance';
+    anabolicColor = 'var(--yellow-1,#eab308)';
+  } else {
+    anabolicText = 'Suppressed Steroidogenesis';
+    anabolicColor = 'var(--red-1,#ef4444)';
+  }
+
+  // 3. Thyroid T3 Conversion Rate
+  let thyroidText = 'Optimal Conversion';
+  let thyroidColor = 'var(--green-1)';
+  if (thyroidVal === 'optimal') {
+    thyroidText = 'Optimal T4→T3 Deiodination';
+    thyroidColor = 'var(--green-1)';
+  } else if (thyroidVal === 'stalled') {
+    thyroidText = 'Stalled (Elevated Reverse T3)';
+    thyroidColor = 'var(--yellow-1,#eab308)';
+  } else {
+    thyroidText = 'Sluggish Hypothyroid Vector';
+    thyroidColor = 'var(--red-1,#ef4444)';
+  }
+
+  // 4. Nocturnal Somatotropin (GH) Pulse
+  let ghText = 'Maximum GH Peak';
+  let ghColor = 'var(--green-1)';
+  if (ghVal === 'optimal' && sleepVal === 'synchronized') {
+    ghText = 'Maximum Nocturnal GH Pulse';
+    ghColor = 'var(--green-1)';
+  } else if (ghVal !== 'blunted' && sleepVal !== 'shift_lag') {
+    ghText = 'Moderate GH Secretion';
+    ghColor = 'var(--yellow-1,#eab308)';
+  } else {
+    ghText = 'Blunted / Hyperinsulinemic Stasis';
+    ghColor = 'var(--red-1,#ef4444)';
+  }
+
+  // Update UI KPIs
+  if (ENDO_UI.kpiDiurnal) {
+    ENDO_UI.kpiDiurnal.textContent = diurnalText;
+    ENDO_UI.kpiDiurnal.style.color = diurnalColor;
+  }
+  if (ENDO_UI.kpiAnabolic) {
+    ENDO_UI.kpiAnabolic.textContent = anabolicText;
+    ENDO_UI.kpiAnabolic.style.color = anabolicColor;
+  }
+  if (ENDO_UI.kpiThyroid) {
+    ENDO_UI.kpiThyroid.textContent = thyroidText;
+    ENDO_UI.kpiThyroid.style.color = thyroidColor;
+  }
+  if (ENDO_UI.kpiGh) {
+    ENDO_UI.kpiGh.textContent = ghText;
+    ENDO_UI.kpiGh.style.color = ghColor;
+  }
+
+  // Dynamic Clinical Summary
+  if (ENDO_UI.routineDesc) {
+    ENDO_UI.routineDesc.innerHTML = `
+      <strong>Diurnal Cortisol Dynamics:</strong> Awakening slope is <strong>${diurnalText}</strong>. ${carVal === 'optimal' ? '<span style="color:var(--green-1);font-weight:700">Immediate morning sunlight (>10,000 lux within 30 min)</span> synchronizes the SCN master clock, ensuring high daytime energy and an effortless nocturnal cortisol nadir.' : '<span style="color:var(--yellow-1,#eab308);font-weight:700">Blunted awakening stimulus.</span> Get outdoor morning sunlight to anchor circadian rhythm.'}<br>
+      <strong>Steroidogenesis &amp; Anabolic Potential:</strong> ${anabolicText}. ${testoVal === 'low_fat' ? '<span style="color:var(--red-1,#ef4444);font-weight:700">Dietary warning:</span> Ultra-low fat (<15%) deprives mitochondria of cholesterol substrate, crushing testosterone and DHEA synthesis.' : '<span style="color:var(--green-1);font-weight:700">Sufficient lipid precursors (SFA/MUFA >30% kcal)</span> support optimal hormone synthesis.'}<br>
+      <strong>Metabolic Thyroid Deiodinase:</strong> ${thyroidText}. ${thyroidVal === 'stalled' ? '<span style="color:var(--red-1,#ef4444);font-weight:700">Excessive caloric restriction</span> suppresses peripheral 5-deiodinase, elevating biologically inactive Reverse T3 and slowing resting metabolic rate.' : 'Euthyroid conversion preserves mitochondrial uncoupling and basal thermogenesis.'}<br>
+      <strong>Nocturnal Tissue Repair &amp; Somatotropin:</strong> Growth hormone release: <strong>${ghText}</strong>. ${ghVal === 'optimal' ? '<span style="color:var(--green-1);font-weight:700">3h dinner cutoff prevents hyperinsulinemia</span>, permitting deep NREM slow-wave somatotropin surges.' : '<span style="color:var(--yellow-1,#eab308);font-weight:700">Late night eating stimulates insulin</span>, suppressing growth hormone release during slow-wave sleep.'}<br>
+      <strong>Adrenal Shield &amp; Circadian Alignment:</strong> Sleep consistency is <strong>${sleepVal.toUpperCase()}</strong>. ${dheaVal === 'resilient' ? 'DHEA-S buffer protects hippocampus and skeletal muscle against catabolic breakdown.' : 'Chronic stress elevation accelerates tissue proteolysis and visceral fat accumulation.'}
+    `;
+  }
+}
+
+function initEndoUI() {
+  if (!ENDO_UI.mask) return;
+
+  renderEndoCards();
+
+  if (ENDO_UI.carInput) ENDO_UI.carInput.value = endoSettings.car;
+  if (ENDO_UI.testoInput) ENDO_UI.testoInput.value = endoSettings.testo;
+  if (ENDO_UI.thyroidInput) ENDO_UI.thyroidInput.value = endoSettings.thyroid;
+  if (ENDO_UI.ghInput) ENDO_UI.ghInput.value = endoSettings.gh;
+  if (ENDO_UI.dheaInput) ENDO_UI.dheaInput.value = endoSettings.dhea;
+  if (ENDO_UI.sleepInput) ENDO_UI.sleepInput.value = endoSettings.sleep;
+
+  calculateEndoMetrics();
+}
+
+initEndoUI();
+
+function openEndoModal() {
+  if (!ENDO_UI.mask) return;
+  ENDO_UI.mask.hidden = false;
+  document.body.style.overflow = 'hidden';
+  ENDO_UI.carInput?.focus();
+}
+
+function closeEndoModal() {
+  if (!ENDO_UI.mask) return;
+  ENDO_UI.mask.hidden = true;
+  document.body.style.overflow = '';
+}
+
+ENDO_UI.openBtn?.addEventListener('click', openEndoModal);
+ENDO_UI.openSideBtn?.addEventListener('click', openEndoModal);
+ENDO_UI.xBtn?.addEventListener('click', closeEndoModal);
+ENDO_UI.closeBtn?.addEventListener('click', closeEndoModal);
+
+ENDO_UI.mask?.addEventListener('click', (e) => {
+  if (e.target === ENDO_UI.mask) closeEndoModal();
+});
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && ENDO_UI.mask && !ENDO_UI.mask.hidden) {
+    closeEndoModal();
+  }
+});
+
+const endoInputElements = [
+  ENDO_UI.carInput,
+  ENDO_UI.testoInput,
+  ENDO_UI.thyroidInput,
+  ENDO_UI.ghInput,
+  ENDO_UI.dheaInput,
+  ENDO_UI.sleepInput
+];
+endoInputElements.forEach(el => {
+  el?.addEventListener('input', calculateEndoMetrics);
+  el?.addEventListener('change', calculateEndoMetrics);
+});
+
+ENDO_UI.exportBtn?.addEventListener('click', async () => {
+  let md = `# Hormonal Optimization & Endocrine Rhythms Protocol\n`;
+  md += `*Evidence-Based Cortisol Slope, Steroidogenesis, Thyroid Deiodination & Somatotropin Axis*\n\n`;
+  md += `**Morning Light (CAR)**: ${endoSettings.car.toUpperCase()} | Dietary Lipids: ${endoSettings.testo.toUpperCase()}\n`;
+  md += `**Thyroid Deiodinase**: ${endoSettings.thyroid.toUpperCase()} | Nocturnal Fasting (GH): ${endoSettings.gh.toUpperCase()}\n`;
+  md += `**DHEA-S / Cortisol Ratio**: ${endoSettings.dhea.toUpperCase()} | Circadian Alignment: ${endoSettings.sleep.toUpperCase()}\n\n`;
+  md += `**Cortisol Awakening Response**: ${ENDO_UI.kpiDiurnal?.textContent || 'Steep'}\n`;
+  md += `**Anabolic Reserve**: ${ENDO_UI.kpiAnabolic?.textContent || 'Peak'}\n`;
+  md += `**Thyroid T4→T3 Deiodination**: ${ENDO_UI.kpiThyroid?.textContent || 'Optimal'}\n`;
+  md += `**Nocturnal Somatotropin Pulse**: ${ENDO_UI.kpiGh?.textContent || 'Maximum'}\n\n`;
+
+  md += `## 1. Core Endocrine & Steroidogenic Mechanisms\n`;
+  ENDO_CARDS_DATA.forEach(c => {
+    md += `- **${c.title}** (${c.icon}) [${c.badge}]\n`;
+    md += `  - Evidence: ${c.desc}\n`;
+    md += `  - Clinical Target: ${c.action}\n`;
+  });
+
+  md += `\n## 2. Actionable Endocrine Spec\n`;
+  md += `${(ENDO_UI.routineDesc?.textContent || '').trim()}\n\n`;
+
+  md += `---\n*Generated by The Evidence-Based Life Endocrine Engine: https://parveen0029.github.io/The-Evidence-Based-Life/*\n`;
+
+  try {
+    await navigator.clipboard.writeText(md);
+    if (ENDO_UI.msg) {
+      ENDO_UI.msg.textContent = '✓ Endocrine protocol copied to clipboard!';
+      ENDO_UI.msg.hidden = false;
+      setTimeout(() => { ENDO_UI.msg.hidden = true; }, 3500);
+    }
+  } catch (err) {
+    prompt('Copy your Endocrine Protocol below:', md);
+  }
+});
+
+ENDO_UI.shareX?.addEventListener('click', () => {
+  const text = `Diurnal endocrine rhythms and steroid hormone balance govern vitality and recovery. Calculate your cortisol awakening slope, T4->T3 conversion, and nocturnal somatotropin protocol:`;
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+ENDO_UI.shareWa?.addEventListener('click', () => {
+  const text = `*Hormonal Optimization & Endocrine Matrix*\nCalculate your diurnal cortisol slope, steroidogenic precursor lipid intake, and nocturnal somatotropin pulse:\n\nhttps://parveen0029.github.io/The-Evidence-Based-Life/`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+});
+
+ENDO_UI.shareLi?.addEventListener('click', () => {
   const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
 });
