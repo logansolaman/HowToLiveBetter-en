@@ -1331,6 +1331,42 @@ html.dark .focus-toggle-chip.active{color:#1b1b1f}
   #mito-box{border-radius:0;border:0;height:100%;max-height:100%}
 }
 
+/* Autonomic Nervous System & Vagal Tone Resilience Matrix Modal */
+#vagus-mask{position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#vagus-mask[hidden]{display:none}
+#vagus-box{background:var(--bg);border:1px solid var(--divider);border-radius:16px;box-shadow:var(--shadow);width:min(940px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;position:relative}
+
+.vagus-params-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;gap:10px;background:var(--bg-alt);border:1px solid var(--divider);border-radius:12px;padding:12px 14px;margin-bottom:14px}
+@media (max-width:860px){.vagus-params-grid{grid-template-columns:1fr 1fr 1fr}}
+@media (max-width:540px){.vagus-params-grid{grid-template-columns:1fr 1fr}}
+
+.vagus-param-cell{display:flex;flex-direction:column;gap:4px}
+.vagus-param-label{font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px}
+.vagus-param-input{padding:7px 10px;border-radius:6px;border:1px solid var(--divider);background:var(--bg-elv);color:var(--t1);font-size:13px}
+
+.vagus-kpi-banner{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;background:var(--bg-elv);border:1px solid var(--divider);border-radius:12px;padding:12px 16px;margin-bottom:14px}
+@media (max-width:760px){.vagus-kpi-banner{grid-template-columns:1fr 1fr}}
+.vagus-kpi-item{display:flex;flex-direction:column;gap:2px}
+.vagus-kpi-val{font-size:20px;font-weight:900;color:var(--green-1)}
+.vagus-kpi-lbl{font-size:11px;color:var(--t3)}
+
+.vagus-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-bottom:14px}
+.vagus-card{background:var(--bg-alt);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.vagus-head{display:flex;align-items:center;justify-content:space-between}
+.vagus-title{font-size:13px;font-weight:700;color:var(--t1);display:flex;align-items:center;gap:6px}
+.vagus-badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:12px;background:rgba(239,68,68,.15);color:var(--red-1,#ef4444)}
+.vagus-desc{font-size:12px;color:var(--t2);line-height:1.45}
+.vagus-action{font-size:11.5px;color:var(--t3);line-height:1.4}
+
+.vagus-summary-box{background:var(--bg-elv);border:1px solid var(--divider);border-radius:10px;padding:12px 14px;margin-bottom:14px}
+.vagus-summary-title{font-size:12px;font-weight:700;color:var(--t1);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.vagus-summary-text{font-size:12px;color:var(--t2);line-height:1.5}
+
+@media (max-width:820px){
+  #vagus-mask{padding:0}
+  #vagus-box{border-radius:0;border:0;height:100%;max-height:100%}
+}
+
 /* Floating Audio Dock */
 #audio-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:70;background:var(--bg-elv);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);padding:10px 18px;display:flex;align-items:center;gap:14px;max-width:min(700px,calc(100vw - 32px));width:100%;backdrop-filter:blur(10px);transition:all .25s ease}
 #audio-dock[hidden]{display:none}
@@ -1417,7 +1453,7 @@ html.dark .hc-action{color:#1b1b1f!important}
 @media print{
   @page{margin:15mm;size:auto}
   body{background:#fff!important;color:#111!important;font-size:11pt;line-height:1.5}
-  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#light-mask,#light-open,#light-open-side,#sleep-mask,#sleep-open,#sleep-open-side,#glucose-mask,#glucose-open,#glucose-open-side,#inflam-mask,#inflam-open,#inflam-open-side,#apob-mask,#apob-open,#apob-open-side,#brain-mask,#brain-open,#brain-open-side,#mito-mask,#mito-open,#mito-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
+  .nav,.sidebar,.backdrop,.hero-callout,.scenarios-wrap,#pop,.tip-mask,#tip-open,#stats-mask,#stats-open,#stats-open-side,#proto-mask,#proto-open,#proto-open-side,#tree-mask,#tree-open,#tree-open-side,#snap-mask,#calc-mask,#calc-open,#calc-open-side,#myth-mask,#myth-open,#myth-open-side,#med-mask,#med-open,#med-open-side,#card-mask,#card-open,#card-open-side,#lab-mask,#lab-open,#lab-open-side,#grocer-mask,#grocer-open,#grocer-open-side,#ergo-mask,#ergo-open,#ergo-open-side,#threat-mask,#threat-open,#threat-open-side,#travel-mask,#travel-open,#travel-open-side,#bias-mask,#bias-open,#bias-open-side,#habit-mask,#habit-open,#habit-open-side,#focus-mask,#focus-open,#focus-open-side,#fit-mask,#fit-open,#fit-open-side,#nutri-mask,#nutri-open,#nutri-open-side,#air-mask,#air-open,#air-open-side,#light-mask,#light-open,#light-open-side,#sleep-mask,#sleep-open,#sleep-open-side,#glucose-mask,#glucose-open,#glucose-open-side,#inflam-mask,#inflam-open,#inflam-open-side,#apob-mask,#apob-open,#apob-open-side,#brain-mask,#brain-open,#brain-open-side,#mito-mask,#mito-open,#mito-open-side,#vagus-mask,#vagus-open,#vagus-open-side,#audio-dock,.sec-audio-btn,.anchor,.btn-done,.btn-save,.btn-share,.btn-snap,.btn-audio,#toast,.doc-links,#dm-mask,.foot,#empty,#status,.icon-btn{display:none!important}
   .content{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important}
   .doc-head{margin-bottom:20pt;border-bottom:2pt solid #222;padding-bottom:10pt}
   .doc-head h1{font-size:18pt;color:#000}
@@ -1522,6 +1558,7 @@ html.dark .hc-action{color:#1b1b1f!important}
       <button class="icon-btn" id="apob-open" title="ApoB & Atherogenic Particle Concentration Hub" aria-label="ApoB Lipid Hub"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></button>
       <button class="icon-btn" id="brain-open" title="Cognitive Resilience & Brain Longevity Matrix" aria-label="Brain Longevity Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04zm5 0A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"/></svg></button>
       <button class="icon-btn" id="mito-open" title="Mitochondrial Bioenergetics & Cellular Longevity Matrix" aria-label="Mitochondrial Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3M4.93 4.93l2.12 2.12m9.9 9.9l2.12 2.12M4.93 19.07l2.12-2.12m9.9-9.9l2.12-2.12"/></svg></button>
+      <button class="icon-btn" id="vagus-open" title="Autonomic Nervous System & Vagal Tone Matrix" aria-label="Vagal Tone Matrix"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12h5l3-8 4 16 3-8h5"/></svg></button>
       <a class="icon-btn" href="selfcheck.html" title="Take 2-Minute Life Health & Risk Audit" aria-label="Self-Audit Quiz"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></a>
       <a class="icon-btn" href="README.md" title="View README.md" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn" href="https://github.com/parveen0029/The-Evidence-Based-Life" target="_blank" rel="noopener" title="View repository on GitHub" aria-label="GitHub Repository"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
@@ -1588,6 +1625,7 @@ html.dark .hc-action{color:#1b1b1f!important}
     <button class="btn-sm ghost" id="apob-open-side" type="button" style="margin-top:6px;font-size:12px">🫀 ApoB &amp; Atherogenic Particle Hub</button>
     <button class="btn-sm ghost" id="brain-open-side" type="button" style="margin-top:6px;font-size:12px">🧠 Cognitive Resilience &amp; Brain Matrix</button>
     <button class="btn-sm ghost" id="mito-open-side" type="button" style="margin-top:6px;font-size:12px">⚡ Mitochondrial &amp; Cellular Bioenergetics</button>
+    <button class="btn-sm ghost" id="vagus-open-side" type="button" style="margin-top:6px;font-size:12px">💓 Autonomic Nervous System &amp; HRV</button>
   </div>
   <div class="group" id="g-upd" hidden>
     <div class="gt">Recent Updates <small>Content revisions</small></div>
@@ -3503,6 +3541,106 @@ html.dark .hc-action{color:#1b1b1f!important}
         <button class="btn-sm ghost" id="mito-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
         <button class="btn-sm ghost" id="mito-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
         <p id="mito-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="vagus-mask" hidden>
+  <div id="vagus-box" role="dialog" aria-modal="true" aria-labelledby="vagus-title-text">
+    <div class="stats-header">
+      <div class="stats-title" id="vagus-title-text"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12h5l3-8 4 16 3-8h5"/></svg> <span>Autonomic Nervous System, HRV &amp; Vagal Tone Matrix</span></div>
+      <button type="button" id="vagus-x" aria-label="Close vagal tone matrix">✕</button>
+    </div>
+    <div class="stats-scroll">
+      <div class="stats-lead">Master the neurobiology of the 10th cranial (vagus) nerve. Regulate your parasympathetic brake, maximize heart rate variability (RMSSD), synchronize respiratory sinus arrhythmia at 0.1 Hz resonant breathing, and deploy acute mammalian dive reflex and physiological sighs to instantly abort sympathetic panic cascades.</div>
+
+      <div class="vagus-params-grid">
+        <div class="vagus-param-cell">
+          <label class="vagus-param-label" for="vagus-hrv-input">Baseline Nocturnal RMSSD (HRV)</label>
+          <select id="vagus-hrv-input" class="vagus-param-input">
+            <option value="optimal" selected>Elite Parasympathetic (>65 ms / Top Quartile)</option>
+            <option value="moderate">Average Autonomic Tone (35–64 ms)</option>
+            <option value="depleted">Depleted Sympathetic Lock (&lt;35 ms)</option>
+          </select>
+        </div>
+        <div class="vagus-param-cell">
+          <label class="vagus-param-label" for="vagus-breath-input">Resonant Frequency Breathing (0.1 Hz)</label>
+          <select id="vagus-breath-input" class="vagus-param-input">
+            <option value="daily" selected>Daily Structured (5.5 bpm for 10–20 min)</option>
+            <option value="occasional">Occasional / Unstructured Slow Breathing</option>
+            <option value="none">None / Habitual Chest Breathing (&gt;14 bpm)</option>
+          </select>
+        </div>
+        <div class="vagus-param-cell">
+          <label class="vagus-param-label" for="vagus-cold-input">Facial Trigeminal Cold Immersion</label>
+          <select id="vagus-cold-input" class="vagus-param-input">
+            <option value="daily" selected>Regular (&lt;15°C cold face immersion / shower)</option>
+            <option value="occasional">Occasional Cold Exposure</option>
+            <option value="none">None / Warm Only</option>
+          </select>
+        </div>
+        <div class="vagus-param-cell">
+          <label class="vagus-param-label" for="vagus-stim-input">Caffeine &amp; Sympathetic Stimulant Cutoff</label>
+          <select id="vagus-stim-input" class="vagus-param-input">
+            <option value="strict" selected>Strict 10h+ Cutoff Pre-Bed (Adenosine Protection)</option>
+            <option value="moderate">Moderate 6–8h Cutoff</option>
+            <option value="late">Late Stimulants (&lt;6h before bed / Energy drinks)</option>
+          </select>
+        </div>
+        <div class="vagus-param-cell">
+          <label class="vagus-param-label" for="vagus-stress-input">Screen / Email Apnea &amp; Daytime Stress</label>
+          <select id="vagus-stress-input" class="vagus-param-input">
+            <option value="low" selected>Conscious Nasal Breathing / Regular Movement Microbreaks</option>
+            <option value="moderate">Intermittent Focus Tension &amp; Breath Holding</option>
+            <option value="chronic">Chronic Unconscious Breath Holding / Email Apnea</option>
+          </select>
+        </div>
+        <div class="vagus-param-cell">
+          <label class="vagus-param-label" for="vagus-sigh-input">Acute De-escalation Protocol (Physiological Sigh)</label>
+          <select id="vagus-sigh-input" class="vagus-param-input">
+            <option value="habitual" selected>Habitual Reflex (2–3 cycles on acute autonomic spikes)</option>
+            <option value="occasional">Occasional Deliberate Exhales</option>
+            <option value="untrained">Untrained / Hyperventilatory Response</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="vagus-kpi-banner">
+        <div class="vagus-kpi-item">
+          <span class="vagus-kpi-val" id="vagus-kpi-brake" style="color:var(--green-1)">High Vagal Brake (+32%)</span>
+          <span class="vagus-kpi-lbl">Vagal Nerve Parasympathetic Brake</span>
+        </div>
+        <div class="vagus-kpi-item">
+          <span class="vagus-kpi-val" id="vagus-kpi-rmssd" style="color:var(--green-1)">Elite Recovery (&gt;65ms)</span>
+          <span class="vagus-kpi-lbl">RMSSD Autonomic Index</span>
+        </div>
+        <div class="vagus-kpi-item">
+          <span class="vagus-kpi-val" id="vagus-kpi-baro" style="color:var(--green-1)">Optimal 5.5 bpm</span>
+          <span class="vagus-kpi-lbl">0.1 Hz Baroreflex Coherence</span>
+        </div>
+        <div class="vagus-kpi-item">
+          <span class="vagus-kpi-val" id="vagus-kpi-reset" style="color:var(--green-1)">Immediate (&lt;90s)</span>
+          <span class="vagus-kpi-lbl">Acute Panic Reset Speed</span>
+        </div>
+      </div>
+
+      <div class="vagus-grid" id="vagus-cards-grid">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="vagus-summary-box">
+        <div class="vagus-summary-title"><span>💓 Clinical Autonomic &amp; Vagal Resilience Protocol</span></div>
+        <div class="vagus-summary-text" id="vagus-routine-desc">Calculating vagal tone and autonomic protocol...</div>
+      </div>
+
+      <div class="calc-footer">
+        <button class="btn-sm" id="vagus-export" type="button" style="width:auto;padding:8px 16px;background:var(--brand-1);color:#fff">📋 Copy Clinical Vagal Tone Protocol</button>
+        <button class="btn-sm ghost" id="vagus-share-x" type="button" style="width:auto;padding:8px 14px">𝕏 Share</button>
+        <button class="btn-sm ghost" id="vagus-share-wa" type="button" style="width:auto;padding:8px 14px">WhatsApp</button>
+        <button class="btn-sm ghost" id="vagus-share-li" type="button" style="width:auto;padding:8px 14px">LinkedIn</button>
+        <button class="btn-sm ghost" id="vagus-close-btn" type="button" style="width:auto;padding:8px 16px;margin-left:auto">Done</button>
+        <p id="vagus-copy-msg" style="width:100%;font-size:12.5px;color:var(--green-1);margin:4px 0 0" hidden></p>
       </div>
     </div>
   </div>
@@ -12793,6 +12931,365 @@ MITO_UI.shareWa?.addEventListener('click', () => {
 });
 
 MITO_UI.shareLi?.addEventListener('click', () => {
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+/* ---------- Autonomic Nervous System, HRV & Vagal Tone Resilience Matrix ---------- */
+const VAGUS_CARDS_DATA = [
+  {
+    id: 'rmssd',
+    title: 'RMSSD & Efferent Vagal Acetylcholine',
+    icon: '📈',
+    badge: 'Parasympathetic Index',
+    color: 'rgba(16,185,129,.15)',
+    textColor: 'var(--green-1)',
+    desc: 'Root Mean Square of Successive Differences (RMSSD) between adjacent normal heartbeats directly quantifies efferent vagal cholinergic transmission to the sinoatrial node. High RMSSD indicates rich beat-to-beat variability, robust cardiovascular homeostasis, and rapid autonomic deceleration.',
+    action: 'Track nightly sleeping RMSSD via a validated optical or ECG sensor; prioritize recovery when RMSSD drops >20% below your 14-day rolling baseline.'
+  },
+  {
+    id: 'physio_sigh',
+    title: 'Huberman Physiological Sigh Reflex',
+    icon: '🫁',
+    badge: 'Instant Autonomic Reset',
+    color: 'rgba(59,130,246,.15)',
+    textColor: '#3b82f6',
+    desc: 'Two consecutive nasal inhales (the second inhale maximally re-inflating collapsed alveoli in the lung bases) followed by an extended, slow, passive mouth exhale. Discovered in the 1930s and validated at Stanford by Dr. Andrew Huberman, this pattern maximally activates pulmonary stretch receptors and the vagus nerve to rapidly slow heart rate within seconds.',
+    action: 'Execute 2–3 consecutive physiological sighs during acute sympathetic arousal, panic surges, or high-stakes cognitive confrontations.'
+  },
+  {
+    id: 'resonant_breath',
+    title: '0.1 Hz Resonant Breathing (5.5 bpm)',
+    icon: '⏱️',
+    badge: 'Baroreflex Synchrony',
+    color: 'rgba(139,92,246,.15)',
+    textColor: '#8b5cf6',
+    desc: 'Respiration at precisely 0.1 Hz (5.5 to 6 breaths per minute; e.g., 5.5-second inhale, 5.5-second exhale) phase-locks Respiratory Sinus Arrhythmia (RSA) with Traube-Hering-Mayer 10-second blood pressure oscillation waves. This maximizes baroreceptor sensitivity gain, coronary perfusion, and frontoparietal emotional self-regulation.',
+    action: 'Practice 10–20 minutes of daily paced resonant breathing (5.5s inhale / 5.5s exhale through the nose) using a pacer or metronome.'
+  },
+  {
+    id: 'dive_reflex',
+    title: 'Mammalian Dive Reflex (Trigeminal V1)',
+    icon: '❄️',
+    badge: 'Brainstem Bradycardia',
+    color: 'rgba(6,182,212,.15)',
+    textColor: '#06b6d4',
+    desc: 'Submerging the forehead and periorbital zone in cold water (<15°C / 59°F) activates thermal receptors of the ophthalmic branch (V1) of the cranial trigeminal nerve. The brainstem nucleus tractus solitarius coordinates an immediate parasympathetic vagal discharge, triggering abrupt bradycardia and peripheral arteriolar conservation.',
+    action: 'Submerge the face in a bowl of iced water (<15°C) for 15–30 seconds to break stubborn acute tachycardic panic or panic loops.'
+  },
+  {
+    id: 'email_apnea',
+    title: 'Screen & Email Apnea Elimination',
+    icon: '💻',
+    badge: 'Sympathetic Unlocking',
+    color: 'rgba(239,68,68,.15)',
+    textColor: 'var(--red-1,#ef4444)',
+    desc: 'Research by Dr. Linda Stone demonstrated that upwards of 80% of knowledge workers experience unconscious breath holding (apnea) or shallow paradoxical panting while processing email and screens. This induces mild hypoxia and hypercapnia, elevating systemic sympathetic tone, norepinephrine release, and pupil dilation without the worker realizing.',
+    action: 'Maintain strict nasal diaphragmatic breathing while working; place visual cues on monitors and perform posture-respiration resets every 45–60 minutes.'
+  },
+  {
+    id: 'circadian_hrv',
+    title: 'Nocturnal Vagal Dip & CNS Restoration',
+    icon: '🌙',
+    badge: 'Sleep Parasympathetic Phase',
+    color: 'rgba(245,158,11,.15)',
+    textColor: 'var(--yellow-1,#eab308)',
+    desc: 'During Stage 3/4 non-REM deep slow-wave sleep, vagal tone must peak: heart rate drops to resting nadir (typically 40–55 bpm) and HRV surges. Late alcohol, heavy sodium/fat-dense dinners within 3h of bed, or late caffeine disrupt acetylcholine synthesis and lock the cardiovascular system into nocturnal sympathetic overdrive.',
+    action: 'Cut caffeine 10h before bed, cease eating 3h prior to sleep, and ensure a cool bedroom (<19°C) to facilitate natural nocturnal parasympathetic dominance.'
+  }
+];
+
+const VAGUS_UI = {
+  openBtn: document.getElementById('vagus-open'),
+  openSideBtn: document.getElementById('vagus-open-side'),
+  mask: document.getElementById('vagus-mask'),
+  xBtn: document.getElementById('vagus-x'),
+  closeBtn: document.getElementById('vagus-close-btn'),
+  hrvInput: document.getElementById('vagus-hrv-input'),
+  breathInput: document.getElementById('vagus-breath-input'),
+  coldInput: document.getElementById('vagus-cold-input'),
+  stimInput: document.getElementById('vagus-stim-input'),
+  stressInput: document.getElementById('vagus-stress-input'),
+  sighInput: document.getElementById('vagus-sigh-input'),
+  kpiBrake: document.getElementById('vagus-kpi-brake'),
+  kpiRmssd: document.getElementById('vagus-kpi-rmssd'),
+  kpiBaro: document.getElementById('vagus-kpi-baro'),
+  kpiReset: document.getElementById('vagus-kpi-reset'),
+  cardsGrid: document.getElementById('vagus-cards-grid'),
+  routineDesc: document.getElementById('vagus-routine-desc'),
+  exportBtn: document.getElementById('vagus-export'),
+  shareX: document.getElementById('vagus-share-x'),
+  shareWa: document.getElementById('vagus-share-wa'),
+  shareLi: document.getElementById('vagus-share-li'),
+  msg: document.getElementById('vagus-copy-msg')
+};
+
+let vagusSettings = {
+  hrv: 'optimal',
+  breath: 'daily',
+  cold: 'daily',
+  stim: 'strict',
+  stress: 'low',
+  sigh: 'habitual'
+};
+
+try {
+  const savedVagus = localStorage.getItem('eb_vagus_settings');
+  if (savedVagus) {
+    vagusSettings = Object.assign(vagusSettings, JSON.parse(savedVagus));
+  }
+} catch (e) {}
+
+function renderVagusCards() {
+  if (!VAGUS_UI.cardsGrid) return;
+  VAGUS_UI.cardsGrid.innerHTML = VAGUS_CARDS_DATA.map(c => `
+    <div class="vagus-card">
+      <div class="vagus-head">
+        <span class="vagus-title"><span>${c.icon}</span> ${c.title}</span>
+        <span class="vagus-badge" style="background:${c.color};color:${c.textColor}">${c.badge}</span>
+      </div>
+      <div class="vagus-desc">${c.desc}</div>
+      <div class="vagus-action"><strong>Action:</strong> ${c.action}</div>
+    </div>
+  `).join('');
+}
+
+function calculateVagusMetrics() {
+  const hrvVal = VAGUS_UI.hrvInput?.value || vagusSettings.hrv;
+  const breathVal = VAGUS_UI.breathInput?.value || vagusSettings.breath;
+  const coldVal = VAGUS_UI.coldInput?.value || vagusSettings.cold;
+  const stimVal = VAGUS_UI.stimInput?.value || vagusSettings.stim;
+  const stressVal = VAGUS_UI.stressInput?.value || vagusSettings.stress;
+  const sighVal = VAGUS_UI.sighInput?.value || vagusSettings.sigh;
+
+  vagusSettings.hrv = hrvVal;
+  vagusSettings.breath = breathVal;
+  vagusSettings.cold = coldVal;
+  vagusSettings.stim = stimVal;
+  vagusSettings.stress = stressVal;
+  vagusSettings.sigh = sighVal;
+
+  try {
+    localStorage.setItem('eb_vagus_settings', JSON.stringify(vagusSettings));
+  } catch (e) {}
+
+  // 1. Parasympathetic Vagal Brake Score
+  let brakeScore = 0;
+  if (hrvVal === 'optimal') brakeScore += 30;
+  else if (hrvVal === 'moderate') brakeScore += 15;
+  else brakeScore -= 15;
+
+  if (breathVal === 'daily') brakeScore += 25;
+  else if (breathVal === 'occasional') brakeScore += 10;
+  else brakeScore -= 10;
+
+  if (coldVal === 'daily') brakeScore += 15;
+  else if (coldVal === 'occasional') brakeScore += 5;
+
+  if (stimVal === 'strict') brakeScore += 10;
+  else if (stimVal === 'late') brakeScore -= 15;
+
+  if (stressVal === 'low') brakeScore += 10;
+  else if (stressVal === 'moderate') brakeScore -= 5;
+  else brakeScore -= 20;
+
+  if (sighVal === 'habitual') brakeScore += 15;
+  else if (sighVal === 'occasional') brakeScore += 5;
+  else brakeScore -= 5;
+
+  let brakeText = 'High Vagal Brake (+32%)';
+  let brakeColor = 'var(--green-1)';
+  if (brakeScore >= 60) {
+    brakeText = `High Vagal Brake (+${brakeScore}%)`;
+    brakeColor = 'var(--green-1)';
+  } else if (brakeScore >= 25) {
+    brakeText = `Balanced (+${brakeScore}%)`;
+    brakeColor = 'var(--green-1)';
+  } else if (brakeScore >= 0) {
+    brakeText = `Mild Brake (+${brakeScore}%)`;
+    brakeColor = 'var(--yellow-1,#eab308)';
+  } else {
+    brakeText = `Sympathetic Lock (${brakeScore}%)`;
+    brakeColor = 'var(--red-1,#ef4444)';
+  }
+
+  // 2. RMSSD Autonomic Index
+  let rmssdText = 'Elite Recovery (>65ms)';
+  let rmssdColor = 'var(--green-1)';
+  if (hrvVal === 'optimal') {
+    rmssdText = 'Elite Recovery (>65ms)';
+    rmssdColor = 'var(--green-1)';
+  } else if (hrvVal === 'moderate') {
+    rmssdText = 'Standard (35–64ms)';
+    rmssdColor = 'var(--yellow-1,#eab308)';
+  } else {
+    rmssdText = 'Depleted (<35ms)';
+    rmssdColor = 'var(--red-1,#ef4444)';
+  }
+
+  // 3. 0.1 Hz Baroreflex Coherence
+  let baroText = 'Optimal 5.5 bpm';
+  let baroColor = 'var(--green-1)';
+  if (breathVal === 'daily') {
+    baroText = 'Optimal 5.5 bpm';
+    baroColor = 'var(--green-1)';
+  } else if (breathVal === 'occasional') {
+    baroText = 'Variable Coherence';
+    baroColor = 'var(--yellow-1,#eab308)';
+  } else {
+    baroText = 'Decoupled / Fast';
+    baroColor = 'var(--red-1,#ef4444)';
+  }
+
+  // 4. Acute Panic Reset Speed
+  let resetText = 'Immediate (<90s)';
+  let resetColor = 'var(--green-1)';
+  if (sighVal === 'habitual' && coldVal !== 'none') {
+    resetText = 'Immediate (<90s)';
+    resetColor = 'var(--green-1)';
+  } else if (sighVal !== 'untrained' || coldVal !== 'none') {
+    resetText = 'Moderate (3–5 min)';
+    resetColor = 'var(--yellow-1,#eab308)';
+  } else {
+    resetText = 'Prolonged (>15 min)';
+    resetColor = 'var(--red-1,#ef4444)';
+  }
+
+  // Update UI KPIs
+  if (VAGUS_UI.kpiBrake) {
+    VAGUS_UI.kpiBrake.textContent = brakeText;
+    VAGUS_UI.kpiBrake.style.color = brakeColor;
+  }
+  if (VAGUS_UI.kpiRmssd) {
+    VAGUS_UI.kpiRmssd.textContent = rmssdText;
+    VAGUS_UI.kpiRmssd.style.color = rmssdColor;
+  }
+  if (VAGUS_UI.kpiBaro) {
+    VAGUS_UI.kpiBaro.textContent = baroText;
+    VAGUS_UI.kpiBaro.style.color = baroColor;
+  }
+  if (VAGUS_UI.kpiReset) {
+    VAGUS_UI.kpiReset.textContent = resetText;
+    VAGUS_UI.kpiReset.style.color = resetColor;
+  }
+
+  // Dynamic Clinical Summary
+  if (VAGUS_UI.routineDesc) {
+    VAGUS_UI.routineDesc.innerHTML = `
+      <strong>Vagal Parasympathetic Tone:</strong> Current autonomic brake capacity is <strong>${brakeText}</strong>. ${brakeScore >= 25 ? '<span style="color:var(--green-1);font-weight:700">Robust efferent cholinergic modulation active.</span> Your heart rate rapidly recovers post-exertion.' : '<span style="color:var(--red-1,#ef4444);font-weight:700">Sympathetic dominance alert.</span> Inadequate vagal brake slows recovery, increases resting tachycardia, and amplifies reactivity.'}<br>
+      <strong>Baroreceptor Synchronization:</strong> ${baroText}. ${breathVal === 'daily' ? 'Practicing 0.1 Hz breathing synchronizes heart rate with blood pressure Mayer waves, optimizing cerebral blood delivery.' : 'Add 10 min of daily 5.5s inhale / 5.5s exhale resonant breathing to train baroreflex gain.'}<br>
+      <strong>Acute Panic &amp; Stress Abort:</strong> Reset speed: <strong>${resetText}</strong>. ${sighVal === 'habitual' ? '<span style="color:var(--green-1);font-weight:700">Physiological sigh trained:</span> Double nasal inhale followed by prolonged passive exhale immediately activates pulmonary stretch receptor slowing.' : 'Train the double nasal inhale + long exhale reflex during minor stressors to automate acute calming.'}<br>
+      <strong>Workplace &amp; Digital Autonomic Load:</strong> ${stressVal === 'chronic' ? '<span style="color:var(--red-1,#ef4444);font-weight:700">Email apnea identified.</span> Unconscious breath-holding during screen work maintains elevated baseline cortisol and vasoconstriction.' : 'Conscious nasal breathing preserves carbon dioxide tolerance and autonomic equilibrium.'}<br>
+      <strong>Nocturnal CNS Recovery:</strong> Baseline RMSSD is ${rmssdText}. ${stimVal === 'late' ? '<span style="color:var(--red-1,#ef4444);font-weight:700">Late stimulant warning:</span> Caffeine within 8–10h of bed delays adenosine clearance, compressing deep-sleep vagal restoration.' : 'Stimulant cutoff allows natural nocturnal vagal dipping.'}
+    `;
+  }
+}
+
+function initVagusUI() {
+  if (!VAGUS_UI.mask) return;
+
+  renderVagusCards();
+
+  if (VAGUS_UI.hrvInput) VAGUS_UI.hrvInput.value = vagusSettings.hrv;
+  if (VAGUS_UI.breathInput) VAGUS_UI.breathInput.value = vagusSettings.breath;
+  if (VAGUS_UI.coldInput) VAGUS_UI.coldInput.value = vagusSettings.cold;
+  if (VAGUS_UI.stimInput) VAGUS_UI.stimInput.value = vagusSettings.stim;
+  if (VAGUS_UI.stressInput) VAGUS_UI.stressInput.value = vagusSettings.stress;
+  if (VAGUS_UI.sighInput) VAGUS_UI.sighInput.value = vagusSettings.sigh;
+
+  calculateVagusMetrics();
+}
+
+initVagusUI();
+
+function openVagusModal() {
+  if (!VAGUS_UI.mask) return;
+  VAGUS_UI.mask.hidden = false;
+  document.body.style.overflow = 'hidden';
+  VAGUS_UI.hrvInput?.focus();
+}
+
+function closeVagusModal() {
+  if (!VAGUS_UI.mask) return;
+  VAGUS_UI.mask.hidden = true;
+  document.body.style.overflow = '';
+}
+
+VAGUS_UI.openBtn?.addEventListener('click', openVagusModal);
+VAGUS_UI.openSideBtn?.addEventListener('click', openVagusModal);
+VAGUS_UI.xBtn?.addEventListener('click', closeVagusModal);
+VAGUS_UI.closeBtn?.addEventListener('click', closeVagusModal);
+
+VAGUS_UI.mask?.addEventListener('click', (e) => {
+  if (e.target === VAGUS_UI.mask) closeVagusModal();
+});
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && VAGUS_UI.mask && !VAGUS_UI.mask.hidden) {
+    closeVagusModal();
+  }
+});
+
+const vagusInputElements = [
+  VAGUS_UI.hrvInput,
+  VAGUS_UI.breathInput,
+  VAGUS_UI.coldInput,
+  VAGUS_UI.stimInput,
+  VAGUS_UI.stressInput,
+  VAGUS_UI.sighInput
+];
+vagusInputElements.forEach(el => {
+  el?.addEventListener('input', calculateVagusMetrics);
+  el?.addEventListener('change', calculateVagusMetrics);
+});
+
+VAGUS_UI.exportBtn?.addEventListener('click', async () => {
+  let md = `# Autonomic Nervous System & Vagal Tone Resilience Protocol\n`;
+  md += `*Evidence-Based Parasympathetic Regulation, HRV (RMSSD) & Baroreflex Optimization*\n\n`;
+  md += `**Baseline Nocturnal RMSSD**: ${vagusSettings.hrv.toUpperCase()} | 0.1 Hz Resonant Breathing: ${vagusSettings.breath.toUpperCase()}\n`;
+  md += `**Trigeminal Cold Immersion**: ${vagusSettings.cold.toUpperCase()} | Stimulant Cutoff: ${vagusSettings.stim.toUpperCase()}\n`;
+  md += `**Screen / Email Apnea**: ${vagusSettings.stress.toUpperCase()} | Physiological Sigh: ${vagusSettings.sigh.toUpperCase()}\n\n`;
+  md += `**Vagal Parasympathetic Brake**: ${VAGUS_UI.kpiBrake?.textContent || 'High'}\n`;
+  md += `**RMSSD Autonomic Index**: ${VAGUS_UI.kpiRmssd?.textContent || 'Elite Recovery'}\n`;
+  md += `**0.1 Hz Baroreflex Coherence**: ${VAGUS_UI.kpiBaro?.textContent || 'Optimal'}\n`;
+  md += `**Acute Panic Reset Speed**: ${VAGUS_UI.kpiReset?.textContent || 'Immediate'}\n\n`;
+
+  md += `## 1. Core Vagal & Neuroautonomic Mechanisms\n`;
+  VAGUS_CARDS_DATA.forEach(c => {
+    md += `- **${c.title}** (${c.icon}) [${c.badge}]\n`;
+    md += `  - Evidence: ${c.desc}\n`;
+    md += `  - Clinical Target: ${c.action}\n`;
+  });
+
+  md += `\n## 2. Actionable Autonomic Spec\n`;
+  md += `${(VAGUS_UI.routineDesc?.textContent || '').trim()}\n\n`;
+
+  md += `---\n*Generated by The Evidence-Based Life Neuroautonomic Engine: https://parveen0029.github.io/The-Evidence-Based-Life/*\n`;
+
+  try {
+    await navigator.clipboard.writeText(md);
+    if (VAGUS_UI.msg) {
+      VAGUS_UI.msg.textContent = '✓ Vagal tone protocol copied to clipboard!';
+      VAGUS_UI.msg.hidden = false;
+      setTimeout(() => { VAGUS_UI.msg.hidden = true; }, 3500);
+    }
+  } catch (err) {
+    prompt('Copy your Vagal Tone Protocol below:', md);
+  }
+});
+
+VAGUS_UI.shareX?.addEventListener('click', () => {
+  const text = `Vagal nerve tone dictates autonomic resilience and heart rate variability (HRV). Calculate your RMSSD tier, 0.1 Hz baroreflex coherence, and acute panic reset protocol:`;
+  const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+});
+
+VAGUS_UI.shareWa?.addEventListener('click', () => {
+  const text = `*Autonomic Nervous System, HRV & Vagal Tone Matrix*\nCalculate your RMSSD index, 0.1 Hz resonant breathing protocol, and acute panic physiological reset:\n\nhttps://parveen0029.github.io/The-Evidence-Based-Life/`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+});
+
+VAGUS_UI.shareLi?.addEventListener('click', () => {
   const url = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
 });
