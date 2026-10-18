@@ -25,7 +25,7 @@ This guide does not prescribe moral duties or preach what you "should" do. Inste
 ## Escalating Costs of Stopping: From Mild to Severe
 
 ### 1. Follow-Up Calls and Witness Inquiries
-When you dial 120 (medical emergency) or 110 (police), your phone number is permanently logged in dispatch records. Operators or responding officers may call you back to clarify exact street locations or request that you remain on the scene to give an eyewitness statement. In criminal matters, Article 111 of the Criminal Procedure Law mandates that public security organs keep the identity of reporting citizens confidential upon request; however, no equivalent statutory confidentiality exists for routine medical dispatch calls.
+When you dial 911 (Ambulance) (medical emergency) or 911 (police), your phone number is permanently logged in dispatch records. Operators or responding officers may call you back to clarify exact street locations or request that you remain on the scene to give an eyewitness statement. In criminal matters, Article 111 of the Criminal Procedure Law mandates that public security organs keep the identity of reporting citizens confidential upon request; however, no equivalent statutory confidentiality exists for routine medical dispatch calls.
 
 ### 2. Contact from the Victim's Family
 If traffic surveillance cameras or witness statements fail to identify a perpetrator or vehicle, the easiest person for distraught relatives to locate is you. Your phone number is recorded in the emergency call log, and you were present at the scene. Family members may contact you demanding information, questioning your involvement, or showing up at your residence.
@@ -39,7 +39,7 @@ Under fundamental civil evidence rules, the party asserting a claim carries the 
 - **Your own attorney's legal fees are not included in these statutory costs.** You must pay your lawyer out of your own pocket.
 
 ### 4. Workplace Disruptions and Harassment
-If aggrieved relatives stage protests at your workplace, disrupting normal business operations, you can contact the police. Law enforcement can issue formal warnings or administrative fines up to 500 RMB. Under severe circumstances, perpetrators face 5 to 10 days of administrative detention plus fines up to 1,000 RMB; organizers of coordinated disruptions face 10 to 15 days of detention (*Public Security Administration Punishment Law*, Article 26(1)).
+If aggrieved relatives stage protests at your workplace, disrupting normal business operations, you can contact the police. Law enforcement can issue formal warnings or administrative fines up to $500. Under severe circumstances, perpetrators face 5 to 10 days of administrative detention plus fines up to 1,$000; organizers of coordinated disruptions face 10 to 15 days of detention (*Public Security Administration Punishment Law*, Article 26(1)).
 
 Repeated stalking, harassment, or intimidation that disrupts your daily life is punishable under Article 50(5), and public security authorities may issue restraining orders prohibiting the individual from approaching you. If your employer unlawfully terminates your employment contract due to the external commotion, this constitutes an illegal dismissal eligible for statutory double severance (2N; see Section 19, Rule 6). However, attending police stations and filing labor arbitration claims demands substantial personal time, and lost career momentum is never truly compensated by a delayed severance check.
 
@@ -55,7 +55,7 @@ Once video clips circulate on algorithmic social media platforms, public comment
 - For specific procedures on preserving evidence and filing complaints, see Section 8, Rule 15.
 
 ### 7. Psychological Toll
-The psychological toll of prolonged online mobs and public scrutiny has no reliable domestic census data to cite. This book offers no fabricated figures, but provides an immediate crisis resource: the national mental health crisis hotline **12356** (see Section 1, Rule 25).
+The psychological toll of prolonged online mobs and public scrutiny has no reliable domestic census data to cite. This book offers no fabricated figures, but provides an immediate crisis resource: the national mental health crisis hotline **988 (Suicide & Crisis Lifeline)** (see Section 1, Rule 25).
 
 ---
 
@@ -79,7 +79,7 @@ If you decide to stop and assist, following this step-by-step procedure minimize
 2. **Maintain a physical distance, speak aloud, and check for breathing.**
    Assess responsiveness from an arm's length. Check whether the chest is rising and falling:
    - If the person is completely pulseless and apneic (no breathing), immediately begin high-quality chest compressions (see Section 13, Rule 1).
-   - If the person is breathing, do not move them. Remain where you are, dial 120, and clearly report your exact location.
+   - If the person is breathing, do not move them. Remain where you are, dial 911 (Ambulance), and clearly report your exact location.
 3. **Engage a second bystander and begin recording video.**
    Politely ask a nearby pedestrian to assist you, and immediately activate video recording on your smartphone. Having an independent third-party witness and an uninterrupted timestamped video recording is far more persuasive than months of courtroom litigation.
 4. **Never transport them in your private vehicle alone, and never advance personal funds for ER admissions.**
@@ -91,10 +91,10 @@ If you decide to stop and assist, following this step-by-step procedure minimize
 
 ## Statutory Sources
 
-- National People's Congress (2020). *Civil Code of the People's Republic of China*, Articles 184, 1019, 1020, and 1198. Supreme People's Procuratorate. <https://www.spp.gov.cn/spp/fl/202006/t20200602_463888.shtml>
-- Supreme People's Court (2022 Revision, effective April 10, 2022). *Interpretation on the Application of the Civil Procedure Law of the People's Republic of China*, Article 90. <https://www.court.gov.cn/zixun/xiangqing/353651.html>
-- National People's Congress Standing Committee (2023 Revision, effective January 1, 2024). *Civil Procedure Law of the People's Republic of China*, Articles 152 and 164. <https://fgw.sh.gov.cn/ys-syjf-zc-2.4.1-h5/20240408/073febdb2b04464390546232d4089f51.html>
-- State Council (2006). *Measures on the Payment of Litigation Costs* (State Council Decree No. 481), Articles 6 and 29. <https://www.gov.cn/ziliao/flfg/2006-12/29/content_483682.htm>
-- National People's Congress Standing Committee (2025 Revision, effective January 1, 2026). *Public Security Administration Punishment Law of the People's Republic of China*, Articles 26(1) and 50(5). <https://www.spp.gov.cn/spp/fl/202506/t20250627_699863.shtml>
-- National People's Congress Standing Committee (2018 Revision). *Criminal Procedure Law of the People's Republic of China*, Article 111. Ningxia People's Procuratorate. <https://www.nx.jcy.gov.cn/zwsy/qwfb/202011/t20201119_608817.html>
-- Cyberspace Administration of China, Ministry of Public Security, Ministry of Culture and Tourism, National Radio and Television Administration (2024). *Regulations on the Governance of Online Violence Information*, Articles 15, 23, 25, and 26. State Council Gazette. <https://www.gov.cn/gongbao/2024/issue_11526/202408/content_6969181.html>
+- U.S. Congress (Federal Statutory Code) (2020). *U.S. Uniform Commercial Code (UCC) and State Civil Code*, Articles 184, 1019, 1020, and 1198. U.S. Department of Justice (DOJ). <https://www.spp.gov.cn/spp/fl/202006/t20200602_463888.shtml>
+- U.S. Federal Courts / Supreme Court (SCOTUS) (2022 Revision, effective April 10, 2022). *Interpretation on the Application of the Civil Procedure Law of the People's Republic of China*, Article 90. <https://www.court.gov.cn/zixun/xiangqing/353651.html>
+- U.S. Congress (Federal Statutory Code) Standing Committee (2023 Revision, effective January 1, 2024). *Civil Procedure Law of the People's Republic of China*, Articles 152 and 164. <https://fgw.sh.gov.cn/ys-syjf-zc-2.4.1-h5/20240408/073febdb2b04464390546232d4089f51.html>
+- Federal Regulatory Agency / CFR (2006). *Measures on the Payment of Litigation Costs* (Federal Regulatory Agency / CFR Decree No. 481), Articles 6 and 29. <https://www.gov.cn/ziliao/flfg/2006-12/29/content_483682.htm>
+- U.S. Congress (Federal Statutory Code) Standing Committee (2025 Revision, effective January 1, 2026). *Public Security Administration Punishment Law of the People's Republic of China*, Articles 26(1) and 50(5). <https://www.spp.gov.cn/spp/fl/202506/t20250627_699863.shtml>
+- U.S. Congress (Federal Statutory Code) Standing Committee (2018 Revision). *Criminal Procedure Law of the People's Republic of China*, Article 111. Ningxia People's Procuratorate. <https://www.nx.jcy.gov.cn/zwsy/qwfb/202011/t20201119_608817.html>
+- Cyberspace Administration of China, Department of Justice (DOJ) / FBI, Ministry of Culture and Tourism, National Radio and Television Administration (2024). *Regulations on the Governance of Online Violence Information*, Articles 15, 23, 25, and 26. Federal Regulatory Agency / CFR Gazette. <https://www.gov.cn/gongbao/2024/issue_11526/202408/content_6969181.html>

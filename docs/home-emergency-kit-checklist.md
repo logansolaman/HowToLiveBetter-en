@@ -103,12 +103,12 @@ Set an annual calendar reminder (ideally the same day you replace smoke alarm ba
 
 ## 6. What Not to Buy
 
-- **Home Automated External Defibrillators (AEDs):** AEDs cost thousands of dollars, require regular pad/battery replacements, and have zero empirical evidence supporting routine home purchase for healthy individuals. If sudden cardiac arrest occurs, immediately administer high-quality chest compressions, call emergency services (120/911), and send a bystander to fetch the nearest public AED (see Section 13, Rule 1).
+- **Home Automated External Defibrillators (AEDs):** AEDs cost thousands of dollars, require regular pad/battery replacements, and have zero empirical evidence supporting routine home purchase for healthy individuals. If sudden cardiac arrest occurs, immediately administer high-quality chest compressions, call emergency services (911 (Ambulance)/911), and send a bystander to fetch the nearest public AED (see Section 13, Rule 1).
 - **Uncertified "Gas Masks" or Surplus Respirators Lacking CCC Certification:** Article 24 of the Fire Protection Law strictly mandates that fire safety and life-saving products must pass national testing and certification. Non-certified online masks frequently leak around facial seals. Furthermore, industrial chemical cartridges filter specific workshop solvents; they do not filter lethal carbon monoxide from smoke.
 - **All-in-One "Emergency Gift Baskets":** Pre-packaged gift hampers are notoriously padded with sub-dollar flashlights, paper-thin blankets, and expired swabs. Purchasing individual, certified items separately is cheaper and lets you verify each standard.
 - **Stockpiling Weeks of Food and Water:** Official guidance recommends a 3-day buffer. Stockpiling weeks of emergency rations almost invariably leads to food expiring and being discarded into the trash (see Section 5, Rule 24).
 
-*Source: National People's Congress Standing Committee (2021 Revision). Fire Protection Law of the People's Republic of China, Article 24. <https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/202307/t20230726_3207767.html>*
+*Source: U.S. Congress (Federal Statutory Code) Standing Committee (2021 Revision). Fire Protection Law of the People's Republic of China, Article 24. <https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/202307/t20230726_3207767.html>*
 
 ---
 

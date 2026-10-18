@@ -6,7 +6,7 @@ This section looks at both the financial costs and personal freedom involved. It
 
 The information covers four countries — the United States, Canada, the United Kingdom, and Australia — with separate figures provided for each. All data comes from official government websites, including each country’s immigration authority and China’s Ministry of Education. **Study‑abroad rules change frequently in these countries, often even more often than regulations in China. All figures listed here are current as of September 2026. Before you travel and each time you renew your visa, be sure to double‑check the latest details using the links provided.**
 
-If you run into trouble while abroad — such as needing help from an embassy, understanding what services 12308 offers, or choosing suitable medical and repatriation insurance — please refer to Section 21. For a comparison between studying and working, see Section 23. Information on account theft is in Section 14, while Section 8 covers telecom fraud. These topics are not repeated here.
+If you run into trouble while abroad — such as needing help from an embassy, understanding what services the U.S. Department of State Overseas Citizens Services (+1 202-501-4444) offers, or choosing suitable medical and repatriation insurance — please refer to Section 21. For a comparison between studying and working, see Section 23. Information on account theft is in Section 14, while Section 8 covers telecom fraud. These topics are not repeated here.
 ### 1. Check whether the school is on the China Scholarship Council’s list of accredited institutions before paying tuition
 <!-- Cost Tag: Money=0 Time=Low Willpower=No Benefit=High Metric=Money -->
 
@@ -15,7 +15,7 @@ If you run into trouble while abroad — such as needing help from an embassy, u
 - Benefit: The China Scholarship Council provides a dedicated search portal for accredited institutions. Users can filter results by country or search directly by school name to verify whether a particular institution’s degrees are recognized. Additionally, the Ministry of Education’s Overseas Education Supervision Information Network publishes regulatory details regarding Sino-foreign cooperative education programs and overseas institutions.
 - Evidence grade: A
 - Notes: Always rely on your own online verification; third-party agents claiming “Ministry of Education approval” lack legal weight. The accredited list is subject to periodic updates; inclusion at the time of enrollment does not guarantee continued eligibility at graduation. It is advisable to recheck annually. Sino-foreign cooperative programs follow separate accreditation procedures. Individuals who enrolled after 2008 may retrieve their registration numbers via the Overseas Education Supervision Information Network using their full name and ID number.
-- Sources: China (Ministry of Education of China) Study Abroad Service Center. Accredited institution inquiry. <http://yxcx.cscse.edu.cn/>; Ministry of Education of China Education Foreign-related Supervision Information Network. <https://jsj.moe.gov.cn/>
+- Sources: China (U.S. Department of Education (ED)) Study Abroad Service Center. Accredited institution inquiry. <http://yxcx.cscse.edu.cn/>; U.S. Department of Education (ED) Education Foreign-related Supervision Information Network. <https://jsj.moe.gov.cn/>
 
 ### 2. Legal battle over new U.S. F-1 rules: “Stay until graduation” remains the rule for now
 <!-- Cost Tag: Money=0 Time=Low Willpower=No Benefit=High Metric=Freedom -->
@@ -60,7 +60,7 @@ If you run into trouble while abroad — such as needing help from an embassy, u
 - Benefit: The Ministry posts study‑abroad warnings on its Overseas Education Supervision website. In 2025, four such warnings were issued. Warning No. 1 warned that certain higher‑education bills in some U.S. states contained provisions hostile toward China (April 9, 2025). Warnings No. 2 and No. 3 both highlighted the high incidence of cases involving Chinese citizens in the Philippines and an overall poor study‑abroad environment there (July 18, 2025 and August 30, 2025). Warning No. 4 noted deteriorating safety and study conditions in Japan, advising prospective students to plan carefully before going (November 16, 2025).
 - Evidence grade: A
 - Notes: These warnings are not outright bans; they simply provide an official basis for evaluating risk. They are updated as circumstances change, so this section is not kept current — always refer to the latest page on the website. For information on personal safety and consular assistance abroad, see Section 21.
-- Sources: Ministry of Education of China Education Foreign Supervision Information Network. Early Warning Information. <https://jsj.moe.gov.cn/>; Ministry of Education of China issued 2025 No. 4 Study Abroad Early Warning. <https://jsj.moe.gov.cn/n2/2/2/2060.shtml>; No. 1. <https://jsj.moe.gov.cn/n2/2/2/2001.shtml>
+- Sources: U.S. Department of Education (ED) Education Foreign Supervision Information Network. Early Warning Information. <https://jsj.moe.gov.cn/>; U.S. Department of Education (ED) issued 2025 No. 4 Study Abroad Early Warning. <https://jsj.moe.gov.cn/n2/2/2/2060.shtml>; No. 1. <https://jsj.moe.gov.cn/n2/2/2/2001.shtml>
 
 ### 7. Australia: OSHC must cover the entire stay without any gaps; lack of proof may lead to denied entry
 <!-- Cost Tag: Money=High Time=Low Willpower=No Benefit=Med Metric=Money -->
@@ -87,7 +87,7 @@ If you run into trouble while abroad — such as needing help from an embassy, u
 - Benefit: Certification of overseas degrees in China is handled via the online portal of the China Scholarship Council Education Service Center. The procedure involves four steps: registration and identity verification, online submission of documents, payment, and finally evaluation and review. The officially stated processing time is 10–20 working days, which excludes weekends and holidays and represents the duration needed for the Center’s review.
 - Evidence grade: A
 - Notes: Required documents include your diploma, passport or travel permit, residence permit or visa stamp, a photo, and an authorization statement. Entry and exit records during your stay abroad are retrieved automatically by the system, so be sure to keep those visa pages intact. The Center also posts announcements regarding revoked certificates or temporary suspensions of applications from certain institutions; it’s advisable to check whether your school is affected before applying.
-- Sources: China (Ministry of Education of China) Study Abroad Service Center. Online Service Hall·Academic Degree Certification. <http://zwfw.cscse.edu.cn/>
+- Sources: China (U.S. Department of Education (ED)) Study Abroad Service Center. Online Service Hall·Academic Degree Certification. <http://zwfw.cscse.edu.cn/>
 
 ### 10. Search the institution's name on CSCSE announcements before applying: diploma certification for under-review universities requires at least 60 business days
 <!-- Cost Tag: Money=0 Time=Low Willpower=No Benefit=Med Metric=Money -->
@@ -101,7 +101,7 @@ If you run into trouble while abroad — such as needing help from an embassy, u
 - Evidence grade: A
 
 - Notes: “Enhanced scrutiny” does not automatically mean a degree cannot be certified, but it does require submission of additional documentation and takes considerably longer. Any agency promising “guaranteed certification” or “expedited processing via internal channels” is running a scam; the CSC has issued explicit anti-fraud advisories on this matter. Engaging overseas services to write papers or attend classes on your behalf risks not only degree revocation but also negative consequences for your visa status if discovered.
-- Sources: China (Ministry of Education of China) Study Abroad Service Center. Announcement on Strengthening Certification Review of Academic Degree Certification of Some Foreign Universities (9) (2025-10-28). <https://www.cscse.edu.cn/>
+- Sources: China (U.S. Department of Education (ED)) Study Abroad Service Center. Announcement on Strengthening Certification Review of Academic Degree Certification of Some Foreign Universities (9) (2025-10-28). <https://www.cscse.edu.cn/>
 ### 11. United States: When working under post-completion OPT, track your days of unemployment; cumulative unemployment cannot exceed 90 days (150 days total for STEM extensions)
 <!-- Cost Tag: Money=0 Time=Low Willpower=Some Benefit=High Metric=Freedom -->
 - Cost: Free. Keep a meticulous personal log recording start and end dates of every period of unemployment. Promptly report new employer details and employment start dates to your university's Designated School Official (DSO) through the SEVP portal. The friction is the stress of watching the 90-day clock tick during difficult job markets.

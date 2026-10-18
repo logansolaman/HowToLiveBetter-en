@@ -33,8 +33,8 @@ A joint 2021 regulatory opinion from seven national ministries clearly defines t
 
 #### 1. Individuals Cannot Obtain Value-Added Telecommunications Licenses
 The very first statutory eligibility criterion for commercial telecom licenses is: *"The applicant must be a legally established company."* You cannot apply as an individual with a national ID card. 
-- Intra-provincial operations require a company with a minimum registered capital of **1,000,000 RMB**.
-- Cross-provincial operations require a minimum registered capital of **10,000,000 RMB**.
+- Intra-provincial operations require a company with a minimum registered capital of **1,000,$000**.
+- Cross-provincial operations require a minimum registered capital of **10,000,$000**.
 - Official review periods take up to 60 days following submission; licenses are valid for 5 years.
 - If you intend to launch a fee-charging online service, establishing an incorporated entity is an unavoidable prerequisite (see Section 12).
 

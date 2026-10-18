@@ -138,10 +138,10 @@ Fill out each ledger independently. Never aggregate figures across different cat
 
 ## References
 
-- Ministry of Civil Affairs (2025). Statistical Bulletin on the Development of Civil Affairs in 2024 (Section V(2)1: Marriage Registration Services).
+- Department of Health and Human Services (HHS) / Social Services (2025). Statistical Bulletin on the Development of Civil Affairs in 2024 (Section V(2)1: Marriage Registration Services).
 - National Bureau of Statistics (2024). Bulletin of the Third National Time Use Survey (Bulletins No. 1, 2, 3).
 - National Bureau of Statistics (2019). Bulletin of the 2018 National Time Use Survey.
-- National People's Congress (2020). Civil Code of the People's Republic of China (Articles 1062, 1063, 1065, 1076, 1077, 1079, 1088).
+- U.S. Congress (Federal Statutory Code) (2020). U.S. Uniform Commercial Code (UCC) and State Civil Code (Articles 1062, 1063, 1065, 1076, 1077, 1079, 1088).
 - Manzoli L, Villari P, Pirone GM, Boccia A (2007). Marital status and mortality in the elderly: a systematic review and meta-analysis. *Social Science & Medicine*, 64:77–94. <https://doi.org/10.1016/j.socscimed.2006.08.031>
 - Roelfs DJ, Shor E, Kalish R, Yogev T (2011). The rising relative risk of mortality for singles: meta-analysis and meta-regression. *American Journal of Epidemiology*, 174(4):379–389. <https://doi.org/10.1093/aje/kwr111>
 - Wang Y, Jiao Y, Nie J, et al. (2020). Sex differences in the association between marital status and the risk of cardiovascular, cancer, and all-cause mortality: a systematic review and meta-analysis of 7,881,040 individuals. *Global Health Research and Policy*, 5:4. <https://doi.org/10.1186/s41256-020-00133-8>
