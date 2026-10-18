@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href="https://parveen0029.github.io/The-Evidence-Based-Life/">
+<a href="https://logansolaman.github.io/HowToLiveBetter-en/">
   <img src="og.png" alt="The Evidence-Based Life" width="100%" style="max-width: 820px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.12);">
 </a>
 
@@ -10,19 +10,19 @@
 
 *Every rule specifies the exact costs incurred (money, time, willpower), the measured return on investment, and primary citations from peer-reviewed clinical trials and statutory law. Zero folk wisdom. Zero marketing hype.*
 
-[![Stars](https://img.shields.io/github/stars/parveen0029/The-Evidence-Based-Life?style=flat-square&logo=github&label=Stars&color=eac54f)](https://github.com/parveen0029/The-Evidence-Based-Life/stargazers)
-[![Online Reader](https://img.shields.io/badge/Online%20Reader-Open%20Web%20App-3451b2?style=flat-square)](https://parveen0029.github.io/The-Evidence-Based-Life/)
+[![Stars](https://img.shields.io/github/stars/logansolaman/HowToLiveBetter-en?style=flat-square&logo=github&label=Stars&color=eac54f)](https://github.com/logansolaman/HowToLiveBetter-en/stargazers)
+[![Online Reader](https://img.shields.io/badge/Online%20Reader-Open%20Web%20App-3451b2?style=flat-square)](https://logansolaman.github.io/HowToLiveBetter-en/)
 [![Rules](https://img.shields.io/badge/Rules-765-18794e?style=flat-square)](#chapters)
 [![Evidence Grade](https://img.shields.io/badge/Evidence%20Grade-A%20495%20%C2%B7%20B%20211%20%C2%B7%20C%2059-915930?style=flat-square)](#evidence-grading)
 [![Primary Sources](https://img.shields.io/badge/Primary%20Sources-2142%20Sources-565a5f?style=flat-square)](docs/verification-records/)
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-565a5f?style=flat-square)](#license)
 
 <p align="center">
-  <a href="https://parveen0029.github.io/The-Evidence-Based-Life/"><b>🚀 Interactive Web App</b></a> &nbsp;•&nbsp;
-  <a href="https://parveen0029.github.io/The-Evidence-Based-Life/selfcheck.html"><b>📝 2-Min Self-Audit</b></a> &nbsp;•&nbsp;
-  <a href="https://github.com/parveen0029/The-Evidence-Based-Life/releases/download/epub-latest/The-Evidence-Based-Life.pdf"><b>📥 Download PDF</b></a> &nbsp;•&nbsp;
-  <a href="https://github.com/parveen0029/The-Evidence-Based-Life/releases/download/epub-latest/The-Evidence-Based-Life.epub"><b>📱 EPUB</b></a> &nbsp;•&nbsp;
-  <a href="https://github.com/parveen0029/The-Evidence-Based-Life/releases/download/epub-latest/The-Evidence-Based-Life.html"><b>💾 Single-File HTML (Offline)</b></a> &nbsp;•&nbsp;
+  <a href="https://logansolaman.github.io/HowToLiveBetter-en/"><b>🚀 Interactive Web App</b></a> &nbsp;•&nbsp;
+  <a href="https://logansolaman.github.io/HowToLiveBetter-en/selfcheck.html"><b>📝 2-Min Self-Audit</b></a> &nbsp;•&nbsp;
+  <a href="https://github.com/logansolaman/HowToLiveBetter-en/releases/download/epub-latest/The-Evidence-Based-Life.pdf"><b>📥 Download PDF</b></a> &nbsp;•&nbsp;
+  <a href="https://github.com/logansolaman/HowToLiveBetter-en/releases/download/epub-latest/The-Evidence-Based-Life.epub"><b>📱 EPUB</b></a> &nbsp;•&nbsp;
+  <a href="https://github.com/logansolaman/HowToLiveBetter-en/releases/download/epub-latest/The-Evidence-Based-Life.html"><b>💾 Single-File HTML (Offline)</b></a> &nbsp;•&nbsp;
   <a href="the-evidence-based-life.json"><b>📊 Open Dataset (JSON)</b></a> &nbsp;•&nbsp;
   <a href="the-evidence-based-life.csv"><b>📈 Spreadsheet (CSV)</b></a> &nbsp;•&nbsp;
   <a href="skills/life-decision-guide/README.md"><b>🤖 AI Decision Skill</b></a>
@@ -71,11 +71,11 @@ Jump straight to the rules you need right now:
 
 - **You don't need to do everything**: This is a ranked catalog of high-ROI options, not an onerous task list. Adopting even one or two rules provides immediate, compounding benefits; leave the rest and return when circumstances warrant. It is completely natural that implementing these rules is harder than reading them—the author has not mastered most of them either.
 - **Start with Maximum ROI**: If you want the biggest payoff with minimal effort, prioritize the **ROI: Very High** rules. These require virtually $0, negligible time, and zero willpower while protecting life or money.
-- **Search & Filter Online**: Open the [Interactive Web Reader](https://parveen0029.github.io/The-Evidence-Based-Life/) to search keywords, filter by Grade A evidence, or sort rules by cost (money, time, willpower).
+- **Search & Filter Online**: Open the [Interactive Web Reader](https://logansolaman.github.io/HowToLiveBetter-en/) to search keywords, filter by Grade A evidence, or sort rules by cost (money, time, willpower).
 - **🔀 Decision Trees & Emergency Flowcharts**: Step through guided diagnostic decision trees or inspect complete visual flowcharts for life-critical emergencies (CPR & Cardiac Arrest, Choking Airway Protocol, Severe Arterial Bleeding & Tourniquet, Personal Finance Order of Operations, Workplace Wage Theft & Severance Rights, and Cyber Breach Response).
 - **📸 Visual Snapshot Card Generator**: Create and download high-resolution PNG social share cards (16:9 Landscape or 1:1 Square) for any rule with verified evidence grades, ROI badges, and key takeaways.
 - **Ask AI Directly**: Install our open-source agent skill ([skills/life-decision-guide/SKILL.md](skills/life-decision-guide/SKILL.md)) into Claude Code, Codex, or compatible LLMs. Ask real-world questions like *"Should I co-sign a loan for a friend?"* or *"What should I do if my landlord cuts my electricity?"* and receive sourced answers citing exact chapter and rule numbers.
-- **Take It Offline**: Download the [Offline Single-File HTML](https://github.com/parveen0029/The-Evidence-Based-Life/releases/download/epub-latest/The-Evidence-Based-Life.html) for a self-contained, double-clickable offline manual that works on any laptop or phone without internet. E-reader users can grab the [EPUB](https://github.com/parveen0029/The-Evidence-Based-Life/releases/download/epub-latest/The-Evidence-Based-Life.epub) or [PDF](https://github.com/parveen0029/The-Evidence-Based-Life/releases/download/epub-latest/The-Evidence-Based-Life.pdf).
+- **Take It Offline**: Download the [Offline Single-File HTML](https://github.com/logansolaman/HowToLiveBetter-en/releases/download/epub-latest/The-Evidence-Based-Life.html) for a self-contained, double-clickable offline manual that works on any laptop or phone without internet. E-reader users can grab the [EPUB](https://github.com/logansolaman/HowToLiveBetter-en/releases/download/epub-latest/The-Evidence-Based-Life.epub) or [PDF](https://github.com/logansolaman/HowToLiveBetter-en/releases/download/epub-latest/The-Evidence-Based-Life.pdf).
 
 ### Anatomy of an Evidence-Based Rule
 
@@ -96,7 +96,7 @@ Every single rule in this repository adheres to a rigorous, verifiable template:
 
 ## 📚 Complete Chapters
 
-The manual is divided into 34 modular chapters under [`book/`](book/). You can read them directly here on GitHub or through the [Interactive Web Reader](https://parveen0029.github.io/The-Evidence-Based-Life/).
+The manual is divided into 34 modular chapters under [`book/`](book/). You can read them directly here on GitHub or through the [Interactive Web Reader](https://logansolaman.github.io/HowToLiveBetter-en/).
 
 ### Part I: Health, Longevity & Emergencies
 
@@ -230,7 +230,7 @@ Across all 765 rules: **Very High: 121 (16%) | High: 344 (45%) | Moderate: 300 (
 The entire manual and interactive web app can run 100% offline with zero dependencies:
 
 ```bash
-git clone https://github.com/parveen0029/The-Evidence-Based-Life.git
+git clone https://github.com/logansolaman/HowToLiveBetter-en.git
 cd The-Evidence-Based-Life
 python -m http.server 8000
 ```
@@ -270,7 +270,7 @@ This project is an English edition and adaptation derived from the open-source p
 
 ## 🌟 Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=parveen0029/The-Evidence-Based-Life&type=Date)](https://star-history.com/#parveen0029/The-Evidence-Based-Life&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=logansolaman/HowToLiveBetter-en&type=Date)](https://star-history.com/#logansolaman/HowToLiveBetter-en&Date)
 
 ---
 
@@ -280,12 +280,12 @@ If this repository has helped protect your health, preserved your savings, or gi
 
 - ⭐ **Star this repository** on GitHub — it boosts discoverability for others seeking evidence over folklore.
 - 🔄 **Share it** with friends, family, or communities who value rational, empirical decisions.
-- 💡 **Contribute**: Fact-check citations, propose local legal improvements, or report issues via [GitHub Issues](https://github.com/parveen0029/The-Evidence-Based-Life/issues) and [Pull Requests](https://github.com/parveen0029/The-Evidence-Based-Life/pulls).
+- 💡 **Contribute**: Fact-check citations, propose local legal improvements, or report issues via [GitHub Issues](https://github.com/logansolaman/HowToLiveBetter-en/issues) and [Pull Requests](https://github.com/logansolaman/HowToLiveBetter-en/pulls).
 - ☕ **Support Maintenance**: You can support ongoing research, verification audits, and hosting via [Buy Me a Coffee](https://buymeacoffee.com/Parveen0029).
 
 <div align="center">
 
 [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/Parveen0029)
-[![Star on GitHub](https://img.shields.io/badge/Star%20on%20GitHub-⭐%20Star-yellow?style=for-the-badge&logo=github)](https://github.com/parveen0029/The-Evidence-Based-Life/stargazers)
+[![Star on GitHub](https://img.shields.io/badge/Star%20on%20GitHub-⭐%20Star-yellow?style=for-the-badge&logo=github)](https://github.com/logansolaman/HowToLiveBetter-en/stargazers)
 
 </div>

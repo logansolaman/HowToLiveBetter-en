@@ -7,8 +7,8 @@ import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
 
 export const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
-export const REPO = 'https://github.com/parveen0029/The-Evidence-Based-Life';
-export const SITE = 'https://parveen0029.github.io/The-Evidence-Based-Life/';
+export const REPO = 'https://github.com/logansolaman/HowToLiveBetter-en';
+export const SITE = 'https://logansolaman.github.io/HowToLiveBetter-en/';
 export const TITLE = 'The Evidence-Based Life';
 export const RELEASE = `${REPO}/releases/download/epub-latest`;
 
